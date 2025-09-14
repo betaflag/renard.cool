@@ -1,0 +1,73 @@
+---
+
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="theme-color" content="#ff6b00" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>Renard Met Quoi? | renard.cool</title>
+    <link rel="icon" type="image/png" href="/renard.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/meteo/styles.css" />
+    <script is:inline src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="logo">Renard Met Quoi?</h1>
+        <div class="header-controls">
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Theme">
+            <i data-lucide="sun" class="theme-icon-light" width="20" height="20"
+            ></i>
+            <i data-lucide="moon" class="theme-icon-dark" width="20" height="20"
+            ></i>
+          </button>
+          <button
+            class="lang-btn"
+            onclick="toggleLanguage()"
+            aria-label="Language"
+          >
+            <span id="lang-indicator">FR</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main" id="app-content">
+        <div class="content" id="weather-section">
+          <!-- Loading State -->
+          <div class="loading" id="loading-state">
+            <div class="loading-spinner">
+              <i data-lucide="sun" class="spin" width="48" height="48"></i>
+            </div>
+            <p class="loading-text" id="loading-text">
+              Vérification de la météo...
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script is:inline src="/meteo/js/translations.js"></script>
+    <script is:inline src="/meteo/js/app.js"></script>
+  </body>
+</html>
