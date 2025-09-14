@@ -1,0 +1,769 @@
+---
+
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Les castors de KINOBA - 47e groupe scout de Rock Forest</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: #6b46c1;
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      main {
+        padding: 3rem 0;
+      }
+
+      .section {
+        background: white;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #6b46c1;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .info-card {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid #6b46c1;
+      }
+
+      .info-card h3 {
+        color: #6b46c1;
+        margin-bottom: 1rem;
+      }
+
+      .calendar-container {
+        margin-top: 2rem;
+      }
+
+      .calendar-section-header {
+        margin: 2rem 0 1.5rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #6b46c1;
+        color: #6b46c1;
+        font-size: 1.4rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .calendar-section-header:first-child {
+        margin-top: 0;
+      }
+
+      .event {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 0;
+        margin-bottom: 1.2rem;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .event:hover {
+        box-shadow: 0 8px 25px rgba(107, 70, 193, 0.15);
+        transform: translateY(-2px);
+        border-color: #6b46c1;
+      }
+
+      .event-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .event-date-container {
+        background: #6b46c1;
+        color: white;
+        padding: 0.75rem;
+        border-radius: 8px;
+        text-align: center;
+        min-width: 80px;
+        font-weight: 600;
+      }
+
+      .event-date-day {
+        font-size: 0.75rem;
+        opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .event-date-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1;
+        margin: 0.25rem 0;
+      }
+
+      .event-date-month {
+        font-size: 0.75rem;
+        opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .event-time {
+        background: rgba(107, 70, 193, 0.1);
+        color: #6b46c1;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+      }
+
+      .event-content {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .event-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin: 0 0 0.5rem 0;
+        line-height: 1.3;
+      }
+
+      .event-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .event-status {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .event-status.confirmed {
+        background: #d1fae5;
+        color: #065f46;
+      }
+
+      .event-status.tentative {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .event-priority {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .event-priority.high {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      .event-priority.medium {
+        background: #fde68a;
+        color: #92400e;
+      }
+
+      .event-body {
+        padding: 0 1.5rem 1.5rem;
+      }
+
+      .event-description {
+        color: #4b5563;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+      }
+
+      .event-location {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #6b7280;
+        font-size: 0.9rem;
+        padding: 0.75rem;
+        background: #f9fafb;
+        border-radius: 8px;
+        margin-top: 1rem;
+      }
+
+      .event-category-border {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #6b46c1;
+      }
+
+      .event-category-border.special {
+        background: linear-gradient(45deg, #f59e0b, #ef4444);
+      }
+
+      .event-category-border.camp {
+        background: linear-gradient(45deg, #10b981, #059669);
+      }
+
+      .event-category-border.ceremony {
+        background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+      }
+
+      .event-category-border.fundraising {
+        background: linear-gradient(45deg, #06b6d4, #0891b2);
+      }
+
+      .loading {
+        text-align: center;
+        padding: 2rem;
+        color: #666;
+      }
+
+      .error {
+        background: #fee;
+        color: #c33;
+        padding: 1rem;
+        border-radius: 4px;
+        margin: 1rem 0;
+      }
+
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      .back-link {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-top: 1rem;
+        transition: background 0.3s ease;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .section {
+          padding: 1.5rem;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .event-header {
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem;
+        }
+
+        .event-date-container {
+          align-self: flex-start;
+          min-width: 70px;
+        }
+
+        .event-date-number {
+          font-size: 1.25rem;
+        }
+
+        .event-title {
+          font-size: 1.1rem;
+        }
+
+        .event-meta {
+          gap: 0.5rem;
+        }
+
+        .event-body {
+          padding: 0 1rem 1rem;
+        }
+
+        .calendar-section-header {
+          font-size: 1.2rem;
+          margin: 1.5rem 0 1rem 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .event-header {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+
+        .event-date-container {
+          min-width: 60px;
+          padding: 0.5rem;
+        }
+
+        .event-date-number {
+          font-size: 1.1rem;
+        }
+
+        .event-date-day,
+        .event-date-month {
+          font-size: 0.7rem;
+        }
+
+        .event-time {
+          font-size: 0.7rem;
+          padding: 0.2rem 0.4rem;
+        }
+
+        .event-title {
+          font-size: 1rem;
+        }
+
+        .event-status,
+        .event-priority {
+          font-size: 0.7rem;
+          padding: 0.2rem 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Les castors de KINOBA</h1>
+        <p class="subtitle">47e groupe scout de Rock Forest</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="section">
+          <h2>À propos des Castors KINOBA</h2>
+          <p>
+            Bienvenue chez les Castors KINOBA du 47e groupe scout de Rock Forest
+            ! Nous accueillons les enfants de 7 ans dans un environnement
+            amusant et éducatif où ils peuvent découvrir le monde scout,
+            développer leurs habiletés et créer de nouvelles amitiés.
+          </p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>Horaires des réunions</h3>
+              <p><strong>Quand :</strong> Mercredis de 18h30 à 20h30</p>
+              <p>
+                <strong>Où :</strong> Centre communautaire Optimiste de Rock Forest
+              </p>
+              <p>6670 rue Éméry-Fontaine, Sherbrooke (Québec) J1N 2T2</p>
+            </div>
+
+            <div class="info-card">
+              <h3>Équipe d'animation</h3>
+              <p>
+                <strong>Animatrice responsable :</strong><br />
+                Talpa mille et une nuit (Elanor Willems)<br />
+                Téléphone : 819 269 8080
+              </p>
+              <p><strong>Équipe :</strong> Abou, Pimpampel, Renard</p>
+            </div>
+
+            <div class="info-card">
+              <h3>Matériel requis</h3>
+              <ul style="margin-left: 1.5rem;">
+                <li>Uniforme complet (foulard, chemise verte avec écussons)</li>
+                <li>Sac à dos</li>
+                <li>Gourde d'eau</li>
+                <li>Cahier "L'Odyssée du Castor"</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Calendrier des activités</h2>
+          <p>Voici les prochaines activités prévues pour nos castors :</p>
+
+          <div class="calendar-container">
+            <div id="calendar-loading" class="loading">
+              Chargement du calendrier...
+            </div>
+            <div id="calendar-error" class="error" style="display: none;">
+            </div>
+            <div id="calendar-events"></div>
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <div class="container">
+          <p>
+            &copy; 2025 47e groupe scout de Rock Forest - Les castors de KINOBA
+          </p>
+          <p>Pour plus d'informations, contactez Talpa au 819 269 8080</p>
+        </div>
+      </footer>
+
+      <script>
+        // ICS Calendar Viewer
+        class ICSViewer {
+          constructor() {
+            this.events = [];
+          }
+
+          async loadCalendar() {
+            try {
+              const response = await fetch("/kinoba.ics");
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              const icsData = await response.text();
+              this.parseICS(icsData);
+              this.renderEvents();
+            } catch (error) {
+              console.error("Error loading calendar:", error);
+              this.showError(
+                "Erreur lors du chargement du calendrier : " + error.message
+              );
+            }
+          }
+
+          parseICS(icsData) {
+            const lines = icsData.split("\n").map((line) => line.trim());
+            let currentEvent = null;
+
+            for (let i = 0; i < lines.length; i++) {
+              const line = lines[i];
+
+              if (line === "BEGIN:VEVENT") {
+                currentEvent = {};
+              } else if (line === "END:VEVENT" && currentEvent) {
+                if (currentEvent.dtstart && currentEvent.summary) {
+                  this.events.push(currentEvent);
+                }
+                currentEvent = null;
+              } else if (currentEvent) {
+                const colonIndex = line.indexOf(":");
+                if (colonIndex > 0) {
+                  const key = line.substring(0, colonIndex);
+                  const value = line.substring(colonIndex + 1);
+
+                  if (key.startsWith("DTSTART")) {
+                    currentEvent.dtstart = this.parseDateTime(value, key);
+                  } else if (key.startsWith("DTEND")) {
+                    currentEvent.dtend = this.parseDateTime(value, key);
+                  } else if (key === "SUMMARY") {
+                    currentEvent.summary = this.unescapeText(value);
+                  } else if (key === "DESCRIPTION") {
+                    currentEvent.description = this.unescapeText(value);
+                  } else if (key === "LOCATION") {
+                    currentEvent.location = this.unescapeText(value);
+                  } else if (key === "STATUS") {
+                    currentEvent.status = value;
+                  }
+                }
+              }
+            }
+
+            // Sort events by date
+            this.events.sort(
+              (a, b) => new Date(a.dtstart) - new Date(b.dtstart)
+            );
+          }
+
+          parseDateTime(value, key) {
+            // Handle different date formats
+            if (key.includes("VALUE=DATE")) {
+              // All-day event: YYYYMMDD
+              const year = value.substring(0, 4);
+              const month = value.substring(4, 6);
+              const day = value.substring(6, 8);
+              return new Date(year, month - 1, day);
+            } else if (key.includes("TZID=America/Montreal")) {
+              // Timezone-specific: YYYYMMDDTHHMMSS
+              const year = value.substring(0, 4);
+              const month = value.substring(4, 6);
+              const day = value.substring(6, 8);
+              const hour = value.substring(9, 11);
+              const minute = value.substring(11, 13);
+              return new Date(year, month - 1, day, hour, minute);
+            } else {
+              // Try parsing as ISO string or basic format
+              if (value.length === 8) {
+                // YYYYMMDD
+                const year = value.substring(0, 4);
+                const month = value.substring(4, 6);
+                const day = value.substring(6, 8);
+                return new Date(year, month - 1, day);
+              } else {
+                // YYYYMMDDTHHMMSSZ or similar
+                const year = value.substring(0, 4);
+                const month = value.substring(4, 6);
+                const day = value.substring(6, 8);
+                const hour = value.substring(9, 11) || 0;
+                const minute = value.substring(11, 13) || 0;
+                return new Date(year, month - 1, day, hour, minute);
+              }
+            }
+          }
+
+          unescapeText(text) {
+            return text
+              .replace(/\\n/g, "\n")
+              .replace(/\\,/g, ",")
+              .replace(/\\;/g, ";")
+              .replace(/\\\\/g, "\\");
+          }
+
+          formatDate(date) {
+            const options = {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            };
+            return date.toLocaleDateString("fr-FR", options);
+          }
+
+          formatTime(date) {
+            return date.toLocaleTimeString("fr-FR", {
+              hour: "2-digit",
+              minute: "2-digit",
+            });
+          }
+
+          formatDateComponents(date) {
+            const day = date.toLocaleDateString("fr-FR", { weekday: "short" });
+            const dayNumber = date.getDate();
+            const month = date.toLocaleDateString("fr-FR", { month: "short" });
+            
+            return { day, dayNumber, month };
+          }
+
+          getEventIcon(categories) {
+            if (!categories) return "📅";
+            const cats = categories.toLowerCase();
+            
+            if (cats.includes("camp")) return "🏕️";
+            if (cats.includes("fête") || cats.includes("halloween")) return "🎃";
+            if (cats.includes("cérémonie")) return "🏆";
+            if (cats.includes("sortie")) return "🚶";
+            if (cats.includes("environnement")) return "🌱";
+            if (cats.includes("cuisine")) return "👨‍🍳";
+            if (cats.includes("collecte")) return "💰";
+            
+            return "📅";
+          }
+
+          getEventCategory(categories) {
+            if (!categories) return "regular";
+            const cats = categories.toLowerCase();
+            
+            if (cats.includes("camp")) return "camp";
+            if (cats.includes("fête") || cats.includes("halloween") || cats.includes("événement spécial")) return "special";
+            if (cats.includes("cérémonie")) return "ceremony";
+            if (cats.includes("collecte")) return "fundraising";
+            
+            return "regular";
+          }
+
+          isToday(date) {
+            const today = new Date();
+            return date.toDateString() === today.toDateString();
+          }
+
+          isTomorrow(date) {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            return date.toDateString() === tomorrow.toDateString();
+          }
+
+          renderEvents() {
+            const loadingEl = document.getElementById("calendar-loading");
+            const eventsEl = document.getElementById("calendar-events");
+
+            loadingEl.style.display = "none";
+
+            if (this.events.length === 0) {
+              eventsEl.innerHTML =
+                '<p class="loading">Aucun événement trouvé dans le calendrier.</p>';
+              return;
+            }
+
+            const now = new Date();
+            const upcomingEvents = this.events.filter(
+              (event) => new Date(event.dtstart) >= now
+            );
+
+            let html = "";
+
+            if (upcomingEvents.length > 0) {
+              html += '<div class="calendar-section-header">📅 Prochaines activités</div>';
+              upcomingEvents.slice(0, 10).forEach((event) => {
+                html += this.renderEvent(event);
+              });
+            }
+
+            const pastEvents = this.events.filter(
+              (event) => new Date(event.dtstart) < now
+            );
+            if (pastEvents.length > 0 && upcomingEvents.length < 5) {
+              html += '<div class="calendar-section-header">📚 Activités récentes</div>';
+              pastEvents.slice(-3).forEach((event) => {
+                html += this.renderEvent(event, true);
+              });
+            }
+
+            eventsEl.innerHTML = html;
+          }
+
+          renderEvent(event, isPast = false) {
+            const date = new Date(event.dtstart);
+            const endDate = event.dtend ? new Date(event.dtend) : null;
+            const dateComponents = this.formatDateComponents(date);
+            
+            // Get event metadata
+            const icon = this.getEventIcon(event.categories);
+            const category = this.getEventCategory(event.categories);
+            const status = (event.status || 'CONFIRMED').toLowerCase();
+            const priority = event.priority ? parseInt(event.priority) : null;
+            
+            // Build time display
+            let timeDisplay = '';
+            const hasTime = event.dtstart.getHours() !== 0 || event.dtstart.getMinutes() !== 0;
+            if (hasTime) {
+              timeDisplay = this.formatTime(date);
+              if (endDate && (endDate.getHours() !== 0 || endDate.getMinutes() !== 0)) {
+                timeDisplay += ` - ${this.formatTime(endDate)}`;
+              }
+            }
+            
+            // Special date labels
+            let dateLabel = '';
+            if (this.isToday(date)) {
+              dateLabel = '<span style="color: #ef4444; font-weight: bold;">Aujourd\'hui</span> • ';
+            } else if (this.isTomorrow(date)) {
+              dateLabel = '<span style="color: #f59e0b; font-weight: bold;">Demain</span> • ';
+            }
+            
+            const opacity = isPast ? 'style="opacity: 0.7;"' : "";
+
+            return `
+            <div class="event" ${opacity}>
+              <div class="event-category-border ${category}"></div>
+              
+              <div class="event-header">
+                <div class="event-date-container">
+                  <div class="event-date-day">${dateComponents.day}</div>
+                  <div class="event-date-number">${dateComponents.dayNumber}</div>
+                  <div class="event-date-month">${dateComponents.month}</div>
+                  ${timeDisplay ? `<div class="event-time">${timeDisplay}</div>` : ''}
+                </div>
+                
+                <div class="event-content">
+                  <div class="event-title">${icon} ${event.summary || "Événement"}</div>
+                  
+                  <div class="event-meta">
+                    ${dateLabel}
+                    <span class="event-status ${status}">${status === 'confirmed' ? 'Confirmé' : status === 'tentative' ? 'Tentative' : status}</span>
+                    ${priority && priority <= 3 ? `<span class="event-priority ${priority === 1 ? 'high' : 'medium'}">Priorité ${priority === 1 ? 'élevée' : 'moyenne'}</span>` : ''}
+                  </div>
+                </div>
+              </div>
+              
+              ${event.description || event.location ? `
+                <div class="event-body">
+                  ${event.description ? `<div class="event-description">${event.description.replace(/\n/g, "<br>")}</div>` : ""}
+                  ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ""}
+                </div>
+              ` : ''}
+            </div>
+          `;
+          }
+
+          showError(message) {
+            const loadingEl = document.getElementById("calendar-loading");
+            const errorEl = document.getElementById("calendar-error");
+
+            loadingEl.style.display = "none";
+            errorEl.style.display = "block";
+            errorEl.textContent = message;
+          }
+        }
+
+        // Initialize the calendar viewer when the page loads
+        document.addEventListener("DOMContentLoaded", () => {
+          const viewer = new ICSViewer();
+          viewer.loadCalendar();
+        });
+      </script>
+    </main>
+  </body>
+</html>

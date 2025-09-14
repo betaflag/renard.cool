@@ -1,0 +1,189 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Scout 47e//Calendrier Automne 2025//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Scout 47e - Automne 2025
+X-WR-CALDESC:Calendrier des activités scouts de la 47e pour l'automne 2025
+X-WR-TIMEZONE:America/Montreal
+
+BEGIN:VTIMEZONE
+TZID:America/Montreal
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:20250309T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:20251102T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+
+BEGIN:VEVENT
+UID:20250913-montee@reneard.cool
+DTSTART;TZID=America/Montreal:20250913T090000
+DTEND;TZID=America/Montreal:20250913T120000
+SUMMARY:La Montée - 47e
+DESCRIPTION:Viens rejoindre toute la 47e pour une matinée de folie !\n\nApporter : Uniforme complet\, gourde d'eau\, collation
+LOCATION:Base de plein air André-Nadeau\, 5302 Chem. Blanchette\, Sherbrooke\, QC J1N 0C9
+CATEGORIES:Scout,Événement spécial
+STATUS:CONFIRMED
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20250924-univers@reneard.cool
+DTSTART;TZID=America/Montreal:20250924T183000
+DTEND;TZID=America/Montreal:20250924T201500
+SUMMARY:Découvrons notre univers
+DESCRIPTION:Découverte du monde dans lequel nous allons évoluer cette année et rencontre avec nos nouveaux amis.
+LOCATION:Centre communautaire Optimiste\, 6670 rue Éméry-Fontaine\, Sherbrooke (Québec) J1N 2T2
+CATEGORIES:Scout,Réunion régulière
+STATUS:CONFIRMED
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251001-castor@reneard.cool
+DTSTART;TZID=America/Montreal:20251001T183000
+DTEND;TZID=America/Montreal:20251001T201500
+SUMMARY:Autour du castor
+DESCRIPTION:Activité d'apprentissage et de découverte.\n\nThème : Le castor\, notre mascotte
+LOCATION:Centre communautaire Optimiste\, 6670 rue Éméry-Fontaine\, Sherbrooke (Québec) J1N 2T2
+CATEGORIES:Scout,Réunion régulière
+STATUS:CONFIRMED
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251004-rassemblement@reneard.cool
+DTSTART;TZID=America/Montreal:20251004T090000
+DTEND;TZID=America/Montreal:20251004T160000
+SUMMARY:Grand rassemblement scout (OPTIONNEL)
+DESCRIPTION:Participation optionnelle\n\nGrand rassemblement de tous les groupes scouts de la région.
+LOCATION:Parc Jacques-Cartier\,75 Rue Vanier\, Sherbrooke\, QC J1H 3H2\, Canada
+CATEGORIES:Scout,Événement régional
+STATUS:TENTATIVE
+PRIORITY:5
+ORGANIZER;CN=District Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251008-vermicompost@reneard.cool
+DTSTART;TZID=America/Montreal:20251008T183000
+DTEND;TZID=America/Montreal:20251008T201500
+SUMMARY:Vermi-compost et premier plongeon
+DESCRIPTION:Construction de notre vermi-compost et premier plongeon.
+LOCATION:Centre communautaire Optimiste\, 6670 rue Éméry-Fontaine\, Sherbrooke (Québec) J1N 2T2
+CATEGORIES:Scout,Réunion régulière,Environnement
+STATUS:CONFIRMED
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251018-calendriers@reneard.cool
+DTSTART;TZID=America/Montreal:20251018T090000
+DTEND;TZID=America/Montreal:20251018T120000
+SUMMARY:Répartition des calendriers
+DESCRIPTION:Informations complémentaires à venir.
+LOCATION:Centre communautaire Optimiste\, 6670 rue Éméry-Fontaine\, Sherbrooke (Québec) J1N 2T2
+CATEGORIES:Scout,Collecte de fonds
+STATUS:CONFIRMED
+PRIORITY:3
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251022-montbellevue@reneard.cool
+DTSTART;TZID=America/Montreal:20251022T183000
+DTEND;TZID=America/Montreal:20251022T203000
+SUMMARY:Balade au Mont-Bellevue
+DESCRIPTION:Randonnée d'automne au Mont-Bellevue\n\nRendez-vous : 18h30 au stationnement de la rue Dunant\nRetour : 20h30 au même endroit\n\nOBLIGATOIRE : Apporter une lampe frontale !\nAussi : Vêtements chauds\, bottes de marche
+LOCATION:Stationnement rue Dunant\, Sherbrooke
+CATEGORIES:Scout,Sortie extérieure
+STATUS:CONFIRMED
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251030-halloween@reneard.cool
+DTSTART;TZID=America/Montreal:20251030T183000
+DTEND;TZID=America/Montreal:20251030T201500
+SUMMARY:HALLOWEEN 🎃 + Réunion parents
+DESCRIPTION:Soirée Halloween pour les jeunes ET réunion de parents pour la préparation du camp d'automne\n\nJeunes : Venez costumés !\nParents : Réunion importante pour le camp
+LOCATION:Centre communautaire Optimiste\, 6670 rue Éméry-Fontaine\, Sherbrooke (Québec) J1N 2T2
+CATEGORIES:Scout,Fête,Réunion parents
+STATUS:CONFIRMED
+PRIORITY:2
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251107-camp@reneard.cool
+DTSTART;VALUE=DATE:20251107
+DTEND;VALUE=DATE:20251109
+SUMMARY:⛺ Camp d'automne (3 jours)
+DESCRIPTION:Camp d'automne du vendredi 7 au dimanche 9 novembre
+LOCATION:Lieu à confirmer
+CATEGORIES:Scout,Camp
+STATUS:CONFIRMED
+PRIORITY:1
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251112-plongeon@reneard.cool
+DTSTART;TZID=America/Montreal:20251112T183000
+DTEND;TZID=America/Montreal:20251112T201500
+SUMMARY:Grand plongeon - Cérémonie
+DESCRIPTION:Cérémonie du Grand plongeon\n\nLes familles sont invitées à assister à cette cérémonie importante.
+LOCATION:Centre communautaire Optimiste\, 6670 rue Éméry-Fontaine\, Sherbrooke (Québec) J1N 2T2
+CATEGORIES:Scout,Cérémonie
+STATUS:CONFIRMED
+PRIORITY:2
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251119-foulard@reneard.cool
+DTSTART;TZID=America/Montreal:20251119T183000
+DTEND;TZID=America/Montreal:20251119T201500
+SUMMARY:Mon foulard\, c'est quoi ?
+DESCRIPTION:Découverte de la signification et des valeurs du foulard scout.\n\nApporter : Votre foulard !
+LOCATION:Centre communautaire Optimiste\, 6670 rue Éméry-Fontaine\, Sherbrooke (Québec) J1N 2T2
+CATEGORIES:Scout,Réunion régulière,Tradition
+STATUS:CONFIRMED
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251126-surprise@reneard.cool
+DTSTART;TZID=America/Montreal:20251126T183000
+DTEND;TZID=America/Montreal:20251126T201500
+SUMMARY:Activité surprise - Découverte !
+DESCRIPTION:Activité surprise - Venez découvrir !\n\nIndice : Préparez-vous à être émerveillés...
+LOCATION:Centre communautaire Optimiste\, 6670 rue Éméry-Fontaine\, Sherbrooke (Québec) J1N 2T2
+CATEGORIES:Scout,Réunion régulière
+STATUS:CONFIRMED
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+BEGIN:VEVENT
+UID:20251203-banique@reneard.cool
+DTSTART;TZID=America/Montreal:20251203T183000
+DTEND;TZID=America/Montreal:20251203T201500
+SUMMARY:Atelier banique
+DESCRIPTION:Préparation et dégustation du fameux pain scout (banique).\n\nActivité culinaire - Nous allons cuisiner !\n\nAllergies alimentaires : Merci de nous prévenir
+LOCATION:Centre communautaire Optimiste\, 6670 rue Éméry-Fontaine\, Sherbrooke (Québec) J1N 2T2
+CATEGORIES:Scout,Réunion régulière,Cuisine
+STATUS:CONFIRMED
+ORGANIZER;CN=47e Groupe Scout:mailto:moi@renard.cool
+END:VEVENT
+
+END:VCALENDAR
