@@ -1,0 +1,384 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/renard.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{post.data.title} | renard.cool</title>
+    <meta name="description" content={post.data.description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@300;400;600&family=Merriweather:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="smoke-container">
+      <div class="smoke"></div>
+      <div class="smoke smoke-2"></div>
+    </div>
+
+    <header>
+      <nav class="top-nav">
+        <a href="/" class="nav-link">Accueil</a>
+        <a href="/blog" class="nav-link">Journal</a>
+      </nav>
+    </header>
+
+    <article>
+      <div class="article-header">
+        {post.data.heroImage && (
+          <img src={post.data.heroImage} alt={post.data.title} class="hero-image" />
+        )}
+        <h1 class="article-title">{post.data.title}</h1>
+        <div class="article-meta">
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('fr-FR', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+          {post.data.updatedDate && (
+            <span class="updated">
+              • Mis à jour le {post.data.updatedDate.toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </span>
+          )}
+        </div>
+        <div class="categories">
+          {post.data.categories.map(category => (
+            <a href={`/blog/categories/${category}`} class="category-badge">
+              {category}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="prose">
+        <Content />
+      </div>
+    </article>
+
+    <footer>
+      <nav class="bottom-nav">
+        <a href="/blog" class="back-link">← Retour au journal</a>
+      </nav>
+    </footer>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0a0a0a;
+        color: #e8e8e8;
+        font-family: 'Raleway', sans-serif;
+        min-height: 100vh;
+        position: relative;
+        line-height: 1.6;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a1a2e 40%,
+          #16213e 80%,
+          #1a1a2e 100%
+        );
+        z-index: 0;
+      }
+
+      .smoke-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.3;
+      }
+
+      .smoke {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 50% 50%, rgba(255, 107, 0, 0.03), transparent 50%);
+        animation: drift 20s infinite;
+      }
+
+      .smoke-2 {
+        animation-delay: -10s;
+        animation-duration: 25s;
+      }
+
+      @keyframes drift {
+        0%, 100% {
+          transform: translate(-10%, -10%) rotate(0deg);
+        }
+        50% {
+          transform: translate(10%, 10%) rotate(180deg);
+        }
+      }
+
+      header {
+        position: relative;
+        z-index: 10;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 107, 0, 0.1);
+      }
+
+      .top-nav {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #ff6b00;
+      }
+
+      article {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      .article-header {
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .hero-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 107, 0, 0.2);
+      }
+
+      .article-title {
+        font-family: 'Cinzel', serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        color: rgba(255, 107, 0, 0.7);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .updated {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      .category-badge {
+        background: rgba(255, 107, 0, 0.1);
+        border: 1px solid rgba(255, 107, 0, 0.3);
+        color: #ff6b00;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .category-badge:hover {
+        background: rgba(255, 107, 0, 0.2);
+        border-color: #ff6b00;
+      }
+
+      .prose {
+        font-family: 'Merriweather', serif;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .prose h1,
+      .prose h2,
+      .prose h3,
+      .prose h4,
+      .prose h5,
+      .prose h6 {
+        font-family: 'Cinzel', serif;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+
+      .prose h1 { font-size: 2.5rem; }
+      .prose h2 { font-size: 2rem; }
+      .prose h3 { font-size: 1.5rem; }
+
+      .prose p {
+        margin-bottom: 1.5rem;
+      }
+
+      .prose a {
+        color: #ff6b00;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 107, 0, 0.3);
+        transition: border-color 0.3s ease;
+      }
+
+      .prose a:hover {
+        border-color: #ff6b00;
+      }
+
+      .prose ul,
+      .prose ol {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+      }
+
+      .prose li {
+        margin-bottom: 0.5rem;
+      }
+
+      .prose blockquote {
+        border-left: 3px solid #ff6b00;
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .prose code {
+        background: rgba(255, 107, 0, 0.1);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.95rem;
+        color: #ff6b00;
+      }
+
+      .prose pre {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(255, 107, 0, 0.2);
+      }
+
+      .prose pre code {
+        background: transparent;
+        padding: 0;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .prose img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .prose hr {
+        border: none;
+        border-top: 1px solid rgba(255, 107, 0, 0.2);
+        margin: 3rem 0;
+      }
+
+      footer {
+        position: relative;
+        z-index: 2;
+        padding: 2rem;
+        border-top: 1px solid rgba(255, 107, 0, 0.1);
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+      }
+
+      .bottom-nav {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .back-link {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .back-link:hover {
+        color: #ff6b00;
+      }
+
+      @media (max-width: 768px) {
+        article {
+          padding: 2rem 1rem;
+        }
+
+        .article-title {
+          font-size: 2rem;
+        }
+
+        .prose {
+          font-size: 1rem;
+        }
+
+        .prose h1 { font-size: 2rem; }
+        .prose h2 { font-size: 1.5rem; }
+        .prose h3 { font-size: 1.25rem; }
+      }
+    </style>
+  </body>
+</html>

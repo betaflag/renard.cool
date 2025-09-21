@@ -39,10 +39,8 @@
       </div>
 
       <nav class="nav-links">
-        <a href="/meteo" class="nav-link" data-text="Météo">Météo</a>
-        <a href="#" class="nav-link" data-text="Projets">Projets</a>
-        <a href="#" class="nav-link" data-text="À Propos">À Propos</a>
-        <a href="#" class="nav-link" data-text="Contact">Contact</a>
+        <a href="/blog" class="nav-link" data-text="Journal">Journal</a>
+        <a href="/projets" class="nav-link" data-text="Projets">Projets</a>
       </nav>
     </main>
 
@@ -54,17 +52,29 @@
       }
 
       body {
-        background: linear-gradient(
-          135deg,
-          #0a0a0a 0%,
-          #1a1a2e 50%,
-          #16213e 100%
-        );
+        background: #0a0a0a;
         color: #e8e8e8;
         font-family: "Raleway", sans-serif;
         min-height: 100vh;
         overflow-x: hidden;
         position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a1a2e 40%,
+          #16213e 80%,
+          #1a1a2e 100%
+        );
+        z-index: 0;
       }
 
       .smoke-container {

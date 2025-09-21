@@ -1,0 +1,294 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const categories = [...new Set(posts.flatMap(post => post.data.categories))];
+  
+  return categories.map(category => ({
+    params: { category },
+    props: { 
+      category,
+      posts: posts
+        .filter(post => post.data.categories.includes(category) && !post.data.draft)
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    }
+  }));
+}
+
+const { category, posts } = Astro.props;
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/renard.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Catégorie : {category} | renard.cool</title>
+    <meta name="description" content={`Articles de la catégorie ${category}`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="smoke-container">
+      <div class="smoke"></div>
+      <div class="smoke smoke-2"></div>
+    </div>
+
+    <header>
+      <nav class="top-nav">
+        <a href="/" class="nav-link">Accueil</a>
+        <a href="/blog" class="nav-link">← Journal</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="category-header">
+        <span class="category-label">Catégorie</span>
+        <h1 class="category-title">{category}</h1>
+        <p class="category-count">{posts.length} article{posts.length > 1 ? 's' : ''}</p>
+      </div>
+
+      <div class="posts-grid">
+        {posts.map(post => (
+          <article class="post-card">
+            <a href={`/blog/${post.slug}/`}>
+              <div class="post-date">
+                {post.data.pubDate.toLocaleDateString('fr-FR', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </div>
+              <h2 class="post-title">{post.data.title}</h2>
+              <p class="post-description">{post.data.description}</p>
+              <div class="post-categories">
+                {post.data.categories.map(cat => (
+                  <span class={`category-badge ${cat === category ? 'active' : ''}`}>
+                    {cat}
+                  </span>
+                ))}
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </main>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0a0a0a;
+        color: #e8e8e8;
+        font-family: 'Raleway', sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a1a2e 40%,
+          #16213e 80%,
+          #1a1a2e 100%
+        );
+        z-index: 0;
+      }
+
+      .smoke-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.3;
+      }
+
+      .smoke {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 50% 50%, rgba(255, 107, 0, 0.03), transparent 50%);
+        animation: drift 20s infinite;
+      }
+
+      .smoke-2 {
+        animation-delay: -10s;
+        animation-duration: 25s;
+      }
+
+      @keyframes drift {
+        0%, 100% {
+          transform: translate(-10%, -10%) rotate(0deg);
+        }
+        50% {
+          transform: translate(10%, 10%) rotate(180deg);
+        }
+      }
+
+      header {
+        position: relative;
+        z-index: 10;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 107, 0, 0.1);
+      }
+
+      .top-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nav-link:hover {
+        color: #ff6b00;
+      }
+
+      main {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem 4rem;
+      }
+
+      .category-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .category-label {
+        color: rgba(255, 107, 0, 0.7);
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+
+      .category-title {
+        font-family: 'Cinzel', serif;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 600;
+        margin: 0.5rem 0;
+        text-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+        color: #ff6b00;
+      }
+
+      .category-count {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.1rem;
+      }
+
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .post-card {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 107, 0, 0.1);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .post-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 107, 0, 0.3);
+        box-shadow: 0 10px 30px rgba(255, 107, 0, 0.1);
+      }
+
+      .post-card a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .post-date {
+        color: rgba(255, 107, 0, 0.7);
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .post-title {
+        font-family: 'Cinzel', serif;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+
+      .post-description {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .post-categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .category-badge {
+        background: rgba(255, 107, 0, 0.1);
+        border: 1px solid rgba(255, 107, 0, 0.3);
+        color: #ff6b00;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.85rem;
+      }
+
+      .category-badge.active {
+        background: rgba(255, 107, 0, 0.3);
+        border-color: #ff6b00;
+      }
+
+      @media (max-width: 768px) {
+        main {
+          padding: 2rem 1rem 3rem;
+        }
+
+        .category-title {
+          font-size: 2.5rem;
+        }
+
+        .posts-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  </body>
+</html>

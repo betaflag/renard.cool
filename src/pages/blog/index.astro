@@ -1,0 +1,334 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = [...new Set(posts.flatMap(post => post.data.categories))].sort();
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/renard.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Blog | renard.cool</title>
+    <meta name="description" content="Journal et projets d'un renard digital" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="smoke-container">
+      <div class="smoke"></div>
+      <div class="smoke smoke-2"></div>
+    </div>
+
+    <header>
+      <nav class="top-nav">
+        <a href="/" class="home-link">← Accueil</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="page-title">Journal<span class="accent">.</span></h1>
+      
+      <div class="categories">
+        <button class="category-filter active" data-category="all">Tout</button>
+        {categories.map(category => (
+          <button class="category-filter" data-category={category}>
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <div class="posts-grid">
+        {posts.map(post => (
+          <article class="post-card" data-categories={post.data.categories.join(',')}>
+            <a href={`/blog/${post.slug}/`}>
+              <div class="post-date">
+                {post.data.pubDate.toLocaleDateString('fr-FR', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </div>
+              <h2 class="post-title">{post.data.title}</h2>
+              <p class="post-description">{post.data.description}</p>
+              <div class="post-categories">
+                {post.data.categories.map(category => (
+                  <span class="category-badge">{category}</span>
+                ))}
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </main>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0a0a0a;
+        color: #e8e8e8;
+        font-family: 'Raleway', sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a1a2e 40%,
+          #16213e 80%,
+          #1a1a2e 100%
+        );
+        z-index: 0;
+      }
+
+      .smoke-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.3;
+      }
+
+      .smoke {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 50% 50%, rgba(255, 107, 0, 0.03), transparent 50%);
+        animation: drift 20s infinite;
+      }
+
+      .smoke-2 {
+        animation-delay: -10s;
+        animation-duration: 25s;
+      }
+
+      @keyframes drift {
+        0%, 100% {
+          transform: translate(-10%, -10%) rotate(0deg);
+        }
+        50% {
+          transform: translate(10%, 10%) rotate(180deg);
+        }
+      }
+
+      header {
+        position: relative;
+        z-index: 10;
+        padding: 2rem;
+      }
+
+      .top-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .home-link {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .home-link:hover {
+        color: #ff6b00;
+      }
+
+      main {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem 4rem;
+      }
+
+      .page-title {
+        font-family: 'Cinzel', serif;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 3rem;
+        text-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+      }
+
+      .accent {
+        color: #ff6b00;
+      }
+
+      .categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 3rem;
+      }
+
+      .category-filter {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 107, 0, 0.2);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .category-filter:hover {
+        border-color: rgba(255, 107, 0, 0.5);
+        color: #ff6b00;
+      }
+
+      .category-filter.active {
+        background: rgba(255, 107, 0, 0.2);
+        border-color: #ff6b00;
+        color: #ff6b00;
+      }
+
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .post-card {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 107, 0, 0.1);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        display: none;
+      }
+
+      .post-card.visible {
+        display: block;
+      }
+
+      .post-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 107, 0, 0.3);
+        box-shadow: 0 10px 30px rgba(255, 107, 0, 0.1);
+      }
+
+      .post-card a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .post-date {
+        color: rgba(255, 107, 0, 0.7);
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .post-title {
+        font-family: 'Cinzel', serif;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+
+      .post-description {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .post-categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .category-badge {
+        background: rgba(255, 107, 0, 0.1);
+        border: 1px solid rgba(255, 107, 0, 0.3);
+        color: #ff6b00;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 768px) {
+        main {
+          padding: 0 1rem 3rem;
+        }
+
+        .page-title {
+          font-size: 2.5rem;
+          margin-bottom: 2rem;
+        }
+
+        .posts-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .category-filter {
+          font-size: 0.9rem;
+          padding: 0.4rem 1rem;
+        }
+      }
+    </style>
+
+    <script>
+      const filters = document.querySelectorAll('.category-filter');
+      const posts = document.querySelectorAll('.post-card');
+
+      function filterPosts(category) {
+        posts.forEach(post => {
+          if (category === 'all') {
+            post.classList.add('visible');
+          } else {
+            const postCategories = post.getAttribute('data-categories')?.split(',') || [];
+            if (postCategories.includes(category)) {
+              post.classList.add('visible');
+            } else {
+              post.classList.remove('visible');
+            }
+          }
+        });
+      }
+
+      filters.forEach(filter => {
+        filter.addEventListener('click', () => {
+          filters.forEach(f => f.classList.remove('active'));
+          filter.classList.add('active');
+          filterPosts(filter.getAttribute('data-category'));
+        });
+      });
+
+      filterPosts('all');
+    </script>
+  </body>
+</html>
