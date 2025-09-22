@@ -1,57 +1,11 @@
 ---
-
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
-    />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-    <meta name="theme-color" content="#ff6b00" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <title>Renard Met Quoi? | renard.cool</title>
-    <link rel="icon" type="image/png" href="/renard.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/meteo/styles.css" />
-    <script is:inline src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
-    ></script>
-  </head>
-  <body>
+<BaseLayout title="Météo Renard" description="Application météo avec conseils rusés de Renard">
+  <div class="meteo-wrapper">
     <div class="container">
-      <!-- Header -->
-      <header class="header">
-        <h1 class="logo">Renard Met Quoi?</h1>
-        <div class="header-controls">
-          <button class="theme-btn" onclick="toggleTheme()" aria-label="Theme">
-            <i data-lucide="sun" class="theme-icon-light" width="20" height="20"
-            ></i>
-            <i data-lucide="moon" class="theme-icon-dark" width="20" height="20"
-            ></i>
-          </button>
-          <button
-            class="lang-btn"
-            onclick="toggleLanguage()"
-            aria-label="Language"
-          >
-            <span id="lang-indicator">FR</span>
-          </button>
-        </div>
-      </header>
-
-      <!-- Main Content -->
+      <!-- Main Content with original structure -->
       <main class="main" id="app-content">
         <div class="content" id="weather-section">
           <!-- Loading State -->
@@ -60,14 +14,346 @@
               <i data-lucide="sun" class="spin" width="48" height="48"></i>
             </div>
             <p class="loading-text" id="loading-text">
-              Vérification de la météo...
+              Renard observe le ciel...
             </p>
           </div>
         </div>
       </main>
+
+      <!-- Header Controls (floating) -->
+      <div class="floating-controls">
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="Theme">
+          <i data-lucide="sun" class="theme-icon-light" width="20" height="20"></i>
+          <i data-lucide="moon" class="theme-icon-dark" width="20" height="20"></i>
+        </button>
+        <button class="lang-btn" onclick="toggleLanguage()" aria-label="Language">
+          <span id="lang-indicator">FR</span>
+        </button>
+      </div>
     </div>
 
-    <script is:inline src="/meteo/js/translations.js"></script>
-    <script is:inline src="/meteo/js/app.js"></script>
-  </body>
-</html>
+    <!-- Fox Tips Section -->
+    <div class="fox-tips-wrapper">
+      <div class="fox-tips">
+        <div class="fox-avatar">🦊</div>
+        <div class="fox-message" id="fox-message">
+          <p>Laissez Renard consulter les nuages pour vous...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .meteo-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+      position: relative;
+    }
+
+    /* Override some base styles to work with meteo CSS */
+    .meteo-wrapper .container {
+      background: transparent;
+      position: relative;
+    }
+
+    /* Hide clothing recommendations - they take too much space */
+    .clothing-section {
+      display: none !important;
+    }
+
+    /* Adjust weather display for better integration */
+    .weather-hero {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .tips-section,
+    .advice-card {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .floating-controls {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 100;
+    }
+
+    .floating-controls button {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--border, rgba(255, 107, 0, 0.3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .floating-controls button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+    }
+
+    .theme-btn .theme-icon-dark {
+      display: none;
+    }
+
+    body.dark-theme .theme-btn .theme-icon-light {
+      display: none;
+    }
+
+    body.dark-theme .theme-btn .theme-icon-dark {
+      display: block;
+    }
+
+    .lang-btn {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--primary, #ff6b00);
+    }
+
+    /* Fox Tips Section */
+    .fox-tips-wrapper {
+      padding: 0 1rem;
+      margin-top: 2rem;
+    }
+
+    .fox-tips {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: rgba(255, 107, 0, 0.05);
+      border: 1px solid rgba(255, 107, 0, 0.2);
+      border-radius: 15px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fox-avatar {
+      font-size: 3rem;
+      filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.5));
+      animation: bounce 4s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translateY(-5px);
+      }
+      75% {
+        transform: translateY(5px);
+      }
+    }
+
+    .fox-message {
+      flex: 1;
+      color: var(--text-primary, rgba(255, 255, 255, 0.9));
+      font-size: 1.1rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Dark theme adjustments */
+    body.dark-theme .fox-tips {
+      background: rgba(255, 107, 0, 0.05);
+      border-color: rgba(255, 107, 0, 0.2);
+    }
+
+    body.dark-theme .fox-message {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Light theme adjustments */
+    body.light-theme .fox-tips {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: var(--border);
+    }
+
+    body.light-theme .fox-message {
+      color: var(--text-primary);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .floating-controls {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        flex-direction: row;
+        gap: 0.8rem;
+      }
+
+      .fox-tips {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .fox-avatar {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .floating-controls {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .floating-controls button {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+
+  <!-- Include original meteo styles -->
+  <link rel="stylesheet" href="/meteo/styles.css" />
+  
+  <!-- Include Lucide Icons -->
+  <script is:inline src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  
+  <!-- Keep existing weather app scripts -->
+  <script is:inline src="/meteo/js/translations.js"></script>
+  <script is:inline src="/meteo/js/app.js"></script>
+  
+  <!-- Ensure icons are loaded -->
+  <script is:inline>
+    // Create a global function to refresh icons
+    window.refreshIcons = function() {
+      if (window.lucide) {
+        setTimeout(() => lucide.createIcons(), 50);
+      }
+    };
+
+    // Set up a MutationObserver to watch for DOM changes
+    const observer = new MutationObserver(() => {
+      window.refreshIcons();
+    });
+
+    // Start observing when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      const weatherSection = document.getElementById('weather-section');
+      if (weatherSection) {
+        observer.observe(weatherSection, {
+          childList: true,
+          subtree: true
+        });
+      }
+      // Initial icon creation
+      window.refreshIcons();
+    });
+  </script>
+  
+  <!-- Add fox message updates -->
+  <script is:inline>
+    // Fox messages based on weather
+    const foxMessages = {
+      clear: {
+        fr: "Parfait pour une chasse ! Le soleil brille comme mon pelage roux. 🌞",
+        en: "Perfect for hunting! The sun shines like my red fur. 🌞"
+      },
+      clouds: {
+        fr: "Les nuages jouent à cache-cache avec le soleil. Restez malins ! ☁️",
+        en: "The clouds are playing hide and seek with the sun. Stay clever! ☁️"
+      },
+      rain: {
+        fr: "La pluie arrive ! Même les renards rusés préfèrent rester au sec. 🌧️",
+        en: "Rain is coming! Even clever foxes prefer to stay dry. 🌧️"
+      },
+      snow: {
+        fr: "La neige ! Mes pattes laissent des traces mystérieuses... ❄️",
+        en: "Snow! My paws leave mysterious tracks... ❄️"
+      },
+      storm: {
+        fr: "Orage en approche ! Renard se cache dans son terrier. ⛈️",
+        en: "Storm approaching! Fox hides in his den. ⛈️"
+      },
+      default: {
+        fr: "Je surveille le ciel pour vous, faites-moi confiance ! 🦊",
+        en: "I'm watching the sky for you, trust me! 🦊"
+      }
+    };
+
+    // Update fox message based on weather
+    window.updateFoxMessage = function(weatherType, lang = 'fr') {
+      const foxMessageEl = document.getElementById('fox-message');
+      if (!foxMessageEl) return;
+
+      let messageKey = 'default';
+      if (weatherType) {
+        const type = weatherType.toLowerCase();
+        if (type.includes('clear') || type.includes('sun')) messageKey = 'clear';
+        else if (type.includes('cloud')) messageKey = 'clouds';
+        else if (type.includes('rain')) messageKey = 'rain';
+        else if (type.includes('snow')) messageKey = 'snow';
+        else if (type.includes('storm') || type.includes('thunder')) messageKey = 'storm';
+      }
+
+      const message = foxMessages[messageKey][lang] || foxMessages.default[lang];
+      foxMessageEl.innerHTML = `<p>${message}</p>`;
+    };
+
+    // Wait for weather data and update fox message
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize lucide icons
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+      
+      // Override the original weather display to update fox message
+      const originalDisplayWeather = window.displayWeather;
+      if (originalDisplayWeather) {
+        window.displayWeather = function(data) {
+          const result = originalDisplayWeather.call(this, data);
+          const weatherType = data.weather?.[0]?.main;
+          const lang = document.getElementById('lang-indicator')?.textContent === 'EN' ? 'en' : 'fr';
+          updateFoxMessage(weatherType, lang);
+          // Re-initialize icons after content update
+          setTimeout(() => {
+            if (window.lucide) lucide.createIcons();
+          }, 100);
+          return result;
+        };
+      }
+
+      // Update fox message on language change
+      const originalToggleLanguage = window.toggleLanguage;
+      if (originalToggleLanguage) {
+        window.toggleLanguage = function() {
+          const result = originalToggleLanguage.call(this);
+          const lang = document.getElementById('lang-indicator')?.textContent === 'EN' ? 'en' : 'fr';
+          // Get current weather type from displayed weather
+          const weatherDesc = document.querySelector('.description')?.textContent;
+          updateFoxMessage(weatherDesc, lang);
+          return result;
+        };
+      }
+    });
+  </script>
+</BaseLayout>

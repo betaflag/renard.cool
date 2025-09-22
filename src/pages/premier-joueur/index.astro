@@ -1,0 +1,1271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Premier Joueur" description="Déterminez qui commence la partie avec style">
+  <div class="game-page">
+    <h1 class="page-title">Premier Joueur<span class="accent">.</span></h1>
+    <p class="subtitle">Qui aura l'honneur de commencer ?</p>
+
+    <div class="game-container">
+      <!-- Phase 1: Configuration -->
+      <div id="setup-phase" class="game-phase active">
+        <div class="player-input-section">
+          <input
+            type="text"
+            id="player-name-input"
+            class="player-input"
+            placeholder="Nom du joueur (Entrée pour ajouter)"
+            maxlength="20"
+          />
+          <button id="add-player-btn" class="btn btn-add">Ajouter</button>
+        </div>
+        
+        <div class="quick-add-section" id="quick-add-section" style="display: none;">
+          <h4>Joueurs récents</h4>
+          <div class="quick-add-buttons" id="quick-add-buttons">
+            <!-- Quick add buttons will be added here -->
+          </div>
+        </div>
+
+        <div class="players-list" id="players-list">
+          <!-- Players will be added here -->
+        </div>
+
+
+        <button id="start-game-btn" class="btn btn-primary" disabled>
+          Commencer la partie <kbd>Espace</kbd>
+        </button>
+      </div>
+
+      <!-- Phase 2: Lancer de dés -->
+      <div id="rolling-phase" class="game-phase">
+        <div class="current-player">
+          <span class="player-label">Au tour de</span>
+          <h2 class="player-name" id="current-player-name">---</h2>
+        </div>
+
+        <div class="dice-container">
+          <div class="die" id="die1">
+            <div class="face front">⚀</div>
+            <div class="face back">⚅</div>
+            <div class="face right">⚁</div>
+            <div class="face left">⚃</div>
+            <div class="face top">⚂</div>
+            <div class="face bottom">⚄</div>
+          </div>
+          <div class="die" id="die2">
+            <div class="face front">⚀</div>
+            <div class="face back">⚅</div>
+            <div class="face right">⚁</div>
+            <div class="face left">⚃</div>
+            <div class="face top">⚂</div>
+            <div class="face bottom">⚄</div>
+          </div>
+        </div>
+
+        <div class="score-display" id="score-display">
+          <span class="score-label">Score:</span>
+          <span class="score-value" id="current-score">--</span>
+        </div>
+
+        <button id="roll-dice-btn" class="btn btn-primary">
+          🎲 Lancer les dés <kbd>Espace</kbd>
+        </button>
+
+        <button id="next-player-btn" class="btn btn-secondary" style="display: none;">
+          Joueur suivant → <kbd>Espace</kbd>
+        </button>
+      </div>
+
+      <!-- Phase 3: Résultats -->
+      <div id="results-phase" class="game-phase">
+        <div class="winner-announcement">
+          <div class="crown">👑</div>
+          <h2 class="winner-text">Le vainqueur est</h2>
+          <h3 class="winner-name" id="winner-name">---</h3>
+          <div class="winner-score" id="winner-score">Score: --</div>
+        </div>
+
+        <div class="full-results" id="full-results">
+          <!-- Results will be added here -->
+        </div>
+
+        <button id="new-game-btn" class="btn btn-primary">
+          Nouvelle partie <kbd>Espace</kbd>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style is:global>
+    html {
+      background: #0a0a0a !important;
+      background-color: #0a0a0a !important;
+    }
+
+    body {
+      background: linear-gradient(
+        135deg,
+        #0a0a0a 0%,
+        #1a1a2e 40%,
+        #16213e 80%,
+        #1a1a2e 100%
+      ) !important;
+      background-color: #0a0a0a !important;
+      background-attachment: fixed !important;
+    }
+
+    main {
+      background: transparent !important;
+    }
+
+    /* Reset button styling completely */
+    button.quick-add-btn {
+      all: unset !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0.45rem 0.75rem !important;
+      background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 50%, #ff6b00 100%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      border-radius: 20px !important;
+      color: #ffffff !important;
+      font-size: 0.8rem !important;
+      font-weight: 500 !important;
+      font-family: 'Raleway', sans-serif !important;
+      cursor: pointer !important;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      text-transform: none !important;
+      letter-spacing: 0.01em !important;
+      position: relative !important;
+      overflow: visible !important;
+      box-shadow: 
+        0 2px 8px rgba(255, 107, 0, 0.25),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+      text-decoration: none !important;
+      backdrop-filter: blur(8px) !important;
+      min-height: 32px !important;
+      white-space: nowrap !important;
+      user-select: none !important;
+      box-sizing: border-box !important;
+    }
+
+    button.quick-add-btn:hover {
+      background: linear-gradient(135deg, #ff7b10 0%, #ff9c10 50%, #ff7b10 100%) !important;
+      transform: translateY(-2px) scale(1.03) !important;
+      box-shadow: 
+        0 6px 20px rgba(255, 107, 0, 0.4),
+        0 3px 10px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+    }
+
+    button.quick-add-btn .player-name {
+      font-weight: 500 !important;
+      letter-spacing: 0.02em !important;
+      color: #ffffff !important;
+      background: transparent !important;
+      font-family: inherit !important;
+    }
+
+    button.quick-add-btn .remove-btn {
+      position: absolute !important;
+      top: -6px !important;
+      right: -6px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 16px !important;
+      height: 16px !important;
+      background: rgba(220, 38, 38, 0.9) !important;
+      border: 2px solid #ffffff !important;
+      border-radius: 50% !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      line-height: 1 !important;
+      color: #ffffff !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      opacity: 0 !important;
+      transform: scale(0.8) !important;
+      z-index: 10 !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    button.quick-add-btn:hover .remove-btn {
+      opacity: 1 !important;
+      transform: scale(0.9) !important;
+    }
+
+    button.quick-add-btn .remove-btn:hover {
+      background: rgba(220, 38, 38, 1) !important;
+      transform: scale(1) !important;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Player list items - global for dynamic elements */
+    .player-item {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 0.75rem 1rem !important;
+      margin-bottom: 0.75rem !important;
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), rgba(255, 140, 0, 0.1)) !important;
+      border: 1px solid rgba(255, 107, 0, 0.3) !important;
+      border-radius: 16px !important;
+      animation: slideIn 0.3s ease !important;
+      backdrop-filter: blur(8px) !important;
+      box-shadow: 
+        0 3px 12px rgba(255, 107, 0, 0.15),
+        0 1px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+      transition: all 0.2s ease !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .player-item:hover {
+      transform: translateY(-1px) !important;
+      box-shadow: 
+        0 4px 16px rgba(255, 107, 0, 0.2),
+        0 2px 6px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+      border-color: rgba(255, 107, 0, 0.4) !important;
+    }
+
+    .player-item::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: -100% !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent
+      ) !important;
+      transition: left 0.6s ease !important;
+      z-index: 1 !important;
+    }
+
+    .player-item:hover::before {
+      left: 100% !important;
+    }
+
+    .player-item span {
+      position: relative !important;
+      z-index: 2 !important;
+      font-weight: 500 !important;
+      color: #ffffff !important;
+      letter-spacing: 0.02em !important;
+      background: transparent !important;
+    }
+
+    .player-item button {
+      background: none !important;
+      border: none !important;
+      color: rgba(255, 255, 255, 0.6) !important;
+      cursor: pointer !important;
+      font-size: 1.1rem !important;
+      transition: all 0.2s ease !important;
+      position: relative !important;
+      z-index: 2 !important;
+      width: 24px !important;
+      height: 24px !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .player-item button:hover {
+      color: #ffffff !important;
+      background: rgba(220, 38, 38, 0.8) !important;
+      transform: scale(1.1) !important;
+      box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3) !important;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+
+  <style>
+    .game-page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+      background: transparent;
+      position: relative;
+      z-index: 3;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 3rem;
+      letter-spacing: 0.05em;
+    }
+
+    .game-container {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 107, 0, 0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .game-phase {
+      display: none;
+    }
+
+    .game-phase.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Setup Phase */
+    .player-input-section {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .player-input {
+      flex: 1;
+      padding: 0.8rem 1.2rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .player-input:focus {
+      outline: none;
+      border-color: #ff6b00;
+      box-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-add {
+      background: rgba(255, 107, 0, 0.2);
+      border: 1px solid #ff6b00;
+      color: #ff6b00;
+    }
+
+    .btn-add:hover:not(:disabled) {
+      background: rgba(255, 107, 0, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 107, 0, 0.3);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff6b00, #ff8c00);
+      color: #fff;
+      margin-top: 2rem;
+      width: 100%;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .players-list {
+      margin-bottom: 2rem;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+
+
+    /* Keyboard indicators */
+    kbd {
+      display: inline-block;
+      padding: 0.2rem 0.4rem;
+      font-size: 0.75rem;
+      font-family: monospace;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+
+    /* Quick Add Section */
+    .quick-add-section {
+      margin-bottom: 1.5rem;
+      padding: 1.25rem;
+      background: rgba(255, 107, 0, 0.03);
+      border: 1px solid rgba(255, 107, 0, 0.15);
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+    }
+
+    .quick-add-section h4 {
+      margin: 0 0 1rem 0;
+      color: rgba(255, 107, 0, 0.9);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quick-add-section h4::before {
+      content: '⭐';
+      font-size: 0.8rem;
+    }
+
+    .quick-add-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+
+    /* Rolling Phase */
+    .current-player {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .player-label {
+      color: rgba(255, 107, 0, 0.7);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .player-name {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: #ff6b00;
+      margin-top: 0.5rem;
+    }
+
+    .dice-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0;
+      perspective: 1000px;
+    }
+
+    .die {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .die.rolling {
+      animation: roll 1.5s ease-out;
+    }
+
+    @keyframes roll {
+      0% {
+        transform: rotateX(0) rotateY(0);
+      }
+      100% {
+        transform: rotateX(720deg) rotateY(720deg);
+      }
+    }
+
+    .face {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1a1a2e, #0a0a0a);
+      border: 2px solid #ff6b00;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+    }
+
+    .front { transform: rotateY(0deg) translateZ(40px); }
+    .back { transform: rotateY(180deg) translateZ(40px); }
+    .right { transform: rotateY(90deg) translateZ(40px); }
+    .left { transform: rotateY(-90deg) translateZ(40px); }
+    .top { transform: rotateX(90deg) translateZ(40px); }
+    .bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+    .score-display {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .score-label {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.2rem;
+      margin-right: 1rem;
+    }
+
+    .score-value {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #ff6b00;
+    }
+
+    /* Results Phase */
+    .winner-announcement {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .crown {
+      font-size: 4rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-20px) scale(1.1);
+      }
+    }
+
+    .winner-text {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 1rem 0;
+    }
+
+    .winner-name {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      color: #ff6b00;
+      text-shadow: 0 0 30px rgba(255, 107, 0, 0.8);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 30px rgba(255, 107, 0, 0.8);
+      }
+      50% {
+        text-shadow: 0 0 50px rgba(255, 107, 0, 1);
+      }
+    }
+
+    .winner-score {
+      font-size: 1.2rem;
+      color: rgba(255, 107, 0, 0.7);
+      margin-top: 1rem;
+    }
+
+    .full-results {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem;
+      margin-bottom: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+
+    .result-item.winner {
+      background: rgba(255, 107, 0, 0.2);
+      border: 1px solid #ff6b00;
+    }
+
+    .result-rank {
+      font-weight: 600;
+      color: rgba(255, 107, 0, 0.7);
+      margin-right: 1rem;
+    }
+
+    .result-name {
+      flex: 1;
+      font-size: 1.1rem;
+    }
+
+    .result-score {
+      font-weight: 600;
+      color: #ff6b00;
+    }
+
+    /* Mobile and responsive styles */
+    @media (max-width: 768px) {
+      .game-page {
+        padding: 1rem 1rem 3rem;
+        max-width: 100%;
+      }
+
+      .game-container {
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin: 0 0.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+
+      .player-input-section {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .player-input {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .quick-add-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .quick-add-section h4 {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .quick-add-buttons {
+        gap: 0.6rem;
+      }
+
+      button.quick-add-btn {
+        padding: 0.4rem 0.65rem !important;
+        font-size: 0.75rem !important;
+        border-radius: 18px !important;
+        min-height: 28px !important;
+      }
+
+      .players-list {
+        max-height: 150px;
+        margin-bottom: 1.5rem;
+      }
+
+      .player-item {
+        padding: 0.6rem 0.8rem !important;
+        margin-bottom: 0.6rem !important;
+        border-radius: 12px !important;
+      }
+
+      .player-item span {
+        font-size: 0.9rem !important;
+      }
+
+      .player-item button {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 1rem !important;
+      }
+
+      /* Dice game responsive */
+      .current-player {
+        margin-bottom: 2rem;
+      }
+
+      .player-name {
+        font-size: 2rem;
+        margin-top: 0.3rem;
+      }
+
+      .dice-container {
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .die {
+        width: 60px;
+        height: 60px;
+      }
+
+      .face {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+        border-radius: 8px;
+      }
+
+      .front { transform: rotateY(0deg) translateZ(30px); }
+      .back { transform: rotateY(180deg) translateZ(30px); }
+      .right { transform: rotateY(90deg) translateZ(30px); }
+      .left { transform: rotateY(-90deg) translateZ(30px); }
+      .top { transform: rotateX(90deg) translateZ(30px); }
+      .bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+      .score-display {
+        margin: 1.5rem 0;
+      }
+
+      .score-label {
+        font-size: 1.1rem;
+      }
+
+      .score-value {
+        font-size: 2rem;
+      }
+
+      /* Results responsive */
+      .winner-announcement {
+        margin-bottom: 2rem;
+      }
+
+      .crown {
+        font-size: 3rem;
+      }
+
+      .winner-text {
+        font-size: 1.3rem;
+      }
+
+      .winner-name {
+        font-size: 2rem;
+      }
+
+      .winner-score {
+        font-size: 1.1rem;
+      }
+
+      .full-results {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .result-item {
+        padding: 0.6rem;
+        margin-bottom: 0.4rem;
+        border-radius: 6px;
+      }
+
+      .result-name {
+        font-size: 1rem;
+      }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 480px) {
+      .game-page {
+        padding: 0.75rem 0.75rem 2.5rem;
+      }
+
+      .game-container {
+        padding: 1rem;
+        margin: 0 0.25rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .quick-add-buttons {
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      button.quick-add-btn {
+        padding: 0.35rem 0.6rem !important;
+        font-size: 0.7rem !important;
+        border-radius: 16px !important;
+        min-height: 26px !important;
+      }
+
+      .player-item {
+        padding: 0.5rem 0.7rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .player-item span {
+        font-size: 0.85rem !important;
+      }
+
+      .dice-container {
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+      }
+
+      .die {
+        width: 50px;
+        height: 50px;
+      }
+
+      .face {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+        border-radius: 6px;
+      }
+
+      .front { transform: rotateY(0deg) translateZ(25px); }
+      .back { transform: rotateY(180deg) translateZ(25px); }
+      .right { transform: rotateY(90deg) translateZ(25px); }
+      .left { transform: rotateY(-90deg) translateZ(25px); }
+      .top { transform: rotateX(90deg) translateZ(25px); }
+      .bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+      .player-name {
+        font-size: 1.8rem;
+      }
+
+      .score-value {
+        font-size: 1.8rem;
+      }
+
+      .crown {
+        font-size: 2.5rem;
+      }
+
+      .winner-name {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Landscape orientation adjustments */
+    @media (max-height: 600px) and (orientation: landscape) {
+      .game-page {
+        padding: 0.5rem 1rem 2rem;
+      }
+
+      .game-container {
+        padding: 1rem;
+      }
+
+      .subtitle {
+        margin-bottom: 1rem;
+      }
+
+      .current-player {
+        margin-bottom: 1rem;
+      }
+
+      .player-name {
+        font-size: 1.5rem;
+        margin-top: 0.2rem;
+      }
+
+      .dice-container {
+        margin: 1rem 0;
+      }
+
+      .score-display {
+        margin: 1rem 0;
+      }
+
+      .winner-announcement {
+        margin-bottom: 1rem;
+      }
+
+      .crown {
+        font-size: 2rem;
+      }
+
+      .winner-name {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+
+  <script>
+    let players = [];
+    let currentPlayerIndex = 0;
+    let scores = [];
+    let diceCount = 2;
+    let savedPlayers = [];
+
+    const diceFaces = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+
+    // LocalStorage functions
+    function loadSavedPlayers() {
+      const saved = localStorage.getItem('premier-joueur-players');
+      if (saved) {
+        try {
+          savedPlayers = JSON.parse(saved);
+          updateQuickAddSection();
+        } catch (e) {
+          console.error('Error loading saved players:', e);
+          savedPlayers = [];
+        }
+      }
+    }
+
+    function savePlayersToStorage() {
+      // Keep only the last 8 unique players
+      const uniquePlayers = [...new Set(savedPlayers)];
+      const playersToSave = uniquePlayers.slice(-8);
+      localStorage.setItem('premier-joueur-players', JSON.stringify(playersToSave));
+    }
+
+    function addPlayerToSaved(playerName) {
+      // Remove if already exists and add to end
+      savedPlayers = savedPlayers.filter(p => p !== playerName);
+      savedPlayers.push(playerName);
+      savePlayersToStorage();
+      updateQuickAddSection();
+    }
+    
+    // DOM Elements
+    const setupPhase = document.getElementById('setup-phase');
+    const rollingPhase = document.getElementById('rolling-phase');
+    const resultsPhase = document.getElementById('results-phase');
+    const playerNameInput = document.getElementById('player-name-input');
+    const addPlayerBtn = document.getElementById('add-player-btn');
+    const playersList = document.getElementById('players-list');
+    const quickAddSection = document.getElementById('quick-add-section');
+    const quickAddButtons = document.getElementById('quick-add-buttons');
+    const startGameBtn = document.getElementById('start-game-btn');
+    const currentPlayerName = document.getElementById('current-player-name');
+    const die1 = document.getElementById('die1');
+    const die2 = document.getElementById('die2');
+    const currentScore = document.getElementById('current-score');
+    const rollDiceBtn = document.getElementById('roll-dice-btn');
+    const nextPlayerBtn = document.getElementById('next-player-btn');
+    const winnerName = document.getElementById('winner-name');
+    const winnerScore = document.getElementById('winner-score');
+    const fullResults = document.getElementById('full-results');
+    const newGameBtn = document.getElementById('new-game-btn');
+
+    // Always use 2 dice
+    diceCount = 2;
+
+    // Initialize saved players on page load
+    loadSavedPlayers();
+    
+    // Initialize quick add section on load
+    updateQuickAddSection();
+
+    // Add player
+    function addPlayer(name = null) {
+      const playerName = name || playerNameInput.value.trim();
+      if (playerName && players.length < 10 && !players.includes(playerName)) {
+        players.push(playerName);
+        addPlayerToSaved(playerName);
+        updatePlayersList();
+        if (!name) playerNameInput.value = '';
+        startGameBtn.disabled = players.length < 2;
+      }
+    }
+
+    // Quick add player from saved list
+    function quickAddPlayer(playerName) {
+      addPlayer(playerName);
+    }
+
+    addPlayerBtn.addEventListener('click', () => addPlayer());
+    playerNameInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') addPlayer();
+    });
+
+    // Update players list display
+    function updatePlayersList() {
+      playersList.innerHTML = players.map((player, index) => `
+        <div class="player-item">
+          <span>${player}</span>
+          <button onclick="removePlayer(${index})">×</button>
+        </div>
+      `).join('');
+    }
+
+    // Update quick add section
+    function updateQuickAddSection() {
+      if (savedPlayers.length === 0) {
+        quickAddSection.style.display = 'none';
+        return;
+      }
+
+      quickAddSection.style.display = 'block';
+      const availablePlayers = savedPlayers.filter(p => !players.includes(p));
+      
+      if (availablePlayers.length === 0) {
+        quickAddSection.style.display = 'none';
+        return;
+      }
+
+      quickAddButtons.innerHTML = availablePlayers.reverse().map(player => `
+        <button class="quick-add-btn" onclick="quickAddPlayer('${player.replace(/'/g, "\\'")}')">
+          <span class="player-name">${player}</span>
+          <span class="remove-btn" onclick="event.stopPropagation(); removeFromSaved('${player.replace(/'/g, "\\'")}')">×</span>
+        </button>
+      `).join('');
+    }
+
+    // Remove player
+    window.removePlayer = function(index) {
+      players.splice(index, 1);
+      updatePlayersList();
+      updateQuickAddSection();
+      startGameBtn.disabled = players.length < 2;
+    };
+
+    // Remove player from saved list
+    function removeFromSaved(playerName) {
+      savedPlayers = savedPlayers.filter(p => p !== playerName);
+      savePlayersToStorage();
+      updateQuickAddSection();
+    }
+
+    // Make functions available globally
+    window.quickAddPlayer = quickAddPlayer;
+    window.removeFromSaved = removeFromSaved;
+
+    // Start game
+    startGameBtn.addEventListener('click', () => {
+      scores = new Array(players.length).fill(0);
+      currentPlayerIndex = 0;
+      setupPhase.classList.remove('active');
+      rollingPhase.classList.add('active');
+      currentPlayerName.textContent = players[currentPlayerIndex];
+    });
+
+    // Roll dice
+    rollDiceBtn.addEventListener('click', () => {
+      rollDiceBtn.disabled = true;
+      die1.classList.add('rolling');
+      if (diceCount === 2) die2.classList.add('rolling');
+
+      setTimeout(() => {
+        const roll1 = Math.floor(Math.random() * 6) + 1;
+        const roll2 = diceCount === 2 ? Math.floor(Math.random() * 6) + 1 : 0;
+        const total = roll1 + roll2;
+
+        scores[currentPlayerIndex] = total;
+
+        // Update dice faces
+        die1.querySelector('.front').textContent = diceFaces[roll1 - 1];
+        if (diceCount === 2) {
+          die2.querySelector('.front').textContent = diceFaces[roll2 - 1];
+        }
+
+        die1.classList.remove('rolling');
+        die2.classList.remove('rolling');
+
+        // Set final rotation
+        die1.style.transform = `rotateX(${Math.random() * 20 - 10}deg) rotateY(${Math.random() * 20 - 10}deg)`;
+        if (diceCount === 2) {
+          die2.style.transform = `rotateX(${Math.random() * 20 - 10}deg) rotateY(${Math.random() * 20 - 10}deg)`;
+        }
+
+        currentScore.textContent = total;
+        rollDiceBtn.style.display = 'none';
+        nextPlayerBtn.style.display = 'block';
+      }, 1500);
+    });
+
+    // Next player
+    nextPlayerBtn.addEventListener('click', () => {
+      currentPlayerIndex++;
+      
+      if (currentPlayerIndex >= players.length) {
+        // Show results
+        showResults();
+      } else {
+        currentPlayerName.textContent = players[currentPlayerIndex];
+        currentScore.textContent = '--';
+        rollDiceBtn.style.display = 'block';
+        rollDiceBtn.disabled = false;
+        nextPlayerBtn.style.display = 'none';
+      }
+    });
+
+    // Show results
+    function showResults() {
+      rollingPhase.classList.remove('active');
+      resultsPhase.classList.add('active');
+
+      // Find winner
+      const maxScore = Math.max(...scores);
+      const winnerIndex = scores.indexOf(maxScore);
+
+      winnerName.textContent = players[winnerIndex];
+      winnerScore.textContent = `Score: ${maxScore}`;
+
+      // Create sorted results
+      const results = players.map((player, index) => ({
+        name: player,
+        score: scores[index]
+      })).sort((a, b) => b.score - a.score);
+
+      fullResults.innerHTML = results.map((result, index) => `
+        <div class="result-item ${index === 0 ? 'winner' : ''}">
+          <span class="result-rank">#${index + 1}</span>
+          <span class="result-name">${result.name}</span>
+          <span class="result-score">${result.score}</span>
+        </div>
+      `).join('');
+    }
+
+    // New game
+    newGameBtn.addEventListener('click', () => {
+      // Reset phase navigation
+      resultsPhase.classList.remove('active');
+      rollingPhase.classList.remove('active');
+      setupPhase.classList.add('active');
+      
+      // Reset game state
+      players = [];
+      scores = [];
+      currentPlayerIndex = 0;
+      
+      // Reset UI elements
+      updatePlayersList();
+      updateQuickAddSection();
+      startGameBtn.disabled = true;
+      
+      // Reset rolling phase UI
+      rollDiceBtn.style.display = 'block';
+      rollDiceBtn.disabled = false;
+      nextPlayerBtn.style.display = 'none';
+      currentScore.textContent = '--';
+      currentPlayerName.textContent = '---';
+      
+      // Reset dice display
+      die1.classList.remove('rolling');
+      die2.classList.remove('rolling');
+      die1.style.transform = '';
+      die2.style.transform = '';
+      die1.querySelector('.front').textContent = '⚀';
+      die2.querySelector('.front').textContent = '⚀';
+      
+      // Reset input field
+      playerNameInput.value = '';
+      playerNameInput.focus();
+      
+      // Reset results display
+      winnerName.textContent = '---';
+      winnerScore.textContent = 'Score: --';
+      fullResults.innerHTML = '';
+    });
+
+    // Space bar hotkey functionality
+    let spacebarEnabled = true;
+    
+    document.addEventListener('keydown', (e) => {
+      // Don't trigger if typing in input field
+      if (e.target.tagName === 'INPUT' && e.target.type === 'text') {
+        return;
+      }
+      
+      // Check for spacebar
+      if (e.code === 'Space' && spacebarEnabled) {
+        e.preventDefault(); // Prevent page scroll
+        
+        // Determine which phase we're in and trigger appropriate action
+        if (setupPhase.classList.contains('active')) {
+          // In setup phase
+          if (playerNameInput.value.trim() && players.length < 10) {
+            // If there's text in input, add player
+            addPlayer();
+          } else if (players.length >= 2) {
+            // If enough players, start game
+            startGameBtn.click();
+          }
+        } else if (rollingPhase.classList.contains('active')) {
+          // In rolling phase
+          if (rollDiceBtn.style.display !== 'none' && !rollDiceBtn.disabled) {
+            // Roll dice
+            rollDiceBtn.click();
+          } else if (nextPlayerBtn.style.display !== 'none') {
+            // Next player
+            nextPlayerBtn.click();
+          }
+        } else if (resultsPhase.classList.contains('active')) {
+          // In results phase - start new game
+          newGameBtn.click();
+        }
+      }
+      
+    });
+
+    // Disable spacebar during dice roll animation
+    const originalRollClick = rollDiceBtn.onclick;
+    rollDiceBtn.addEventListener('click', () => {
+      spacebarEnabled = false;
+      setTimeout(() => {
+        spacebarEnabled = true;
+      }, 1600); // Re-enable after animation
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,192 @@
+---
+const { currentPath = '' } = Astro.props;
+
+const navItems = [
+  { href: '/', label: 'Accueil' },
+  { href: '/blog', label: 'Journal' },
+  { href: '/projets', label: 'Projets' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') {
+    return currentPath === href;
+  }
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="top-bar">
+  <nav class="nav-container">
+    <a href="/" class="logo">
+      <img src="/renard.png" alt="Renard" class="logo-img" />
+      <span class="logo-text">renard<span class="logo-accent">.cool</span></span>
+    </a>
+    
+    <div class="nav-links">
+      {navItems.map(item => (
+        <a 
+          href={item.href} 
+          class={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<style>
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 107, 0, 0.3);
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+  }
+
+  .logo-text {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .logo-accent {
+    color: #ff6b00;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #ff6b00;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6b00, transparent);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .nav-link.active {
+    color: #ff6b00;
+  }
+
+  /* Mobile menu button (hidden by default) */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #ff6b00;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 1rem;
+    }
+
+    .logo-text {
+      font-size: 1.2rem;
+    }
+
+    .logo-img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .nav-links {
+      gap: 1rem;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo-text {
+      display: none;
+    }
+
+    .nav-links {
+      gap: 0.8rem;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      padding: 0.5rem 0.3rem;
+    }
+  }
+</style>

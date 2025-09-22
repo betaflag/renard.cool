@@ -1,393 +1,222 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/renard.png" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Projets | renard.cool</title>
-    <meta
-      name="description"
-      content="Projets et créations d'un renard digital"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="smoke-container">
-      <div class="smoke"></div>
-      <div class="smoke smoke-2"></div>
-      <div class="smoke smoke-3"></div>
+<BaseLayout title="Projets" description="Projets et créations d'un renard digital">
+  <div class="projects-container">
+    <h1 class="page-title">Projets<span class="accent">.</span></h1>
+    <p class="subtitle">Créations et expérimentations digitales</p>
+
+    <div class="projects-grid">
+      <article class="project-card featured">
+        <div class="project-icon">🌤️</div>
+        <h2 class="project-title">Météo Renard</h2>
+        <p class="project-description">
+          Une application météo élégante avec conseils rusés de Renard.
+        </p>
+        <div class="project-links">
+          <a href="/meteo" class="project-link primary">
+            Voir l'application →
+          </a>
+          <a href="/blog/meteo-app" class="project-link">Lire l'article</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-icon">🎲</div>
+        <h2 class="project-title">Premier Joueur</h2>
+        <p class="project-description">
+          Déterminez qui commence la partie avec style. Lancez les dés et que le hasard décide !
+        </p>
+        <div class="project-links">
+          <a href="/premier-joueur" class="project-link primary">
+            Lancer les dés →
+          </a>
+          <a href="/blog/premier-joueur" class="project-link">Lire l'article</a>
+        </div>
+      </article>
     </div>
+  </div>
 
-    <header>
-      <nav class="top-nav">
-        <a href="/" class="home-link">← Accueil</a>
-      </nav>
-    </header>
+  <style>
+    .projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+    }
 
-    <main>
-      <h1 class="page-title">Projets<span class="accent">.</span></h1>
-      <p class="subtitle">Créations et expérimentations digitales</p>
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 4rem;
+      letter-spacing: 0.05em;
+    }
 
-      <div class="projects-grid">
-        <article class="project-card featured">
-          <div class="project-icon">🌤️</div>
-          <h2 class="project-title">Météo Renard</h2>
-          <p class="project-description">
-            Une application météo élégante avec conseils rusés de Renard.
-          </p>
-          <div class="project-links">
-            <a href="/meteo" class="project-link primary"
-              >Voir l'application →</a
-            >
-            <a href="/blog/meteo-app" class="project-link">Lire l'article</a>
-          </div>
-        </article>
-      </div>
-    </main>
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    .project-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 107, 0, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff6b00, transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover::before {
+      transform: translateX(100%);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 107, 0, 0.3);
+      box-shadow: 0 10px 40px rgba(255, 107, 0, 0.15);
+    }
+
+    .project-card.featured {
+      background: rgba(255, 107, 0, 0.05);
+      border-color: rgba(255, 107, 0, 0.2);
+    }
+
+    .project-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.5));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
       }
-
-      body {
-        background: #0a0a0a;
-        color: #e8e8e8;
-        font-family: "Raleway", sans-serif;
-        min-height: 100vh;
-        overflow-x: hidden;
-        position: relative;
+      50% {
+        transform: translateY(-10px);
       }
+    }
 
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          135deg,
-          #0a0a0a 0%,
-          #1a1a2e 40%,
-          #16213e 80%,
-          #1a1a2e 100%
-        );
-        z-index: 0;
-      }
+    .project-title {
+      font-family: "Cinzel", serif;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
 
-      .smoke-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-        opacity: 0.4;
-      }
+    .project-description {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
 
-      .smoke {
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle at 50% 50%,
-          rgba(255, 107, 0, 0.03),
-          transparent 50%
-        );
-        animation: drift 20s infinite;
-      }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-      .smoke-2 {
-        animation-delay: -7s;
-        animation-duration: 25s;
-        background: radial-gradient(
-          circle at 30% 70%,
-          rgba(255, 140, 0, 0.02),
-          transparent 60%
-        );
-      }
+    .project-link {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.3);
+    }
 
-      .smoke-3 {
-        animation-delay: -14s;
-        animation-duration: 30s;
-        background: radial-gradient(
-          circle at 70% 30%,
-          rgba(255, 69, 0, 0.025),
-          transparent 55%
-        );
-      }
+    .project-link:hover {
+      background: rgba(255, 107, 0, 0.1);
+      border-color: #ff6b00;
+      color: #ff6b00;
+      transform: translateX(3px);
+    }
 
-      @keyframes drift {
-        0%,
-        100% {
-          transform: translate(-10%, -10%) rotate(0deg);
-        }
-        33% {
-          transform: translate(10%, -20%) rotate(120deg);
-        }
-        66% {
-          transform: translate(-20%, 10%) rotate(240deg);
-        }
-      }
+    .project-link.primary {
+      background: rgba(255, 107, 0, 0.15);
+      border-color: #ff6b00;
+      color: #ff6b00;
+    }
 
-      header {
-        position: relative;
-        z-index: 10;
-        padding: 2rem;
-      }
+    .project-link.primary:hover {
+      background: rgba(255, 107, 0, 0.25);
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+    }
 
-      .top-nav {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .home-link {
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: none;
-        font-size: 1.1rem;
-        transition: color 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .home-link:hover {
-        color: #ff6b00;
-      }
-
-      main {
-        position: relative;
-        z-index: 2;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem 4rem;
-      }
-
-      .page-title {
-        font-family: "Cinzel", serif;
-        font-size: clamp(2.5rem, 6vw, 4rem);
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 1rem;
-        text-shadow:
-          0 0 20px rgba(255, 107, 0, 0.5),
-          0 0 40px rgba(255, 69, 0, 0.3);
-        animation: flicker 3s ease-in-out infinite;
-      }
-
-      .accent {
-        color: #ff6b00;
+    @media (max-width: 768px) {
+      .projects-container {
+        padding: 1rem 1rem 3rem;
       }
 
       .subtitle {
-        text-align: center;
-        font-size: 1.2rem;
-        color: rgba(255, 255, 255, 0.7);
-        margin-bottom: 4rem;
-        letter-spacing: 0.05em;
-      }
-
-      @keyframes flicker {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.95;
-        }
+        font-size: 1rem;
+        margin-bottom: 3rem;
       }
 
       .projects-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin-bottom: 4rem;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
+        gap: 1.5rem;
       }
 
       .project-card {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 107, 0, 0.1);
-        border-radius: 16px;
-        padding: 2rem;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
+        padding: 1.5rem;
       }
-
-      .project-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #ff6b00, transparent);
-        transform: translateX(-100%);
-        transition: transform 0.5s ease;
-      }
-
-      .project-card:hover::before {
-        transform: translateX(100%);
-      }
-
-      .project-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255, 107, 0, 0.3);
-        box-shadow: 0 10px 40px rgba(255, 107, 0, 0.15);
-      }
-
-      .project-card.featured {
-        background: rgba(255, 107, 0, 0.05);
-        border-color: rgba(255, 107, 0, 0.2);
-      }
-
 
       .project-icon {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-        filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.5));
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
       }
 
       .project-title {
-        font-family: "Cinzel", serif;
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-        color: #fff;
+        font-size: 1.5rem;
       }
 
       .project-description {
-        color: rgba(255, 255, 255, 0.8);
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        font-size: 1.05rem;
-      }
-
-
-      .project-links {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
+        font-size: 1rem;
       }
 
       .project-link {
-        color: rgba(255, 255, 255, 0.8);
-        text-decoration: none;
-        padding: 0.6rem 1.5rem;
-        border: 1px solid rgba(255, 107, 0, 0.3);
-        border-radius: 25px;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.3);
+        font-size: 0.95rem;
+        padding: 0.5rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-card {
+        padding: 1.25rem;
       }
 
-      .project-link:hover {
-        background: rgba(255, 107, 0, 0.1);
-        border-color: #ff6b00;
-        color: #ff6b00;
-        transform: translateX(3px);
+      .project-links {
+        flex-direction: column;
       }
 
-      .project-link.primary {
-        background: rgba(255, 107, 0, 0.15);
-        border-color: #ff6b00;
-        color: #ff6b00;
+      .project-link {
+        text-align: center;
+        justify-content: center;
       }
-
-      .project-link.primary:hover {
-        background: rgba(255, 107, 0, 0.25);
-        box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
-      }
-
-
-      @media (max-width: 768px) {
-        main {
-          padding: 0 1rem 3rem;
-        }
-
-        .page-title {
-          font-size: 2.5rem;
-          margin-bottom: 0.75rem;
-        }
-
-        .subtitle {
-          font-size: 1rem;
-          margin-bottom: 3rem;
-        }
-
-        .projects-grid {
-          gap: 1.5rem;
-        }
-
-        .project-card {
-          padding: 1.5rem;
-        }
-
-        .project-icon {
-          font-size: 2.5rem;
-          margin-bottom: 1rem;
-        }
-
-        .project-title {
-          font-size: 1.5rem;
-        }
-
-        .project-description {
-          font-size: 1rem;
-        }
-
-        .project-link {
-          font-size: 0.95rem;
-          padding: 0.5rem 1.2rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .page-title {
-          font-size: 2rem;
-        }
-
-        .project-card {
-          padding: 1.25rem;
-        }
-
-        .project-links {
-          flex-direction: column;
-        }
-
-        .project-link {
-          text-align: center;
-          justify-content: center;
-        }
-      }
-    </style>
-  </body>
-</html>
+    }
+  </style>
+</BaseLayout>
