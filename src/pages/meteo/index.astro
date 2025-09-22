@@ -5,6 +5,49 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <BaseLayout title="Météo Renard" description="Application météo avec conseils rusés de Renard">
   <div class="meteo-wrapper">
     <div class="container">
+      <!-- 5-Day Forecast Banner -->
+      <div class="forecast-banner" id="forecast-section">
+        <div class="forecast-items" id="forecast-grid">
+          <!-- Sample forecast items for testing -->
+          <!-- Temporary forecast items with correct days -->
+          <div class="forecast-day-item" style="--item-index: 0">
+            <div class="day-label">Auj.</div>
+            <div class="day-icon">☀️</div>
+            <div class="day-temp">
+              <span class="temp-high">22°</span><span class="temp-separator">/</span><span class="temp-low">8°</span>
+            </div>
+          </div>
+          <div class="forecast-day-item" style="--item-index: 1">
+            <div class="day-label">Dem.</div>
+            <div class="day-icon">⛅</div>
+            <div class="day-temp">
+              <span class="temp-high">18°</span><span class="temp-separator">/</span><span class="temp-low">6°</span>
+            </div>
+          </div>
+          <div class="forecast-day-item" style="--item-index: 2">
+            <div class="day-label">Lun.</div>
+            <div class="day-icon">🌧️</div>
+            <div class="day-temp">
+              <span class="temp-high">15°</span><span class="temp-separator">/</span><span class="temp-low">4°</span>
+            </div>
+          </div>
+          <div class="forecast-day-item" style="--item-index: 3">
+            <div class="day-label">Mar.</div>
+            <div class="day-icon">☁️</div>
+            <div class="day-temp">
+              <span class="temp-high">12°</span><span class="temp-separator">/</span><span class="temp-low">2°</span>
+            </div>
+          </div>
+          <div class="forecast-day-item" style="--item-index: 4">
+            <div class="day-label">Mer.</div>
+            <div class="day-icon">🌤️</div>
+            <div class="day-temp">
+              <span class="temp-high">16°</span><span class="temp-separator">/</span><span class="temp-low">5°</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Main Content with original structure -->
       <main class="main" id="app-content">
         <div class="content" id="weather-section">
@@ -20,27 +63,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </main>
 
-      <!-- Header Controls (floating) -->
+      <!-- Language Control (floating) -->
       <div class="floating-controls">
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Theme">
-          <i data-lucide="sun" class="theme-icon-light" width="20" height="20"></i>
-          <i data-lucide="moon" class="theme-icon-dark" width="20" height="20"></i>
-        </button>
         <button class="lang-btn" onclick="toggleLanguage()" aria-label="Language">
           <span id="lang-indicator">FR</span>
         </button>
       </div>
     </div>
 
-    <!-- Fox Tips Section -->
-    <div class="fox-tips-wrapper">
-      <div class="fox-tips">
-        <div class="fox-avatar">🦊</div>
-        <div class="fox-message" id="fox-message">
-          <p>Laissez Renard consulter les nuages pour vous...</p>
-        </div>
-      </div>
-    </div>
   </div>
 
   <style>
@@ -49,17 +79,176 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       margin: 0 auto;
       padding: 2rem 0;
       position: relative;
+      width: 100%;
     }
 
     /* Override some base styles to work with meteo CSS */
     .meteo-wrapper .container {
       background: transparent;
       position: relative;
+      width: 100%;
+      max-width: none;
     }
 
     /* Hide clothing recommendations - they take too much space */
     .clothing-section {
       display: none !important;
+    }
+
+    /* 5-Day Forecast Banner */
+    .forecast-banner {
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(255, 107, 0, 0.05) 50%,
+        rgba(0, 0, 0, 0.3) 100%
+      );
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin: 0 1rem 2rem;
+      backdrop-filter: blur(15px) saturate(1.2);
+      width: calc(100% - 2rem);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 107, 0, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .forecast-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 107, 0, 0.5),
+        transparent
+      );
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    .forecast-banner {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .forecast-day-item {
+      animation: fadeInUp 0.6s ease-out;
+      animation-delay: calc(var(--item-index, 0) * 0.1s);
+    }
+
+    .forecast-items {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .forecast-day-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0.8rem 0.5rem;
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .forecast-day-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -0.75rem;
+      top: 20%;
+      bottom: 20%;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255, 107, 0, 0.3),
+        transparent
+      );
+    }
+
+    .forecast-day-item:hover {
+      background: rgba(255, 107, 0, 0.12);
+      border-color: rgba(255, 107, 0, 0.3);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 
+        0 8px 25px rgba(255, 107, 0, 0.15),
+        0 0 0 1px rgba(255, 107, 0, 0.2);
+    }
+
+    .day-label {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .day-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 0 12px rgba(255, 107, 0, 0.4));
+      transition: all 0.3s ease;
+    }
+
+    .forecast-day-item:hover .day-icon {
+      transform: scale(1.1) translateY(-2px);
+      filter: drop-shadow(0 0 16px rgba(255, 107, 0, 0.6));
+    }
+
+    .day-temp {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .day-temp .temp-high {
+      color: #ffffff;
+    }
+
+    .day-temp .temp-separator {
+      color: rgba(255, 255, 255, 0.5);
+      margin: 0 2px;
+    }
+
+    .day-temp .temp-low {
+      color: rgba(255, 255, 255, 0.7);
     }
 
     /* Adjust weather display for better integration */
@@ -78,125 +267,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       position: fixed;
       top: 100px;
       right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
       z-index: 100;
     }
 
-    .floating-controls button {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.95);
-      border: 1px solid var(--border, rgba(255, 107, 0, 0.3));
+    .lang-btn {
+      width: 60px;
+      height: 40px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 107, 0, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .floating-controls button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
-    }
-
-    .theme-btn .theme-icon-dark {
-      display: none;
-    }
-
-    body.dark-theme .theme-btn .theme-icon-light {
-      display: none;
-    }
-
-    body.dark-theme .theme-btn .theme-icon-dark {
-      display: block;
-    }
-
-    .lang-btn {
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
       font-family: 'Cinzel', serif;
       font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--primary, #ff6b00);
+      font-size: 0.85rem;
+      color: #ffffff;
     }
 
-    /* Fox Tips Section */
-    .fox-tips-wrapper {
-      padding: 0 1rem;
-      margin-top: 2rem;
+    .lang-btn:hover {
+      background: rgba(255, 107, 0, 0.2);
+      border-color: #ff6b00;
+      color: #ff6b00;
+      box-shadow: 0 4px 25px rgba(255, 107, 0, 0.4);
+      transform: translateY(-2px);
     }
 
-    .fox-tips {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      padding: 1.5rem;
-      background: rgba(255, 107, 0, 0.05);
-      border: 1px solid rgba(255, 107, 0, 0.2);
-      border-radius: 15px;
-      animation: fadeIn 0.5s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fox-avatar {
-      font-size: 3rem;
-      filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.5));
-      animation: bounce 4s ease-in-out infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      25% {
-        transform: translateY(-5px);
-      }
-      75% {
-        transform: translateY(5px);
-      }
-    }
-
-    .fox-message {
-      flex: 1;
-      color: var(--text-primary, rgba(255, 255, 255, 0.9));
-      font-size: 1.1rem;
-      line-height: 1.6;
-      font-style: italic;
-    }
-
-    /* Dark theme adjustments */
-    body.dark-theme .fox-tips {
-      background: rgba(255, 107, 0, 0.05);
-      border-color: rgba(255, 107, 0, 0.2);
-    }
-
-    body.dark-theme .fox-message {
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    /* Light theme adjustments */
-    body.light-theme .fox-tips {
-      background: rgba(255, 255, 255, 0.95);
-      border-color: var(--border);
-    }
-
-    body.light-theme .fox-message {
-      color: var(--text-primary);
-    }
 
     /* Mobile Responsive */
     @media (max-width: 768px) {
@@ -205,29 +305,113 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         top: auto;
         bottom: 20px;
         right: 20px;
-        flex-direction: row;
-        gap: 0.8rem;
       }
 
-      .fox-tips {
-        flex-direction: column;
-        text-align: center;
+      .forecast-banner {
+        margin: 0 1rem 2rem;
+        padding: 1.2rem 1.5rem;
+        width: calc(100% - 2rem);
+        border-radius: 14px;
       }
 
-      .fox-avatar {
-        font-size: 2.5rem;
+      .forecast-items {
+        gap: 1rem;
+      }
+
+      .forecast-day-item {
+        padding: 0.6rem 0.4rem;
+      }
+
+      .forecast-day-item:not(:last-child)::after {
+        right: -0.5rem;
+      }
+
+      .day-label {
+        font-size: 0.7rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .day-icon {
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .day-temp {
+        font-size: 0.75rem;
       }
     }
 
     @media (max-width: 480px) {
       .floating-controls {
-        bottom: 10px;
-        right: 10px;
+        bottom: 15px;
+        right: 15px;
       }
 
-      .floating-controls button {
-        width: 40px;
-        height: 40px;
+      .lang-btn {
+        width: 55px;
+        height: 35px;
+        font-size: 0.8rem;
+      }
+
+      .forecast-banner {
+        margin: 0 0.75rem 1.5rem;
+        padding: 1rem 1.2rem;
+        width: calc(100% - 1.5rem);
+        border-radius: 12px;
+      }
+
+      .forecast-items {
+        gap: 0.6rem;
+      }
+
+      .forecast-day-item {
+        padding: 0.5rem 0.3rem;
+      }
+
+      .forecast-day-item:not(:last-child)::after {
+        right: -0.3rem;
+      }
+
+      .day-label {
+        font-size: 0.65rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .day-icon {
+        font-size: 1.4rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .day-temp {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .forecast-banner {
+        margin: 0 0.5rem 1.25rem;
+        padding: 0.8rem 1rem;
+        width: calc(100% - 1rem);
+      }
+
+      .forecast-items {
+        gap: 0.4rem;
+      }
+
+      .forecast-day-item {
+        padding: 0.4rem 0.2rem;
+      }
+
+      .day-label {
+        font-size: 0.6rem;
+      }
+
+      .day-icon {
+        font-size: 1.2rem;
+      }
+
+      .day-temp {
+        font-size: 0.65rem;
       }
     }
   </style>
@@ -269,91 +453,179 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       window.refreshIcons();
     });
   </script>
-  
-  <!-- Add fox message updates -->
+
+  <!-- 5-Day Forecast Functionality -->
   <script is:inline>
-    // Fox messages based on weather
-    const foxMessages = {
-      clear: {
-        fr: "Parfait pour une chasse ! Le soleil brille comme mon pelage roux. 🌞",
-        en: "Perfect for hunting! The sun shines like my red fur. 🌞"
-      },
-      clouds: {
-        fr: "Les nuages jouent à cache-cache avec le soleil. Restez malins ! ☁️",
-        en: "The clouds are playing hide and seek with the sun. Stay clever! ☁️"
-      },
-      rain: {
-        fr: "La pluie arrive ! Même les renards rusés préfèrent rester au sec. 🌧️",
-        en: "Rain is coming! Even clever foxes prefer to stay dry. 🌧️"
-      },
-      snow: {
-        fr: "La neige ! Mes pattes laissent des traces mystérieuses... ❄️",
-        en: "Snow! My paws leave mysterious tracks... ❄️"
-      },
-      storm: {
-        fr: "Orage en approche ! Renard se cache dans son terrier. ⛈️",
-        en: "Storm approaching! Fox hides in his den. ⛈️"
-      },
-      default: {
-        fr: "Je surveille le ciel pour vous, faites-moi confiance ! 🦊",
-        en: "I'm watching the sky for you, trust me! 🦊"
-      }
+    // Weather icon mapping
+    const weatherIcons = {
+      'clear sky': '☀️',
+      'few clouds': '🌤️',
+      'scattered clouds': '⛅',
+      'broken clouds': '☁️',
+      'overcast clouds': '☁️',
+      'shower rain': '🌦️',
+      'rain': '🌧️',
+      'thunderstorm': '⛈️',
+      'snow': '❄️',
+      'mist': '🌫️',
+      'fog': '🌫️'
     };
 
-    // Update fox message based on weather
-    window.updateFoxMessage = function(weatherType, lang = 'fr') {
-      const foxMessageEl = document.getElementById('fox-message');
-      if (!foxMessageEl) return;
-
-      let messageKey = 'default';
-      if (weatherType) {
-        const type = weatherType.toLowerCase();
-        if (type.includes('clear') || type.includes('sun')) messageKey = 'clear';
-        else if (type.includes('cloud')) messageKey = 'clouds';
-        else if (type.includes('rain')) messageKey = 'rain';
-        else if (type.includes('snow')) messageKey = 'snow';
-        else if (type.includes('storm') || type.includes('thunder')) messageKey = 'storm';
+    // Get weather icon by description
+    function getWeatherIcon(description) {
+      const desc = description.toLowerCase();
+      for (const [key, icon] of Object.entries(weatherIcons)) {
+        if (desc.includes(key.toLowerCase())) {
+          return icon;
+        }
       }
+      return '🌤️'; // Default icon
+    }
 
-      const message = foxMessages[messageKey][lang] || foxMessages.default[lang];
-      foxMessageEl.innerHTML = `<p>${message}</p>`;
-    };
-
-    // Wait for weather data and update fox message
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize lucide icons
-      if (window.lucide) {
-        lucide.createIcons();
-      }
+    // Format day name for banner
+    function formatDay(dateStr, lang = 'fr') {
+      const date = new Date(dateStr);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
       
-      // Override the original weather display to update fox message
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1);
+
+      const inputDate = new Date(date);
+      inputDate.setHours(0, 0, 0, 0);
+
+      if (inputDate.getTime() === today.getTime()) {
+        return lang === 'fr' ? 'Auj.' : 'Today';
+      } else if (inputDate.getTime() === tomorrow.getTime()) {
+        return lang === 'fr' ? 'Dem.' : 'Tom.';
+      } else {
+        const options = { weekday: 'short' };
+        const dayName = inputDate.toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', options);
+        return lang === 'fr' ? dayName.charAt(0).toUpperCase() + dayName.slice(1, 3) + '.' : dayName.substring(0, 3);
+      }
+    }
+
+    // Display 5-day forecast
+    function displayForecast(forecastData, currentLang = 'fr') {
+      const forecastSection = document.getElementById('forecast-section');
+      const forecastGrid = document.getElementById('forecast-grid');
+      
+      if (!forecastData || !forecastData.list) return;
+
+      // Filter to get one forecast per day (around noon)
+      const dailyForecasts = [];
+      const processedDates = new Set();
+
+      forecastData.list.forEach(item => {
+        const date = new Date(item.dt * 1000);
+        const dateStr = date.toDateString();
+        
+        if (!processedDates.has(dateStr) && dailyForecasts.length < 5) {
+          // Prefer forecasts around noon (12:00)
+          const hour = date.getHours();
+          if (hour >= 11 && hour <= 13) {
+            dailyForecasts.push(item);
+            processedDates.add(dateStr);
+          } else if (!processedDates.has(dateStr) && dailyForecasts.length < 5) {
+            dailyForecasts.push(item);
+            processedDates.add(dateStr);
+          }
+        }
+      });
+
+      // Clear existing forecast
+      forecastGrid.innerHTML = '';
+
+      // Create forecast items for banner
+      dailyForecasts.slice(0, 5).forEach((item, index) => {
+        const date = new Date(item.dt * 1000);
+        const dayName = formatDay(date.toISOString().split('T')[0], currentLang);
+        const icon = getWeatherIcon(item.weather[0].description);
+        const highTemp = Math.round(item.main.temp_max);
+        const lowTemp = Math.round(item.main.temp_min);
+
+        const forecastItem = document.createElement('div');
+        forecastItem.className = 'forecast-day-item';
+        forecastItem.style.setProperty('--item-index', index);
+        forecastItem.innerHTML = `
+          <div class="day-label">${dayName}</div>
+          <div class="day-icon">${icon}</div>
+          <div class="day-temp">
+            <span class="temp-high">${highTemp}°</span><span class="temp-separator">/</span><span class="temp-low">${lowTemp}°</span>
+          </div>
+        `;
+
+        forecastGrid.appendChild(forecastItem);
+      });
+
+      // Show forecast section
+      forecastSection.style.display = 'block';
+    }
+
+    // Fetch 5-day forecast
+    async function fetchForecast(lat, lon, apiKey) {
+      try {
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+        );
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error fetching forecast:', error);
+        return null;
+      }
+    }
+
+    // Override the original weather display to also show forecast
+    document.addEventListener('DOMContentLoaded', () => {
       const originalDisplayWeather = window.displayWeather;
       if (originalDisplayWeather) {
-        window.displayWeather = function(data) {
+        window.displayWeather = async function(data) {
           const result = originalDisplayWeather.call(this, data);
-          const weatherType = data.weather?.[0]?.main;
-          const lang = document.getElementById('lang-indicator')?.textContent === 'EN' ? 'en' : 'fr';
-          updateFoxMessage(weatherType, lang);
-          // Re-initialize icons after content update
-          setTimeout(() => {
-            if (window.lucide) lucide.createIcons();
-          }, 100);
+          
+          // Get current language
+          const langIndicator = document.getElementById('lang-indicator');
+          const currentLang = langIndicator?.textContent === 'EN' ? 'en' : 'fr';
+          
+          // Fetch and display forecast if we have coordinates
+          if (data.coord && window.API_KEY) {
+            const forecastData = await fetchForecast(data.coord.lat, data.coord.lon, window.API_KEY);
+            if (forecastData) {
+              displayForecast(forecastData, currentLang);
+            }
+          }
+          
           return result;
         };
       }
 
-      // Update fox message on language change
+      // Update forecast language on language toggle
       const originalToggleLanguage = window.toggleLanguage;
       if (originalToggleLanguage) {
         window.toggleLanguage = function() {
           const result = originalToggleLanguage.call(this);
-          const lang = document.getElementById('lang-indicator')?.textContent === 'EN' ? 'en' : 'fr';
-          // Get current weather type from displayed weather
-          const weatherDesc = document.querySelector('.description')?.textContent;
-          updateFoxMessage(weatherDesc, lang);
+          
+          // Re-display forecast with new language
+          const forecastSection = document.getElementById('forecast-section');
+          if (forecastSection.style.display !== 'none') {
+            const langIndicator = document.getElementById('lang-indicator');
+            const currentLang = langIndicator?.textContent === 'EN' ? 'en' : 'fr';
+            
+            // Update day labels if needed (simplified for now)
+            const dayLabels = document.querySelectorAll('.day-label');
+            dayLabels.forEach((label, index) => {
+              if (index === 0) {
+                label.textContent = currentLang === 'fr' ? 'Auj.' : 'Today';
+              } else if (index === 1) {
+                label.textContent = currentLang === 'fr' ? 'Dem.' : 'Tom.';
+              }
+            });
+          }
+          
           return result;
         };
       }
     });
   </script>
+  
 </BaseLayout>
