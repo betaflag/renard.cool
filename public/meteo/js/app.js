@@ -487,28 +487,6 @@ document.addEventListener("DOMContentLoaded", () => {
   lucide.createIcons();
   loadWeatherData();
   
-  // Pull-to-refresh for mobile
-  const content = document.getElementById('app-content');
-  if (content) {
-    let startY = 0;
-    
-    content.addEventListener('touchstart', (e) => {
-      if (content.scrollTop === 0) startY = e.touches[0].pageY;
-    });
-    
-    content.addEventListener('touchmove', (e) => {
-      if (content.scrollTop === 0 && startY > 0) {
-        const pullDistance = e.touches[0].pageY - startY;
-        if (pullDistance > 80) {
-          content.addEventListener('touchend', () => {
-            loadWeatherData();
-            if (navigator.vibrate) navigator.vibrate(20);
-          }, { once: true });
-        }
-      }
-    });
-  }
-  
   // Hidden console testing function
   window.testWeather = function(options) {
     // Handle preset scenarios
