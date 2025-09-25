@@ -1,0 +1,474 @@
+---
+import { getCollection } from 'astro:content';
+
+const recipes = (await getCollection('cuisine'))
+  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+
+const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories))].sort();
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/renard.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Cuisine de Renard | Recettes mystérieuses</title>
+    <meta name="description" content="Découvrez les recettes secrètes du renard cuisinier" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="steam-container">
+      <div class="steam"></div>
+      <div class="steam steam-2"></div>
+    </div>
+
+    <header>
+      <nav class="top-nav">
+        <a href="/" class="home-link">← Accueil</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="header-section">
+        <h1 class="page-title">Cuisine<span class="accent"> de Renard</span></h1>
+        <p class="subtitle">Recettes mystérieuses mijotées avec passion</p>
+      </div>
+      
+      <div class="categories">
+        <button class="category-filter active" data-category="all">Toutes les recettes</button>
+        {categories.map(category => (
+          <button class="category-filter" data-category={category}>
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <div class="recipes-grid">
+        {recipes.map(recipe => {
+          const totalTime = recipe.data.time.prep + recipe.data.time.cook + recipe.data.time.wait;
+          const hours = Math.floor(totalTime / 60);
+          const minutes = totalTime % 60;
+          const timeDisplay = hours > 0 ? `${hours}h${minutes > 0 ? ` ${minutes}min` : ''}` : `${minutes}min`;
+          
+          return (
+            <article class="recipe-card" data-categories={recipe.data.categories.join(',')}>
+              <a href={`/cuisine/${recipe.id}/`}>
+                {recipe.data.heroImage && (
+                  <div class="recipe-image">
+                    <img src={recipe.data.heroImage} alt={recipe.data.name} />
+                  </div>
+                )}
+                <div class="recipe-content">
+                  <div class="recipe-header">
+                    <h2 class="recipe-title">{recipe.data.name}</h2>
+                    <div class="recipe-badges">
+                      {recipe.data.freezable && (
+                        <span class="badge freezable" title="Peut être congelé">❄️</span>
+                      )}
+                      <span class="badge difficulty" data-level={recipe.data.difficulty}>
+                        {recipe.data.difficulty}
+                      </span>
+                    </div>
+                  </div>
+                  <p class="recipe-description">{recipe.data.description}</p>
+                  <div class="recipe-info">
+                    <div class="info-item">
+                      <span class="info-icon">⏱️</span>
+                      <span class="info-text">{timeDisplay}</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-icon">🍽️</span>
+                      <span class="info-text">{recipe.data.servings} portions</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-icon">🔥</span>
+                      <span class="info-text">{recipe.data.cooking_method}</span>
+                    </div>
+                  </div>
+                  <div class="recipe-categories">
+                    {recipe.data.categories.map(category => (
+                      <span class="category-badge">{category}</span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            </article>
+          );
+        })}
+      </div>
+    </main>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0f0d0a;
+        color: #f4f1ea;
+        font-family: 'Raleway', sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          #0f0d0a 0%,
+          #1f1611 25%,
+          #2a1f17 50%,
+          #1f1611 75%,
+          #0f0d0a 100%
+        );
+        z-index: 0;
+      }
+
+      .steam-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.2;
+      }
+
+      .steam {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 50% 50%, rgba(255, 140, 50, 0.05), transparent 50%);
+        animation: rise 15s infinite ease-in-out;
+      }
+
+      .steam-2 {
+        animation-delay: -7.5s;
+        animation-duration: 20s;
+        background: radial-gradient(circle at 30% 70%, rgba(255, 180, 100, 0.04), transparent 60%);
+      }
+
+      @keyframes rise {
+        0%, 100% {
+          transform: translateY(100px) scale(1);
+          opacity: 0;
+        }
+        20% {
+          opacity: 0.2;
+        }
+        50% {
+          transform: translateY(-50px) scale(1.1);
+          opacity: 0.15;
+        }
+        80% {
+          opacity: 0.05;
+        }
+      }
+
+      header {
+        position: relative;
+        z-index: 10;
+        padding: 2rem;
+      }
+
+      .top-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .home-link {
+        color: #ff8c42;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background: rgba(255, 140, 66, 0.1);
+      }
+
+      .home-link:hover {
+        background: rgba(255, 140, 66, 0.2);
+        transform: translateX(-5px);
+        color: #ffa366;
+      }
+
+      main {
+        position: relative;
+        z-index: 10;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .header-section {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .page-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        color: #f4f1ea;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .accent {
+        color: #ff8c42;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: rgba(244, 241, 234, 0.8);
+        font-weight: 300;
+        font-style: italic;
+      }
+
+      .categories {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .category-filter {
+        background: rgba(255, 140, 66, 0.1);
+        border: 1px solid rgba(255, 140, 66, 0.3);
+        color: #f4f1ea;
+        padding: 0.75rem 1.5rem;
+        border-radius: 2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 400;
+      }
+
+      .category-filter:hover {
+        background: rgba(255, 140, 66, 0.2);
+        border-color: rgba(255, 140, 66, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .category-filter.active {
+        background: #ff8c42;
+        border-color: #ff8c42;
+        color: #0f0d0a;
+        font-weight: 600;
+      }
+
+      .recipes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .recipe-card {
+        background: rgba(30, 20, 15, 0.8);
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 140, 66, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      .recipe-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(255, 140, 66, 0.2);
+        border-color: rgba(255, 140, 66, 0.4);
+      }
+
+      .recipe-card[data-hidden="true"] {
+        display: none;
+      }
+
+      .recipe-card a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .recipe-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .recipe-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .recipe-card:hover .recipe-image img {
+        transform: scale(1.1);
+      }
+
+      .recipe-content {
+        padding: 1.5rem;
+      }
+
+      .recipe-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .recipe-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        color: #ffa366;
+        font-weight: 700;
+        flex: 1;
+      }
+
+      .recipe-badges {
+        display: flex;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+
+      .badge {
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      .badge.freezable {
+        background: rgba(100, 180, 255, 0.2);
+        border: 1px solid rgba(100, 180, 255, 0.4);
+      }
+
+      .badge.difficulty {
+        background: rgba(255, 140, 66, 0.1);
+        border: 1px solid rgba(255, 140, 66, 0.3);
+        text-transform: capitalize;
+      }
+
+      .badge.difficulty[data-level="facile"] {
+        background: rgba(100, 200, 100, 0.2);
+        border-color: rgba(100, 200, 100, 0.4);
+      }
+
+      .badge.difficulty[data-level="difficile"] {
+        background: rgba(255, 100, 100, 0.2);
+        border-color: rgba(255, 100, 100, 0.4);
+      }
+
+      .recipe-description {
+        color: rgba(244, 241, 234, 0.9);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .recipe-info {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255, 140, 66, 0.2);
+        border-bottom: 1px solid rgba(255, 140, 66, 0.2);
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .info-icon {
+        font-size: 1.2rem;
+      }
+
+      .info-text {
+        color: rgba(244, 241, 234, 0.8);
+        font-size: 0.9rem;
+      }
+
+      .recipe-categories {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+
+      .category-badge {
+        background: rgba(255, 140, 66, 0.1);
+        color: #ffa366;
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        font-size: 0.85rem;
+        border: 1px solid rgba(255, 140, 66, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .recipes-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .recipe-info {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .categories {
+          padding: 0 1rem;
+        }
+      }
+    </style>
+
+    <script>
+      const filters = document.querySelectorAll('.category-filter');
+      const recipes = document.querySelectorAll('.recipe-card');
+
+      filters.forEach(filter => {
+        filter.addEventListener('click', () => {
+          filters.forEach(f => f.classList.remove('active'));
+          filter.classList.add('active');
+
+          const category = filter.dataset.category;
+
+          recipes.forEach(recipe => {
+            if (category === 'all') {
+              recipe.style.display = 'block';
+            } else {
+              const recipeCategories = recipe.dataset.categories?.split(',') || [];
+              if (recipeCategories.includes(category)) {
+                recipe.style.display = 'block';
+              } else {
+                recipe.style.display = 'none';
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -14,4 +14,27 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+const cuisine = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    servings: z.number(),
+    freezable: z.boolean().default(false),
+    time: z.object({
+      prep: z.number(),
+      cook: z.number(),
+      wait: z.number().default(0),
+      soak: z.number().default(0),
+    }),
+    cooking_method: z.string(),
+    ingredients: z.array(z.string()),
+    steps: z.array(z.string()),
+    categories: z.array(z.string()).default(['plat principal']),
+    difficulty: z.enum(['facile', 'moyen', 'difficile']).default('moyen'),
+    heroImage: z.string().optional(),
+    pubDate: z.coerce.date().default(() => new Date()),
+  }),
+});
+
+export const collections = { blog, cuisine };

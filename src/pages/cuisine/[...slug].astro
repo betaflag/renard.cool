@@ -1,0 +1,877 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const recipes = await getCollection("cuisine");
+  return recipes.map((recipe) => ({
+    params: { slug: recipe.id },
+    props: { recipe },
+  }));
+}
+
+const { recipe } = Astro.props;
+const data = recipe.data;
+
+const cookTime = data.time.cook;
+const prepTime = data.time.prep;
+
+function formatTime(minutes: number) {
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  if (hours > 0 && mins > 0) {
+    return `${hours} ${hours > 1 ? "heures" : "heure"} et ${mins} minutes`;
+  } else if (hours > 0) {
+    return `${hours} ${hours > 1 ? "heures" : "heure"}`;
+  } else {
+    return `${mins} minutes`;
+  }
+}
+
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/renard.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{data.name} | Cuisine de Renard</title>
+    <meta name="description" content={data.description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="grain"></div>
+
+    <nav class="minimal-nav" id="nav">
+      <a href="/cuisine" class="nav-back">← Retour</a>
+    </nav>
+
+    <article class="recipe-article">
+      <header class="hero-section">
+        <div class="title-wrapper">
+          <h1 class="recipe-name">
+            <span class="title-line"
+              >{
+                data.name
+                  .split(" ")
+                  .slice(0, Math.ceil(data.name.split(" ").length / 2))
+                  .join(" ")
+              }</span
+            >
+            <span class="title-line accent"
+              >{
+                data.name
+                  .split(" ")
+                  .slice(Math.ceil(data.name.split(" ").length / 2))
+                  .join(" ")
+              }</span
+            >
+          </h1>
+        </div>
+
+        <div class="recipe-intro">
+          <p>{data.description}</p>
+        </div>
+
+        <div class="recipe-essence">
+          <p>
+            Une recette {data.difficulty} pour <em>{data.servings} convives</em>
+            qui demande
+            {
+              prepTime > 0 && (
+                <span>
+                  <strong>{formatTime(prepTime)}</strong> de préparation et{" "}
+                </span>
+              )
+            }
+            <strong>{formatTime(cookTime)}</strong> de cuisson {
+              data.cooking_method.toLowerCase()
+            }.
+            {
+              data.time.soak > 0 && (
+                <span>
+                  {" "}
+                  Les haricots doivent tremper{" "}
+                  <strong>{formatTime(data.time.soak)}</strong> à l'avance.
+                </span>
+              )
+            }
+            {
+              data.freezable && (
+                <span class="freezable-note">Se congèle parfaitement.</span>
+              )
+            }
+          </p>
+        </div>
+      </header>
+
+      <section class="content-flow">
+        <div class="ingredients-prose">
+          <h2 class="section-heading">Les provisions</h2>
+          <div class="ingredient-story">
+            <p class="ingredient-intro">
+              Une symphonie d'ingrédients simples mais essentiels, chacun jouant sa partition 
+              dans cette recette ancestrale. La qualité fait toute la différence.
+            </p>
+            <div class="ingredients-grid">
+              {
+                data.ingredients.map((ingredient) => {
+                  const [main, note] = ingredient.split(' — ');
+                  return (
+                    <div class="ingredient-line">
+                      <span class="ingredient-bullet">—</span>
+                      <div class="ingredient-content">
+                        <span class="ingredient-main">{main}</span>
+                        {note && <span class="ingredient-note">{note}</span>}
+                      </div>
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="preparation-narrative">
+          <h2 class="section-heading">La méthode</h2>
+
+          {
+            data.steps.map((step, index) => (
+              <div class="step-prose">
+                <span class="step-number-inline">{index + 1}.</span>
+                <p class="step-text">{step}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="science-section">
+          <h2 class="section-heading">La science du plat</h2>
+          
+          <div class="science-content">
+            <p class="science-intro">
+              Derrière cette recette traditionnelle se cache une fascinante symphonie de réactions chimiques et de transformations culinaires.
+            </p>
+            
+            <div class="science-point">
+              <h3 class="science-subtitle">Le trempage, une préparation essentielle</h3>
+              <p>
+                Les <em>12 heures de trempage</em> permettent aux haricots d'absorber l'eau par osmose, 
+                réhydratant leurs cellules et dissolvant les oligosaccharides responsables des inconforts digestifs. 
+                Cette étape réduit le temps de cuisson de moitié tout en préservant la texture.
+              </p>
+            </div>
+            
+            <div class="science-point">
+              <h3 class="science-subtitle">La magie de la mijoteuse</h3>
+              <p>
+                La cuisson lente à <em>basse température</em> (environ 85°C) préserve l'intégrité des haricots 
+                tout en permettant une gélatinisation progressive de l'amidon. Le collagène du lard se transforme 
+                doucement en gélatine, créant cette texture fondante caractéristique.
+              </p>
+            </div>
+            
+            <div class="science-point">
+              <h3 class="science-subtitle">L'alchimie du sirop d'érable</h3>
+              <p>
+                Plus qu'un simple édulcorant, le <em>sirop d'érable</em> agit comme agent de conservation naturel 
+                grâce à sa concentration en sucre. Ses molécules complexes caramélisent lentement, 
+                développant des notes de vanille et de caramel qui s'harmonisent avec les protéines du lard 
+                dans une réaction de Maillard contrôlée.
+              </p>
+            </div>
+            
+            <div class="science-point">
+              <h3 class="science-subtitle">L'équilibre des saveurs</h3>
+              <p>
+                La <em>moutarde de Dijon</em> apporte l'acidité nécessaire pour équilibrer la richesse du plat, 
+                tandis que ses enzymes attendrissent les fibres végétales. Le ketchup, avec son umami naturel 
+                provenant des tomates concentrées, amplifie la profondeur gustative sans dominer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tips-section">
+          <h2 class="section-heading">Les secrets pour la perfection</h2>
+          
+          <div class="tips-content">
+            <div class="step-prose">
+              <span class="step-number-inline">1.</span>
+              <div class="step-text">
+                <h3 class="tip-title">Le choix du lard fait toute la différence</h3>
+                <p>
+                  Optez pour un <em>lard salé bien entrelardé</em> de votre boucher. 
+                  Le gras marbré fondra lentement, infusant les haricots d'une richesse incomparable. 
+                  Évitez le bacon fumé qui dominerait les saveurs délicates.
+                </p>
+              </div>
+            </div>
+            
+            <div class="step-prose">
+              <span class="step-number-inline">2.</span>
+              <div class="step-text">
+                <h3 class="tip-title">Le secret du trempage parfait</h3>
+                <p>
+                  Ajoutez une <em>pincée de bicarbonate de soude</em> à l'eau de trempage. 
+                  Cela attendrit les peaux et réduit le temps de cuisson de 20%. 
+                  N'oubliez pas de bien rincer avant la cuisson!
+                </p>
+              </div>
+            </div>
+            
+            <div class="step-prose">
+              <span class="step-number-inline">3.</span>
+              <div class="step-text">
+                <h3 class="tip-title">La patience est une vertu</h3>
+                <p>
+                  Résistez à l'envie de remuer constamment. <em>Ouvrez le couvercle maximum 2 fois</em> 
+                  pendant la cuisson. Chaque ouverture fait perdre 30 minutes de chaleur accumulée. 
+                  La mijoteuse fait son travail en silence.
+                </p>
+              </div>
+            </div>
+            
+            <div class="step-prose">
+              <span class="step-number-inline">4.</span>
+              <div class="step-text">
+                <h3 class="tip-title">Le sirop d'érable, pas n'importe lequel</h3>
+                <p>
+                  Utilisez du <em>sirop d'érable ambré</em> pour un équilibre parfait entre douceur et caractère. 
+                  Le sirop foncé apporterait trop d'amertume, le doré pas assez de profondeur. 
+                  C'est le juste milieu qui sublime.
+                </p>
+              </div>
+            </div>
+            
+            <div class="step-prose">
+              <span class="step-number-inline">5.</span>
+              <div class="step-text">
+                <h3 class="tip-title">La touche finale qui change tout</h3>
+                <p>
+                  Trente minutes avant la fin, goûtez et ajustez. Un trait de <em>vinaigre de cidre</em> 
+                  réveille les saveurs endormies. Une cuillère de cassonade ajoute de la profondeur. 
+                  Et si c'est trop liquide? Laissez mijoter à découvert la dernière heure.
+                </p>
+              </div>
+            </div>
+            
+            <div class="step-prose">
+              <span class="step-number-inline">6.</span>
+              <div class="step-text">
+                <h3 class="tip-title">Le repos, étape cruciale</h3>
+                <p>
+                  Les meilleures fèves au lard sont celles du <em>lendemain</em>. 
+                  Laissez reposer une nuit au réfrigérateur, puis réchauffez doucement. 
+                  Les saveurs se marient, la texture s'unifie. C'est la magie du temps.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-categories-prose">
+          <p class="category-line">
+            Une recette <em>{data.categories.join(", ")}</em> qui réchauffe le cœur.
+          </p>
+        </div>
+      </section>
+    </article>
+
+    <footer class="minimal-footer">
+      <a href="/cuisine" class="return-link">Découvrir d'autres recettes</a>
+    </footer>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* Colors - warm and inviting */
+        --bg: #faf8f3;
+        --text: #2c2825;
+        --text-light: #6b645d;
+        --accent: #d35400;
+        --accent-light: #ff8c42;
+        --gold: #daa520;
+        --warm-brown: #8b4513;
+        
+        /* Typography scale (1.25x) */
+        --text-xs: 0.8rem;
+        --text-sm: 0.9rem;
+        --text-base: 1rem;
+        --text-lg: 1.25rem;
+        --text-xl: 1.563rem;
+        --text-2xl: 1.953rem;
+        --text-3xl: 2.441rem;
+        --text-4xl: 3.052rem;
+        --text-5xl: 3.815rem;
+        --text-6xl: 4.768rem;
+        
+        /* Spacing scale */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+        --space-2xl: 4rem;
+        --space-3xl: 6rem;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Crimson Pro", Georgia, serif;
+        line-height: 1.7;
+        font-size: 1.125rem;
+        overflow-x: hidden;
+        font-weight: 400;
+      }
+
+      .grain {
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        width: 200%;
+        height: 200%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='1' seed='2' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.4;
+        mix-blend-mode: multiply;
+      }
+
+      .minimal-nav {
+        position: fixed;
+        top: var(--space-lg);
+        left: var(--space-lg);
+        z-index: 100;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .minimal-nav.scrolled {
+        opacity: 0.5;
+      }
+
+      .minimal-nav:hover {
+        opacity: 1;
+      }
+
+      .nav-back {
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: var(--text-sm);
+        letter-spacing: 0.05em;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: var(--space-xs) var(--space-sm);
+        background: rgba(250, 248, 243, 0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 2rem;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      .nav-back:hover {
+        color: var(--accent);
+        transform: translateX(-3px);
+        background: rgba(250, 248, 243, 0.95);
+      }
+
+      .recipe-article {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero-section {
+        margin-bottom: var(--space-2xl);
+      }
+
+      .title-wrapper {
+        margin-bottom: var(--space-xl);
+        text-align: center;
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .recipe-name {
+        font-family: "Playfair Display", serif;
+        font-weight: 900;
+        font-size: clamp(var(--text-4xl), 10vw, var(--text-6xl));
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        color: var(--text);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .title-line {
+        display: block;
+        transition: letter-spacing 0.3s ease;
+      }
+
+      .title-line.accent {
+        color: var(--accent);
+        font-style: italic;
+        margin-top: 0.1em;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--accent), var(--accent-light));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .recipe-name:hover .title-line {
+        letter-spacing: 0;
+      }
+
+      .recipe-intro {
+        margin: var(--space-xl) 0;
+        animation: fadeIn 1s ease-out 0.2s both;
+      }
+
+      .recipe-intro p {
+        font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
+        line-height: 1.65;
+        color: var(--text);
+        font-weight: 400;
+        letter-spacing: -0.01em;
+      }
+
+      .recipe-intro p::first-line {
+        font-weight: 500;
+        color: var(--warm-brown);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      .recipe-essence {
+        font-size: 1.05rem;
+        color: var(--text-light);
+        margin-top: var(--space-lg);
+        padding-top: var(--space-lg);
+        border-top: 2px solid rgba(211, 84, 0, 0.1);
+        animation: fadeIn 1.2s ease-out 0.4s both;
+      }
+
+      .recipe-essence em {
+        font-style: italic;
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      .recipe-essence strong {
+        font-weight: 600;
+        color: var(--text);
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 1px;
+      }
+
+      .freezable-note {
+        display: inline-block;
+        margin-left: 0.5rem;
+        color: var(--accent);
+        font-style: italic;
+      }
+
+      /* All content uses same max-width from .recipe-article */
+
+      .section-heading {
+        font-family: "Playfair Display", serif;
+        font-size: var(--text-2xl);
+        font-weight: 700;
+        color: var(--text);
+        margin: var(--space-2xl) 0 var(--space-lg);
+        position: relative;
+        padding-bottom: var(--space-sm);
+      }
+
+      .section-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), transparent);
+        transition: width 0.3s ease;
+      }
+
+      .section-heading:hover::after {
+        width: 100px;
+      }
+
+      .ingredient-story {
+        margin-bottom: var(--space-xl);
+      }
+
+      .ingredient-intro {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        margin-bottom: var(--space-lg);
+        text-align: center;
+        font-style: italic;
+        line-height: 1.7;
+      }
+
+      .ingredients-grid {
+        display: grid;
+        gap: var(--space-sm);
+        margin-top: var(--space-lg);
+      }
+
+      .ingredient-line {
+        display: grid;
+        grid-template-columns: 1.5rem 1fr;
+        gap: var(--space-sm);
+        font-size: 1.05rem;
+        color: var(--text);
+        transition: transform 0.2s ease;
+      }
+
+      .ingredient-line:hover {
+        transform: translateX(5px);
+      }
+
+      .ingredient-bullet {
+        color: var(--accent);
+        opacity: 0.4;
+        font-weight: 300;
+        transition: opacity 0.2s ease;
+      }
+
+      .ingredient-line:hover .ingredient-bullet {
+        opacity: 0.7;
+      }
+
+      .ingredient-content {
+        padding-bottom: var(--space-sm);
+        border-bottom: 1px solid rgba(211, 84, 0, 0.08);
+      }
+
+      .ingredient-line:last-child .ingredient-content {
+        border-bottom: none;
+      }
+
+      .ingredient-main {
+        color: var(--text);
+        transition: color 0.2s ease;
+      }
+
+      .ingredient-line:hover .ingredient-main {
+        color: var(--warm-brown);
+      }
+
+      .ingredient-note {
+        font-size: 0.95rem;
+        color: var(--text-light);
+        font-style: italic;
+        display: block;
+        margin-top: 0.25rem;
+        margin-left: 0.25rem;
+        opacity: 0.85;
+      }
+
+      .preparation-narrative {
+        margin: var(--space-2xl) 0;
+      }
+
+      .step-prose {
+        margin-bottom: var(--space-lg);
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+        gap: var(--space-md);
+        align-items: baseline;
+        animation: slideIn 0.6s ease-out both;
+        animation-delay: calc(var(--step-index, 0) * 0.1s);
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .step-number-inline {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--accent);
+        opacity: 0.25;
+        line-height: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .step-prose:hover .step-number-inline {
+        opacity: 0.4;
+      }
+
+      .step-text {
+        font-size: 1.15rem;
+        line-height: 1.75;
+        color: var(--text);
+      }
+
+      .step-text::first-letter {
+        font-size: 1.4em;
+        font-weight: 500;
+        color: var(--warm-brown);
+      }
+
+      .science-section {
+        margin: var(--space-3xl) 0 var(--space-xl);
+        padding-top: var(--space-xl);
+        position: relative;
+      }
+
+      .science-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      }
+
+      .science-content {
+        margin-top: var(--space-lg);
+      }
+
+      .science-intro {
+        font-size: 1.15rem;
+        color: var(--text-light);
+        margin-bottom: var(--space-xl);
+        font-style: italic;
+        text-align: center;
+        line-height: 1.7;
+      }
+
+      .science-point {
+        margin-bottom: var(--space-lg);
+      }
+
+      .science-subtitle {
+        font-family: "Playfair Display", serif;
+        font-size: var(--text-lg);
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: var(--space-xs);
+        letter-spacing: -0.01em;
+      }
+
+      .science-point p {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: var(--text);
+      }
+
+      .science-point em {
+        color: var(--accent);
+        font-style: normal;
+        font-weight: 500;
+        background: linear-gradient(180deg, transparent 85%, rgba(211, 84, 0, 0.1) 85%);
+        padding: 0 2px;
+      }
+
+      .tips-section {
+        margin: var(--space-2xl) 0;
+      }
+
+      .tips-content {
+        margin-top: var(--space-lg);
+      }
+
+      .tip-title {
+        font-family: "Crimson Pro", serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: var(--space-xs);
+        letter-spacing: -0.01em;
+      }
+
+      .tips-content .step-prose .step-number-inline {
+        color: var(--gold);
+      }
+
+      .tips-content .step-text em {
+        color: var(--accent);
+        font-style: normal;
+        font-weight: 500;
+        background: linear-gradient(180deg, transparent 85%, rgba(218, 165, 32, 0.15) 85%);
+        padding: 0 2px;
+      }
+
+      .tips-content .step-text::first-letter {
+        font-size: 1em;
+        font-weight: 400;
+        color: inherit;
+      }
+
+      .recipe-categories-prose {
+        margin: var(--space-3xl) 0 var(--space-lg);
+        padding-top: var(--space-xl);
+        border-top: 2px dotted rgba(211, 84, 0, 0.15);
+        text-align: center;
+      }
+
+      .category-line {
+        font-size: 1.05rem;
+        color: var(--text-light);
+        font-style: italic;
+        letter-spacing: 0.02em;
+      }
+
+      .category-line em {
+        color: var(--accent);
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      .minimal-footer {
+        text-align: center;
+        padding: var(--space-2xl) var(--space-lg);
+        margin-top: var(--space-3xl);
+      }
+
+      .return-link {
+        font-family: "Crimson Pro", serif;
+        font-size: 1.15rem;
+        color: var(--accent);
+        text-decoration: none;
+        position: relative;
+        transition: color 0.3s ease;
+        letter-spacing: 0.02em;
+      }
+
+      .return-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      .return-link:hover {
+        color: var(--accent-light);
+      }
+
+      .return-link:hover::after {
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --text-base: 0.95rem;
+        }
+
+        .recipe-article {
+          padding: var(--space-2xl) var(--space-sm);
+        }
+
+        .recipe-name {
+          font-size: clamp(2rem, 8vw, 3rem);
+        }
+
+        .recipe-intro p {
+          font-size: var(--text-lg);
+        }
+
+        .section-heading {
+          font-size: var(--text-xl);
+          margin: var(--space-xl) 0 var(--space-md);
+        }
+
+        .step-prose {
+          grid-template-columns: 2rem 1fr;
+          gap: var(--space-sm);
+        }
+
+        .step-number-inline {
+          font-size: var(--text-lg);
+        }
+
+        .minimal-nav {
+          top: var(--space-sm);
+          left: var(--space-sm);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .step-prose {
+          display: block;
+        }
+
+        .step-number-inline {
+          display: block;
+          margin-bottom: var(--space-xs);
+        }
+      }
+
+      /* Subtle print styles */
+      @media print {
+        .minimal-nav,
+        .grain {
+          display: none;
+        }
+      }
+    </style>
+
+    <script>
+      // Restore scroll detection for nav
+      const nav = document.getElementById('nav');
+      
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+          nav?.classList.add('scrolled');
+        } else {
+          nav?.classList.remove('scrolled');
+        }
+      });
+
+      // Add step animation indices
+      document.querySelectorAll('.step-prose').forEach((el, i) => {
+        (el as HTMLElement).style.setProperty('--step-index', i.toString());
+      });
+    </script>
+  </body>
+</html>
