@@ -53,6 +53,17 @@ function formatTime(minutes: number) {
 
     <article class="recipe-article">
       <header class="hero-section">
+        {data.heroImage && (
+          <div class="hero-image-wrapper">
+            <img 
+              src={data.heroImage} 
+              alt={`Image de ${data.name}`}
+              class="hero-image"
+              loading="eager"
+            />
+          </div>
+        )}
+
         <div class="title-wrapper">
           <h1 class="recipe-name">
             <span class="title-line"
@@ -113,27 +124,55 @@ function formatTime(minutes: number) {
       <section class="content-flow">
         <div class="ingredients-prose">
           <h2 class="section-heading">Les provisions</h2>
-          <div class="ingredient-story">
-            <p class="ingredient-intro">
-              Une symphonie d'ingrédients simples mais essentiels, chacun jouant sa partition 
-              dans cette recette ancestrale. La qualité fait toute la différence.
-            </p>
-            <div class="ingredients-grid">
-              {
-                data.ingredients.map((ingredient) => {
-                  const [main, note] = ingredient.split(' — ');
-                  return (
-                    <div class="ingredient-line">
-                      <span class="ingredient-bullet">—</span>
-                      <div class="ingredient-content">
-                        <span class="ingredient-main">{main}</span>
-                        {note && <span class="ingredient-note">{note}</span>}
+          <p class="ingredient-intro">
+            {recipe.id === 'feves-au-lard' ? 
+              'Une symphonie d\'ingrédients simples mais essentiels, chacun jouant sa partition dans cette recette ancestrale. La qualité fait toute la différence.' :
+              'Des ingrédients simples qui se transforment en symphonie de saveurs grâce à la magie de la cuisson lente. Chaque élément a son rôle à jouer.'
+            }
+          </p>
+          
+          <div class="ingredients-layout">
+            <div class="essential-ingredients">
+              <h3 class="ingredient-section-title">Essentiels</h3>
+              <div class="ingredients-grid">
+                {
+                  data.ingredients.map((ingredient) => {
+                    const [main, note] = ingredient.split(' — ');
+                    return (
+                      <div class="ingredient-line">
+                        <span class="ingredient-bullet">—</span>
+                        <div class="ingredient-content">
+                          <span class="ingredient-main">{main}</span>
+                          {note && <span class="ingredient-note">{note}</span>}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })
-              }
+                    );
+                  })
+                }
+              </div>
             </div>
+
+            {data.optional_ingredients && data.optional_ingredients.length > 0 && (
+              <div class="optional-ingredients">
+                <h3 class="ingredient-section-title optional">Rehausseurs de saveur</h3>
+                <div class="ingredients-grid">
+                  {
+                    data.optional_ingredients.map((ingredient) => {
+                      const [main, note] = ingredient.split(' — ');
+                      return (
+                        <div class="ingredient-line optional">
+                          <span class="ingredient-bullet">+</span>
+                          <div class="ingredient-content">
+                            <span class="ingredient-main">{main}</span>
+                            {note && <span class="ingredient-note">{note}</span>}
+                          </div>
+                        </div>
+                      );
+                    })
+                  }
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -155,45 +194,90 @@ function formatTime(minutes: number) {
           
           <div class="science-content">
             <p class="science-intro">
-              Derrière cette recette traditionnelle se cache une fascinante symphonie de réactions chimiques et de transformations culinaires.
+              {recipe.id === 'feves-au-lard' ? 
+                'Derrière cette recette traditionnelle se cache une fascinante symphonie de réactions chimiques et de transformations culinaires.' :
+                'Ce chili révèle les secrets de la cuisine moderne : transformations chimiques, équilibres gustatifs et alchimie des épices s\'unissent dans la mijoteuse.'
+              }
             </p>
             
-            <div class="science-point">
-              <h3 class="science-subtitle">Le trempage, une préparation essentielle</h3>
-              <p>
-                Les <em>12 heures de trempage</em> permettent aux haricots d'absorber l'eau par osmose, 
-                réhydratant leurs cellules et dissolvant les oligosaccharides responsables des inconforts digestifs. 
-                Cette étape réduit le temps de cuisson de moitié tout en préservant la texture.
-              </p>
-            </div>
-            
-            <div class="science-point">
-              <h3 class="science-subtitle">La magie de la mijoteuse</h3>
-              <p>
-                La cuisson lente à <em>basse température</em> (environ 85°C) préserve l'intégrité des haricots 
-                tout en permettant une gélatinisation progressive de l'amidon. Le collagène du lard se transforme 
-                doucement en gélatine, créant cette texture fondante caractéristique.
-              </p>
-            </div>
-            
-            <div class="science-point">
-              <h3 class="science-subtitle">L'alchimie du sirop d'érable</h3>
-              <p>
-                Plus qu'un simple édulcorant, le <em>sirop d'érable</em> agit comme agent de conservation naturel 
-                grâce à sa concentration en sucre. Ses molécules complexes caramélisent lentement, 
-                développant des notes de vanille et de caramel qui s'harmonisent avec les protéines du lard 
-                dans une réaction de Maillard contrôlée.
-              </p>
-            </div>
-            
-            <div class="science-point">
-              <h3 class="science-subtitle">L'équilibre des saveurs</h3>
-              <p>
-                La <em>moutarde de Dijon</em> apporte l'acidité nécessaire pour équilibrer la richesse du plat, 
-                tandis que ses enzymes attendrissent les fibres végétales. Le ketchup, avec son umami naturel 
-                provenant des tomates concentrées, amplifie la profondeur gustative sans dominer.
-              </p>
-            </div>
+            {recipe.id === 'feves-au-lard' ? (
+              <>
+                <div class="science-point">
+                  <h3 class="science-subtitle">Le trempage, une préparation essentielle</h3>
+                  <p>
+                    Les <em>12 heures de trempage</em> permettent aux haricots d'absorber l'eau par osmose, 
+                    réhydratant leurs cellules et dissolvant les oligosaccharides responsables des inconforts digestifs. 
+                    Cette étape réduit le temps de cuisson de moitié tout en préservant la texture.
+                  </p>
+                </div>
+                
+                <div class="science-point">
+                  <h3 class="science-subtitle">La magie de la mijoteuse</h3>
+                  <p>
+                    La cuisson lente à <em>basse température</em> (environ 85°C) préserve l'intégrité des haricots 
+                    tout en permettant une gélatinisation progressive de l'amidon. Le collagène du lard se transforme 
+                    doucement en gélatine, créant cette texture fondante caractéristique.
+                  </p>
+                </div>
+                
+                <div class="science-point">
+                  <h3 class="science-subtitle">L'alchimie du sirop d'érable</h3>
+                  <p>
+                    Plus qu'un simple édulcorant, le <em>sirop d'érable</em> agit comme agent de conservation naturel 
+                    grâce à sa concentration en sucre. Ses molécules complexes caramélisent lentement, 
+                    développant des notes de vanille et de caramel qui s'harmonisent avec les protéines du lard 
+                    dans une réaction de Maillard contrôlée.
+                  </p>
+                </div>
+                
+                <div class="science-point">
+                  <h3 class="science-subtitle">L'équilibre des saveurs</h3>
+                  <p>
+                    La <em>moutarde de Dijon</em> apporte l'acidité nécessaire pour équilibrer la richesse du plat, 
+                    tandis que ses enzymes attendrissent les fibres végétales. Le ketchup, avec son umami naturel 
+                    provenant des tomates concentrées, amplifie la profondeur gustative sans dominer.
+                  </p>
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="science-point">
+                  <h3 class="science-subtitle">La réaction de Maillard, foundation de saveur</h3>
+                  <p>
+                    Le <em>brunissement du bœuf</em> avant la cuisson lente déclenche la réaction de Maillard, 
+                    créant des centaines de composés aromatiques complexes. Cette étape cruciale développe 
+                    l'umami et la profondeur gustative qui distinguent un excellent chili d'un ordinaire.
+                  </p>
+                </div>
+                
+                <div class="science-point">
+                  <h3 class="science-subtitle">L'alchimie des épices</h3>
+                  <p>
+                    La <em>poudre de chili et le cumin</em> contiennent des huiles essentielles volatiles qui 
+                    s'épanouissent avec la chaleur douce. Le cumin libère ses aldéhydes aromatiques tandis que 
+                    les capsaïcinoïdes du chili créent cette chaleur distinctive sans brutalité.
+                  </p>
+                </div>
+                
+                <div class="science-point">
+                  <h3 class="science-subtitle">La transformation des protéines</h3>
+                  <p>
+                    La cuisson lente à <em>basse température</em> (85°C) permet la dénaturation progressive 
+                    des protéines du bœuf, les rendant tendres sans les durcir. Les fibres se décomposent 
+                    lentement, créant cette texture fondante caractéristique du chili parfait.
+                  </p>
+                </div>
+                
+                <div class="science-point">
+                  <h3 class="science-subtitle">L'équilibre acido-basique</h3>
+                  <p>
+                    Les <em>tomates et la cassonade</em> créent un équilibre délicat entre acidité et douceur. 
+                    L'acide citrique des tomates attendrit les fibres tout en préservant la couleur vive, 
+                    tandis que le sucre caramélise subtilement, ajoutant complexité et rondeur.
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -201,79 +285,181 @@ function formatTime(minutes: number) {
           <h2 class="section-heading">Les secrets pour la perfection</h2>
           
           <div class="tips-content">
-            <div class="step-prose">
-              <span class="step-number-inline">1.</span>
-              <div class="step-text">
-                <h3 class="tip-title">Le choix du lard fait toute la différence</h3>
-                <p>
-                  Optez pour un <em>lard salé bien entrelardé</em> de votre boucher. 
-                  Le gras marbré fondra lentement, infusant les haricots d'une richesse incomparable. 
-                  Évitez le bacon fumé qui dominerait les saveurs délicates.
-                </p>
-              </div>
-            </div>
+            {recipe.id === 'feves-au-lard' ? (
+              <>
+                <div class="step-prose">
+                  <span class="step-number-inline">1.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">Le choix du lard fait toute la différence</h3>
+                    <p>
+                      Optez pour un <em>lard salé bien entrelardé</em> de votre boucher. 
+                      Le gras marbré fondra lentement, infusant les haricots d'une richesse incomparable. 
+                      Évitez le bacon fumé qui dominerait les saveurs délicates.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">2.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">Le secret du trempage parfait</h3>
+                    <p>
+                      Ajoutez une <em>pincée de bicarbonate de soude</em> à l'eau de trempage. 
+                      Cela attendrit les peaux et réduit le temps de cuisson de 20%. 
+                      N'oubliez pas de bien rincer avant la cuisson!
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">3.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">La patience est une vertu</h3>
+                    <p>
+                      Résistez à l'envie de remuer constamment. <em>Ouvrez le couvercle maximum 2 fois</em> 
+                      pendant la cuisson. Chaque ouverture fait perdre 30 minutes de chaleur accumulée. 
+                      La mijoteuse fait son travail en silence.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">4.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">Le sirop d'érable, pas n'importe lequel</h3>
+                    <p>
+                      Utilisez du <em>sirop d'érable ambré</em> pour un équilibre parfait entre douceur et caractère. 
+                      Le sirop foncé apporterait trop d'amertume, le doré pas assez de profondeur. 
+                      C'est le juste milieu qui sublime.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">5.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">La touche finale qui change tout</h3>
+                    <p>
+                      Trente minutes avant la fin, goûtez et ajustez. Un trait de <em>vinaigre de cidre</em> 
+                      réveille les saveurs endormies. Une cuillère de cassonade ajoute de la profondeur. 
+                      Et si c'est trop liquide? Laissez mijoter à découvert la dernière heure.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">6.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">Le repos, étape cruciale</h3>
+                    <p>
+                      Les meilleures fèves au lard sont celles du <em>lendemain</em>. 
+                      Laissez reposer une nuit au réfrigérateur, puis réchauffez doucement. 
+                      Les saveurs se marient, la texture s'unifie. C'est la magie du temps.
+                    </p>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="step-prose">
+                  <span class="step-number-inline">1.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">Le brunissement, étape non négociable</h3>
+                    <p>
+                      <em>Saisissez le bœuf par petites quantités</em> dans une poêle très chaude. 
+                      Ne surchargez pas : la vapeur empêche le brunissement. Égouttez tout le gras 
+                      pour éviter un chili trop riche. Cette étape détermine 70% du goût final.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">2.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">L'art du layering des épices</h3>
+                    <p>
+                      Ajoutez les <em>épices en trois temps</em> : poudre de chili et cumin dès le début, 
+                      paprika fumé et origan à mi-cuisson, cayenne et poivre noir dans la dernière heure. 
+                      Cette stratification crée une profondeur incomparable.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">3.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">La règle d'or de la mijoteuse</h3>
+                    <p>
+                      <em>Résistez à l'envie de soulever le couvercle</em> plus de deux fois pendant la cuisson. 
+                      Chaque ouverture fait chuter la température de 10°C et ajoute 20 minutes au temps total. 
+                      La patience récompense toujours.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">4.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">Le secret de la consistance parfaite</h3>
+                    <p>
+                      Si votre chili est trop liquide, <em>écrasez quelques haricots</em> contre les parois 
+                      dans la dernière heure. L'amidon libéré épaissit naturellement. Pour un chili plus épais encore, 
+                      retirez le couvercle les 30 dernières minutes.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">5.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">L'acidité qui révèle tout</h3>
+                    <p>
+                      Dix minutes avant la fin, ajoutez un <em>trait de vinaigre de vin rouge</em> 
+                      ou quelques gouttes de lime. Cette pointe d'acidité réveille tous les arômes endormis 
+                      et équilibre la richesse du plat de façon spectaculaire.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="step-prose">
+                  <span class="step-number-inline">6.</span>
+                  <div class="step-text">
+                    <h3 class="tip-title">La magie du lendemain</h3>
+                    <p>
+                      Le <em>meilleur chili est celui du lendemain</em>. Les saveurs se marient, 
+                      les épices s'harmonisent, la texture se parfait. Conservez au réfrigérateur 
+                      et réchauffez à feu doux. Il se bonifie pendant 3 jours.
+                    </p>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+
+        {data.serving_suggestions && data.serving_suggestions.length > 0 && (
+          <div class="serving-section">
+            <h2 class="section-heading">Pour sublimer le service</h2>
             
-            <div class="step-prose">
-              <span class="step-number-inline">2.</span>
-              <div class="step-text">
-                <h3 class="tip-title">Le secret du trempage parfait</h3>
-                <p>
-                  Ajoutez une <em>pincée de bicarbonate de soude</em> à l'eau de trempage. 
-                  Cela attendrit les peaux et réduit le temps de cuisson de 20%. 
-                  N'oubliez pas de bien rincer avant la cuisson!
-                </p>
-              </div>
-            </div>
-            
-            <div class="step-prose">
-              <span class="step-number-inline">3.</span>
-              <div class="step-text">
-                <h3 class="tip-title">La patience est une vertu</h3>
-                <p>
-                  Résistez à l'envie de remuer constamment. <em>Ouvrez le couvercle maximum 2 fois</em> 
-                  pendant la cuisson. Chaque ouverture fait perdre 30 minutes de chaleur accumulée. 
-                  La mijoteuse fait son travail en silence.
-                </p>
-              </div>
-            </div>
-            
-            <div class="step-prose">
-              <span class="step-number-inline">4.</span>
-              <div class="step-text">
-                <h3 class="tip-title">Le sirop d'érable, pas n'importe lequel</h3>
-                <p>
-                  Utilisez du <em>sirop d'érable ambré</em> pour un équilibre parfait entre douceur et caractère. 
-                  Le sirop foncé apporterait trop d'amertume, le doré pas assez de profondeur. 
-                  C'est le juste milieu qui sublime.
-                </p>
-              </div>
-            </div>
-            
-            <div class="step-prose">
-              <span class="step-number-inline">5.</span>
-              <div class="step-text">
-                <h3 class="tip-title">La touche finale qui change tout</h3>
-                <p>
-                  Trente minutes avant la fin, goûtez et ajustez. Un trait de <em>vinaigre de cidre</em> 
-                  réveille les saveurs endormies. Une cuillère de cassonade ajoute de la profondeur. 
-                  Et si c'est trop liquide? Laissez mijoter à découvert la dernière heure.
-                </p>
-              </div>
-            </div>
-            
-            <div class="step-prose">
-              <span class="step-number-inline">6.</span>
-              <div class="step-text">
-                <h3 class="tip-title">Le repos, étape cruciale</h3>
-                <p>
-                  Les meilleures fèves au lard sont celles du <em>lendemain</em>. 
-                  Laissez reposer une nuit au réfrigérateur, puis réchauffez doucement. 
-                  Les saveurs se marient, la texture s'unifie. C'est la magie du temps.
-                </p>
+            <div class="serving-content">
+              <p class="serving-intro">
+                Ces accompagnements transforment un excellent plat en expérience mémorable. 
+                Choisissez selon vos envies et l'occasion.
+              </p>
+              
+              <div class="serving-grid">
+                {
+                  data.serving_suggestions.map((suggestion) => (
+                    <div class="serving-item">
+                      <span class="serving-bullet">◦</span>
+                      <span class="serving-text">{suggestion}</span>
+                    </div>
+                  ))
+                }
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         <div class="recipe-categories-prose">
           <p class="category-line">
@@ -399,6 +585,43 @@ function formatTime(minutes: number) {
 
       .hero-section {
         margin-bottom: var(--space-2xl);
+      }
+
+      .hero-image-wrapper {
+        margin-bottom: var(--space-xl);
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.8s ease-out;
+        width: 100%;
+        max-width: 400px;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        filter: sepia(10%) saturate(110%) contrast(105%);
+      }
+
+      .hero-image:hover {
+        transform: scale(1.02);
+      }
+
+      .hero-image-wrapper::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(211, 84, 0, 0.1), transparent 30%);
+        pointer-events: none;
       }
 
       .title-wrapper {
@@ -527,36 +750,55 @@ function formatTime(minutes: number) {
         width: 100px;
       }
 
-      .ingredient-story {
-        margin-bottom: var(--space-xl);
-      }
-
       .ingredient-intro {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         color: var(--text-light);
         margin-bottom: var(--space-lg);
         text-align: center;
         font-style: italic;
-        line-height: 1.7;
+        line-height: 1.6;
+      }
+
+      .ingredients-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: var(--space-xl);
+        margin-top: var(--space-lg);
+      }
+
+      .ingredient-section-title {
+        font-family: "Playfair Display", serif;
+        font-size: var(--text-lg);
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: var(--space-md);
+        letter-spacing: -0.01em;
+        padding-bottom: var(--space-xs);
+        border-bottom: 2px solid rgba(211, 84, 0, 0.15);
+      }
+
+      .ingredient-section-title.optional {
+        color: var(--accent);
+        border-bottom-color: rgba(218, 165, 32, 0.3);
       }
 
       .ingredients-grid {
         display: grid;
-        gap: var(--space-sm);
-        margin-top: var(--space-lg);
+        gap: var(--space-xs);
       }
 
       .ingredient-line {
         display: grid;
-        grid-template-columns: 1.5rem 1fr;
-        gap: var(--space-sm);
-        font-size: 1.05rem;
+        grid-template-columns: 1.2rem 1fr;
+        gap: var(--space-xs);
+        font-size: 1rem;
         color: var(--text);
         transition: transform 0.2s ease;
+        padding: var(--space-xs) 0;
       }
 
       .ingredient-line:hover {
-        transform: translateX(5px);
+        transform: translateX(3px);
       }
 
       .ingredient-bullet {
@@ -564,6 +806,8 @@ function formatTime(minutes: number) {
         opacity: 0.4;
         font-weight: 300;
         transition: opacity 0.2s ease;
+        font-size: 0.9em;
+        line-height: 1.2;
       }
 
       .ingredient-line:hover .ingredient-bullet {
@@ -571,8 +815,8 @@ function formatTime(minutes: number) {
       }
 
       .ingredient-content {
-        padding-bottom: var(--space-sm);
-        border-bottom: 1px solid rgba(211, 84, 0, 0.08);
+        padding-bottom: var(--space-xs);
+        border-bottom: 1px solid rgba(211, 84, 0, 0.06);
       }
 
       .ingredient-line:last-child .ingredient-content {
@@ -589,13 +833,36 @@ function formatTime(minutes: number) {
       }
 
       .ingredient-note {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         color: var(--text-light);
         font-style: italic;
         display: block;
-        margin-top: 0.25rem;
-        margin-left: 0.25rem;
-        opacity: 0.85;
+        margin-top: 0.2rem;
+        opacity: 0.8;
+        line-height: 1.4;
+      }
+
+      .optional-ingredients {
+        position: relative;
+      }
+
+      .optional-ingredients::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -var(--space-md);
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(180deg, transparent, rgba(218, 165, 32, 0.3), transparent);
+      }
+
+      .ingredient-line.optional .ingredient-bullet {
+        color: var(--gold);
+        font-weight: 500;
+      }
+
+      .ingredient-line.optional:hover .ingredient-bullet {
+        opacity: 1;
       }
 
       .preparation-narrative {
@@ -741,6 +1008,66 @@ function formatTime(minutes: number) {
         color: inherit;
       }
 
+      .serving-section {
+        margin: var(--space-2xl) 0;
+        padding-top: var(--space-xl);
+        border-top: 1px solid rgba(211, 84, 0, 0.1);
+      }
+
+      .serving-content {
+        margin-top: var(--space-lg);
+      }
+
+      .serving-intro {
+        font-size: 1.05rem;
+        color: var(--text-light);
+        margin-bottom: var(--space-lg);
+        font-style: italic;
+        text-align: center;
+        line-height: 1.7;
+      }
+
+      .serving-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-sm);
+        margin-top: var(--space-md);
+      }
+
+      .serving-item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        font-size: 1.05rem;
+        color: var(--text);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        background: rgba(211, 84, 0, 0.02);
+      }
+
+      .serving-item:hover {
+        background: rgba(211, 84, 0, 0.05);
+        transform: translateX(3px);
+      }
+
+      .serving-bullet {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 1.2em;
+        opacity: 0.6;
+        transition: opacity 0.2s ease;
+      }
+
+      .serving-item:hover .serving-bullet {
+        opacity: 1;
+      }
+
+      .serving-text {
+        font-weight: 500;
+        letter-spacing: 0.01em;
+      }
+
       .recipe-categories-prose {
         margin: var(--space-3xl) 0 var(--space-lg);
         padding-top: var(--space-xl);
@@ -819,6 +1146,20 @@ function formatTime(minutes: number) {
           margin: var(--space-xl) 0 var(--space-md);
         }
 
+        .ingredients-layout {
+          grid-template-columns: 1fr;
+          gap: var(--space-lg);
+        }
+
+        .optional-ingredients::before {
+          display: none;
+        }
+
+        .optional-ingredients {
+          padding-top: var(--space-md);
+          border-top: 1px dashed rgba(218, 165, 32, 0.3);
+        }
+
         .step-prose {
           grid-template-columns: 2rem 1fr;
           gap: var(--space-sm);
@@ -826,6 +1167,11 @@ function formatTime(minutes: number) {
 
         .step-number-inline {
           font-size: var(--text-lg);
+        }
+
+        .hero-image-wrapper {
+          max-width: 280px;
+          height: 220px;
         }
 
         .minimal-nav {

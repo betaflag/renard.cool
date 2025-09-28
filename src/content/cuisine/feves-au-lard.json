@@ -21,12 +21,24 @@
     "5 ml (1 c. à thé) de sel de mer — pour équilibrer les saveurs",
     "2,5 ml (½ c. à thé) de poivre noir fraîchement moulu — la touche finale"
   ],
+  "optional_ingredients": [
+    "2 feuilles de laurier — pour la profondeur aromatique",
+    "15 ml (1 c. à soupe) de cassonade — pour intensifier la douceur",
+    "5 ml (1 c. à thé) de poudre d'ail — l'accent subtil",
+    "30 ml (2 c. à soupe) de mélasse — pour la richesse traditionnelle",
+    "1 branche de thym frais — l'herbe de la garrigue",
+    "2,5 ml (½ c. à thé) de paprika fumé — la note campagnarde",
+    "30 ml (2 c. à soupe) de vinaigre de cidre — pour l'équilibre final"
+  ],
   "steps": [
     "Placer les haricots dans un grand bol. Couvrir d'eau et laisser tremper 12 heures ou toute une nuit à la température ambiante. Ajouter de l'eau au besoin afin que les haricots soient toujours bien couverts. Rincer et égoutter.",
-    "Dans la mijoteuse, mélanger tous les ingrédients. Couvrir et cuire à basse température (Low) de 8 à 9 heures ou à haute température (High) 6 heures.",
-    "Bien remuer. Rectifier l'assaisonnement."
+    "Dans la mijoteuse, mélanger tous les ingrédients essentiels. Optionnel : ajouter les feuilles de laurier, la cassonade, la poudre d'ail, la mélasse, le thym et le paprika fumé dès cette étape pour une infusion maximale.",
+    "Couvrir et cuire à basse température (Low) de 8 à 9 heures ou à haute température (High) 6 heures.",
+    "Une heure avant la fin de cuisson, bien remuer et rectifier l'assaisonnement. Optionnel : ajouter le vinaigre de cidre pour équilibrer l'acidité.",
+    "Retirer les feuilles de laurier avant de servir. Laisser reposer 10 minutes pour que les saveurs se marient parfaitement."
   ],
   "categories": ["plat principal", "traditionnel", "québécois"],
   "difficulty": "facile",
+  "heroImage": "/cuisine/beans-cover.png",
   "pubDate": "2025-09-25"
 }

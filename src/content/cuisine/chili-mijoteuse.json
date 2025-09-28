@@ -1,0 +1,53 @@
+{
+  "name": "Chili con Carne de la Tanière",
+  "description": "Un chili riche et savoureux préparé à la mijoteuse avec des ingrédients essentiels pour un résultat de qualité restaurant. La cuisson lente permet aux saveurs de se marier parfaitement, créant un plat réconfortant qui peut être enrichi d'ingrédients optionnels selon vos goûts.",
+  "servings": 8,
+  "freezable": true,
+  "time": {
+    "prep": 15,
+    "cook": 360,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Mijoteuse",
+  "ingredients": [
+    "900 g (2 lb) de bœuf haché — la base protéinée",
+    "1 gros oignon — coupé en dés pour la douceur",
+    "2 boîtes (398 ml chacune) de tomates en dés — l'acidité équilibrante",
+    "1 boîte (398 ml) de sauce tomate — pour la consistance",
+    "2 boîtes de haricots rouges — égouttés et rincés",
+    "1 boîte de haricots noirs — égouttés et rincés",
+    "30 ml (2 c. à soupe) de poudre de chili — l'épice signature",
+    "15 ml (1 c. à soupe) de cumin — pour la profondeur",
+    "15 ml (1 c. à soupe) de cassonade — l'équilibre sucré",
+    "10 ml (2 c. à thé) de sel — l'exhausteur de goût",
+    "250 ml (1 tasse) de bouillon de bœuf — pour enrichir"
+  ],
+  "optional_ingredients": [
+    "1 poivron — coupé en dés pour la texture",
+    "4 gousses d'ail — hachées finement (ou 5 ml de poudre d'ail)",
+    "30 ml (2 c. à soupe) de pâte de tomate — pour intensifier",
+    "5 ml (1 c. à thé) de paprika fumé — la note fumée",
+    "5 ml (1 c. à thé) d'origan — l'herbe méditerranéenne",
+    "2,5 ml (½ c. à thé) de cayenne — pour le piquant",
+    "2,5 ml (½ c. à thé) de poivre noir — la finition épicée"
+  ],
+  "steps": [
+    "Faire revenir le bœuf haché dans une poêle et égoutter le gras (étape cruciale).",
+    "Ajouter le bœuf et l'oignon coupé en dés dans la mijoteuse.",
+    "Incorporer tous les ingrédients essentiels restants et mélanger.",
+    "Optionnel : Ajouter les ingrédients facultatifs selon vos goûts et ce que vous avez sous la main.",
+    "Cuire à basse température (Low) 6 à 8 heures ou à haute température (High) 3 à 4 heures.",
+    "Goûter et ajuster l'assaisonnement durant la dernière heure de cuisson."
+  ],
+  "serving_suggestions": [
+    "Fromage râpé",
+    "Crème sure",
+    "Oignons verts",
+    "Pain de maïs"
+  ],
+  "categories": ["plat principal", "réconfortant", "américain"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/chili-cover.png",
+  "pubDate": "2025-09-28"
+}
