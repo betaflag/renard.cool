@@ -1,0 +1,47 @@
+{
+  "name": "Porc braisé au cidre et aux pommes (Simple)",
+  "description": "Un classique automnal québécois où l'épaule de porc devient fondante dans un bain de cidre et de pommes caramélisées. Cette version simple capture toute l'essence réconfortante du plat avec un minimum d'effort.",
+  "servings": 8,
+  "freezable": true,
+  "time": {
+    "prep": 20,
+    "cook": 480,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Mijoteuse",
+  "variant": "simple",
+  "relatedRecipe": "porc-braise-cidre-avance",
+  "ingredients": [
+    "1.5 kg (3 lb) d'épaule de porc — coupée en gros cubes",
+    "4 pommes Cortland ou Honeycrisp — pelées et coupées en quartiers",
+    "500 ml (2 tasses) de cidre de pomme — non filtré de préférence",
+    "2 gros oignons — coupés en quartiers",
+    "4 gousses d'ail — écrasées",
+    "30 ml (2 c. à soupe) de cassonade — pour la douceur",
+    "15 ml (1 c. à soupe) de vinaigre de cidre — l'acidité équilibrante",
+    "5 ml (1 c. à thé) de sauge séchée — l'herbe automnale",
+    "5 ml (1 c. à thé) de thym séché — la note provençale",
+    "10 ml (2 c. à thé) de sel — pour rehausser",
+    "5 ml (1 c. à thé) de poivre noir — fraîchement moulu",
+    "30 ml (2 c. à soupe) de farine — pour épaissir"
+  ],
+  "steps": [
+    "Dans une grande poêle, faire dorer les cubes de porc de tous les côtés, environ 5 minutes. Transférer dans la mijoteuse.",
+    "Ajouter les oignons, l'ail, les pommes coupées en quartiers dans la mijoteuse.",
+    "Mélanger le cidre avec la cassonade, le vinaigre, la sauge, le thym, le sel et le poivre. Verser sur le porc.",
+    "Couvrir et cuire à basse température (Low) 7 à 8 heures ou à haute température (High) 4 à 5 heures.",
+    "30 minutes avant la fin, saupoudrer la farine et bien mélanger pour épaissir la sauce.",
+    "Rectifier l'assaisonnement et servir chaud."
+  ],
+  "serving_suggestions": [
+    "Purée de pommes de terre",
+    "Chou braisé",
+    "Pain de campagne",
+    "Légumes racines rôtis"
+  ],
+  "categories": ["plat principal", "traditionnel", "québécois"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/porc-cidre.png",
+  "pubDate": "2025-10-03"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "Poulet aux 40 gousses d'ail (Simple)",
+  "description": "Le classique poulet aux quarante gousses d'ail, adapté pour la mijoteuse. Cette version simple transforme l'ail en une pâte douce et sucrée qui se tartine comme du beurre, pendant que le poulet devient incroyablement tendre.",
+  "servings": 6,
+  "freezable": true,
+  "time": {
+    "prep": 15,
+    "cook": 300,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Mijoteuse",
+  "variant": "simple",
+  "relatedRecipe": "poulet-40-gousses-avance",
+  "ingredients": [
+    "8 à 10 morceaux de poulet — cuisses et pilons avec os",
+    "40 gousses d'ail — environ 4 têtes, non pelées",
+    "250 ml (1 tasse) de vin blanc sec — ou bouillon de poulet",
+    "60 ml (¼ tasse) d'huile d'olive — pour dorer et parfumer",
+    "3 branches de thym frais — l'herbe provençale classique",
+    "2 branches de romarin frais — pour la profondeur aromatique",
+    "10 ml (2 c. à thé) de sel de mer — pour rehausser",
+    "5 ml (1 c. à thé) de poivre noir moulu — la touche épicée",
+    "Le jus d'un citron — pour l'acidité équilibrante"
+  ],
+  "steps": [
+    "Dans une grande poêle, faire dorer les morceaux de poulet dans l'huile d'olive, 3-4 minutes par côté. Transférer dans la mijoteuse.",
+    "Séparer les gousses d'ail mais garder la pelure. Les ajouter dans la mijoteuse avec le poulet.",
+    "Verser le vin blanc, ajouter le thym, le romarin, le sel et le poivre.",
+    "Couvrir et cuire à basse température (Low) 4 à 5 heures ou à haute température (High) 2 à 3 heures.",
+    "Dans la dernière demi-heure, arroser de jus de citron et rectifier l'assaisonnement.",
+    "Servir le poulet avec les gousses d'ail que les convives presseront pour extraire la pâte d'ail caramélisée."
+  ],
+  "serving_suggestions": [
+    "Pain croûté pour tartiner l'ail",
+    "Pommes de terre rôties",
+    "Haricots verts",
+    "Salade verte"
+  ],
+  "categories": ["plat principal", "traditionnel", "français"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/poulet-40-gousses.png",
+  "pubDate": "2025-10-03"
+}

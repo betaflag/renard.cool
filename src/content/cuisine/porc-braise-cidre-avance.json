@@ -1,0 +1,61 @@
+{
+  "name": "Porc braisé au cidre et aux pommes (Avancé)",
+  "description": "Version raffinée de ce classique automnal avec calvados, crème et réduction de cidre. Les techniques avancées créent une sauce veloutée divine et une viande si tendre qu'elle se défait à la fourchette, digne d'un grand restaurant.",
+  "servings": 8,
+  "freezable": true,
+  "time": {
+    "prep": 45,
+    "cook": 480,
+    "wait": 15,
+    "soak": 0
+  },
+  "cooking_method": "Mijoteuse",
+  "variant": "avance",
+  "relatedRecipe": "porc-braise-cidre-simple",
+  "ingredients": [
+    "1.5 kg (3 lb) d'épaule de porc — parée et coupée en gros cubes",
+    "4 pommes Granny Smith — pour l'acidité, pelées et coupées",
+    "2 pommes Gala — pour la douceur, pelées et coupées",
+    "750 ml (3 tasses) de cidre de pomme artisanal — de qualité supérieure",
+    "60 ml (¼ tasse) de calvados ou brandy — la touche normande",
+    "125 ml (½ tasse) de crème 35% — pour la finition",
+    "2 gros oignons jaunes — émincés finement",
+    "2 échalotes françaises — hachées finement",
+    "6 gousses d'ail — 4 écrasées, 2 hachées",
+    "2 branches de céleri — en dés fins",
+    "2 carottes — en petits dés pour la douceur",
+    "45 ml (3 c. à soupe) de cassonade d'érable — locale de préférence",
+    "30 ml (2 c. à soupe) de vinaigre de cidre bio — non pasteurisé",
+    "15 ml (1 c. à soupe) de moutarde à l'ancienne — les grains pour texture",
+    "6 feuilles de sauge fraîche — plus pour garnir",
+    "4 branches de thym frais — effeuillées",
+    "2 branches de romarin frais — l'aromate boisé",
+    "2 feuilles de laurier — pour la profondeur",
+    "1 bâton de cannelle — la note chaude subtile",
+    "3 clous de girofle — piqués dans un oignon",
+    "10 ml (2 c. à thé) de sel de mer — ajustable",
+    "5 ml (1 c. à thé) de poivre blanc — plus délicat",
+    "5 ml (1 c. à thé) de poivre rose — pour la finesse",
+    "30 ml (2 c. à soupe) de beurre — pour la richesse",
+    "30 ml (2 c. à soupe) de farine — pour le roux"
+  ],
+  "steps": [
+    "Assaisonner généreusement les cubes de porc. Dans une grande poêle, les saisir dans le beurre jusqu'à bien dorés, environ 6-8 minutes. Flamber au calvados (prudence!). Transférer dans la mijoteuse.",
+    "Dans la même poêle, faire revenir les oignons, échalotes, céleri et carottes 5 minutes. Ajouter l'ail haché et cuire 1 minute. Déglacer avec 250 ml de cidre en grattant les sucs. Verser dans la mijoteuse.",
+    "Ajouter les pommes (réserver quelques tranches pour la fin), les herbes fraîches, la cannelle, les clous de girofle. Mélanger le reste du cidre avec la cassonade, le vinaigre et la moutarde. Verser sur le tout.",
+    "Couvrir et cuire à basse température (Low) 7 à 8 heures, en remuant une fois à mi-cuisson.",
+    "1 heure avant la fin : retirer le bâton de cannelle et les clous de girofle. Préparer un roux blond avec le reste du beurre et la farine dans une petite poêle. Incorporer à la mijoteuse avec la crème.",
+    "30 minutes avant la fin : ajouter les tranches de pommes réservées pour qu'elles gardent leur forme. Rectifier l'assaisonnement.",
+    "Laisser reposer 15 minutes avant de servir. Garnir de sauge fraîche ciselée et d'un filet de crème."
+  ],
+  "serving_suggestions": [
+    "Purée de céleri-rave",
+    "Chou rouge braisé aux pommes",
+    "Spätzle maison",
+    "Pommes de terre sarladaises"
+  ],
+  "categories": ["plat principal", "traditionnel", "québécois"],
+  "difficulty": "moyen",
+  "heroImage": "/cuisine/porc-cidre.png",
+  "pubDate": "2025-10-03"
+}

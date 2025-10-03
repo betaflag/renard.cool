@@ -1,0 +1,48 @@
+{
+  "name": "Soupe à l'oignon gratinée de l'Automne (Simple)",
+  "description": "La classique soupe à l'oignon française adaptée pour la mijoteuse. Les oignons caramélisent lentement pour développer une douceur profonde, couronnée de pain croûté et de fromage fondu doré.",
+  "servings": 6,
+  "freezable": true,
+  "time": {
+    "prep": 20,
+    "cook": 480,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Mijoteuse",
+  "variant": "simple",
+  "relatedRecipe": "soupe-oignon-avance",
+  "ingredients": [
+    "6 gros oignons jaunes — environ 1.5 kg, émincés finement",
+    "60 ml (¼ tasse) de beurre — pour la caramélisation",
+    "2 litres (8 tasses) de bouillon de bœuf — de qualité",
+    "250 ml (1 tasse) de vin blanc sec — ou plus de bouillon",
+    "30 ml (2 c. à soupe) de cassonade — pour aider la caramélisation",
+    "2 gousses d'ail — hachées finement",
+    "2 feuilles de laurier — l'aromate classique",
+    "5 ml (1 c. à thé) de thym séché — l'herbe provençale",
+    "10 ml (2 c. à thé) de sel — à ajuster",
+    "5 ml (1 c. à thé) de poivre noir — fraîchement moulu",
+    "6 tranches de pain baguette — de la veille idéalement",
+    "300 g de fromage Gruyère râpé — le classique",
+    "100 g de fromage Parmesan râpé — pour la profondeur"
+  ],
+  "steps": [
+    "Dans une grande poêle, faire fondre le beurre et faire revenir les oignons avec la cassonade à feu moyen-doux pendant 15 minutes, jusqu'à ce qu'ils commencent à caraméliser.",
+    "Transférer les oignons dans la mijoteuse. Ajouter l'ail, le bouillon, le vin, le laurier, le thym, le sel et le poivre.",
+    "Couvrir et cuire à basse température (Low) 6 à 8 heures ou à haute température (High) 3 à 4 heures.",
+    "30 minutes avant de servir, retirer les feuilles de laurier et rectifier l'assaisonnement.",
+    "Pour servir : préchauffer le gril du four. Verser la soupe dans des bols allant au four. Flotter une tranche de pain sur chaque bol, couvrir généreusement de fromage râpé.",
+    "Gratiner sous le gril 3-5 minutes jusqu'à ce que le fromage soit doré et bouillonnant. Servir immédiatement."
+  ],
+  "serving_suggestions": [
+    "Salade verte aux noix",
+    "Pain croûté supplémentaire",
+    "Pommes tranchées",
+    "Vin blanc sec"
+  ],
+  "categories": ["soupe", "traditionnel", "français"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/soupe-oignon.png",
+  "pubDate": "2025-10-03"
+}

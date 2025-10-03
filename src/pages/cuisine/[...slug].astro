@@ -147,8 +147,14 @@ function formatTime(minutes: number) {
           <h2 class="section-heading">Les provisions</h2>
           <p class="ingredient-intro">
             {
-              recipe.id === "feves-au-lard"
+              recipe.id.includes("feves-au-lard")
                 ? "Une symphonie d'ingrédients simples mais essentiels, chacun jouant sa partition dans cette recette ancestrale. La qualité fait toute la différence."
+                : recipe.id.includes("poulet-40-gousses")
+                ? "Quarante gousses d'ail peuvent sembler excessif, mais la cuisson lente les transforme en or culinaire. Chaque ingrédient contribue à créer ce plat légendaire."
+                : recipe.id.includes("porc-braise-cidre")
+                ? "Le mariage du porc et des pommes est un classique automnal. Le cidre unit ces saveurs dans une harmonie parfaite, créant un plat réconfortant par excellence."
+                : recipe.id.includes("soupe-oignon")
+                ? "Des oignons humbles transformés en nectar doré. La patience et la technique créent cette soupe légendaire qui réchauffe le corps et l'âme."
                 : "Des ingrédients simples qui se transforment en symphonie de saveurs grâce à la magie de la cuisson lente. Chaque élément a son rôle à jouer."
             }
           </p>
@@ -197,14 +203,20 @@ function formatTime(minutes: number) {
           <div class="science-content">
             <p class="science-intro">
               {
-                recipe.id === "feves-au-lard"
+                recipe.id.includes("feves-au-lard")
                   ? "Derrière cette recette traditionnelle se cache une fascinante symphonie de réactions chimiques et de transformations culinaires."
+                  : recipe.id.includes("poulet-40-gousses")
+                  ? "Cette recette légendaire révèle la magie de la transformation de l'ail et les secrets d'une cuisson parfaite qui rend le poulet irrésistiblement tendre."
+                  : recipe.id.includes("porc-braise-cidre")
+                  ? "L'alliance du porc et du cidre révèle une alchimie culinaire ancestrale où les acides du cidre transforment les fibres coriaces en soie fondante."
+                  : recipe.id.includes("soupe-oignon")
+                  ? "Cette soupe légendaire illustre la puissance transformatrice de la caramélisation et la magie de la cuisson lente qui convertit l'âcreté de l'oignon en nectar sucré."
                   : "Ce chili révèle les secrets de la cuisine moderne : transformations chimiques, équilibres gustatifs et alchimie des épices s'unissent dans la mijoteuse."
               }
             </p>
 
             {
-              recipe.id === "feves-au-lard" ? (
+              recipe.id.includes("feves-au-lard") ? (
                 <>
                   <div class="science-point">
                     <h3 class="science-subtitle">
@@ -252,6 +264,167 @@ function formatTime(minutes: number) {
                       enzymes attendrissent les fibres végétales. Le ketchup,
                       avec son umami naturel provenant des tomates concentrées,
                       amplifie la profondeur gustative sans dominer.
+                    </p>
+                  </div>
+                </>
+              ) : recipe.id.includes("porc-braise-cidre") ? (
+                <>
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      La magie acide du cidre
+                    </h3>
+                    <p>
+                      L'<em>acide malique du cidre</em> agit comme un attendrisseur
+                      naturel, brisant les liens entre les fibres de collagène. À
+                      pH 3.5, le cidre dénature doucement les protéines sans les
+                      durcir, créant cette texture fondante caractéristique. Les
+                      sucres résiduels du cidre caramélisent lentement, formant
+                      une sauce brillante et complexe.
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">La transformation du collagène</h3>
+                    <p>
+                      L'<em>épaule de porc</em>, riche en tissu conjonctif, est
+                      idéale pour le braisage. À 85°C pendant 8 heures, le
+                      collagène se convertit complètement en gélatine soyeuse. Cette
+                      gélatine épaissit naturellement la sauce tout en lubrifiant
+                      les fibres musculaires, créant cette sensation de fondant
+                      en bouche.
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      La symbiose pomme-porc
+                    </h3>
+                    <p>
+                      Les <em>pommes et le porc</em> partagent des composés
+                      aromatiques similaires (esters fruités), créant une harmonie
+                      naturelle. La pectine des pommes agit comme épaississant
+                      naturel pendant que leurs sucres se caramélisent. Les pommes
+                      acides équilibrent le gras du porc tandis que les sucrées
+                      ajoutent de la rondeur.
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">L'effet Maillard différé</h3>
+                    <p>
+                      <em>Saisir le porc</em> avant le braisage crée une croûte
+                      caramélisée riche en composés sapides. Ces molécules se
+                      dissolvent lentement dans le liquide de cuisson, enrichissant
+                      la sauce de notes grillées et umami. La sauge, avec ses
+                      composés phénoliques, amplifie ces saveurs tout en apportant
+                      ses notes terreuses caractéristiques.
+                    </p>
+                  </div>
+                </>
+              ) : recipe.id.includes("soupe-oignon") ? (
+                <>
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      L'alchimie de la caramélisation
+                    </h3>
+                    <p>
+                      La <em>caramélisation des oignons</em> est une réaction de
+                      pyrolyse où les sucres naturels (fructose et glucose) se
+                      décomposent à 160°C pour former des centaines de composés
+                      aromatiques. La cuisson lente permet une caramélisation
+                      progressive sans brûler, créant des notes de caramel, noisette
+                      et même chocolat. Chaque étape développe de nouvelles couches
+                      de complexité.
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">Les larmes de joie chimiques</h3>
+                    <p>
+                      Couper les oignons libère des <em>composés soufrés volatils</em>
+                      qui nous font pleurer. Mais ces mêmes composés, une fois
+                      cuits, se transforment en molécules sucrées et savoureuses.
+                      L'alliinase, l'enzyme responsable des larmes, se décompose
+                      en composés umami qui donnent cette profondeur
+                      caractéristique à la soupe.
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      La symbiose fromage-bouillon
+                    </h3>
+                    <p>
+                      Le <em>Gruyère</em> contient des cristaux de tyrosine et du
+                      glutamate naturel qui amplifient l'umami du bouillon. Sa
+                      teneur en matières grasses (32%) crée une émulsion parfaite
+                      avec le bouillon, formant cette croûte dorée iconique. La
+                      protéine de caséine fond à 60°C, créant ces fils élastiques
+                      tant recherchés.
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">Le rôle crucial du vin</h3>
+                    <p>
+                      Le <em>vin blanc</em> apporte l'acidité nécessaire pour
+                      équilibrer la douceur des oignons caramélisés. Ses acides
+                      tartrique et malique brightennent les saveurs tandis que
+                      l'alcool, partiellement évaporé, laisse des esters fruités.
+                      Le vin agit aussi comme solvant pour extraire les saveurs
+                      des herbes aromatiques.
+                    </p>
+                  </div>
+                </>
+              ) : recipe.id.includes("poulet-40-gousses") ? (
+                <>
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      La métamorphose miraculeuse de l'ail
+                    </h3>
+                    <p>
+                      Les <em>40 gousses d'ail</em> subissent une transformation
+                      remarquable durant la cuisson lente. L'allicine piquante se
+                      décompose en composés soufrés doux et sucrés. À 85°C, les
+                      sucres naturels caramélisent doucement, créant une pâte
+                      beurrée au goût de noisette qui se tartine comme une
+                      confiture savory.
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">Le brunissement salvateur</h3>
+                    <p>
+                      <em>Dorer le poulet</em> avant la cuisson lente est crucial.
+                      Cette réaction de Maillard à haute température crée une
+                      barrière protectrice qui emprisonne les jus. Les protéines
+                      de surface forment une croûte dorée riche en glutamate,
+                      l'essence même de l'umami.
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      L'effet autoclave de la mijoteuse
+                    </h3>
+                    <p>
+                      Le couvercle hermétique crée un <em>environnement humide</em>
+                      qui attendrit le collagène en gélatine. Cette vapeur
+                      parfumée au vin et aux herbes pénètre profondément dans la
+                      chair, créant une tendreté incomparable. Le poulet cuit
+                      littéralement dans son propre bouillon concentré.
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">La chimie du vin blanc</h3>
+                    <p>
+                      L'<em>alcool du vin</em> s'évapore en partie, laissant les
+                      acides organiques qui attendrissent les protéines. Les
+                      tanins légers se lient aux graisses, créant une sauce
+                      équilibrée. Le vin agit aussi comme solvant, extrayant les
+                      huiles essentielles du thym et du romarin pour une infusion
+                      maximale.
                     </p>
                   </div>
                 </>
@@ -315,7 +488,7 @@ function formatTime(minutes: number) {
 
           <div class="tips-content">
             {
-              recipe.id === "feves-au-lard" ? (
+              recipe.id.includes("feves-au-lard") ? (
                 <>
                   <div class="step-prose">
                     <span class="step-number-inline">1.</span>
@@ -399,6 +572,129 @@ function formatTime(minutes: number) {
                         <em>lendemain</em>. Laissez reposer une nuit au
                         réfrigérateur, puis réchauffez doucement. Les saveurs se
                         marient, la texture s'unifie. C'est la magie du temps.
+                      </p>
+                    </div>
+                  </div>
+                </>
+              ) : recipe.id.includes("poulet-40-gousses") ? (
+                <>
+                  <div class="step-prose">
+                    <span class="step-number-inline">1.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">La douceur cachée de l'ail</h3>
+                      <p>
+                        Le secret ? <em>Ne pas éplucher toutes les gousses</em>.
+                        Gardez la moitié en chemise : elles deviennent crémeuses
+                        et sucrées, se transformant en confit naturel. Les convives
+                        peuvent les écraser sur leur pain - pur bonheur.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">2.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">La peau parfaite</h3>
+                      <p>
+                        Séchez le poulet <em>24 heures au frigo non couvert</em>
+                        pour une peau ultra-croustillante. Glissez du beurre à
+                        l'ail sous la peau avant cuisson. La mijoteuse peut
+                        faire du croustillant - il suffit de finir sous le gril.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">3.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Le fond de cuisson magique</h3>
+                      <p>
+                        Les gousses d'ail confites écrasées dans le jus de cuisson
+                        créent une sauce divine. <em>Pas besoin de roux</em> - l'ail
+                        fait le travail d'épaississement naturellement. C'est la
+                        sauce la plus simple et la plus sophistiquée qui soit.
+                      </p>
+                    </div>
+                  </div>
+                </>
+              ) : recipe.id.includes("porc-braise-cidre") ? (
+                <>
+                  <div class="step-prose">
+                    <span class="step-number-inline">1.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Le choix crucial du cidre</h3>
+                      <p>
+                        <em>Évitez le cidre sucré commercial</em>. Un cidre sec
+                        artisanal transforme le plat. Si introuvable, mélangez
+                        jus de pomme et vinaigre de cidre (10:1). Le cidre de
+                        glace en finition ? Luxe absolu.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">2.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Les pommes, timing critique</h3>
+                      <p>
+                        Ajoutez les pommes <em>en deux temps</em> : la moitié au
+                        début pour qu'elles fondent dans la sauce, l'autre moitié
+                        1 heure avant la fin pour texture. Granny Smith pour
+                        l'acidité, Honeycrisp pour la douceur.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">3.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Le secret du gras</h3>
+                      <p>
+                        L'épaule de porc est grasse - c'est sa force.
+                        <em>Ne dégraissez pas trop</em>. Le gras porte les saveurs
+                        du cidre et des pommes. Réfrigérez le plat, retirez le
+                        gras solidifié si désiré, mais gardez-en pour l'onctuosité.
+                      </p>
+                    </div>
+                  </div>
+                </>
+              ) : recipe.id.includes("soupe-oignon") ? (
+                <>
+                  <div class="step-prose">
+                    <span class="step-number-inline">1.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">La caramélisation parfaite</h3>
+                      <p>
+                        <em>45 minutes minimum</em> pour caraméliser les oignons.
+                        Pas de raccourcis. Ajoutez une pincée de bicarbonate pour
+                        accélérer la réaction de Maillard. Les oignons doivent être
+                        couleur acajou, pas blonds.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">2.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Le bouillon fait la différence</h3>
+                      <p>
+                        Un bouillon de bœuf maison change tout. Sinon,
+                        <em>enrichissez le commercial</em> : faites-le mijoter
+                        avec os à moelle, carotte, céleri 2 heures avant usage.
+                        Ajoutez un trait de sauce soya pour l'umami secret.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">3.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Le gratinage spectaculaire</h3>
+                      <p>
+                        Pain rassis de 2 jours, grillé des deux côtés.
+                        <em>Gruyère de grotte</em> pour le goût, mozzarella pour
+                        le filant. Le secret ultime ? Une fine couche de moutarde
+                        de Dijon sur le pain avant le fromage.
                       </p>
                     </div>
                   </div>
