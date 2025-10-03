@@ -34,6 +34,8 @@ const cuisine = defineCollection({
     serving_suggestions: z.array(z.string()).optional(),
     categories: z.array(z.string()).default(['plat principal']),
     difficulty: z.enum(['facile', 'moyen', 'difficile']).default('moyen'),
+    variant: z.enum(['simple', 'avance']).optional(),
+    relatedRecipe: z.string().optional(),
     heroImage: z.string().optional(),
     pubDate: z.coerce.date().default(() => new Date()),
   }),

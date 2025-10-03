@@ -2,10 +2,12 @@
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
-  .filter(post => !post.data.draft)
+  .filter(post => !post.data.draft && !post.data.categories.includes('journal'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const categories = [...new Set(posts.flatMap(post => post.data.categories))].sort();
+const categories = [...new Set(posts.flatMap(post => post.data.categories))]
+  .filter(category => category !== 'journal')
+  .sort();
 ---
 
 <html lang="fr">

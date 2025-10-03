@@ -3,11 +3,12 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  const categories = [...new Set(posts.flatMap(post => post.data.categories))];
-  
+  const categories = [...new Set(posts.flatMap(post => post.data.categories))]
+    .filter(category => category !== 'journal'); // Hide journal category
+
   return categories.map(category => ({
     params: { category },
-    props: { 
+    props: {
       category,
       posts: posts
         .filter(post => post.data.categories.includes(category) && !post.data.draft)

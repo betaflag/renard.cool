@@ -1,10 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-const recipes = (await getCollection('cuisine'))
-  .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+const recipes = (await getCollection("cuisine")).sort(
+  (a, b) =>
+    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+);
 
-const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories))].sort();
+const categories = [
+  ...new Set(recipes.flatMap((recipe) => recipe.data.categories)),
+].sort();
 ---
 
 <html lang="fr">
@@ -13,8 +17,11 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
     <link rel="icon" type="image/png" href="/renard.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Cuisine de Renard | Recettes mystérieuses</title>
-    <meta name="description" content="Découvrez les recettes secrètes du renard cuisinier" />
+    <title>Renardo Cuisine | Recettes futées</title>
+    <meta
+      name="description"
+      content="Découvrez les recettes secrètes du renard cuisinier"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,71 +40,107 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
 
     <main>
       <div class="header-section">
-        <h1 class="page-title">Cuisine<span class="accent"> de Renard</span></h1>
-        <p class="subtitle">Recettes mystérieuses mijotées avec passion</p>
+        <h1 class="page-title">
+          <span class="accent">Renardo</span> Cuisine
+        </h1>
+        <p class="subtitle">Recettes futées mijotées avec passion</p>
       </div>
-      
+
       <div class="categories">
-        <button class="category-filter active" data-category="all">Toutes les recettes</button>
-        {categories.map(category => (
-          <button class="category-filter" data-category={category}>
-            {category}
-          </button>
-        ))}
+        <button class="category-filter active" data-category="all"
+          >Toutes les recettes</button
+        >
+        {
+          categories.map((category) => (
+            <button class="category-filter" data-category={category}>
+              {category}
+            </button>
+          ))
+        }
       </div>
 
       <div class="recipes-grid">
-        {recipes.map(recipe => {
-          const totalTime = recipe.data.time.prep + recipe.data.time.cook + recipe.data.time.wait;
-          const hours = Math.floor(totalTime / 60);
-          const minutes = totalTime % 60;
-          const timeDisplay = hours > 0 ? `${hours}h${minutes > 0 ? ` ${minutes}min` : ''}` : `${minutes}min`;
-          
-          return (
-            <article class="recipe-card" data-categories={recipe.data.categories.join(',')}>
-              <a href={`/cuisine/${recipe.id}/`}>
-                {recipe.data.heroImage && (
-                  <div class="recipe-image">
-                    <img src={recipe.data.heroImage} alt={recipe.data.name} />
-                  </div>
-                )}
-                <div class="recipe-content">
-                  <div class="recipe-header">
-                    <h2 class="recipe-title">{recipe.data.name}</h2>
-                    <div class="recipe-badges">
-                      {recipe.data.freezable && (
-                        <span class="badge freezable" title="Peut être congelé">❄️</span>
-                      )}
-                      <span class="badge difficulty" data-level={recipe.data.difficulty}>
-                        {recipe.data.difficulty}
-                      </span>
+        {
+          recipes.map((recipe) => {
+            const totalTime =
+              recipe.data.time.prep +
+              recipe.data.time.cook +
+              recipe.data.time.wait;
+            const hours = Math.floor(totalTime / 60);
+            const minutes = totalTime % 60;
+            const timeDisplay =
+              hours > 0
+                ? `${hours}h${minutes > 0 ? ` ${minutes}min` : ""}`
+                : `${minutes}min`;
+
+            return (
+              <article
+                class={`recipe-card ${(recipe.data as any).variant ? `variant-${(recipe.data as any).variant}` : ''}`}
+                data-categories={recipe.data.categories.join(",")}
+              >
+                <a href={`/cuisine/${recipe.id}/`}>
+                  {recipe.data.heroImage && (
+                    <div class="recipe-image">
+                      <img src={recipe.data.heroImage} alt={recipe.data.name} />
+                    </div>
+                  )}
+                  <div class="recipe-content">
+                    <div class="recipe-header">
+                      <h2 class="recipe-title">{recipe.data.name}</h2>
+                      <div class="recipe-badges">
+                        {(recipe.data as any).variant && (
+                          <span
+                            class={`badge variant ${(recipe.data as any).variant}`}
+                          >
+                            {(recipe.data as any).variant === 'simple' ? 'Simple' : 'Avancée'}
+                          </span>
+                        )}
+                        {recipe.data.freezable && (
+                          <span
+                            class="badge freezable"
+                            title="Peut être congelé"
+                          >
+                            ❄️
+                          </span>
+                        )}
+                        <span
+                          class="badge difficulty"
+                          data-level={recipe.data.difficulty}
+                        >
+                          {recipe.data.difficulty}
+                        </span>
+                      </div>
+                    </div>
+                    <p class="recipe-description">{recipe.data.description}</p>
+                    <div class="recipe-info">
+                      <div class="info-item">
+                        <span class="info-icon">⏱️</span>
+                        <span class="info-text">{timeDisplay}</span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-icon">🍽️</span>
+                        <span class="info-text">
+                          {recipe.data.servings} portions
+                        </span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-icon">🔥</span>
+                        <span class="info-text">
+                          {recipe.data.cooking_method}
+                        </span>
+                      </div>
+                    </div>
+                    <div class="recipe-categories">
+                      {recipe.data.categories.map((category) => (
+                        <span class="category-badge">{category}</span>
+                      ))}
                     </div>
                   </div>
-                  <p class="recipe-description">{recipe.data.description}</p>
-                  <div class="recipe-info">
-                    <div class="info-item">
-                      <span class="info-icon">⏱️</span>
-                      <span class="info-text">{timeDisplay}</span>
-                    </div>
-                    <div class="info-item">
-                      <span class="info-icon">🍽️</span>
-                      <span class="info-text">{recipe.data.servings} portions</span>
-                    </div>
-                    <div class="info-item">
-                      <span class="info-icon">🔥</span>
-                      <span class="info-text">{recipe.data.cooking_method}</span>
-                    </div>
-                  </div>
-                  <div class="recipe-categories">
-                    {recipe.data.categories.map(category => (
-                      <span class="category-badge">{category}</span>
-                    ))}
-                  </div>
-                </div>
-              </a>
-            </article>
-          );
-        })}
+                </a>
+              </article>
+            );
+          })
+        }
       </div>
     </main>
 
@@ -117,7 +160,7 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
         --accent-light: #ff8c42;
         --gold: #daa520;
         --warm-brown: #8b4513;
-        
+
         /* Typography scale (1.25x) */
         --text-xs: 0.8rem;
         --text-sm: 0.9rem;
@@ -129,7 +172,7 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
         --text-4xl: 3.052rem;
         --text-5xl: 3.815rem;
         --text-6xl: 4.768rem;
-        
+
         /* Spacing scale */
         --space-xs: 0.5rem;
         --space-sm: 1rem;
@@ -261,8 +304,12 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
       }
 
       @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
 
       .category-filter {
@@ -331,6 +378,72 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
         border-color: rgba(211, 84, 0, 0.25);
       }
 
+      /* Simple variant - lighter, cleaner background */
+      .recipe-card.variant-simple {
+        background: linear-gradient(
+          135deg,
+          rgba(240, 253, 244, 1) 0%,
+          rgba(220, 252, 231, 0.7) 100%
+        );
+        border: 2px solid rgba(134, 239, 172, 0.2);
+        position: relative;
+      }
+
+      .recipe-card.variant-simple::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(134, 239, 172, 0.5),
+          transparent
+        );
+        border-radius: 8px 8px 0 0;
+      }
+
+      .recipe-card.variant-simple:hover {
+        border-color: rgba(134, 239, 172, 0.35);
+        box-shadow: 0 12px 40px rgba(134, 239, 172, 0.12);
+        transform: translateY(-8px);
+      }
+
+      /* Advanced variant - richer, warmer background */
+      .recipe-card.variant-avance {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 251, 235, 1) 0%,
+          rgba(254, 243, 199, 0.6) 100%
+        );
+        border: 2px solid rgba(251, 191, 36, 0.2);
+        position: relative;
+      }
+
+      .recipe-card.variant-avance::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(251, 191, 36, 0.5),
+          transparent
+        );
+        border-radius: 8px 8px 0 0;
+      }
+
+      .recipe-card.variant-avance:hover {
+        border-color: rgba(251, 191, 36, 0.35);
+        box-shadow: 0 12px 40px rgba(251, 191, 36, 0.12);
+        transform: translateY(-8px);
+      }
+
       .recipe-card[data-hidden="true"] {
         display: none;
       }
@@ -361,10 +474,14 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
       }
 
       .recipe-image::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, transparent 60%, rgba(211, 84, 0, 0.05));
+        background: linear-gradient(
+          180deg,
+          transparent 60%,
+          rgba(211, 84, 0, 0.05)
+        );
         pointer-events: none;
       }
 
@@ -427,6 +544,30 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
         background: rgba(239, 68, 68, 0.1);
         border-color: rgba(239, 68, 68, 0.3);
         color: #dc2626;
+      }
+
+      .badge.difficulty[data-level="moyen"] {
+        background: rgba(251, 146, 60, 0.1);
+        border-color: rgba(251, 146, 60, 0.3);
+        color: #ea580c;
+      }
+
+      .badge.variant {
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        color: #7c3aed;
+      }
+
+      .badge.variant.simple {
+        background: rgba(34, 197, 94, 0.1);
+        border-color: rgba(34, 197, 94, 0.3);
+        color: #059669;
+      }
+
+      .badge.variant.avance {
+        background: rgba(217, 119, 6, 0.1);
+        border-color: rgba(217, 119, 6, 0.3);
+        color: #b45309;
       }
 
       .recipe-description {
@@ -552,7 +693,7 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
           font-size: var(--text-xs);
           padding: var(--space-xs);
         }
-        
+
         .recipe-title {
           font-size: var(--text-lg);
         }
@@ -560,25 +701,26 @@ const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories)
     </style>
 
     <script>
-      const filters = document.querySelectorAll('.category-filter');
-      const recipes = document.querySelectorAll('.recipe-card');
+      const filters = document.querySelectorAll(".category-filter");
+      const recipes = document.querySelectorAll(".recipe-card");
 
-      filters.forEach(filter => {
-        filter.addEventListener('click', () => {
-          filters.forEach(f => f.classList.remove('active'));
-          filter.classList.add('active');
+      filters.forEach((filter) => {
+        filter.addEventListener("click", () => {
+          filters.forEach((f) => f.classList.remove("active"));
+          filter.classList.add("active");
 
           const category = filter.dataset.category;
 
-          recipes.forEach(recipe => {
-            if (category === 'all') {
-              recipe.style.display = 'block';
+          recipes.forEach((recipe) => {
+            if (category === "all") {
+              recipe.style.display = "block";
             } else {
-              const recipeCategories = recipe.dataset.categories?.split(',') || [];
+              const recipeCategories =
+                recipe.dataset.categories?.split(",") || [];
               if (recipeCategories.includes(category)) {
-                recipe.style.display = 'block';
+                recipe.style.display = "block";
               } else {
-                recipe.style.display = 'none';
+                recipe.style.display = "none";
               }
             }
           });

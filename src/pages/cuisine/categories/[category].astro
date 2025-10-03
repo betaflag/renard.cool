@@ -1,22 +1,27 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const recipes = await getCollection('cuisine');
-  const categories = [...new Set(recipes.flatMap(recipe => recipe.data.categories))];
-  
-  return categories.map(category => ({
+  const recipes = await getCollection("cuisine");
+  const categories = [
+    ...new Set(recipes.flatMap((recipe) => recipe.data.categories)),
+  ];
+
+  return categories.map((category) => ({
     params: { category },
-    props: { 
+    props: {
       category,
-      recipes: recipes.filter(recipe => recipe.data.categories.includes(category))
-    }
+      recipes: recipes.filter((recipe) =>
+        recipe.data.categories.includes(category)
+      ),
+    },
   }));
 }
 
 const { category, recipes } = Astro.props;
-const sortedRecipes = recipes.sort((a, b) => 
-  new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+const sortedRecipes = recipes.sort(
+  (a, b) =>
+    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
 ---
 
@@ -26,8 +31,11 @@ const sortedRecipes = recipes.sort((a, b) =>
     <link rel="icon" type="image/png" href="/renard.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{category} | Cuisine de Renard</title>
-    <meta name="description" content={`Découvrez toutes nos recettes de ${category}`} />
+    <title>{category} | Renardo Cuisine</title>
+    <meta
+      name="description"
+      content={`Découvrez toutes nos recettes de ${category}`}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -51,63 +59,89 @@ const sortedRecipes = recipes.sort((a, b) =>
     <main>
       <div class="header-section">
         <h1 class="page-title">{category}</h1>
-        <p class="subtitle">{sortedRecipes.length} recette{sortedRecipes.length > 1 ? 's' : ''} dans cette catégorie</p>
+        <p class="subtitle">
+          {sortedRecipes.length} recette{sortedRecipes.length > 1 ? "s" : ""} dans
+          cette catégorie
+        </p>
       </div>
 
       <div class="recipes-grid">
-        {sortedRecipes.map(recipe => {
-          const totalTime = recipe.data.time.prep + recipe.data.time.cook + recipe.data.time.wait;
-          const hours = Math.floor(totalTime / 60);
-          const minutes = totalTime % 60;
-          const timeDisplay = hours > 0 ? `${hours}h${minutes > 0 ? ` ${minutes}min` : ''}` : `${minutes}min`;
-          
-          return (
-            <article class="recipe-card">
-              <a href={`/cuisine/${recipe.id}/`}>
-                {recipe.data.heroImage && (
-                  <div class="recipe-image">
-                    <img src={recipe.data.heroImage} alt={recipe.data.name} />
-                  </div>
-                )}
-                <div class="recipe-content">
-                  <div class="recipe-header">
-                    <h2 class="recipe-title">{recipe.data.name}</h2>
-                    <div class="recipe-badges">
-                      {recipe.data.freezable && (
-                        <span class="badge freezable" title="Peut être congelé">❄️</span>
-                      )}
-                      <span class="badge difficulty" data-level={recipe.data.difficulty}>
-                        {recipe.data.difficulty}
-                      </span>
+        {
+          sortedRecipes.map((recipe) => {
+            const totalTime =
+              recipe.data.time.prep +
+              recipe.data.time.cook +
+              recipe.data.time.wait;
+            const hours = Math.floor(totalTime / 60);
+            const minutes = totalTime % 60;
+            const timeDisplay =
+              hours > 0
+                ? `${hours}h${minutes > 0 ? ` ${minutes}min` : ""}`
+                : `${minutes}min`;
+
+            return (
+              <article class="recipe-card">
+                <a href={`/cuisine/${recipe.id}/`}>
+                  {recipe.data.heroImage && (
+                    <div class="recipe-image">
+                      <img src={recipe.data.heroImage} alt={recipe.data.name} />
+                    </div>
+                  )}
+                  <div class="recipe-content">
+                    <div class="recipe-header">
+                      <h2 class="recipe-title">{recipe.data.name}</h2>
+                      <div class="recipe-badges">
+                        {recipe.data.freezable && (
+                          <span
+                            class="badge freezable"
+                            title="Peut être congelé"
+                          >
+                            ❄️
+                          </span>
+                        )}
+                        <span
+                          class="badge difficulty"
+                          data-level={recipe.data.difficulty}
+                        >
+                          {recipe.data.difficulty}
+                        </span>
+                      </div>
+                    </div>
+                    <p class="recipe-description">{recipe.data.description}</p>
+                    <div class="recipe-info">
+                      <div class="info-item">
+                        <span class="info-icon">⏱️</span>
+                        <span class="info-text">{timeDisplay}</span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-icon">🍽️</span>
+                        <span class="info-text">
+                          {recipe.data.servings} portions
+                        </span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-icon">🔥</span>
+                        <span class="info-text">
+                          {recipe.data.cooking_method}
+                        </span>
+                      </div>
+                    </div>
+                    <div class="recipe-categories">
+                      {recipe.data.categories.map((cat) => (
+                        <a
+                          href={`/cuisine/categories/${cat}`}
+                          class={`category-badge ${cat === category ? "active" : ""}`}
+                        >
+                          {cat}
+                        </a>
+                      ))}
                     </div>
                   </div>
-                  <p class="recipe-description">{recipe.data.description}</p>
-                  <div class="recipe-info">
-                    <div class="info-item">
-                      <span class="info-icon">⏱️</span>
-                      <span class="info-text">{timeDisplay}</span>
-                    </div>
-                    <div class="info-item">
-                      <span class="info-icon">🍽️</span>
-                      <span class="info-text">{recipe.data.servings} portions</span>
-                    </div>
-                    <div class="info-item">
-                      <span class="info-icon">🔥</span>
-                      <span class="info-text">{recipe.data.cooking_method}</span>
-                    </div>
-                  </div>
-                  <div class="recipe-categories">
-                    {recipe.data.categories.map(cat => (
-                      <a href={`/cuisine/categories/${cat}`} class={`category-badge ${cat === category ? 'active' : ''}`}>
-                        {cat}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </a>
-            </article>
-          );
-        })}
+                </a>
+              </article>
+            );
+          })
+        }
       </div>
     </main>
 
@@ -127,7 +161,7 @@ const sortedRecipes = recipes.sort((a, b) =>
       body {
         background: #0f0d0a;
         color: #f4f1ea;
-        font-family: 'Raleway', sans-serif;
+        font-family: "Raleway", sans-serif;
         min-height: 100vh;
         overflow-x: hidden;
         position: relative;
@@ -166,18 +200,27 @@ const sortedRecipes = recipes.sort((a, b) =>
         position: absolute;
         width: 200%;
         height: 200%;
-        background: radial-gradient(circle at 50% 50%, rgba(255, 140, 50, 0.05), transparent 50%);
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(255, 140, 50, 0.05),
+          transparent 50%
+        );
         animation: rise 15s infinite ease-in-out;
       }
 
       .steam-2 {
         animation-delay: -7.5s;
         animation-duration: 20s;
-        background: radial-gradient(circle at 30% 70%, rgba(255, 180, 100, 0.04), transparent 60%);
+        background: radial-gradient(
+          circle at 30% 70%,
+          rgba(255, 180, 100, 0.04),
+          transparent 60%
+        );
       }
 
       @keyframes rise {
-        0%, 100% {
+        0%,
+        100% {
           transform: translateY(100px) scale(1);
           opacity: 0;
         }
@@ -237,7 +280,7 @@ const sortedRecipes = recipes.sort((a, b) =>
       }
 
       .page-title {
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
         font-size: clamp(2.5rem, 5vw, 4rem);
         margin-bottom: 1rem;
         color: #ffa366;
@@ -309,7 +352,7 @@ const sortedRecipes = recipes.sort((a, b) =>
       }
 
       .recipe-title {
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
         font-size: 1.5rem;
         color: #ffa366;
         font-weight: 700;

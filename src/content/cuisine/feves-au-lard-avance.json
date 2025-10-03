@@ -1,44 +1,45 @@
 {
-  "name": "Fèves au lard de Renard",
-  "description": "Les traditionnelles «bines» sont faites dans la mijoteuse, pour un résultat tendre et cuit juste à point. On met tous les ingrédients dans le récipient et la magie opère. La lente cuisson permet aux ingrédients de bien imprégner les haricots de saveur. La petite touche qui ajoute au plaisir? Une tasse de sirop d'érable qui donne juste ce qu'il faut de sucré.",
+  "name": "Fèves au lard de Renard (Avancé)",
+  "description": "Les traditionnelles «bines» sont élevées à un niveau supérieur avec des rehausseurs de saveur. Cette version avancée incorpore des aromates et épices supplémentaires qui créent une symphonie de goûts complexes et riches, tout en conservant l'esprit traditionnel du plat.",
   "servings": 8,
   "freezable": true,
   "time": {
-    "prep": 10,
+    "prep": 15,
     "cook": 540,
     "wait": 0,
     "soak": 720
   },
   "cooking_method": "Mijoteuse",
+  "variant": "avance",
+  "relatedRecipe": "feves-au-lard-simple",
   "ingredients": [
     "900 g (4½ tasses) de haricots blancs secs Navy — la fondation crémeuse",
     "1,5 litre (6 tasses) d'eau fraîche — pour réveiller les légumineuses",
     "250 ml (1 tasse) de sirop d'érable ambré du Québec — le cœur sucré de la recette",
     "125 ml (½ tasse) de ketchup — l'umami secret",
+    "30 ml (2 c. à soupe) de mélasse — pour la richesse traditionnelle",
     "225 g (½ lb) de lard salé entrelardé — du boucher, sans couenne",
     "2 oignons jaunes moyens — hachés grossièrement pour fondre dans la sauce",
     "15 ml (1 c. à soupe) de moutarde de Dijon — la pointe d'acidité révélatrice",
-    "5 ml (1 c. à thé) de sel de mer — pour équilibrer les saveurs",
-    "2,5 ml (½ c. à thé) de poivre noir fraîchement moulu — la touche finale"
-  ],
-  "optional_ingredients": [
-    "2 feuilles de laurier — pour la profondeur aromatique",
     "15 ml (1 c. à soupe) de cassonade — pour intensifier la douceur",
     "5 ml (1 c. à thé) de poudre d'ail — l'accent subtil",
-    "30 ml (2 c. à soupe) de mélasse — pour la richesse traditionnelle",
-    "1 branche de thym frais — l'herbe de la garrigue",
     "2,5 ml (½ c. à thé) de paprika fumé — la note campagnarde",
+    "2 feuilles de laurier — pour la profondeur aromatique",
+    "1 branche de thym frais — l'herbe de la garrigue",
+    "5 ml (1 c. à thé) de sel de mer — pour équilibrer les saveurs",
+    "2,5 ml (½ c. à thé) de poivre noir fraîchement moulu — la touche finale",
     "30 ml (2 c. à soupe) de vinaigre de cidre — pour l'équilibre final"
   ],
   "steps": [
     "Placer les haricots dans un grand bol. Couvrir d'eau et laisser tremper 12 heures ou toute une nuit à la température ambiante. Ajouter de l'eau au besoin afin que les haricots soient toujours bien couverts. Rincer et égoutter.",
-    "Dans la mijoteuse, mélanger tous les ingrédients essentiels. Optionnel : ajouter les feuilles de laurier, la cassonade, la poudre d'ail, la mélasse, le thym et le paprika fumé dès cette étape pour une infusion maximale.",
+    "Dans la mijoteuse, mélanger tous les ingrédients sauf le vinaigre de cidre. Ajouter les feuilles de laurier et la branche de thym.",
     "Couvrir et cuire à basse température (Low) de 8 à 9 heures ou à haute température (High) 6 heures.",
-    "Une heure avant la fin de cuisson, bien remuer et rectifier l'assaisonnement. Optionnel : ajouter le vinaigre de cidre pour équilibrer l'acidité.",
-    "Retirer les feuilles de laurier avant de servir. Laisser reposer 10 minutes pour que les saveurs se marient parfaitement."
+    "Une heure avant la fin de cuisson, bien remuer et rectifier l'assaisonnement. Ajouter le vinaigre de cidre pour équilibrer l'acidité.",
+    "Retirer les feuilles de laurier et la branche de thym avant de servir.",
+    "Laisser reposer 10 minutes pour que les saveurs se marient parfaitement."
   ],
   "categories": ["plat principal", "traditionnel", "québécois"],
-  "difficulty": "facile",
+  "difficulty": "moyen",
   "heroImage": "/cuisine/beans-cover.png",
   "pubDate": "2025-09-25"
 }

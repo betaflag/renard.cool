@@ -1,0 +1,37 @@
+{
+  "name": "Fèves au lard de Renard (Simple)",
+  "description": "Les traditionnelles «bines» sont faites dans la mijoteuse, pour un résultat tendre et cuit juste à point. Cette version simple met de l'avant les ingrédients essentiels pour créer un plat authentique sans complications.",
+  "servings": 8,
+  "freezable": true,
+  "time": {
+    "prep": 10,
+    "cook": 540,
+    "wait": 0,
+    "soak": 720
+  },
+  "cooking_method": "Mijoteuse",
+  "variant": "simple",
+  "relatedRecipe": "feves-au-lard-avance",
+  "ingredients": [
+    "900 g (4½ tasses) de haricots blancs secs Navy — la fondation crémeuse",
+    "1,5 litre (6 tasses) d'eau fraîche — pour réveiller les légumineuses",
+    "250 ml (1 tasse) de sirop d'érable ambré du Québec — le cœur sucré de la recette",
+    "125 ml (½ tasse) de ketchup — l'umami secret",
+    "225 g (½ lb) de lard salé entrelardé — du boucher, sans couenne",
+    "2 oignons jaunes moyens — hachés grossièrement pour fondre dans la sauce",
+    "15 ml (1 c. à soupe) de moutarde de Dijon — la pointe d'acidité révélatrice",
+    "5 ml (1 c. à thé) de sel de mer — pour équilibrer les saveurs",
+    "2,5 ml (½ c. à thé) de poivre noir fraîchement moulu — la touche finale"
+  ],
+  "steps": [
+    "Placer les haricots dans un grand bol. Couvrir d'eau et laisser tremper 12 heures ou toute une nuit à la température ambiante. Ajouter de l'eau au besoin afin que les haricots soient toujours bien couverts. Rincer et égoutter.",
+    "Dans la mijoteuse, mélanger tous les ingrédients.",
+    "Couvrir et cuire à basse température (Low) de 8 à 9 heures ou à haute température (High) 6 heures.",
+    "Une heure avant la fin de cuisson, bien remuer et rectifier l'assaisonnement.",
+    "Laisser reposer 10 minutes pour que les saveurs se marient parfaitement."
+  ],
+  "categories": ["plat principal", "traditionnel", "québécois"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/beans-cover.png",
+  "pubDate": "2025-09-25"
+}

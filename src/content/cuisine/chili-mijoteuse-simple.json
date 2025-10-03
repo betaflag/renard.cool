@@ -1,0 +1,45 @@
+{
+  "name": "Chili à la viande de la Tanière (Simple)",
+  "description": "Un chili simple et savoureux préparé à la mijoteuse avec des ingrédients essentiels. La cuisson lente permet aux saveurs de se marier parfaitement, créant un plat réconfortant sans complications.",
+  "servings": 8,
+  "freezable": true,
+  "time": {
+    "prep": 15,
+    "cook": 360,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Mijoteuse",
+  "variant": "simple",
+  "relatedRecipe": "chili-mijoteuse-avance",
+  "ingredients": [
+    "900 g (2 lb) de bœuf haché — la base protéinée",
+    "1 gros oignon — coupé en dés pour la douceur",
+    "2 boîtes (398 ml chacune) de tomates en dés — l'acidité équilibrante",
+    "1 boîte (398 ml) de sauce tomate — pour la consistance",
+    "2 boîtes de haricots rouges — égouttés et rincés",
+    "1 boîte de haricots noirs — égouttés et rincés",
+    "30 ml (2 c. à soupe) de poudre de chili — l'épice signature",
+    "15 ml (1 c. à soupe) de cumin — pour la profondeur",
+    "15 ml (1 c. à soupe) de cassonade — l'équilibre sucré",
+    "10 ml (2 c. à thé) de sel — l'exhausteur de goût",
+    "250 ml (1 tasse) de bouillon de bœuf — pour enrichir"
+  ],
+  "steps": [
+    "Faire revenir le bœuf haché dans une poêle et égoutter le gras (étape cruciale).",
+    "Ajouter le bœuf et l'oignon coupé en dés dans la mijoteuse.",
+    "Incorporer tous les ingrédients restants et mélanger.",
+    "Cuire à basse température (Low) 6 à 8 heures ou à haute température (High) 3 à 4 heures.",
+    "Goûter et ajuster l'assaisonnement durant la dernière heure de cuisson."
+  ],
+  "serving_suggestions": [
+    "Fromage râpé",
+    "Crème sure",
+    "Oignons verts",
+    "Pain de maïs"
+  ],
+  "categories": ["plat principal", "réconfortant", "américain"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/chili-cover.png",
+  "pubDate": "2025-09-28"
+}
