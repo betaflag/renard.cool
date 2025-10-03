@@ -38,6 +38,7 @@ const cuisine = defineCollection({
     relatedRecipe: z.string().optional(),
     heroImage: z.string().optional(),
     pubDate: z.coerce.date().default(() => new Date()),
+    draft: z.boolean().default(false),
   }),
 });
 

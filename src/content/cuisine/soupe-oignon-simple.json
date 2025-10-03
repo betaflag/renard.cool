@@ -44,5 +44,6 @@
   "categories": ["soupe", "traditionnel", "français"],
   "difficulty": "facile",
   "heroImage": "/cuisine/soupe-oignon.png",
-  "pubDate": "2025-10-03"
+  "pubDate": "2025-10-03",
+  "draft": true
 }

@@ -43,5 +43,6 @@
   "categories": ["plat principal", "traditionnel", "québécois"],
   "difficulty": "facile",
   "heroImage": "/cuisine/porc-cidre.png",
-  "pubDate": "2025-10-03"
+  "pubDate": "2025-10-03",
+  "draft": true
 }

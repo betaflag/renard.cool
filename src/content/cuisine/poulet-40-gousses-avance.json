@@ -51,5 +51,6 @@
   "categories": ["plat principal", "traditionnel", "français"],
   "difficulty": "moyen",
   "heroImage": "/cuisine/poulet-40-gousses.png",
-  "pubDate": "2025-10-03"
+  "pubDate": "2025-10-03",
+  "draft": true
 }
