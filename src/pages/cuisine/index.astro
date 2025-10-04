@@ -7,8 +7,22 @@ const allRecipes = (await getCollection("cuisine")).sort(
     new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
 
-// We'll use all recipes and handle filtering client-side
-const recipes = allRecipes;
+// Group recipes by base name (without variant suffix)
+// Only show Simple versions as base recipes, with their Advanced counterparts
+const baseRecipes = allRecipes.filter(recipe =>
+  (recipe.data as any).variant === 'simple' || !(recipe.data as any).variant
+);
+
+// Create a map to find Advanced versions
+const advancedRecipesMap = new Map();
+allRecipes.forEach(recipe => {
+  if ((recipe.data as any).variant === 'avance' && (recipe.data as any).relatedRecipe) {
+    advancedRecipesMap.set((recipe.data as any).relatedRecipe, recipe);
+  }
+});
+
+// We'll use base recipes and handle filtering client-side
+const recipes = baseRecipes;
 
 // Always get all categories from all recipes (including drafts)
 // so the category filters work properly when drafts are shown
@@ -84,74 +98,73 @@ const categories = [
                 ? `${hours}h${minutes > 0 ? ` ${minutes}min` : ""}`
                 : `${minutes}min`;
 
+            // Get the Advanced version if it exists
+            const advancedRecipe = advancedRecipesMap.get(recipe.id);
+
+            // Clean up the recipe name (remove " (Simple)" suffix)
+            const cleanName = recipe.data.name.replace(' (Simple)', '').replace(' (Avancé)', '');
+
             return (
               <article
-                class={`recipe-card ${(recipe.data as any).variant ? `variant-${(recipe.data as any).variant}` : ''}`}
+                class="recipe-card"
                 data-categories={recipe.data.categories.join(",")}
                 data-draft={recipe.data.draft ? "true" : "false"}
               >
-                <a href={`/cuisine/${recipe.id}/`}>
-                  {recipe.data.heroImage && (
-                    <div class="recipe-image">
-                      <img src={recipe.data.heroImage} alt={recipe.data.name} />
-                    </div>
-                  )}
-                  <div class="recipe-content">
-                    <div class="recipe-header">
-                      <h2 class="recipe-title">{recipe.data.name}</h2>
+                {recipe.data.heroImage && (
+                  <div class="recipe-image">
+                    <img src={recipe.data.heroImage} alt={cleanName} />
+                  </div>
+                )}
+                <div class="recipe-content">
+                  <div class="recipe-header">
+                    <h2 class="recipe-title">{cleanName}</h2>
+                    {recipe.data.draft && (
                       <div class="recipe-badges">
-                        {recipe.data.draft && (
-                          <span class="badge draft">Brouillon</span>
-                        )}
-                        {(recipe.data as any).variant && (
-                          <span
-                            class={`badge variant ${(recipe.data as any).variant}`}
-                          >
-                            {(recipe.data as any).variant === 'simple' ? 'Simple' : 'Avancée'}
-                          </span>
-                        )}
-                        {recipe.data.freezable && (
-                          <span
-                            class="badge freezable"
-                            title="Peut être congelé"
-                          >
-                            ❄️
-                          </span>
-                        )}
-                        <span
-                          class="badge difficulty"
-                          data-level={recipe.data.difficulty}
-                        >
-                          {recipe.data.difficulty}
-                        </span>
+                        <span class="badge draft">Brouillon</span>
                       </div>
+                    )}
+                  </div>
+                  <p class="recipe-description">{recipe.data.description}</p>
+                  <div class="recipe-info">
+                    <div class="info-item">
+                      <span class="info-icon">⏱️</span>
+                      <span class="info-text">{timeDisplay}</span>
                     </div>
-                    <p class="recipe-description">{recipe.data.description}</p>
-                    <div class="recipe-info">
-                      <div class="info-item">
-                        <span class="info-icon">⏱️</span>
-                        <span class="info-text">{timeDisplay}</span>
-                      </div>
-                      <div class="info-item">
-                        <span class="info-icon">🍽️</span>
-                        <span class="info-text">
-                          {recipe.data.servings} portions
-                        </span>
-                      </div>
-                      <div class="info-item">
-                        <span class="info-icon">🔥</span>
-                        <span class="info-text">
-                          {recipe.data.cooking_method}
-                        </span>
-                      </div>
+                    <div class="info-item">
+                      <span class="info-icon">🍽️</span>
+                      <span class="info-text">
+                        {recipe.data.servings} portions
+                      </span>
                     </div>
-                    <div class="recipe-categories">
-                      {recipe.data.categories.map((category) => (
-                        <span class="category-badge">{category}</span>
-                      ))}
+                    <div class="info-item">
+                      <span class="info-icon">🔥</span>
+                      <span class="info-text">
+                        {recipe.data.cooking_method}
+                      </span>
                     </div>
                   </div>
-                </a>
+                  <div class="recipe-categories">
+                    {recipe.data.categories.map((category) => (
+                      <span class="category-badge">{category}</span>
+                    ))}
+                  </div>
+                  <div class="version-buttons">
+                    {advancedRecipe ? (
+                      <>
+                        <a href={`/cuisine/${recipe.id}/`} class="version-button simple">
+                          Version Simple
+                        </a>
+                        <a href={`/cuisine/${advancedRecipe.id}/`} class="version-button avance">
+                          Version Avancée
+                        </a>
+                      </>
+                    ) : (
+                      <a href={`/cuisine/${recipe.id}/`} class="version-button simple">
+                        Voir la recette
+                      </a>
+                    )}
+                  </div>
+                </div>
               </article>
             );
           })
@@ -393,80 +406,8 @@ const categories = [
         border-color: rgba(211, 84, 0, 0.25);
       }
 
-      /* Simple variant - lighter, cleaner background */
-      .recipe-card.variant-simple {
-        background: linear-gradient(
-          135deg,
-          rgba(240, 253, 244, 1) 0%,
-          rgba(220, 252, 231, 0.7) 100%
-        );
-        border: 2px solid rgba(134, 239, 172, 0.2);
-        position: relative;
-      }
-
-      .recipe-card.variant-simple::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(134, 239, 172, 0.5),
-          transparent
-        );
-        border-radius: 8px 8px 0 0;
-      }
-
-      .recipe-card.variant-simple:hover {
-        border-color: rgba(134, 239, 172, 0.35);
-        box-shadow: 0 12px 40px rgba(134, 239, 172, 0.12);
-        transform: translateY(-8px);
-      }
-
-      /* Advanced variant - richer, warmer background */
-      .recipe-card.variant-avance {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 251, 235, 1) 0%,
-          rgba(254, 243, 199, 0.6) 100%
-        );
-        border: 2px solid rgba(251, 191, 36, 0.2);
-        position: relative;
-      }
-
-      .recipe-card.variant-avance::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(251, 191, 36, 0.5),
-          transparent
-        );
-        border-radius: 8px 8px 0 0;
-      }
-
-      .recipe-card.variant-avance:hover {
-        border-color: rgba(251, 191, 36, 0.35);
-        box-shadow: 0 12px 40px rgba(251, 191, 36, 0.12);
-        transform: translateY(-8px);
-      }
-
       .recipe-card[data-hidden="true"] {
         display: none;
-      }
-
-      .recipe-card a {
-        text-decoration: none;
-        color: inherit;
-        display: block;
       }
 
       .recipe-image {
@@ -480,12 +421,7 @@ const categories = [
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.3s ease;
         filter: sepia(5%) saturate(105%) contrast(102%);
-      }
-
-      .recipe-card:hover .recipe-image img {
-        transform: scale(1.05);
       }
 
       .recipe-image::after {
@@ -505,9 +441,6 @@ const categories = [
       }
 
       .recipe-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
         margin-bottom: var(--space-md);
       }
 
@@ -516,15 +449,15 @@ const categories = [
         font-size: var(--text-xl);
         color: var(--accent);
         font-weight: 700;
-        flex: 1;
         line-height: 1.2;
         letter-spacing: -0.01em;
+        margin-bottom: var(--space-sm);
       }
 
       .recipe-badges {
-        display: flex;
+        display: inline-flex;
         gap: var(--space-xs);
-        margin-left: var(--space-md);
+        margin-bottom: var(--space-sm);
       }
 
       .badge {
@@ -536,54 +469,7 @@ const categories = [
         text-transform: uppercase;
       }
 
-      .badge.freezable {
-        background: rgba(100, 180, 255, 0.15);
-        border: 1px solid rgba(100, 180, 255, 0.3);
-        color: #2563eb;
-      }
 
-      .badge.difficulty {
-        background: rgba(211, 84, 0, 0.1);
-        border: 1px solid rgba(211, 84, 0, 0.2);
-        color: var(--accent);
-        text-transform: capitalize;
-      }
-
-      .badge.difficulty[data-level="facile"] {
-        background: rgba(34, 197, 94, 0.1);
-        border-color: rgba(34, 197, 94, 0.3);
-        color: #059669;
-      }
-
-      .badge.difficulty[data-level="difficile"] {
-        background: rgba(239, 68, 68, 0.1);
-        border-color: rgba(239, 68, 68, 0.3);
-        color: #dc2626;
-      }
-
-      .badge.difficulty[data-level="moyen"] {
-        background: rgba(251, 146, 60, 0.1);
-        border-color: rgba(251, 146, 60, 0.3);
-        color: #ea580c;
-      }
-
-      .badge.variant {
-        background: rgba(139, 92, 246, 0.1);
-        border: 1px solid rgba(139, 92, 246, 0.3);
-        color: #7c3aed;
-      }
-
-      .badge.variant.simple {
-        background: rgba(34, 197, 94, 0.1);
-        border-color: rgba(34, 197, 94, 0.3);
-        color: #059669;
-      }
-
-      .badge.variant.avance {
-        background: rgba(217, 119, 6, 0.1);
-        border-color: rgba(217, 119, 6, 0.3);
-        color: #b45309;
-      }
 
       .badge.draft {
         background: rgba(100, 100, 100, 0.2);
@@ -702,6 +588,54 @@ const categories = [
         text-transform: capitalize;
       }
 
+      .version-buttons {
+        display: flex;
+        gap: var(--space-sm);
+        margin-top: var(--space-lg);
+        padding-top: var(--space-md);
+        border-top: 1px solid rgba(211, 84, 0, 0.1);
+      }
+
+      .version-button {
+        flex: 1;
+        padding: var(--space-sm) var(--space-md);
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: var(--text-sm);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        border: 2px solid;
+      }
+
+      .version-button.simple {
+        background: rgba(34, 197, 94, 0.05);
+        border-color: rgba(34, 197, 94, 0.3);
+        color: #059669;
+      }
+
+      .version-button.simple:hover {
+        background: rgba(34, 197, 94, 0.15);
+        border-color: rgba(34, 197, 94, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+      }
+
+      .version-button.avance {
+        background: rgba(251, 191, 36, 0.05);
+        border-color: rgba(251, 191, 36, 0.3);
+        color: #b45309;
+      }
+
+      .version-button.avance:hover {
+        background: rgba(251, 191, 36, 0.15);
+        border-color: rgba(251, 191, 36, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+      }
+
       @media (max-width: 768px) {
         main {
           padding: var(--space-md);
@@ -746,20 +680,20 @@ const categories = [
           padding: var(--space-md);
         }
 
-        .recipe-header {
-          flex-direction: column;
-          gap: var(--space-sm);
-          align-items: flex-start;
-        }
-
-        .recipe-badges {
-          margin-left: 0;
-        }
 
         .recipe-info {
           flex-direction: column;
           gap: var(--space-sm);
           padding: var(--space-sm) 0;
+        }
+
+        .version-buttons {
+          flex-direction: column;
+          gap: var(--space-xs);
+        }
+
+        .version-button {
+          padding: var(--space-sm);
         }
       }
 

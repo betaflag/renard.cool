@@ -155,31 +155,31 @@ function formatTime(minutes: number) {
                 ? "Le mariage du porc et des pommes est un classique automnal. Le cidre unit ces saveurs dans une harmonie parfaite, créant un plat réconfortant par excellence."
                 : recipe.id.includes("soupe-oignon")
                 ? "Des oignons humbles transformés en nectar doré. La patience et la technique créent cette soupe légendaire qui réchauffe le corps et l'âme."
+                : recipe.id.includes("ragout-boulettes")
+                ? "Le ragoût de boulettes, âme de la cuisine québécoise. Des boulettes épicées à la cannelle baignent dans une sauce brune onctueuse, créant le réconfort absolu."
                 : "Des ingrédients simples qui se transforment en symphonie de saveurs grâce à la magie de la cuisson lente. Chaque élément a son rôle à jouer."
             }
           </p>
 
           <div class="ingredients-layout">
-            <div class="essential-ingredients">
-              <h3 class="ingredient-section-title">
-                {(data as any).variant === 'avance' ? 'Tous les ingrédients' : 'Ingrédients'}
-              </h3>
-              <div class="ingredients-grid">
-                {
-                  data.ingredients.map((ingredient) => {
-                    const [main, note] = ingredient.split(" — ");
-                    return (
-                      <div class="ingredient-line">
-                        <span class="ingredient-bullet">—</span>
-                        <div class="ingredient-content">
-                          <span class="ingredient-main">{main}</span>
-                          {note && <span class="ingredient-note">{note}</span>}
-                        </div>
+            <h3 class="ingredient-section-title">
+              {(data as any).variant === 'avance' ? 'Tous les ingrédients' : 'Ingrédients'}
+            </h3>
+            <div class="ingredients-grid">
+              {
+                data.ingredients.map((ingredient) => {
+                  const [main, note] = ingredient.split(" — ");
+                  return (
+                    <div class="ingredient-line">
+                      <span class="ingredient-bullet">—</span>
+                      <div class="ingredient-content">
+                        <span class="ingredient-main">{main}</span>
+                        {note && <span class="ingredient-note">{note}</span>}
                       </div>
-                    );
-                  })
-                }
-              </div>
+                    </div>
+                  );
+                })
+              }
             </div>
           </div>
         </div>
@@ -211,6 +211,8 @@ function formatTime(minutes: number) {
                   ? "L'alliance du porc et du cidre révèle une alchimie culinaire ancestrale où les acides du cidre transforment les fibres coriaces en soie fondante."
                   : recipe.id.includes("soupe-oignon")
                   ? "Cette soupe légendaire illustre la puissance transformatrice de la caramélisation et la magie de la cuisson lente qui convertit l'âcreté de l'oignon en nectar sucré."
+                  : recipe.id.includes("ragout-boulettes")
+                  ? "Le ragoût de boulettes révèle les secrets de la cuisine traditionnelle : l'équilibre des protéines, la magie des épices douces et la transformation lente en sauce onctueuse."
                   : "Ce chili révèle les secrets de la cuisine moderne : transformations chimiques, équilibres gustatifs et alchimie des épices s'unissent dans la mijoteuse."
               }
             </p>
@@ -319,6 +321,66 @@ function formatTime(minutes: number) {
                       composés phénoliques, amplifie ces saveurs tout en apportant
                       ses notes terreuses caractéristiques.
                     </p>
+                  </div>
+                </>
+              ) : recipe.id.includes("ragout-boulettes") ? (
+                <>
+                  <div class="science-content">
+                    <h3>La magie des boulettes parfaites</h3>
+                    <p>
+                      Le secret des boulettes moelleuses réside dans{" "}
+                      <strong>l'équilibre entre protéines et lipides</strong>. Le
+                      mélange porc-bœuf apporte le ratio idéal : le porc fournit
+                      le gras nécessaire (20-30%) pour la tendreté, tandis que le
+                      bœuf apporte structure et saveur profonde.
+                    </p>
+                    <p>
+                      La <strong>cannelle et le clou de girofle</strong> ne sont
+                      pas là par hasard. Ces épices chaudes contiennent des{" "}
+                      <em>eugénols et cinnamaldéhydes</em> qui, à basse
+                      température, créent une synergie avec les protéines de la
+                      viande, développant des notes sucrées-épicées uniques au
+                      ragoût québécois.
+                    </p>
+                  </div>
+                  <div class="science-content">
+                    <h3>{(recipe.data as any).variant === 'avance' ? 'Le roux grillé, amplificateur de goût' : 'La science du mélange commercial'}</h3>
+                    {(recipe.data as any).variant === 'avance' ? (
+                      <>
+                        <p>
+                          Griller la farine à sec avant de faire le roux est une
+                          technique ancestrale. La <strong>réaction de Maillard</strong>{" "}
+                          transforme les glucides en <em>mélanoïdines</em>, créant
+                          des centaines de composés aromatiques. Cette farine
+                          "noisette" donne à la sauce sa couleur ambrée et ses notes
+                          de caramel subtiles.
+                        </p>
+                        <p>
+                          La mijoteuse maintient une température de{" "}
+                          <strong>85-95°C</strong>, idéale pour que le collagène se
+                          transforme lentement en gélatine sans durcir les protéines.
+                          Les boulettes restent juteuses tandis que la sauce
+                          s'enrichit naturellement.
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <p>
+                          Les mélanges commerciaux comme St-Hubert utilisent de la
+                          <strong>farine grillée déshydratée</strong> et des{" "}
+                          <em>protéines hydrolysées</em> qui développent instantanément
+                          l'umami. L'amidon modifié assure une texture lisse sans grumeaux
+                          quand délayé correctement dans l'eau froide.
+                        </p>
+                        <p>
+                          La mijoteuse à <strong>85-95°C</strong> active les agents
+                          épaississants graduellement. Le collagène des boulettes se
+                          transforme en gélatine, enrichissant la sauce commerciale d'une
+                          <em>profondeur maison</em>. L'ajout d'oignon et laurier compense
+                          les saveurs standardisées du mélange.
+                        </p>
+                      </>
+                    )}
                   </div>
                 </>
               ) : recipe.id.includes("soupe-oignon") ? (
@@ -654,6 +716,60 @@ function formatTime(minutes: number) {
                         <em>Ne dégraissez pas trop</em>. Le gras porte les saveurs
                         du cidre et des pommes. Réfrigérez le plat, retirez le
                         gras solidifié si désiré, mais gardez-en pour l'onctuosité.
+                      </p>
+                    </div>
+                  </div>
+                </>
+              ) : recipe.id.includes("ragout-boulettes") ? (
+                <>
+                  <div class="step-prose">
+                    <span class="step-number-inline">1.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Le secret du mélange parfait</h3>
+                      <p>
+                        <em>Travaillez la viande le moins possible</em>. Mélangez
+                        avec les mains mouillées d'eau froide, juste assez pour
+                        incorporer. Trop mélanger = boulettes dures. Laissez reposer
+                        30 minutes au frais permet aux saveurs de se marier et à
+                        la texture de se stabiliser.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">2.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Les épices douces québécoises</h3>
+                      <p>
+                        La cannelle et le clou de girofle sont <em>l'âme du ragoût</em>.
+                        Utilisez-les avec parcimonie - trop et le plat devient un
+                        dessert. {(recipe.data as any).variant === 'avance' ?
+                          "Grillez-les 30 secondes à sec pour réveiller leurs huiles essentielles." :
+                          "Même avec un mélange commercial, ces épices dans les boulettes font toute la différence."
+                        } C'est ce qui différencie un ragoût ordinaire d'un chef-d'œuvre.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">3.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">{(recipe.data as any).variant === 'avance' ? 'La sauce brune parfaite' : 'Le secret du mélange à sauce'}</h3>
+                      <p>
+                        {(recipe.data as any).variant === 'avance' ? (
+                          <>Le secret ultime ? <em>Griller la farine avant le roux</em>.
+                          Dans une poêle sèche, dorez-la jusqu'à couleur noisette.
+                          Cette étape crée des notes caramélisées profondes. Pour une
+                          sauce soyeuse, incorporez le bouillon chaud graduellement,
+                          en fouettant constamment. Patience et technique font toute
+                          la différence.</>
+                        ) : (
+                          <>Pour éviter les grumeaux, <em>délayez toujours dans l'eau froide</em>
+                          avant d'ajouter le reste du liquide. Deux sachets donnent une sauce
+                          bien épaisse et savoureuse. Ajoutez un oignon en quartiers et des
+                          feuilles de laurier pendant la cuisson pour enrichir la saveur.
+                          La mijoteuse fait le reste du travail!</>
+                        )}
                       </p>
                     </div>
                   </div>
@@ -1171,9 +1287,6 @@ function formatTime(minutes: number) {
       }
 
       .ingredients-layout {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: var(--space-xl);
         margin-top: var(--space-lg);
       }
 
@@ -1195,7 +1308,9 @@ function formatTime(minutes: number) {
 
       .ingredients-grid {
         display: grid;
-        gap: var(--space-xs);
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: var(--space-xl);
+        row-gap: var(--space-xs);
       }
 
       .ingredient-line {
@@ -1253,33 +1368,6 @@ function formatTime(minutes: number) {
         line-height: 1.4;
       }
 
-      .optional-ingredients {
-        position: relative;
-      }
-
-      .optional-ingredients::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -var(--space-md);
-        bottom: 0;
-        width: 1px;
-        background: linear-gradient(
-          180deg,
-          transparent,
-          rgba(218, 165, 32, 0.3),
-          transparent
-        );
-      }
-
-      .ingredient-line.optional .ingredient-bullet {
-        color: var(--gold);
-        font-weight: 500;
-      }
-
-      .ingredient-line.optional:hover .ingredient-bullet {
-        opacity: 1;
-      }
 
       .preparation-narrative {
         margin: var(--space-2xl) 0;
@@ -1575,18 +1663,9 @@ function formatTime(minutes: number) {
           margin: var(--space-xl) 0 var(--space-md);
         }
 
-        .ingredients-layout {
+        .ingredients-grid {
           grid-template-columns: 1fr;
-          gap: var(--space-lg);
-        }
-
-        .optional-ingredients::before {
-          display: none;
-        }
-
-        .optional-ingredients {
-          padding-top: var(--space-md);
-          border-top: 1px dashed rgba(218, 165, 32, 0.3);
+          column-gap: 0;
         }
 
         .step-prose {

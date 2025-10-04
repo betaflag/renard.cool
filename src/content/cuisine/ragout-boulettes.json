@@ -1,0 +1,53 @@
+{
+  "name": "Ragoût de boulettes du Renard Rusé",
+  "description": "Le réconfort ultime simplifié avec un mélange à sauce du commerce. Des boulettes moelleuses épicées à la cannelle baignent dans une sauce brune onctueuse, mijotant doucement. Toute la saveur traditionnelle québécoise, avec la commodité moderne.",
+  "servings": 8,
+  "freezable": true,
+  "time": {
+    "prep": 20,
+    "cook": 360,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Mijoteuse",
+  "relatedRecipe": "ragout-boulettes-avance",
+  "ingredients": [
+    "750 g de porc haché — mi-maigre idéalement",
+    "250 g de bœuf haché — pour la profondeur",
+    "1 œuf — pour lier",
+    "125 ml (½ tasse) de chapelure — ou mie de pain",
+    "1 oignon — haché très finement",
+    "2 gousses d'ail — hachées",
+    "5 ml (1 c. à thé) de sel — pour les boulettes",
+    "2,5 ml (½ c. à thé) de poivre — fraîchement moulu",
+    "2,5 ml (½ c. à thé) de cannelle moulue — le secret québécois",
+    "1,25 ml (¼ c. à thé) de clou de girofle moulu — la touche traditionnelle",
+    "30 ml (2 c. à soupe) de farine — pour enrober",
+    "Pour la sauce:",
+    "2 sachets (50 g chacun) de mélange à sauce ragoût St-Hubert — ou autre marque similaire",
+    "1,5 litre (6 tasses) d'eau — pour produire une sauce onctueuse",
+    "1 oignon — en quartiers (facultatif)",
+    "2 feuilles de laurier — pour plus d'arôme (facultatif)",
+    "Sel et poivre — au goût"
+  ],
+  "steps": [
+    "Dans un grand bol, mélanger les viandes hachées, l'œuf, la chapelure, l'oignon haché, l'ail, le sel, le poivre, la cannelle et le clou de girofle. Bien mélanger sans trop travailler la viande.",
+    "Former des boulettes de la taille d'une balle de golf (environ 30-35 boulettes). Rouler légèrement dans la farine.",
+    "Dans une poêle, faire dorer les boulettes de tous les côtés (facultatif mais recommandé). Transférer dans la mijoteuse.",
+    "Pour la sauce : dans un bol, délayer les 2 sachets de mélange à sauce ragoût dans 250 ml (1 tasse) d'eau froide en fouettant pour éviter les grumeaux. Ajouter graduellement le reste de l'eau (1,25 litre) en mélangeant bien.",
+    "Verser la sauce sur les boulettes dans la mijoteuse. Ajouter l'oignon en quartiers et les feuilles de laurier si désiré.",
+    "Couvrir et cuire à basse température (Low) 5-6 heures ou à haute température (High) 3-4 heures. La sauce épaissira pendant la cuisson.",
+    "Goûter et rectifier l'assaisonnement au besoin. Si la sauce est trop épaisse, ajouter un peu d'eau. Si trop liquide, laisser mijoter à découvert 30 minutes."
+  ],
+  "serving_suggestions": [
+    "Purée de pommes de terre crémeuse",
+    "Petits pois verts",
+    "Betteraves marinées",
+    "Pain croûté pour saucer"
+  ],
+  "categories": ["plat principal", "traditionnel", "québécois", "réconfortant"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/ragout-boulettes.png",
+  "pubDate": "2025-10-03",
+  "draft": false
+}
