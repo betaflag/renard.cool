@@ -1,0 +1,59 @@
+{
+  "name": "Tacos au poulet du Renard Festif (Simple)",
+  "description": "Des tacos colorés et vibrants qui célèbrent les saveurs du Sud : poulet épicé, haricots noirs crémeux, maïs sucré et salsa fraîche. Un festin rapide et joyeux qui transforme les soirs de semaine en fiesta.",
+  "servings": 4,
+  "freezable": false,
+  "time": {
+    "prep": 10,
+    "cook": 15,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière",
+  "variant": "simple",
+  "ingredients": [
+    "500 g (1 lb) de poitrines de poulet — coupées en lanières",
+    "250 ml (1 tasse) de salsa — moyenne ou piquante au goût",
+    "1 boîte de 540 ml de haricots noirs — rincés et égouttés",
+    "1 boîte de 341 ml de maïs en grains — égoutté",
+    "15 ml (1 c. à soupe) de poudre de chili — pour la chaleur",
+    "5 ml (1 c. à thé) de cumin moulu — l'âme des tacos",
+    "2,5 ml (½ c. à thé) de poudre d'ail — pour la profondeur",
+    "2,5 ml (½ c. à thé) de paprika fumé — note grillée",
+    "30 ml (2 c. à soupe) d'huile végétale — pour la cuisson",
+    "125 ml (½ tasse) d'eau — pour mijoter",
+    "Sel et poivre — au goût",
+    "8-10 tortillas de farine ou maïs — réchauffées",
+    "Pour garnir:",
+    "250 ml (1 tasse) de fromage cheddar râpé — ou mélange mexicain",
+    "125 ml (½ tasse) de crème sure — pour la fraîcheur",
+    "1 avocat — tranché finement",
+    "Coriandre fraîche — ciselée généreusement",
+    "Lime — coupée en quartiers",
+    "Laitue iceberg — ciselée",
+    "Salsa additionnelle — pour les audacieux"
+  ],
+  "steps": [
+    "Dans un bol, mélanger la poudre de chili, le cumin, la poudre d'ail, le paprika fumé, le sel et le poivre. Enrober les lanières de poulet de ce mélange d'épices.",
+    "Chauffer l'huile dans une grande poêle à feu moyen-vif. Cuire le poulet 5-6 minutes jusqu'à doré et cuit à cœur (interne 75°C). Retirer et réserver.",
+    "Dans la même poêle, ajouter les haricots noirs égouttés, le maïs et la salsa. Verser l'eau et mélanger.",
+    "Porter à ébullition douce, puis réduire à feu moyen. Laisser mijoter 5-7 minutes jusqu'à ce que la sauce épaississe légèrement.",
+    "Remettre le poulet dans la poêle avec le mélange haricots-maïs. Mélanger délicatement et réchauffer 2 minutes.",
+    "Pendant ce temps, réchauffer les tortillas à sec dans une poêle ou 15 secondes au micro-ondes enveloppées dans un linge humide.",
+    "Assembler les tacos : garnir chaque tortilla de mélange poulet-haricots-maïs, puis ajouter fromage râpé, crème sure, avocat, laitue et coriandre.",
+    "Servir immédiatement avec quartiers de lime pour presser au-dessus. Offrir salsa additionnelle à table."
+  ],
+  "serving_suggestions": [
+    "Riz à la coriandre et lime",
+    "Chips de tortillas et guacamole maison",
+    "Pico de gallo frais",
+    "Jalapeños marinés pour les courageux",
+    "Bière mexicaine avec quartier de lime",
+    "Margarita aux fraises"
+  ],
+  "categories": ["plat principal", "mexicain", "rapide"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/tacos-poulet.png",
+  "pubDate": "2025-10-05",
+  "draft": false
+}

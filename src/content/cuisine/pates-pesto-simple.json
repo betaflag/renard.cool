@@ -1,0 +1,49 @@
+{
+  "name": "Pâtes au pesto du Renard Rusé (Simple)",
+  "description": "Un plat italien réinventé par le renard : pâtes enrobées de pesto au basilic frais, poulet tendre et tomates cerises éclatées. Simple, rapide et délicieusement parfumé. Le repas parfait pour les soirs de semaine.",
+  "servings": 4,
+  "freezable": false,
+  "time": {
+    "prep": 10,
+    "cook": 20,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière",
+  "ingredients": [
+    "454 g (1 lb) de penne ou fusilli — les spirales retiennent bien la sauce",
+    "500 g (1 lb) de poitrines de poulet — coupées en cubes",
+    "250 ml (1 tasse) de pesto au basilic — du commerce ou maison",
+    "300 g (2 tasses) de tomates cerises — coupées en deux",
+    "3 gousses d'ail — hachées finement",
+    "60 ml (¼ tasse) d'huile d'olive — divisée",
+    "125 ml (½ tasse) de parmesan — râpé finement",
+    "60 ml (¼ tasse) d'eau de cuisson des pâtes — pour lier",
+    "Sel et poivre — au goût",
+    "Pour garnir (facultatif):",
+    "30 ml (2 c. à soupe) de pignons de pin — grillés",
+    "Feuilles de basilic frais — ciselées",
+    "Parmesan supplémentaire — en copeaux"
+  ],
+  "steps": [
+    "Porter une grande casserole d'eau salée à ébullition. Cuire les pâtes selon les instructions du paquet jusqu'à al dente. Réserver 125 ml d'eau de cuisson avant d'égoutter.",
+    "Pendant ce temps, assaisonner les cubes de poulet de sel et poivre. Dans une grande poêle, chauffer 30 ml d'huile d'olive à feu moyen-vif.",
+    "Faire dorer le poulet 6-8 minutes jusqu'à cuisson complète (interne 75°C). Retirer et réserver.",
+    "Dans la même poêle, ajouter le reste de l'huile. Faire revenir l'ail 30 secondes jusqu'à parfumé.",
+    "Ajouter les tomates cerises et cuire 4-5 minutes à feu moyen jusqu'à ce qu'elles éclatent et libèrent leur jus. Écraser légèrement avec une cuillère.",
+    "Remettre le poulet dans la poêle. Ajouter les pâtes égouttées et le pesto. Mélanger délicatement.",
+    "Incorporer l'eau de cuisson réservée et le parmesan râpé. Mélanger jusqu'à ce que la sauce soit crémeuse et enrobe bien les pâtes.",
+    "Goûter et ajuster l'assaisonnement. Servir immédiatement garni de pignons grillés, basilic frais et copeaux de parmesan."
+  ],
+  "serving_suggestions": [
+    "Pain à l'ail croustillant",
+    "Salade de roquette au citron",
+    "Vin blanc sec italien (Pinot Grigio)",
+    "Parmesan vieilli en bloc pour râper à table"
+  ],
+  "categories": ["plat principal", "italien", "rapide"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/pates-pesto.png",
+  "pubDate": "2025-10-05",
+  "draft": false
+}
