@@ -48,6 +48,7 @@ const categories = [
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,400&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
     <div class="grain"></div>
@@ -67,16 +68,6 @@ const categories = [
       </div>
 
       <div class="categories">
-        <button class="category-filter active" data-category="all"
-          >Toutes les recettes</button
-        >
-        {
-          categories.map((category) => (
-            <button class="category-filter" data-category={category}>
-              {category}
-            </button>
-          ))
-        }
         <div class="draft-toggle">
           <button id="draft-toggle" class="draft-toggle-link">
             <span class="draft-toggle-text">◯ Afficher brouillons</span>
@@ -110,6 +101,9 @@ const categories = [
                 data-categories={recipe.data.categories.join(",")}
                 data-draft={recipe.data.draft ? "true" : "false"}
               >
+                {recipe.data.draft && (
+                  <div class="draft-indicator">Brouillon</div>
+                )}
                 {recipe.data.heroImage && (
                   <div class="recipe-image">
                     <img src={recipe.data.heroImage} alt={cleanName} />
@@ -118,26 +112,21 @@ const categories = [
                 <div class="recipe-content">
                   <div class="recipe-header">
                     <h2 class="recipe-title">{cleanName}</h2>
-                    {recipe.data.draft && (
-                      <div class="recipe-badges">
-                        <span class="badge draft">Brouillon</span>
-                      </div>
-                    )}
                   </div>
                   <p class="recipe-description">{recipe.data.description}</p>
                   <div class="recipe-info">
                     <div class="info-item">
-                      <span class="info-icon">⏱️</span>
+                      <i data-lucide="clock" class="info-icon"></i>
                       <span class="info-text">{timeDisplay}</span>
                     </div>
                     <div class="info-item">
-                      <span class="info-icon">🍽️</span>
+                      <i data-lucide="users" class="info-icon"></i>
                       <span class="info-text">
                         {recipe.data.servings} portions
                       </span>
                     </div>
                     <div class="info-item">
-                      <span class="info-icon">🔥</span>
+                      <i data-lucide="flame" class="info-icon"></i>
                       <span class="info-text">
                         {recipe.data.cooking_method}
                       </span>
@@ -319,10 +308,8 @@ const categories = [
 
       .categories {
         display: flex;
-        gap: var(--space-sm);
+        justify-content: flex-end;
         margin-bottom: var(--space-3xl);
-        flex-wrap: wrap;
-        justify-content: center;
         animation: fadeIn 1s ease-out 0.3s both;
       }
 
@@ -335,36 +322,6 @@ const categories = [
         }
       }
 
-      .category-filter {
-        background: rgba(250, 248, 243, 0.8);
-        border: 2px solid rgba(211, 84, 0, 0.15);
-        color: var(--text);
-        padding: var(--space-xs) var(--space-lg);
-        border-radius: 2rem;
-        font-size: var(--text-base);
-        cursor: pointer;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        font-family: "Crimson Pro", serif;
-        font-weight: 500;
-        letter-spacing: 0.02em;
-        backdrop-filter: blur(10px);
-      }
-
-      .category-filter:hover {
-        background: rgba(250, 248, 243, 0.95);
-        border-color: rgba(211, 84, 0, 0.3);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(211, 84, 0, 0.15);
-      }
-
-      .category-filter.active {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: white;
-        font-weight: 600;
-        box-shadow: 0 4px 12px rgba(211, 84, 0, 0.3);
-      }
-
       .recipes-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -374,14 +331,15 @@ const categories = [
 
       .recipe-card {
         background: rgba(250, 248, 243, 0.9);
-        border-radius: 12px;
+        border-radius: 16px;
         overflow: hidden;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 2px solid rgba(211, 84, 0, 0.1);
+        border: 1px solid rgba(211, 84, 0, 0.08);
         backdrop-filter: blur(10px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         animation: slideIn 0.6s ease-out both;
         animation-delay: calc(var(--card-index, 0) * 0.1s);
+        position: relative;
       }
 
       @keyframes slideIn {
@@ -396,13 +354,28 @@ const categories = [
       }
 
       .recipe-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 40px rgba(211, 84, 0, 0.15);
-        border-color: rgba(211, 84, 0, 0.25);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       }
 
       .recipe-card[data-hidden="true"] {
         display: none;
+      }
+
+      .draft-indicator {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #6b7280;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
 
       .recipe-image {
@@ -416,60 +389,24 @@ const categories = [
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: sepia(5%) saturate(105%) contrast(102%);
-      }
-
-      .recipe-image::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          180deg,
-          transparent 60%,
-          rgba(211, 84, 0, 0.05)
-        );
-        pointer-events: none;
       }
 
       .recipe-content {
-        padding: var(--space-lg);
+        padding: 1.75rem;
       }
 
       .recipe-header {
-        margin-bottom: var(--space-md);
+        margin-bottom: var(--space-sm);
       }
 
       .recipe-title {
         font-family: "Playfair Display", serif;
-        font-size: var(--text-xl);
-        color: var(--accent);
+        font-size: 1.75rem;
+        color: #d35400;
         font-weight: 700;
-        line-height: 1.2;
+        line-height: 1.3;
         letter-spacing: -0.01em;
-        margin-bottom: var(--space-sm);
-      }
-
-      .recipe-badges {
-        display: inline-flex;
-        gap: var(--space-xs);
-        margin-bottom: var(--space-sm);
-      }
-
-      .badge {
-        padding: var(--space-xs) var(--space-sm);
-        border-radius: 6px;
-        font-size: var(--text-xs);
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-
-
-
-      .badge.draft {
-        background: rgba(100, 100, 100, 0.2);
-        border-color: rgba(150, 150, 150, 0.4);
-        color: #999;
+        margin-bottom: var(--space-md);
       }
 
       .draft-toggle {
@@ -503,113 +440,87 @@ const categories = [
         color: #ff6b00;
       }
 
-      .recipe-card[data-draft="true"] {
-        opacity: 0.85;
-        position: relative;
-      }
-
-      .recipe-card[data-draft="true"]::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: repeating-linear-gradient(
-          -45deg,
-          transparent,
-          transparent 20px,
-          rgba(100, 100, 100, 0.05) 20px,
-          rgba(100, 100, 100, 0.05) 21px
-        );
-        pointer-events: none;
-        border-radius: 15px;
-      }
 
       .recipe-description {
-        color: var(--text);
-        line-height: 1.65;
-        margin-bottom: var(--space-lg);
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        font-size: var(--text-base);
+        color: #4b5563;
+        line-height: 1.6;
+        margin-bottom: var(--space-xl);
+        font-size: 0.95rem;
+        font-family: system-ui, -apple-system, sans-serif;
       }
 
       .recipe-info {
         display: flex;
-        gap: var(--space-lg);
-        margin-bottom: var(--space-md);
-        padding: var(--space-md) 0;
-        border-top: 2px solid rgba(211, 84, 0, 0.1);
-        border-bottom: 2px solid rgba(211, 84, 0, 0.1);
+        gap: var(--space-xl);
+        margin-bottom: var(--space-xl);
+        padding: 0;
       }
 
       .info-item {
         display: flex;
         align-items: center;
-        gap: var(--space-xs);
-        font-size: var(--text-sm);
+        gap: var(--space-sm);
+        font-size: 0.9rem;
+        color: #6b7280;
       }
 
       .info-icon {
-        font-size: 1.1rem;
+        width: 18px;
+        height: 18px;
         opacity: 0.7;
+        stroke-width: 2;
       }
 
       .info-text {
-        color: var(--text-light);
+        color: #6b7280;
         font-weight: 500;
         letter-spacing: 0.01em;
       }
 
       .version-buttons {
         display: flex;
-        gap: var(--space-sm);
-        margin-top: var(--space-lg);
-        padding-top: var(--space-md);
-        border-top: 1px solid rgba(211, 84, 0, 0.1);
+        gap: var(--space-md);
+        margin-top: var(--space-xl);
       }
 
       .version-button {
         flex: 1;
-        padding: var(--space-sm) var(--space-md);
+        padding: 0.75rem 1rem;
         text-align: center;
         text-decoration: none;
-        font-weight: 600;
-        font-size: var(--text-sm);
+        font-weight: 700;
+        font-size: 0.875rem;
         letter-spacing: 0.05em;
         text-transform: uppercase;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        border: 2px solid;
+        border-radius: 50px;
+        transition: all 0.2s ease;
+        border: 2px solid transparent;
       }
 
       .version-button.simple {
-        background: rgba(34, 197, 94, 0.05);
-        border-color: rgba(34, 197, 94, 0.3);
-        color: #059669;
+        background: #86efac;
+        color: #14532d;
+        border-color: #86efac;
       }
 
       .version-button.simple:hover {
-        background: rgba(34, 197, 94, 0.15);
-        border-color: rgba(34, 197, 94, 0.5);
+        background: #4ade80;
+        border-color: #4ade80;
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+        box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
       }
 
       .version-button.avance {
-        background: rgba(251, 191, 36, 0.05);
-        border-color: rgba(251, 191, 36, 0.3);
-        color: #b45309;
+        background: #fed7aa;
+        color: #7c2d12;
+        border-color: #fed7aa;
       }
 
       .version-button.avance:hover {
-        background: rgba(251, 191, 36, 0.15);
-        border-color: rgba(251, 191, 36, 0.5);
+        background: #fdba74;
+        border-color: #fdba74;
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+        box-shadow: 0 4px 12px rgba(253, 186, 116, 0.3);
       }
 
       @media (max-width: 768px) {
@@ -631,12 +542,7 @@ const categories = [
 
         .categories {
           margin-bottom: var(--space-2xl);
-          gap: var(--space-xs);
-        }
-
-        .category-filter {
-          padding: var(--space-xs) var(--space-md);
-          font-size: var(--text-sm);
+          justify-content: center;
         }
 
         .recipes-grid {
@@ -653,7 +559,7 @@ const categories = [
         }
 
         .recipe-content {
-          padding: var(--space-md);
+          padding: 1.25rem;
         }
 
 
@@ -674,11 +580,6 @@ const categories = [
       }
 
       @media (max-width: 480px) {
-        .category-filter {
-          font-size: var(--text-xs);
-          padding: var(--space-xs);
-        }
-
         .recipe-title {
           font-size: var(--text-lg);
         }
@@ -686,7 +587,6 @@ const categories = [
     </style>
 
     <script>
-      const filters = document.querySelectorAll(".category-filter");
       const recipes = document.querySelectorAll(".recipe-card");
       const draftToggle = document.getElementById("draft-toggle");
       const draftToggleText = document.querySelector(".draft-toggle-text");
@@ -703,21 +603,13 @@ const categories = [
 
       // Hide draft recipes initially if not showing drafts
       function updateRecipeVisibility() {
-        const activeCategory = document.querySelector(".category-filter.active")?.dataset.category || "all";
-
         recipes.forEach((recipe) => {
           const isDraft = recipe.dataset.draft === "true";
-          const recipeCategories = recipe.dataset.categories?.split(",") || [];
 
           let shouldShow = true;
 
           // Check draft status
           if (!showDrafts && isDraft) {
-            shouldShow = false;
-          }
-
-          // Check category filter
-          if (shouldShow && activeCategory !== "all" && !recipeCategories.includes(activeCategory)) {
             shouldShow = false;
           }
 
@@ -751,14 +643,8 @@ const categories = [
         updateRecipeVisibility();
       });
 
-      // Category filter handlers
-      filters.forEach((filter) => {
-        filter.addEventListener("click", () => {
-          filters.forEach((f) => f.classList.remove("active"));
-          filter.classList.add("active");
-          updateRecipeVisibility();
-        });
-      });
+      // Initialize Lucide icons
+      lucide.createIcons();
     </script>
   </body>
 </html>
