@@ -143,11 +143,6 @@ const categories = [
                       </span>
                     </div>
                   </div>
-                  <div class="recipe-categories">
-                    {recipe.data.categories.map((category) => (
-                      <span class="category-badge">{category}</span>
-                    ))}
-                  </div>
                   <div class="version-buttons">
                     {advancedRecipe ? (
                       <>
@@ -567,25 +562,6 @@ const categories = [
         color: var(--text-light);
         font-weight: 500;
         letter-spacing: 0.01em;
-      }
-
-      .recipe-categories {
-        display: flex;
-        gap: var(--space-xs);
-        flex-wrap: wrap;
-        margin-top: var(--space-md);
-      }
-
-      .category-badge {
-        background: rgba(211, 84, 0, 0.08);
-        color: var(--accent);
-        padding: var(--space-xs) var(--space-sm);
-        border-radius: 1rem;
-        font-size: var(--text-xs);
-        border: 1px solid rgba(211, 84, 0, 0.2);
-        font-weight: 500;
-        letter-spacing: 0.02em;
-        text-transform: capitalize;
       }
 
       .version-buttons {

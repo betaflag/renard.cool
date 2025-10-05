@@ -162,9 +162,6 @@ function formatTime(minutes: number) {
           </p>
 
           <div class="ingredients-layout">
-            <h3 class="ingredient-section-title">
-              {(data as any).variant === 'avance' ? 'Tous les ingrédients' : 'Ingrédients'}
-            </h3>
             <div class="ingredients-grid">
               {
                 data.ingredients.map((ingredient) => {
@@ -213,6 +210,8 @@ function formatTime(minutes: number) {
                   ? "Cette soupe légendaire illustre la puissance transformatrice de la caramélisation et la magie de la cuisson lente qui convertit l'âcreté de l'oignon en nectar sucré."
                   : recipe.id.includes("ragout-boulettes")
                   ? "Le ragoût de boulettes révèle les secrets de la cuisine traditionnelle : l'équilibre des protéines, la magie des épices douces et la transformation lente en sauce onctueuse."
+                  : recipe.id.includes("mac-fromage")
+                  ? "Le mac & cheese illustre la science fascinante de l'émulsion fromagère : comment créer une sauce soyeuse qui enrobe parfaitement chaque pâte sans devenir granuleuse ou huileuse."
                   : "Ce chili révèle les secrets de la cuisine moderne : transformations chimiques, équilibres gustatifs et alchimie des épices s'unissent dans la mijoteuse."
               }
             </p>
@@ -487,6 +486,71 @@ function formatTime(minutes: number) {
                       équilibrée. Le vin agit aussi comme solvant, extrayant les
                       huiles essentielles du thym et du romarin pour une infusion
                       maximale.
+                    </p>
+                  </div>
+                </>
+              ) : recipe.id.includes("mac-fromage") ? (
+                <>
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      L'émulsion fromagère parfaite
+                    </h3>
+                    <p>
+                      Le secret d'une sauce crémeuse réside dans l'<em>émulsion stable</em>
+                      entre les protéines de caséine et les matières grasses. La farine
+                      dans le roux agit comme stabilisant, empêchant les protéines de
+                      s'agglomérer. {(recipe.data as any).variant === 'simple' ?
+                        "Le Velveeta contient des sels émulsifiants (citrate de sodium) qui garantissent une texture lisse même à haute température." :
+                        "Les fromages vieillis nécessitent une température contrôlée sous 70°C pour éviter la séparation."
+                      }
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      Le rôle crucial de la moutarde
+                    </h3>
+                    <p>
+                      La <em>moutarde en poudre</em> n'est pas qu'un exhausteur de goût.
+                      Ses composés soufrés aident à émulsifier la sauce tandis que son
+                      acidité équilibre la richesse du fromage. {(recipe.data as any).variant === 'avance' ?
+                        "La moutarde de Dijon apporte des notes complexes grâce à la fermentation du vinaigre de vin." :
+                        "Elle amplifie aussi la perception du fromage sans ajouter plus de matières grasses."
+                      }
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      {(recipe.data as any).variant === 'simple' ? 'La magie du roux' : 'La béchamel sophistiquée'}
+                    </h3>
+                    <p>
+                      {(recipe.data as any).variant === 'simple' ? (
+                        <>Le <em>roux blond</em> (beurre + farine cuits) crée un réseau
+                        d'amidon gélatinisé qui épaissit et stabilise la sauce. Cuire le
+                        roux élimine le goût farineux tout en développant des notes noisette
+                        subtiles. C'est la base française classique adaptée au comfort food.</>
+                      ) : (
+                        <>La <em>béchamel enrichie</em> avec crème 35% crée une base
+                        luxueuse. Les échalotes suées libèrent des composés soufrés doux
+                        qui complètent les fromages vieillis. La muscade fraîche apporte
+                        des notes chaudes sans dominer, tandis que l'huile de truffe
+                        ajoute une dimension umami terrestre incomparable.</>
+                      )}
+                    </p>
+                  </div>
+
+                  <div class="science-point">
+                    <h3 class="science-subtitle">
+                      La cuisson au four stratégique
+                    </h3>
+                    <p>
+                      Le passage au four à <em>{(recipe.data as any).variant === 'simple' ? '180°C' : '190°C'}</em>
+                      permet l'évaporation contrôlée du liquide excédentaire tout en
+                      créant une surface dorée par caramélisation. {(recipe.data as any).variant === 'avance' ?
+                        "Le panko japonais, plus gros que la chapelure ordinaire, reste croustillant grâce à sa structure aérée qui résiste à l'humidité." :
+                        "La chapelure beurrée forme une croûte protectrice qui emprisonne l'humidité des pâtes."
+                      }
                     </p>
                   </div>
                 </>
@@ -814,6 +878,85 @@ function formatTime(minutes: number) {
                       </p>
                     </div>
                   </div>
+                </>
+              ) : recipe.id.includes("mac-fromage") ? (
+                <>
+                  <div class="step-prose">
+                    <span class="step-number-inline">1.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Le choix des pâtes fait la différence</h3>
+                      <p>
+                        {(recipe.data as any).variant === 'simple' ? (
+                          <><em>Les coudes classiques</em> sont parfaits pour retenir la sauce.
+                          Cuisez-les 1 minute de moins que les instructions - elles finiront
+                          de cuire au four. Rincez rapidement à l'eau froide pour stopper
+                          la cuisson si vous préparez la sauce à l'avance.</>
+                        ) : (
+                          <><em>Cavatappi ou shells</em> avec leurs spirales et cavités
+                          emprisonnent magnifiquement la sauce. Les pâtes artisanales
+                          en bronze ont une texture rugueuse qui accroche mieux la sauce.
+                          Al dente est crucial - elles absorberont la sauce au four.</>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">2.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">Le secret du fromage qui ne fait pas de fils</h3>
+                      <p>
+                        {(recipe.data as any).variant === 'simple' ? (
+                          <><em>Râpez votre propre fromage</em> - le pré-râpé contient de
+                          la cellulose qui empêche une fonte lisse. Ajoutez le fromage
+                          hors du feu et mélangez par poignées. Le Velveeta fond à merveille
+                          mais ajoutez-le en dernier pour préserver sa texture crémeuse.</>
+                        ) : (
+                          <><em>Température critique : 70°C maximum</em>. Au-delà, les protéines
+                          se séparent et la sauce devient granuleuse. Retirez du feu avant
+                          d'ajouter les fromages. Le gruyère et le cheddar vieilli nécessitent
+                          patience et douceur. Râpez finement pour une fonte uniforme.</>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-prose">
+                    <span class="step-number-inline">3.</span>
+                    <div class="step-text">
+                      <h3 class="tip-title">{(recipe.data as any).variant === 'simple' ? 'La garniture qui change tout' : 'L\'art de la croûte parfaite'}</h3>
+                      <p>
+                        {(recipe.data as any).variant === 'simple' ? (
+                          <><em>Panko + beurre = magie</em>. Mélangez à la main pour
+                          enrober chaque miette. Le bacon émietté ajoute du croquant
+                          salé qui contraste avec le crémeux. Parsemez juste avant
+                          d'enfourner pour éviter qu'il ne brûle.</>
+                        ) : (
+                          <>La <em>garniture aux herbes fraîches</em> élève le plat.
+                          Le zeste de citron apporte une fraîcheur inattendue qui
+                          coupe la richesse. Mélangez le panko avec le beurre fondu
+                          jusqu'à obtenir une texture sableuse. Les herbes ajoutées
+                          en fin évitent qu'elles ne brûlent.</>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+
+                  {(recipe.data as any).variant === 'avance' && (
+                    <div class="step-prose">
+                      <span class="step-number-inline">4.</span>
+                      <div class="step-text">
+                        <h3 class="tip-title">Les additions luxueuses</h3>
+                        <p>
+                          Pour la version ultime, ajoutez du <em>homard poêlé au beurre</em>
+                          ou du canard confit juste avant de servir. L'huile de truffe
+                          s'ajoute à la toute fin, hors du feu - la chaleur détruit ses
+                          arômes délicats. Les champignons sauvages sautés entre les
+                          couches créent des poches umami surprenantes.
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </>
               ) : (
                 <>
@@ -1288,22 +1431,6 @@ function formatTime(minutes: number) {
 
       .ingredients-layout {
         margin-top: var(--space-lg);
-      }
-
-      .ingredient-section-title {
-        font-family: "Playfair Display", serif;
-        font-size: var(--text-lg);
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: var(--space-md);
-        letter-spacing: -0.01em;
-        padding-bottom: var(--space-xs);
-        border-bottom: 2px solid rgba(211, 84, 0, 0.15);
-      }
-
-      .ingredient-section-title.optional {
-        color: var(--accent);
-        border-bottom-color: rgba(218, 165, 32, 0.3);
       }
 
       .ingredients-grid {

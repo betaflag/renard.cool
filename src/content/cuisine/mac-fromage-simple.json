@@ -1,0 +1,50 @@
+{
+  "name": "Macaroni au fromage du Renard Astucieux (Simple)",
+  "description": "Le classique américain revisité par le renard avec une touche québécoise. Des pâtes crémeuses enrobées d'une sauce au fromage onctueuse et réconfortante. Simple à préparer, impossible à résister.",
+  "servings": 6,
+  "freezable": true,
+  "time": {
+    "prep": 10,
+    "cook": 20,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière et four",
+  "variant": "simple",
+  "relatedRecipe": "mac-fromage-avance",
+  "ingredients": [
+    "454 g (1 lb) de macaronis coudes — les classiques",
+    "454 g (1 lb) de fromage cheddar moyen — râpé",
+    "227 g (½ lb) de Velveeta ou Cheez Whiz — pour l'onctuosité",
+    "500 ml (2 tasses) de lait entier — 3.25% idéalement",
+    "60 ml (¼ tasse) de beurre — pour la richesse",
+    "30 ml (2 c. à soupe) de farine — pour épaissir",
+    "5 ml (1 c. à thé) de moutarde en poudre — l'amplificateur secret",
+    "2,5 ml (½ c. à thé) de poudre d'ail — pour la profondeur",
+    "Sel et poivre — au goût",
+    "Pour la garniture (facultatif):",
+    "125 ml (½ tasse) de chapelure panko — pour le croustillant",
+    "30 ml (2 c. à soupe) de beurre fondu — pour dorer",
+    "Bacon cuit émietté — l'indulgence totale"
+  ],
+  "steps": [
+    "Préchauffer le four à 180°C (350°F). Beurrer un plat de cuisson de 9x13 pouces.",
+    "Cuire les macaronis selon les instructions du paquet, moins 1 minute. Égoutter et réserver.",
+    "Dans la même casserole, faire fondre le beurre à feu moyen. Ajouter la farine et fouetter 1 minute pour créer un roux blond.",
+    "Verser graduellement le lait en fouettant constamment. Porter à ébullition douce jusqu'à épaississement (3-4 minutes).",
+    "Retirer du feu. Ajouter le cheddar râpé, le Velveeta, la moutarde et la poudre d'ail. Mélanger jusqu'à fonte complète.",
+    "Incorporer les pâtes cuites à la sauce. Assaisonner de sel et poivre. Transférer dans le plat beurré.",
+    "Mélanger la chapelure avec le beurre fondu. Parsemer sur les pâtes. Ajouter le bacon si désiré.",
+    "Cuire au four 20-25 minutes jusqu'à ce que ça bouillonne et que le dessus soit doré."
+  ],
+  "serving_suggestions": [
+    "Salade verte avec vinaigrette acidulée",
+    "Tomates cerises rôties",
+    "Cornichons à l'aneth",
+    "Sauce piquante pour les audacieux"
+  ],
+  "categories": ["plat principal", "réconfortant", "américain"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/mac-fromage.png",
+  "pubDate": "2025-10-05"
+}
