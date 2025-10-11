@@ -1,5 +1,5 @@
 {
-  "name": "Pâtes au pesto du Renard Rusé",
+  "name": "Pâtes au pesto des petits futés",
   "description": "Un plat italien réinventé par le renard : pâtes enrobées de pesto au basilic frais, poulet tendre et tomates cerises éclatées. Simple, rapide et délicieusement parfumé. Le repas parfait pour les soirs de semaine.",
   "servings": 4,
   "freezable": false,
@@ -35,11 +35,7 @@
     "Incorporer l'eau de cuisson réservée et le parmesan râpé. Mélanger jusqu'à ce que la sauce soit crémeuse et enrobe bien les pâtes.",
     "Goûter et ajuster l'assaisonnement. Servir immédiatement garni de pignons grillés, basilic frais et copeaux de parmesan."
   ],
-  "categories": [
-    "plat principal",
-    "italien",
-    "rapide"
-  ],
+  "categories": ["plat principal", "italien", "rapide"],
   "difficulty": "facile",
   "heroImage": "/cuisine/pates-pesto.png",
   "pubDate": "2025-10-05",

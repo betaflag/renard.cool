@@ -9,7 +9,15 @@ const { recipes } = Astro.props;
 ---
 
 <div class="recipes-grid">
-  {recipes.map((recipe) => <RecipeCard recipe={recipe} />)}
+  {
+    recipes.map((recipe, index) => (
+      <RecipeCard
+        recipe={recipe}
+        variant={index === 0 ? "featured" : "standard"}
+        index={index}
+      />
+    ))
+  }
 </div>
 
 <div class="draft-toggle-container">
@@ -21,16 +29,18 @@ const { recipes } = Astro.props;
 <style>
   .recipes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: var(--space-xl);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
   }
 
   .draft-toggle-container {
     display: flex;
     justify-content: center;
-    margin-top: var(--space-3xl);
-    padding-top: var(--space-xl);
-    animation: fadeIn 1s ease-out 0.3s both;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(211, 84, 0, 0.1);
+    animation: fadeIn 1s ease-out 0.5s both;
   }
 
   @keyframes fadeIn {
@@ -44,38 +54,47 @@ const { recipes } = Astro.props;
 
   .draft-toggle-link {
     display: inline-block;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 107, 0, 0.3);
-    border-radius: 20px;
-    color: #ccc;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid rgba(211, 84, 0, 0.25);
+    border-radius: 2px;
+    color: #999;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     transition: all 0.3s ease;
     cursor: pointer;
     font-family: inherit;
   }
 
   .draft-toggle-link:hover {
-    background: rgba(255, 107, 0, 0.1);
-    border-color: rgba(255, 107, 0, 0.5);
-    color: #ff6b00;
+    background: rgba(211, 84, 0, 0.05);
+    border-color: rgba(211, 84, 0, 0.4);
+    color: #d35400;
   }
 
   .draft-toggle-link.active {
-    background: rgba(255, 107, 0, 0.2);
-    border-color: rgba(255, 107, 0, 0.6);
-    color: #ff6b00;
+    background: rgba(211, 84, 0, 0.1);
+    border-color: rgba(211, 84, 0, 0.5);
+    color: #d35400;
+  }
+
+  @media (max-width: 1024px) {
+    .recipes-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
   }
 
   @media (max-width: 768px) {
     .recipes-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
+      gap: 1.5rem;
     }
 
     .draft-toggle-container {
-      margin-top: var(--space-2xl);
+      margin-top: 3rem;
     }
   }
 </style>

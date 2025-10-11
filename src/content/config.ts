@@ -41,6 +41,7 @@ const cuisine = defineCollection({
     draft: z.boolean().default(false),
     tips: z.string().optional(),
     ingredientIntro: z.string().optional(),
+    note: z.string().optional(),
   }),
 });
 

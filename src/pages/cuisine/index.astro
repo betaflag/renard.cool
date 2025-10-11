@@ -35,7 +35,7 @@ const recipes = (await getCollection("cuisine")).sort(
     header {
       position: relative;
       z-index: 10;
-      padding: var(--space-lg);
+      padding: 1.5rem 2rem 0;
     }
 
     .top-nav {
@@ -44,24 +44,24 @@ const recipes = (await getCollection("cuisine")).sort(
     }
 
     .home-link {
-      color: var(--text-light);
+      color: #999;
       text-decoration: none;
-      font-size: var(--text-sm);
-      letter-spacing: 0.05em;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      padding: var(--space-xs) var(--space-sm);
-      background: rgba(250, 248, 243, 0.8);
-      backdrop-filter: blur(10px);
-      border-radius: 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      transition: all 0.3s ease;
+      padding: 8px 16px;
+      background: transparent;
+      border: 1px solid rgba(211, 84, 0, 0.2);
+      border-radius: 2px;
       display: inline-block;
       text-transform: uppercase;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .home-link:hover {
-      color: var(--accent);
-      transform: translateX(-3px);
-      background: rgba(250, 248, 243, 0.95);
+      color: #d35400;
+      border-color: rgba(211, 84, 0, 0.4);
+      background: rgba(211, 84, 0, 0.03);
     }
 
     main {
@@ -69,13 +69,28 @@ const recipes = (await getCollection("cuisine")).sort(
       z-index: 10;
       max-width: 1200px;
       margin: 0 auto;
-      padding: var(--space-lg);
+      padding: 3rem 2rem 4rem;
     }
 
     .header-section {
       text-align: center;
-      margin-bottom: var(--space-3xl);
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 2px solid rgba(211, 84, 0, 0.15);
       animation: fadeInUp 0.8s ease-out;
+      position: relative;
+    }
+
+    .header-section::after {
+      content: "✦";
+      position: absolute;
+      bottom: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.25rem;
+      color: #d35400;
+      background: #faf8f3;
+      padding: 0 1rem;
     }
 
     @keyframes fadeInUp {
@@ -92,46 +107,50 @@ const recipes = (await getCollection("cuisine")).sort(
     .page-title {
       font-family: "Playfair Display", serif;
       font-weight: 900;
-      font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
-      line-height: 0.95;
+      font-size: clamp(3rem, 8vw, 5rem);
+      line-height: 1;
       letter-spacing: -0.03em;
-      color: var(--text);
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
-      margin-bottom: var(--space-lg);
+      color: #2c2c2c;
+      margin-bottom: 1.5rem;
     }
 
     .accent {
-      color: var(--accent);
+      color: #d35400;
       font-style: italic;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      display: inline-block;
     }
 
     .subtitle {
-      font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
-      color: var(--text-light);
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: #777;
       font-weight: 400;
       font-style: italic;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.02em;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.25rem 0;
+      }
+
       main {
-        padding: var(--space-md);
+        padding: 2rem 1.25rem 3rem;
       }
 
       .header-section {
-        margin-bottom: var(--space-2xl);
+        margin-bottom: 3rem;
+        padding-bottom: 2.5rem;
       }
 
       .page-title {
-        font-size: clamp(var(--text-3xl), 6vw, var(--text-4xl));
+        font-size: clamp(2.25rem, 10vw, 3rem);
+        margin-bottom: 1.25rem;
       }
 
       .subtitle {
-        font-size: var(--text-lg);
+        font-size: 1rem;
       }
     }
   </style>
