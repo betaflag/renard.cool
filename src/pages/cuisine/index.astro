@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import CuisineLayout from "../../layouts/CuisineLayout.astro";
 import RecipesListing from "../../components/RecipesListing.astro";
+import MealPlanWidget from "../../components/MealPlanWidget.astro";
 
 // For static site, we need to include all recipes and filter client-side
 const recipes = (await getCollection("cuisine")).sort(
@@ -17,6 +18,7 @@ const recipes = (await getCollection("cuisine")).sort(
   <header>
     <nav class="top-nav">
       <a href="/" class="home-link">← Accueil</a>
+      <MealPlanWidget />
     </nav>
   </header>
 
@@ -41,6 +43,9 @@ const recipes = (await getCollection("cuisine")).sort(
     .top-nav {
       max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .home-link {

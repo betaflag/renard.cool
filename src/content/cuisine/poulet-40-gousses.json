@@ -11,15 +11,15 @@
   },
   "cooking_method": "Mijoteuse",
   "ingredients": [
-    "8 à 10 morceaux de poulet — cuisses et pilons avec os",
-    "40 gousses d'ail — environ 4 têtes, non pelées",
-    "250 ml (1 tasse) de vin blanc sec — ou bouillon de poulet",
-    "60 ml (¼ tasse) d'huile d'olive — pour dorer et parfumer",
-    "3 branches de thym frais — l'herbe provençale classique",
-    "2 branches de romarin frais — pour la profondeur aromatique",
-    "10 ml (2 c. à thé) de sel de mer — pour rehausser",
-    "5 ml (1 c. à thé) de poivre noir moulu — la touche épicée",
-    "Le jus d'un citron — pour l'acidité équilibrante"
+    { "quantity": "8 à 10", "unit": "morceaux", "ingredient": "poulet", "note": "cuisses et pilons avec os" },
+    { "quantity": "40", "unit": "gousses", "ingredient": "ail", "note": "environ 4 têtes, non pelées" },
+    { "quantity": "250", "unit": "ml", "ingredient": "vin blanc sec", "note": "ou bouillon de poulet" },
+    { "quantity": "60", "unit": "ml", "ingredient": "huile d'olive", "note": "pour dorer et parfumer" },
+    { "quantity": "3", "unit": "branches", "ingredient": "thym frais", "note": "l'herbe provençale classique" },
+    { "quantity": "2", "unit": "branches", "ingredient": "romarin frais", "note": "pour la profondeur aromatique" },
+    { "quantity": "10", "unit": "ml", "ingredient": "sel de mer", "note": "pour rehausser" },
+    { "quantity": "5", "unit": "ml", "ingredient": "poivre noir moulu", "note": "la touche épicée" },
+    { "quantity": "1", "unit": "citron", "ingredient": "jus de citron", "note": "pour l'acidité équilibrante" }
   ],
   "steps": [
     "Dans une grande poêle, faire dorer les morceaux de poulet dans l'huile d'olive, 3-4 minutes par côté. Transférer dans la mijoteuse.",

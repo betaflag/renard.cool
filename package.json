@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "astro": "^5.13.5",
-    "lucide": "^0.462.0"
+    "lucide": "^0.462.0",
+    "lucide-astro": "^0.545.0"
   }
 }

@@ -113,6 +113,18 @@ function formatTime(minutes: number) {
           </div>
         )
       }
+
+      <div class="meal-plan-actions">
+        <button
+          class="add-to-meal-plan-btn"
+          id="addToMealPlan"
+          data-recipe-id={recipe.id}
+          aria-label="Ajouter au plan repas"
+        >
+          <span class="btn-icon" id="btnIcon">+</span>
+          <span class="btn-text" id="btnText">Ajouter au plan repas</span>
+        </button>
+      </div>
     </header>
 
     <section class="content-flow">
@@ -123,8 +135,29 @@ function formatTime(minutes: number) {
         <div class="ingredients-layout">
           <div class="ingredients-grid">
             {
-              data.ingredients.map((ingredient) => {
-                const [main, note] = ingredient.split(" — ");
+              data.ingredients.map((ingredient, index) => {
+                // Check if it's a subsection
+                if ('subsection' in ingredient) {
+                  return (
+                    <div class="ingredient-subsection">
+                      {ingredient.subsection}
+                    </div>
+                  );
+                }
+
+                // Regular structured ingredient
+                const { quantity, unit, ingredient: name, note } = ingredient;
+
+                // Build the main part
+                let main = '';
+                if (quantity && unit) {
+                  main = `${quantity} ${unit} de ${name}`;
+                } else if (quantity) {
+                  main = `${quantity} ${name}`;
+                } else {
+                  main = name;
+                }
+
                 return (
                   <div class="ingredient-line">
                     <span class="ingredient-bullet">—</span>
@@ -132,6 +165,19 @@ function formatTime(minutes: number) {
                       <span class="ingredient-main">{main}</span>
                       {note && <span class="ingredient-note">{note}</span>}
                     </div>
+                    <button
+                      class="add-to-shopping-btn"
+                      data-recipe-id={recipe.id}
+                      data-recipe-name={data.name}
+                      data-ingredient-index={index}
+                      data-quantity={quantity}
+                      data-unit={unit}
+                      data-ingredient={name}
+                      data-note={note}
+                      aria-label="Ajouter à la liste d'épicerie"
+                    >
+                      <span class="btn-icon-plus"></span>
+                    </button>
                   </div>
                 );
               })
@@ -144,12 +190,30 @@ function formatTime(minutes: number) {
         <h2 class="section-heading">La méthode</h2>
 
         {
-          data.steps.map((step, index) => (
-            <div class="step-prose">
-              <span class="step-number-inline">{index + 1}</span>
-              <p class="step-text">{step}</p>
-            </div>
-          ))
+          data.steps.map((step, index) => {
+            // Detect subsection headers (end with ':')
+            const isSubsection = step.endsWith(':') && step.length < 100;
+
+            if (isSubsection) {
+              return (
+                <div class="step-subsection">
+                  {step}
+                </div>
+              );
+            }
+
+            // Regular step - calculate actual step number (excluding subsections)
+            const stepNumber = data.steps.slice(0, index).filter(s =>
+              !(s.endsWith(':') && s.length < 100)
+            ).length + 1;
+
+            return (
+              <div class="step-prose">
+                <span class="step-number-inline">{stepNumber}</span>
+                <p class="step-text">{step}</p>
+              </div>
+            );
+          })
         }
       </div>
 
@@ -330,6 +394,63 @@ function formatTime(minutes: number) {
       text-align: center;
     }
 
+    /* Meal Plan Actions */
+    .meal-plan-actions {
+      margin: 2rem auto 0;
+      text-align: center;
+    }
+
+    .add-to-meal-plan-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      background: #fff;
+      border: 2px solid #d35400;
+      color: #d35400;
+      font-family: "Crimson Pro", serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.06),
+        0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .add-to-meal-plan-btn:hover {
+      background: #d35400;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow:
+        0 4px 8px rgba(211, 84, 0, 0.2),
+        0 8px 16px rgba(211, 84, 0, 0.15);
+    }
+
+    .add-to-meal-plan-btn.in-plan {
+      background: #d35400;
+      color: white;
+      border-color: #d35400;
+    }
+
+    .add-to-meal-plan-btn.in-plan:hover {
+      background: #b84400;
+      border-color: #b84400;
+    }
+
+    .btn-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .btn-text {
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.85rem;
+    }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -380,11 +501,13 @@ function formatTime(minutes: number) {
 
     .ingredient-line {
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: auto 1fr auto;
       gap: 0.75rem;
+      align-items: start;
       font-size: 1rem;
       color: #2c2c2c;
       padding: 0.5rem 0;
+      position: relative;
     }
 
     .ingredient-bullet {
@@ -413,11 +536,114 @@ function formatTime(minutes: number) {
       line-height: 1.5;
     }
 
+    .ingredient-subsection {
+      grid-column: 1 / -1;
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(211, 84, 0, 0.15);
+    }
+
+    .ingredient-subsection:first-child {
+      margin-top: 0;
+    }
+
+    /* Add to Shopping Button */
+    .add-to-shopping-btn {
+      background: rgba(250, 248, 243, 0.5);
+      border: 1px solid rgba(211, 84, 0, 0.2);
+      color: #d35400;
+      cursor: pointer;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 2px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      line-height: 1;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateX(-5px);
+      margin-top: 0.25rem;
+      min-width: 2rem;
+      min-height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ingredient-line:hover .add-to-shopping-btn {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .add-to-shopping-btn:hover {
+      background: #d35400;
+      color: white;
+      border-color: #d35400;
+      transform: scale(1.08);
+    }
+
+    .add-to-shopping-btn.in-list {
+      opacity: 1;
+      background: #d35400;
+      color: white;
+      border-color: #d35400;
+    }
+
+    .btn-icon-plus {
+      display: inline-block;
+    }
+
+    .btn-icon-plus::after {
+      content: "+";
+    }
+
+    .add-to-shopping-btn.in-list .btn-icon-plus::after {
+      content: "✓";
+    }
+
+    /* Mobile: always show buttons, larger touch targets */
+    @media (max-width: 768px) {
+      .add-to-shopping-btn {
+        opacity: 1;
+        transform: translateX(0);
+        padding: 0.5rem;
+        min-width: 2.5rem;
+        min-height: 2.5rem;
+        font-size: 0.85rem;
+        background: rgba(250, 248, 243, 0.9);
+      }
+
+      .add-to-shopping-btn:active {
+        background: #d35400;
+        color: white;
+        transform: scale(0.95);
+      }
+    }
+
     .preparation-narrative {
       margin: var(--space-3xl) 0;
     }
 
     /* Steps Section */
+    .step-subsection {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(211, 84, 0, 0.15);
+    }
+
+    .step-subsection:first-child {
+      margin-top: 0;
+    }
+
     .step-prose {
       margin-bottom: 2rem;
       display: grid;
@@ -635,4 +861,139 @@ function formatTime(minutes: number) {
       }
     }
   </style>
+
+  <script>
+    import {
+      addRecipe,
+      removeRecipe,
+      isInMealPlan,
+    } from "../../lib/meal-plan-manager.js";
+    import {
+      addIngredient,
+      removeIngredient,
+      isInShoppingList,
+      getShoppingList,
+    } from "../../lib/shopping-list-manager.js";
+
+    // Meal Plan functionality
+    const addButton = document.getElementById("addToMealPlan") as HTMLButtonElement | null;
+    const btnIcon = document.getElementById("btnIcon");
+    const btnText = document.getElementById("btnText");
+
+    if (addButton && btnIcon && btnText) {
+      const recipeId = addButton.dataset.recipeId;
+
+      if (!recipeId) {
+        console.error("Recipe ID not found");
+      } else {
+        // Update button state
+        function updateButtonState() {
+          if (!addButton || !btnIcon || !btnText || !recipeId) return;
+
+          const inPlan = isInMealPlan(recipeId);
+
+          if (inPlan) {
+            addButton.classList.add("in-plan");
+            btnIcon.textContent = "✓";
+            btnText.textContent = "Dans le plan";
+          } else {
+            addButton.classList.remove("in-plan");
+            btnIcon.textContent = "+";
+            btnText.textContent = "Ajouter au plan repas";
+          }
+        }
+
+        // Handle button click
+        addButton.addEventListener("click", () => {
+          if (!recipeId) return;
+
+          const inPlan = isInMealPlan(recipeId);
+
+          if (inPlan) {
+            removeRecipe(recipeId);
+          } else {
+            addRecipe(recipeId);
+          }
+
+          updateButtonState();
+        });
+
+        // Listen for updates from other components
+        window.addEventListener("mealPlanUpdated", () => {
+          updateButtonState();
+        });
+
+        // Initial state
+        updateButtonState();
+      }
+    }
+
+    // Shopping List functionality
+    const shoppingButtons = document.querySelectorAll(".add-to-shopping-btn");
+
+    function updateShoppingButtonStates() {
+      shoppingButtons.forEach((btn) => {
+        const button = btn as HTMLButtonElement;
+        const recipeId = button.dataset.recipeId;
+        const ingredientIndex = parseInt(button.dataset.ingredientIndex || "0");
+
+        if (recipeId && !isNaN(ingredientIndex)) {
+          if (isInShoppingList(recipeId, ingredientIndex)) {
+            button.classList.add("in-list");
+            button.setAttribute("aria-label", "Retirer de la liste d'épicerie");
+          } else {
+            button.classList.remove("in-list");
+            button.setAttribute("aria-label", "Ajouter à la liste d'épicerie");
+          }
+        }
+      });
+    }
+
+    shoppingButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const button = btn as HTMLButtonElement;
+        const recipeId = button.dataset.recipeId;
+        const recipeName = button.dataset.recipeName;
+        const ingredientIndex = parseInt(button.dataset.ingredientIndex || "0");
+
+        if (!recipeId || !recipeName || isNaN(ingredientIndex)) {
+          console.error("Missing ingredient data");
+          return;
+        }
+
+        const ingredientData = {
+          quantity: button.dataset.quantity || null,
+          unit: button.dataset.unit || null,
+          ingredient: button.dataset.ingredient || "",
+          note: button.dataset.note || null,
+        };
+
+        // Check if already in list
+        if (isInShoppingList(recipeId, ingredientIndex)) {
+          // Find and remove the ingredient
+          const shoppingList = getShoppingList();
+          const item = shoppingList.find(
+            (item) => item.recipeId === recipeId && item.ingredientIndex === ingredientIndex
+          );
+          if (item) {
+            removeIngredient(item.id);
+          }
+        } else {
+          // Add to list
+          addIngredient(recipeId, recipeName, ingredientIndex, ingredientData);
+        }
+
+        updateShoppingButtonStates();
+      });
+    });
+
+    // Listen for updates from other components
+    window.addEventListener("shoppingListUpdated", () => {
+      updateShoppingButtonStates();
+    });
+
+    // Initial state
+    updateShoppingButtonStates();
+  </script>
 </CuisineLayout>

@@ -1,0 +1,57 @@
+{
+  "name": "Mijoté de bœuf aux champignons d'automne du Renard",
+  "description": "Un ragoût réconfortant où le bœuf fond sous la langue et les champignons d'automne libèrent leurs parfums boisés. Braisé lentement au vin rouge avec carottes et herbes fraîches, ce plat capture l'essence même de la saison des récoltes.",
+  "servings": 6,
+  "freezable": true,
+  "time": {
+    "prep": 25,
+    "cook": 135,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    { "quantity": "1", "unit": "kg", "ingredient": "bœuf à braiser", "note": "cubes de 4 cm (palette ou macreuse)" },
+    { "quantity": "400", "unit": "g", "ingredient": "champignons mélangés", "note": "shiitake, cremini, pleurotes" },
+    { "quantity": "3", "unit": null, "ingredient": "carottes", "note": "coupées en rondelles épaisses" },
+    { "quantity": "2", "unit": null, "ingredient": "oignons jaunes", "note": "coupés en quartiers" },
+    { "quantity": "4", "unit": "gousses", "ingredient": "ail", "note": "écrasées" },
+    { "quantity": "45", "unit": "ml", "ingredient": "farine tout usage", "note": "pour enrober" },
+    { "quantity": "500", "unit": "ml", "ingredient": "vin rouge corsé", "note": "Côtes-du-Rhône ou Cabernet" },
+    { "quantity": "250", "unit": "ml", "ingredient": "bouillon de bœuf", "note": "de qualité" },
+    { "quantity": "30", "unit": "ml", "ingredient": "pâte de tomate", "note": "concentrée" },
+    { "quantity": "3", "unit": "branches", "ingredient": "thym frais", "note": "l'âme de l'automne" },
+    { "quantity": "2", "unit": "feuilles", "ingredient": "laurier", "note": "pour la profondeur" },
+    { "quantity": "1", "unit": "branche", "ingredient": "romarin frais", "note": "parfum des bois" },
+    { "quantity": "45", "unit": "ml", "ingredient": "huile d'olive", "note": "divisée" },
+    { "quantity": "15", "unit": "ml", "ingredient": "beurre", "note": "pour les champignons" },
+    { "quantity": null, "unit": null, "ingredient": "Sel et poivre noir", "note": "fraîchement moulu" },
+    { "subsection": "Pour garnir" },
+    { "quantity": null, "unit": null, "ingredient": "Persil frais", "note": "ciselé généreusement" },
+    { "quantity": null, "unit": null, "ingredient": "Croûtons de pain", "note": "frottés à l'ail (facultatif)" }
+  ],
+  "steps": [
+    "Préchauffer le four à 325°F (165°C). Éponger les cubes de bœuf avec du papier absorbant, puis assaisonner généreusement de sel et poivre.",
+    "Dans un bol, mélanger la farine avec une pincée de sel et poivre. Enrober légèrement chaque cube de bœuf de farine, secouer l'excédent.",
+    "Dans une cocotte en fonte ou un faitout allant au four, chauffer 30 ml d'huile d'olive à feu moyen-vif. Faire dorer les cubes de bœuf en plusieurs fois (ne pas surcharger) jusqu'à bien caramélisés sur tous les côtés, environ 8-10 minutes par lot. Réserver dans une assiette.",
+    "Dans la même cocotte, ajouter le reste de l'huile et le beurre. Faire revenir les champignons à feu vif 5-6 minutes jusqu'à dorés et que leur eau se soit évaporée. Réserver avec le bœuf.",
+    "Réduire à feu moyen. Ajouter les oignons et carottes, cuire 5 minutes en raclant les sucs de cuisson au fond. Ajouter l'ail et la pâte de tomate, cuire 1 minute en remuant.",
+    "Déglacer avec le vin rouge, gratter tous les sucs caramélisés du fond avec une cuillère en bois. Porter à ébullition et laisser réduire de moitié, environ 5 minutes.",
+    "Remettre le bœuf et les champignons dans la cocotte avec leur jus. Ajouter le bouillon, le thym, le laurier et le romarin. Le liquide doit presque couvrir la viande — ajouter un peu d'eau si nécessaire.",
+    "Porter à frémissement, couvrir avec un couvercle, puis enfourner 2 heures à 2h15. Le bœuf doit être parfaitement tendre et se défaire à la fourchette.",
+    "Retirer du four. Goûter et rectifier l'assaisonnement. Si la sauce est trop liquide, retirer la viande et les légumes, puis réduire la sauce à feu vif 5-10 minutes.",
+    "Servir dans des bols creux, parsemé de persil frais. Accompagner de purée de pommes de terre crémeuse, de pâtes larges ou de pain croûté pour saucer."
+  ],
+  "categories": [
+    "plat principal",
+    "réconfortant",
+    "automne",
+    "français"
+  ],
+  "difficulty": "moyen",
+  "heroImage": "/cuisine/mijote-boeuf-champignons.png",
+  "pubDate": "2025-10-11",
+  "draft": false,
+  "ingredientIntro": "Les parfums de l'automne se rencontrent dans cette cocotte : bœuf qui braise lentement, champignons boisés, vin rouge profond et herbes fraîches. Chaque ingrédient apporte sa note à cette symphonie rustique.",
+  "tips": "Le secret d'un mijoté sublime commence par la coloration du bœuf — ne précipitez jamais cette étape. Chaque cube doit être profondément doré, c'est là que naissent les saveurs. Épongez bien la viande avant de la fariner et ne surchargez pas la cocotte : l'espace permet la caramélisation, l'entassement crée de la vapeur. Les champignons doivent rendre leur eau et dorer avant de rejoindre le bœuf — cette étape concentre leurs arômes boisés. Pour le vin, choisissez-en un que vous boiriez : jamais de vin de cuisine bon marché. Un Côtes-du-Rhône ou un bon Cabernet apporte structure et profondeur. La pâte de tomate ajoutée avant le vin caramélise légèrement et enrichit la sauce d'umami. Pendant le braisage au four, le bœuf se transforme : le collagène fond, la viande devient soyeuse. Résistez à l'envie d'ouvrir le four trop souvent — la chaleur constante fait des merveilles. Ce plat est encore meilleur le lendemain : les saveurs se marient et s'intensifient pendant la nuit au réfrigérateur. Réchauffez doucement à feu doux. Se congèle magnifiquement jusqu'à 3 mois — votre futur vous remerciera."
+}

@@ -11,17 +11,17 @@
   },
   "cooking_method": "Mijoteuse",
   "ingredients": [
-    "900 g (2 lb) de bœuf haché — la base protéinée",
-    "1 gros oignon — coupé en dés pour la douceur",
-    "2 boîtes (398 ml chacune) de tomates en dés — l'acidité équilibrante",
-    "1 boîte (398 ml) de sauce tomate — pour la consistance",
-    "2 boîtes de haricots rouges — égouttés et rincés",
-    "1 boîte de haricots noirs — égouttés et rincés",
-    "30 ml (2 c. à soupe) de poudre de chili — l'épice signature",
-    "15 ml (1 c. à soupe) de cumin — pour la profondeur",
-    "15 ml (1 c. à soupe) de cassonade — l'équilibre sucré",
-    "10 ml (2 c. à thé) de sel — l'exhausteur de goût",
-    "250 ml (1 tasse) de bouillon de bœuf — pour enrichir"
+    { "quantity": "900", "unit": "g", "ingredient": "bœuf haché", "note": "la base protéinée" },
+    { "quantity": "1", "unit": null, "ingredient": "gros oignon", "note": "coupé en dés pour la douceur" },
+    { "quantity": "2", "unit": "boîtes", "ingredient": "tomates en dés", "note": "l'acidité équilibrante" },
+    { "quantity": "1", "unit": "boîte", "ingredient": "sauce tomate", "note": "pour la consistance" },
+    { "quantity": "2", "unit": "boîtes", "ingredient": "haricots rouges", "note": "égouttés et rincés" },
+    { "quantity": "1", "unit": "boîte", "ingredient": "haricots noirs", "note": "égouttés et rincés" },
+    { "quantity": "30", "unit": "ml", "ingredient": "poudre de chili", "note": "l'épice signature" },
+    { "quantity": "15", "unit": "ml", "ingredient": "cumin", "note": "pour la profondeur" },
+    { "quantity": "15", "unit": "ml", "ingredient": "cassonade", "note": "l'équilibre sucré" },
+    { "quantity": "10", "unit": "ml", "ingredient": "sel", "note": "l'exhausteur de goût" },
+    { "quantity": "250", "unit": "ml", "ingredient": "bouillon de bœuf", "note": "pour enrichir" }
   ],
   "steps": [
     "Faire revenir le bœuf haché dans une poêle et égoutter le gras (étape cruciale).",

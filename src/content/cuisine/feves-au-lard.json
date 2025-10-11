@@ -11,15 +11,15 @@
   },
   "cooking_method": "Mijoteuse",
   "ingredients": [
-    "450 g de haricots blancs secs Navy — la fondation crémeuse",
-    "1,5 litre (6 tasses) d'eau fraîche — pour réveiller les légumineuses",
-    "250 ml (1 tasse) de sirop d'érable ambré du Québec — le cœur sucré de la recette",
-    "125 ml (½ tasse) de ketchup — l'umami secret",
-    "225 g (½ lb) de lard salé entrelardé — du boucher, sans couenne",
-    "2 oignons jaunes moyens — hachés grossièrement pour fondre dans la sauce",
-    "15 ml (1 c. à soupe) de moutarde de Dijon — la pointe d'acidité révélatrice",
-    "5 ml (1 c. à thé) de sel de mer — pour équilibrer les saveurs",
-    "2,5 ml (½ c. à thé) de poivre noir fraîchement moulu — la touche finale"
+    { "quantity": "450", "unit": "g", "ingredient": "haricots blancs secs Navy", "note": "la fondation crémeuse" },
+    { "quantity": "1,5", "unit": "litre", "ingredient": "eau fraîche", "note": "pour réveiller les légumineuses" },
+    { "quantity": "250", "unit": "ml", "ingredient": "sirop d'érable ambré du Québec", "note": "le cœur sucré de la recette" },
+    { "quantity": "125", "unit": "ml", "ingredient": "ketchup", "note": "l'umami secret" },
+    { "quantity": "225", "unit": "g", "ingredient": "lard salé entrelardé", "note": "du boucher, sans couenne" },
+    { "quantity": "2", "unit": null, "ingredient": "oignons jaunes moyens", "note": "hachés grossièrement pour fondre dans la sauce" },
+    { "quantity": "15", "unit": "ml", "ingredient": "moutarde de Dijon", "note": "la pointe d'acidité révélatrice" },
+    { "quantity": "5", "unit": "ml", "ingredient": "sel de mer", "note": "pour équilibrer les saveurs" },
+    { "quantity": "2,5", "unit": "ml", "ingredient": "poivre noir fraîchement moulu", "note": "la touche finale" }
   ],
   "steps": [
     "Placer les haricots dans un grand bol. Couvrir d'eau et laisser tremper 12 heures ou toute une nuit à la température ambiante. Ajouter de l'eau au besoin afin que les haricots soient toujours bien couverts. Rincer et égoutter.",

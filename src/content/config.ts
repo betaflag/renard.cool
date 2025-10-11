@@ -28,7 +28,17 @@ const cuisine = defineCollection({
       soak: z.number().default(0),
     }),
     cooking_method: z.string(),
-    ingredients: z.array(z.string()),
+    ingredients: z.array(z.union([
+      z.object({
+        quantity: z.string().nullable(),
+        unit: z.string().nullable(),
+        ingredient: z.string(),
+        note: z.string().nullable(),
+      }),
+      z.object({
+        subsection: z.string(),
+      }),
+    ])),
     optional_ingredients: z.array(z.string()).optional(),
     steps: z.array(z.string()),
     serving_suggestions: z.array(z.string()).optional(),
