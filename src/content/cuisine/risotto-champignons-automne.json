@@ -1,0 +1,119 @@
+{
+  "name": "Risotto aux champignons d'automne du Renard",
+  "description": "Un risotto crémeux et réconfortant qui célèbre les champignons de saison. Le riz arborio libère lentement son amidon pour créer cette texture soyeuse signature, pendant que les champignons apportent leurs notes terreuses et boisées.",
+  "servings": 4,
+  "freezable": false,
+  "time": {
+    "prep": 10,
+    "cook": 25,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière",
+  "ingredients": [
+    {
+      "quantity": "300",
+      "unit": "g",
+      "ingredient": "riz arborio",
+      "note": "le seul riz pour risotto"
+    },
+    {
+      "quantity": "400",
+      "unit": "g",
+      "ingredient": "champignons mélangés",
+      "note": "shiitake, cremini, pleurotes"
+    },
+    {
+      "quantity": "1",
+      "unit": "litre",
+      "ingredient": "bouillon de légumes ou poulet",
+      "note": "chaud et de qualité"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "oignon jaune",
+      "note": "haché finement"
+    },
+    {
+      "quantity": "3",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées finement"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "vin blanc sec",
+      "note": "pour déglacer"
+    },
+    {
+      "quantity": "100",
+      "unit": "g",
+      "ingredient": "parmesan",
+      "note": "fraîchement râpé"
+    },
+    {
+      "quantity": "45",
+      "unit": "ml",
+      "ingredient": "beurre",
+      "note": "divisé"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "huile d'olive",
+      "note": "pour la cuisson"
+    },
+    {
+      "quantity": "15",
+      "unit": "ml",
+      "ingredient": "persil frais",
+      "note": "ciselé"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "thym frais",
+      "note": "effeuillé"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre noir",
+      "note": "fraîchement moulu"
+    },
+    { "subsection": "Pour garnir (facultatif)" },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Parmesan supplémentaire",
+      "note": "en copeaux"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Huile de truffe",
+      "note": "quelques gouttes pour l'indulgence"
+    }
+  ],
+  "steps": [
+    "Faire chauffer le bouillon dans une casserole et le maintenir à feu doux (il doit rester chaud tout au long de la cuisson).",
+    "Nettoyer et trancher les champignons. Dans une grande poêle, chauffer 15 ml de beurre à feu moyen-vif et faire sauter les champignons 5-6 minutes jusqu'à dorés. Assaisonner de sel, poivre et thym. Réserver.",
+    "Dans une grande casserole à fond épais ou un faitout, chauffer l'huile d'olive et 15 ml de beurre à feu moyen. Ajouter l'oignon haché et cuire 3-4 minutes jusqu'à translucide.",
+    "Ajouter l'ail et cuire 1 minute jusqu'à parfumé. Ajouter le riz arborio et remuer constamment 2-3 minutes jusqu'à ce que les grains soient légèrement translucides sur les bords et nacrés.",
+    "Verser le vin blanc et remuer jusqu'à absorption complète (environ 2 minutes).",
+    "Commencer à ajouter le bouillon chaud, une louche à la fois (environ 175 ml), en remuant fréquemment. Attendre que le liquide soit presque entièrement absorbé avant d'ajouter la louche suivante.",
+    "Continuer ce processus pendant 18-20 minutes, en remuant régulièrement et en ajoutant du bouillon graduellement. Le riz doit être al dente (tendre mais avec une légère résistance au centre).",
+    "Environ 5 minutes avant la fin, incorporer les trois quarts des champignons sautés au risotto.",
+    "Retirer du feu. Ajouter le reste du beurre (15 ml) et le parmesan râpé. Remuer vigoureusement 1 minute pour créer la mantecatura (texture crémeuse et onctueuse). Ajuster la consistance avec un peu de bouillon si nécessaire — le risotto doit couler légèrement dans l'assiette.",
+    "Rectifier l'assaisonnement. Servir immédiatement dans des assiettes chaudes, garnir avec les champignons réservés, le persil ciselé, des copeaux de parmesan et quelques gouttes d'huile de truffe si désiré."
+  ],
+  "categories": ["plat principal", "réconfortant", "italien", "automne"],
+  "difficulty": "moyen",
+  "heroImage": "/cuisine/risotto-champignons.png",
+  "pubDate": "2025-10-11",
+  "draft": false,
+  "ingredientIntro": "Le risotto est une méditation culinaire. Chaque louche de bouillon, chaque geste patient construit la texture crémeuse signature de ce plat légendaire du Nord de l'Italie.",
+  "tips": "Le secret d'un risotto parfait réside dans trois éléments : la température du bouillon (toujours chaud), la patience (jamais précipiter l'absorption), et la mantecatura finale (remuer vigoureusement beurre et parmesan hors du feu). Le riz arborio est non négociable — ses grains courts et riches en amidon créent cette texture crémeuse impossible à reproduire avec d'autres variétés. Ne rincez JAMAIS le riz avant la cuisson : c'est l'amidon qui crée la magie. Remuez régulièrement mais pas constamment — donnez au riz le temps d'absorber chaque louche de bouillon. La texture finale doit être all'onda (qui ondule) : le risotto doit couler légèrement quand vous inclinez l'assiette, pas être sec ni trop liquide. Utilisez un mélange de champignons pour la complexité — les shiitakes apportent l'umami, les creminis la terre, les pleurotes la délicatesse. Servez immédiatement : le risotto n'attend personne et continue à absorber le liquide en refroidissant. Un risotto réchauffé n'est plus un risotto. Pour une touche luxueuse, quelques gouttes d'huile de truffe blanche transforment ce plat d'humble en extraordinaire."
+}
