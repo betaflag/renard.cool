@@ -1,650 +1,138 @@
 ---
 import { getCollection } from "astro:content";
+import CuisineLayout from "../../layouts/CuisineLayout.astro";
+import RecipesListing from "../../components/RecipesListing.astro";
 
 // For static site, we need to include all recipes and filter client-side
-const allRecipes = (await getCollection("cuisine")).sort(
+const recipes = (await getCollection("cuisine")).sort(
   (a, b) =>
     new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
-
-// Group recipes by base name (without variant suffix)
-// Only show Simple versions as base recipes, with their Advanced counterparts
-const baseRecipes = allRecipes.filter(recipe =>
-  (recipe.data as any).variant === 'simple' || !(recipe.data as any).variant
-);
-
-// Create a map to find Advanced versions
-const advancedRecipesMap = new Map();
-allRecipes.forEach(recipe => {
-  if ((recipe.data as any).variant === 'avance' && (recipe.data as any).relatedRecipe) {
-    advancedRecipesMap.set((recipe.data as any).relatedRecipe, recipe);
-  }
-});
-
-// We'll use base recipes and handle filtering client-side
-const recipes = baseRecipes;
-
-// Always get all categories from all recipes (including drafts)
-// so the category filters work properly when drafts are shown
-const categories = [
-  ...new Set(allRecipes.flatMap((recipe) => recipe.data.categories)),
-].sort();
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/renard.png" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Renardo Cuisine | Recettes futées</title>
-    <meta
-      name="description"
-      content="Découvrez les recettes secrètes du renard cuisinier"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,400&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="grain"></div>
+<CuisineLayout
+  title="Renardo Cuisine | Recettes futées"
+  description="Découvrez les recettes secrètes du renard cuisinier"
+>
+  <header>
+    <nav class="top-nav">
+      <a href="/" class="home-link">← Accueil</a>
+    </nav>
+  </header>
 
-    <header>
-      <nav class="top-nav">
-        <a href="/" class="home-link">← Accueil</a>
-      </nav>
-    </header>
+  <main>
+    <div class="header-section">
+      <h1 class="page-title">
+        <span class="accent">Renardo</span> Cuisine
+      </h1>
+      <p class="subtitle">Recettes futées mijotées avec passion</p>
+    </div>
 
-    <main>
-      <div class="header-section">
-        <h1 class="page-title">
-          <span class="accent">Renardo</span> Cuisine
-        </h1>
-        <p class="subtitle">Recettes futées mijotées avec passion</p>
-      </div>
+    <RecipesListing recipes={recipes} />
+  </main>
 
-      <div class="categories">
-        <div class="draft-toggle">
-          <button id="draft-toggle" class="draft-toggle-link">
-            <span class="draft-toggle-text">◯ Afficher brouillons</span>
-          </button>
-        </div>
-      </div>
+  <style>
+    header {
+      position: relative;
+      z-index: 10;
+      padding: var(--space-lg);
+    }
 
-      <div class="recipes-grid">
-        {
-          recipes.map((recipe) => {
-            const totalTime =
-              recipe.data.time.prep +
-              recipe.data.time.cook +
-              recipe.data.time.wait;
-            const hours = Math.floor(totalTime / 60);
-            const minutes = totalTime % 60;
-            const timeDisplay =
-              hours > 0
-                ? `${hours}h${minutes > 0 ? ` ${minutes}min` : ""}`
-                : `${minutes}min`;
+    .top-nav {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-            // Get the Advanced version if it exists
-            const advancedRecipe = advancedRecipesMap.get(recipe.id);
+    .home-link {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: var(--text-sm);
+      letter-spacing: 0.05em;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: var(--space-xs) var(--space-sm);
+      background: rgba(250, 248, 243, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 2rem;
+      display: inline-block;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
 
-            // Clean up the recipe name (remove " (Simple)" suffix)
-            const cleanName = recipe.data.name.replace(' (Simple)', '').replace(' (Avancé)', '');
+    .home-link:hover {
+      color: var(--accent);
+      transform: translateX(-3px);
+      background: rgba(250, 248, 243, 0.95);
+    }
 
-            return (
-              <article
-                class="recipe-card"
-                data-categories={recipe.data.categories.join(",")}
-                data-draft={recipe.data.draft ? "true" : "false"}
-              >
-                {recipe.data.draft && (
-                  <div class="draft-indicator">Brouillon</div>
-                )}
-                {recipe.data.heroImage && (
-                  <div class="recipe-image">
-                    <img src={recipe.data.heroImage} alt={cleanName} />
-                  </div>
-                )}
-                <div class="recipe-content">
-                  <div class="recipe-header">
-                    <h2 class="recipe-title">{cleanName}</h2>
-                  </div>
-                  <p class="recipe-description">{recipe.data.description}</p>
-                  <div class="recipe-info">
-                    <div class="info-item">
-                      <i data-lucide="clock" class="info-icon"></i>
-                      <span class="info-text">{timeDisplay}</span>
-                    </div>
-                    <div class="info-item">
-                      <i data-lucide="users" class="info-icon"></i>
-                      <span class="info-text">
-                        {recipe.data.servings} portions
-                      </span>
-                    </div>
-                    <div class="info-item">
-                      <i data-lucide="flame" class="info-icon"></i>
-                      <span class="info-text">
-                        {recipe.data.cooking_method}
-                      </span>
-                    </div>
-                  </div>
-                  <div class="version-buttons">
-                    {advancedRecipe ? (
-                      <>
-                        <a href={`/cuisine/${recipe.id}/`} class="version-button simple">
-                          Version Simple
-                        </a>
-                        <a href={`/cuisine/${advancedRecipe.id}/`} class="version-button avance">
-                          Version Avancée
-                        </a>
-                      </>
-                    ) : (
-                      <a href={`/cuisine/${recipe.id}/`} class="version-button simple">
-                        Voir la recette
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </article>
-            );
-          })
-        }
-      </div>
-    </main>
+    main {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-lg);
+    }
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    .header-section {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-
-      :root {
-        /* Colors - warm and inviting */
-        --bg: #faf8f3;
-        --text: #2c2825;
-        --text-light: #6b645d;
-        --accent: #d35400;
-        --accent-light: #ff8c42;
-        --gold: #daa520;
-        --warm-brown: #8b4513;
-
-        /* Typography scale (1.25x) */
-        --text-xs: 0.8rem;
-        --text-sm: 0.9rem;
-        --text-base: 1rem;
-        --text-lg: 1.25rem;
-        --text-xl: 1.563rem;
-        --text-2xl: 1.953rem;
-        --text-3xl: 2.441rem;
-        --text-4xl: 3.052rem;
-        --text-5xl: 3.815rem;
-        --text-6xl: 4.768rem;
-
-        /* Spacing scale */
-        --space-xs: 0.5rem;
-        --space-sm: 1rem;
-        --space-md: 1.5rem;
-        --space-lg: 2rem;
-        --space-xl: 3rem;
-        --space-2xl: 4rem;
-        --space-3xl: 6rem;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
 
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: "Crimson Pro", Georgia, serif;
-        line-height: 1.7;
-        font-size: 1.125rem;
-        overflow-x: hidden;
-        font-weight: 400;
-        min-height: 100vh;
-      }
+    .page-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 900;
+      font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: var(--space-lg);
+    }
 
-      .grain {
-        position: fixed;
-        top: -50%;
-        left: -50%;
-        right: -50%;
-        bottom: -50%;
-        width: 200%;
-        height: 200%;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='1' seed='2' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 1;
-        opacity: 0.4;
-        mix-blend-mode: multiply;
-      }
+    .accent {
+      color: var(--accent);
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-      header {
-        position: relative;
-        z-index: 10;
-        padding: var(--space-lg);
-      }
+    .subtitle {
+      font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
+      color: var(--text-light);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.01em;
+    }
 
-      .top-nav {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .home-link {
-        color: var(--text-light);
-        text-decoration: none;
-        font-size: var(--text-sm);
-        letter-spacing: 0.05em;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        padding: var(--space-xs) var(--space-sm);
-        background: rgba(250, 248, 243, 0.8);
-        backdrop-filter: blur(10px);
-        border-radius: 2rem;
-        display: inline-block;
-        text-transform: uppercase;
-        font-weight: 500;
-      }
-
-      .home-link:hover {
-        color: var(--accent);
-        transform: translateX(-3px);
-        background: rgba(250, 248, 243, 0.95);
-      }
-
+    @media (max-width: 768px) {
       main {
-        position: relative;
-        z-index: 10;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: var(--space-lg);
+        padding: var(--space-md);
       }
 
       .header-section {
-        text-align: center;
-        margin-bottom: var(--space-3xl);
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        margin-bottom: var(--space-2xl);
       }
 
       .page-title {
-        font-family: "Playfair Display", serif;
-        font-weight: 900;
-        font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
-        line-height: 0.95;
-        letter-spacing: -0.03em;
-        color: var(--text);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
-        margin-bottom: var(--space-lg);
-      }
-
-      .accent {
-        color: var(--accent);
-        font-style: italic;
-        background: linear-gradient(135deg, var(--accent), var(--accent-light));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        font-size: clamp(var(--text-3xl), 6vw, var(--text-4xl));
       }
 
       .subtitle {
-        font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
-        color: var(--text-light);
-        font-weight: 400;
-        font-style: italic;
-        letter-spacing: -0.01em;
+        font-size: var(--text-lg);
       }
-
-      .categories {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: var(--space-3xl);
-        animation: fadeIn 1s ease-out 0.3s both;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      .recipes-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-        gap: var(--space-xl);
-        margin-top: var(--space-2xl);
-      }
-
-      .recipe-card {
-        background: rgba(250, 248, 243, 0.9);
-        border-radius: 16px;
-        overflow: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(211, 84, 0, 0.08);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        animation: slideIn 0.6s ease-out both;
-        animation-delay: calc(var(--card-index, 0) * 0.1s);
-        position: relative;
-      }
-
-      @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .recipe-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      }
-
-      .recipe-card[data-hidden="true"] {
-        display: none;
-      }
-
-      .draft-indicator {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        background: rgba(255, 255, 255, 0.95);
-        color: #6b7280;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        z-index: 10;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .recipe-image {
-        width: 100%;
-        height: 240px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .recipe-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .recipe-content {
-        padding: 1.75rem;
-      }
-
-      .recipe-header {
-        margin-bottom: var(--space-sm);
-      }
-
-      .recipe-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.75rem;
-        color: #d35400;
-        font-weight: 700;
-        line-height: 1.3;
-        letter-spacing: -0.01em;
-        margin-bottom: var(--space-md);
-      }
-
-      .draft-toggle {
-        margin-left: auto;
-        padding-left: 20px;
-      }
-
-      .draft-toggle-link {
-        display: inline-block;
-        padding: 8px 16px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 107, 0, 0.3);
-        border-radius: 20px;
-        color: #ccc;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        font-family: inherit;
-      }
-
-      .draft-toggle-link:hover {
-        background: rgba(255, 107, 0, 0.1);
-        border-color: rgba(255, 107, 0, 0.5);
-        color: #ff6b00;
-      }
-
-      .draft-toggle-link.active {
-        background: rgba(255, 107, 0, 0.2);
-        border-color: rgba(255, 107, 0, 0.6);
-        color: #ff6b00;
-      }
-
-
-      .recipe-description {
-        color: #4b5563;
-        line-height: 1.6;
-        margin-bottom: var(--space-xl);
-        font-size: 0.95rem;
-        font-family: system-ui, -apple-system, sans-serif;
-      }
-
-      .recipe-info {
-        display: flex;
-        gap: var(--space-xl);
-        margin-bottom: var(--space-xl);
-        padding: 0;
-      }
-
-      .info-item {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-        font-size: 0.9rem;
-        color: #6b7280;
-      }
-
-      .info-icon {
-        width: 18px;
-        height: 18px;
-        opacity: 0.7;
-        stroke-width: 2;
-      }
-
-      .info-text {
-        color: #6b7280;
-        font-weight: 500;
-        letter-spacing: 0.01em;
-      }
-
-      .version-buttons {
-        display: flex;
-        gap: var(--space-md);
-        margin-top: var(--space-xl);
-      }
-
-      .version-button {
-        flex: 1;
-        padding: 0.75rem 1rem;
-        text-align: center;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.875rem;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        border-radius: 50px;
-        transition: all 0.2s ease;
-        border: 2px solid transparent;
-      }
-
-      .version-button.simple {
-        background: #86efac;
-        color: #14532d;
-        border-color: #86efac;
-      }
-
-      .version-button.simple:hover {
-        background: #4ade80;
-        border-color: #4ade80;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
-      }
-
-      .version-button.avance {
-        background: #fed7aa;
-        color: #7c2d12;
-        border-color: #fed7aa;
-      }
-
-      .version-button.avance:hover {
-        background: #fdba74;
-        border-color: #fdba74;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(253, 186, 116, 0.3);
-      }
-
-      @media (max-width: 768px) {
-        main {
-          padding: var(--space-md);
-        }
-
-        .header-section {
-          margin-bottom: var(--space-2xl);
-        }
-
-        .page-title {
-          font-size: clamp(var(--text-3xl), 6vw, var(--text-4xl));
-        }
-
-        .subtitle {
-          font-size: var(--text-lg);
-        }
-
-        .categories {
-          margin-bottom: var(--space-2xl);
-          justify-content: center;
-        }
-
-        .recipes-grid {
-          grid-template-columns: 1fr;
-          gap: var(--space-lg);
-        }
-
-        .recipe-card {
-          border-radius: 8px;
-        }
-
-        .recipe-image {
-          height: 200px;
-        }
-
-        .recipe-content {
-          padding: 1.25rem;
-        }
-
-
-        .recipe-info {
-          flex-direction: column;
-          gap: var(--space-sm);
-          padding: var(--space-sm) 0;
-        }
-
-        .version-buttons {
-          flex-direction: column;
-          gap: var(--space-xs);
-        }
-
-        .version-button {
-          padding: var(--space-sm);
-        }
-      }
-
-      @media (max-width: 480px) {
-        .recipe-title {
-          font-size: var(--text-lg);
-        }
-      }
-    </style>
-
-    <script>
-      const recipes = document.querySelectorAll(".recipe-card");
-      const draftToggle = document.getElementById("draft-toggle");
-      const draftToggleText = document.querySelector(".draft-toggle-text");
-
-      let showDrafts = false;
-
-      // Check URL params on load
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('showDrafts') === 'true') {
-        showDrafts = true;
-        draftToggle.classList.add('active');
-        draftToggleText.textContent = '✓ Brouillons affichés';
-      }
-
-      // Hide draft recipes initially if not showing drafts
-      function updateRecipeVisibility() {
-        recipes.forEach((recipe) => {
-          const isDraft = recipe.dataset.draft === "true";
-
-          let shouldShow = true;
-
-          // Check draft status
-          if (!showDrafts && isDraft) {
-            shouldShow = false;
-          }
-
-          recipe.style.display = shouldShow ? "block" : "none";
-        });
-      }
-
-      // Initial visibility update
-      updateRecipeVisibility();
-
-      // Draft toggle handler
-      draftToggle.addEventListener("click", () => {
-        showDrafts = !showDrafts;
-
-        if (showDrafts) {
-          draftToggle.classList.add('active');
-          draftToggleText.textContent = '✓ Brouillons affichés';
-          // Update URL without reload
-          const newUrl = new URL(window.location);
-          newUrl.searchParams.set('showDrafts', 'true');
-          window.history.pushState({}, '', newUrl);
-        } else {
-          draftToggle.classList.remove('active');
-          draftToggleText.textContent = '◯ Afficher brouillons';
-          // Update URL without reload
-          const newUrl = new URL(window.location);
-          newUrl.searchParams.delete('showDrafts');
-          window.history.pushState({}, '', newUrl);
-        }
-
-        updateRecipeVisibility();
-      });
-
-    </script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest" onload="lucide.createIcons()"></script>
-  </body>
-</html>
+    }
+  </style>
+</CuisineLayout>

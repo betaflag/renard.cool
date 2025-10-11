@@ -1,5 +1,5 @@
 {
-  "name": "Chili à la viande de la Tanière (Simple)",
+  "name": "Chili à la viande de la Tanière",
   "description": "Un chili simple et savoureux préparé à la mijoteuse avec des ingrédients essentiels. La cuisson lente permet aux saveurs de se marier parfaitement, créant un plat réconfortant sans complications.",
   "servings": 8,
   "freezable": true,
@@ -10,8 +10,6 @@
     "soak": 0
   },
   "cooking_method": "Mijoteuse",
-  "variant": "simple",
-  "relatedRecipe": "chili-mijoteuse-avance",
   "ingredients": [
     "900 g (2 lb) de bœuf haché — la base protéinée",
     "1 gros oignon — coupé en dés pour la douceur",
@@ -32,14 +30,14 @@
     "Cuire à basse température (Low) 6 à 8 heures ou à haute température (High) 3 à 4 heures.",
     "Goûter et ajuster l'assaisonnement durant la dernière heure de cuisson."
   ],
-  "serving_suggestions": [
-    "Fromage râpé",
-    "Crème sure",
-    "Oignons verts",
-    "Pain de maïs"
+  "categories": [
+    "plat principal",
+    "réconfortant",
+    "américain"
   ],
-  "categories": ["plat principal", "réconfortant", "américain"],
   "difficulty": "facile",
   "heroImage": "/cuisine/chili-cover.png",
-  "pubDate": "2025-09-28"
+  "pubDate": "2025-09-28",
+  "ingredientIntro": "Des ingrédients robustes et généreux qui mijotent ensemble pour créer un chili authentique. La simplicité au service de la saveur, sans artifices ni complications.",
+  "tips": "Égouttez bien le gras du bœuf après la cuisson — cette étape simple rend le chili moins lourd et plus digeste. N'hésitez pas à ajuster la quantité de poudre de chili selon votre tolérance aux épices : commencez conservateur, vous pourrez toujours en ajouter. La cassonade équilibre l'acidité des tomates et adoucit les épices — ne l'omettez pas. Mélangez deux types de haricots (rouges et noirs) pour plus de texture et d'intérêt visuel. Goûtez durant la dernière heure de cuisson et rectifiez l'assaisonnement : le sel et les épices s'adoucissent pendant la longue cuisson. Ce chili est encore meilleur le lendemain — les saveurs se fondent et s'intensifient. Servez avec crème sure, cheddar râpé, oignons verts et chips tortillas pour un festin complet. Se congèle parfaitement en portions individuelles."
 }

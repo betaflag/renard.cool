@@ -1,5 +1,5 @@
 {
-  "name": "Soupe à l'oignon gratinée de l'Automne (Simple)",
+  "name": "Soupe à l'oignon gratinée de l'Automne",
   "description": "La classique soupe à l'oignon française adaptée pour la mijoteuse. Les oignons caramélisent lentement pour développer une douceur profonde, couronnée de pain croûté et de fromage fondu doré.",
   "servings": 6,
   "freezable": true,
@@ -10,8 +10,6 @@
     "soak": 0
   },
   "cooking_method": "Mijoteuse",
-  "variant": "simple",
-  "relatedRecipe": "soupe-oignon-avance",
   "ingredients": [
     "6 gros oignons jaunes — environ 1.5 kg, émincés finement",
     "60 ml (¼ tasse) de beurre — pour la caramélisation",
@@ -35,15 +33,15 @@
     "Pour servir : préchauffer le gril du four. Verser la soupe dans des bols allant au four. Flotter une tranche de pain sur chaque bol, couvrir généreusement de fromage râpé.",
     "Gratiner sous le gril 3-5 minutes jusqu'à ce que le fromage soit doré et bouillonnant. Servir immédiatement."
   ],
-  "serving_suggestions": [
-    "Salade verte aux noix",
-    "Pain croûté supplémentaire",
-    "Pommes tranchées",
-    "Vin blanc sec"
+  "categories": [
+    "soupe",
+    "traditionnel",
+    "français"
   ],
-  "categories": ["soupe", "traditionnel", "français"],
   "difficulty": "facile",
   "heroImage": "/cuisine/soupe-oignon.png",
   "pubDate": "2025-10-03",
-  "draft": true
+  "draft": true,
+  "ingredientIntro": "Des oignons humbles transformés en nectar doré. La patience et la technique créent cette soupe légendaire qui réchauffe le corps et l'âme.",
+  "tips": "La caramélisation initiale des oignons est cruciale — ne précipitez jamais cette étape. Les 15 minutes à la poêle avec la cassonade développent la douceur et la couleur dorée qui font toute la différence. Utilisez un bouillon de bœuf de qualité supérieure, car il constitue la base aromatique de la soupe. Le Gruyère est le fromage traditionnel pour cette recette classique — il fond parfaitement et crée cette croûte dorée irrésistible. Pour le gratinage, assurez-vous que vos bols soient bien allant au four et surveillez attentivement sous le gril pour éviter de brûler le fromage. Le pain légèrement rassis absorbe mieux le bouillon sans se désintégrer. Cette soupe est un repas complet en soi, accompagnée simplement d'une salade verte."
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Poulet aux 40 gousses d'ail (Simple)",
+  "name": "Poulet aux 40 gousses d'ail",
   "description": "Le classique poulet aux quarante gousses d'ail, adapté pour la mijoteuse. Cette version simple transforme l'ail en une pâte douce et sucrée qui se tartine comme du beurre, pendant que le poulet devient incroyablement tendre.",
   "servings": 6,
   "freezable": true,
@@ -10,8 +10,6 @@
     "soak": 0
   },
   "cooking_method": "Mijoteuse",
-  "variant": "simple",
-  "relatedRecipe": "poulet-40-gousses-avance",
   "ingredients": [
     "8 à 10 morceaux de poulet — cuisses et pilons avec os",
     "40 gousses d'ail — environ 4 têtes, non pelées",
@@ -31,15 +29,15 @@
     "Dans la dernière demi-heure, arroser de jus de citron et rectifier l'assaisonnement.",
     "Servir le poulet avec les gousses d'ail que les convives presseront pour extraire la pâte d'ail caramélisée."
   ],
-  "serving_suggestions": [
-    "Pain croûté pour tartiner l'ail",
-    "Pommes de terre rôties",
-    "Haricots verts",
-    "Salade verte"
+  "categories": [
+    "plat principal",
+    "traditionnel",
+    "français"
   ],
-  "categories": ["plat principal", "traditionnel", "français"],
   "difficulty": "facile",
   "heroImage": "/cuisine/poulet-40-gousses.png",
   "pubDate": "2025-10-03",
-  "draft": true
+  "draft": true,
+  "ingredientIntro": "Quarante gousses d'ail peuvent sembler excessif, mais la cuisson lente les transforme en or culinaire. Chaque ingrédient contribue à créer ce plat légendaire.",
+  "tips": "N'ayez crainte des quarante gousses d'ail — la cuisson lente les transforme en purée douce et crémeuse, sans l'âcreté du cru. Gardez les gousses entières avec leur peau pour une saveur plus délicate. Le secret d'un poulet juteux : saisir d'abord la peau à feu vif pour la rendre dorée et croustillante, puis laisser la mijoteuse travailler sa magie. Le vin blanc déglaçage la poêle et ajoute de la complexité — ne sautez pas cette étape. En fin de cuisson, pressez quelques gousses d'ail confites dans la sauce pour l'enrichir davantage. Servez avec du pain croûté pour étaler l'ail fondant, c'est un délice qui ne se refuse pas."
 }

@@ -1,0 +1,214 @@
+---
+export interface Props {
+  recipe: any;
+}
+
+const { recipe } = Astro.props;
+
+const totalTime =
+  recipe.data.time.prep + recipe.data.time.cook + recipe.data.time.wait;
+const hours = Math.floor(totalTime / 60);
+const minutes = totalTime % 60;
+const timeDisplay =
+  hours > 0
+    ? `${hours}h${minutes > 0 ? ` ${minutes}min` : ""}`
+    : `${minutes}min`;
+---
+
+<article
+  class="recipe-card"
+  data-categories={recipe.data.categories.join(",")}
+  data-draft={recipe.data.draft ? "true" : "false"}
+>
+  {recipe.data.draft && <div class="draft-indicator">Brouillon</div>}
+  <a href={`/cuisine/${recipe.id}/`} class="recipe-card-link">
+    {
+      recipe.data.heroImage && (
+        <div class="recipe-image">
+          <img src={recipe.data.heroImage} alt={recipe.data.name} />
+        </div>
+      )
+    }
+    <div class="recipe-content">
+      <div class="recipe-header">
+        <h2 class="recipe-title">{recipe.data.name}</h2>
+      </div>
+      <p class="recipe-description">{recipe.data.description}</p>
+      <div class="recipe-info">
+        <div class="info-item">
+          <i data-lucide="clock" class="info-icon"></i>
+          <span class="info-text">{timeDisplay}</span>
+        </div>
+        <div class="info-item">
+          <i data-lucide="users" class="info-icon"></i>
+          <span class="info-text">{recipe.data.servings} portions</span>
+        </div>
+        <div class="info-item">
+          <i data-lucide="flame" class="info-icon"></i>
+          <span class="info-text">{recipe.data.cooking_method}</span>
+        </div>
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .recipe-card {
+    background: rgba(250, 248, 243, 0.9);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(211, 84, 0, 0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    animation: slideIn 0.6s ease-out both;
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
+    position: relative;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .recipe-card[data-hidden="true"] {
+    display: none;
+  }
+
+  .draft-indicator {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #6b7280;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .recipe-image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .recipe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .recipe-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.75rem;
+  }
+
+  .recipe-header {
+    margin-bottom: var(--space-sm);
+  }
+
+  .recipe-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.75rem;
+    color: #d35400;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-md);
+  }
+
+  .recipe-description {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    font-size: 0.95rem;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .recipe-info {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: auto;
+    margin-bottom: 0;
+    padding: var(--space-md) 0 var(--space-sm) 0;
+    border-top: 1px solid rgba(211, 84, 0, 0.08);
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+
+  .info-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    stroke-width: 2;
+  }
+
+  .info-text {
+    color: #6b7280;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .recipe-card-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  .recipe-card-link:hover .recipe-title {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .recipe-card {
+      border-radius: 8px;
+    }
+
+    .recipe-image {
+      height: 200px;
+    }
+
+    .recipe-content {
+      padding: 1.25rem;
+    }
+
+    .recipe-info {
+      flex-direction: column;
+      gap: var(--space-sm);
+      padding: var(--space-md) 0 var(--space-sm) 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .recipe-title {
+      font-size: var(--text-lg);
+    }
+  }
+</style>

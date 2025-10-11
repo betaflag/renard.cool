@@ -1,5 +1,5 @@
 {
-  "name": "Mac & fromage du Terrier Douillet (Simple)",
+  "name": "Mac & fromage du Terrier Douillet",
   "description": "Le classique américain revisité par le renard avec une touche québécoise. Des pâtes crémeuses enrobées d'une sauce au fromage onctueuse et réconfortante. Simple à préparer, impossible à résister.",
   "servings": 6,
   "freezable": true,
@@ -10,8 +10,6 @@
     "soak": 0
   },
   "cooking_method": "Cuisinière et four",
-  "variant": "simple",
-  "relatedRecipe": "mac-fromage-avance",
   "ingredients": [
     "454 g (1 lb) de macaronis coudes — les classiques",
     "454 g (1 lb) de fromage cheddar moyen — râpé",
@@ -37,14 +35,14 @@
     "Mélanger la chapelure avec le beurre fondu. Parsemer sur les pâtes. Ajouter le bacon si désiré.",
     "Cuire au four 20-25 minutes jusqu'à ce que ça bouillonne et que le dessus soit doré."
   ],
-  "serving_suggestions": [
-    "Salade verte avec vinaigrette acidulée",
-    "Tomates cerises rôties",
-    "Cornichons à l'aneth",
-    "Sauce piquante pour les audacieux"
+  "categories": [
+    "plat principal",
+    "réconfortant",
+    "américain"
   ],
-  "categories": ["plat principal", "réconfortant", "américain"],
   "difficulty": "facile",
   "heroImage": "/cuisine/mac-fromage.png",
-  "pubDate": "2025-10-05"
+  "pubDate": "2025-10-05",
+  "ingredientIntro": "Des ingrédients simples qui se transforment en symphonie de saveurs grâce à la magie de la cuisson lente. Chaque élément a son rôle à jouer.",
+  "tips": "Le roux est la fondation d'une sauce veloutée sans grumeaux — cuisez le beurre et la farine ensemble pendant 1 minute complète avant d'ajouter le lait. Ajoutez le lait graduellement en fouettant constamment : c'est la patience qui crée une texture parfaitement lisse. La moutarde en poudre et la poudre d'ail ne sont pas facultatives : ce sont les amplificateurs secrets qui transforment un mac & cheese ordinaire en extraordinaire. Utilisez du cheddar moyen plutôt que fort pour un équilibre parfait, et râpez-le vous-même — le fromage pré-râpé contient des agents anti-agglomérants qui nuisent à la texture. Sous-cuisez légèrement les pâtes (al dente moins 1 minute) car elles continueront à cuire au four. Pour un dessus extra croustillant, mélangez du parmesan râpé à la chapelure panko. Laissez reposer 5 minutes après la sortie du four pour que la sauce épaississe parfaitement."
 }

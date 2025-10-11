@@ -1,5 +1,5 @@
 {
-  "name": "Tacos au poulet du Renard Festif (Simple)",
+  "name": "Tacos au poulet du Renard Festif",
   "description": "Des tacos colorés et vibrants qui célèbrent les saveurs du Sud : poulet épicé, haricots noirs crémeux, maïs sucré et salsa fraîche. Un festin rapide et joyeux qui transforme les soirs de semaine en fiesta.",
   "servings": 4,
   "freezable": false,
@@ -10,7 +10,6 @@
     "soak": 0
   },
   "cooking_method": "Cuisinière",
-  "variant": "simple",
   "ingredients": [
     "500 g (1 lb) de poitrines de poulet — coupées en lanières",
     "250 ml (1 tasse) de salsa — moyenne ou piquante au goût",
@@ -43,17 +42,15 @@
     "Assembler les tacos : garnir chaque tortilla de mélange poulet-haricots-maïs, puis ajouter fromage râpé, crème sure, avocat, laitue et coriandre.",
     "Servir immédiatement avec quartiers de lime pour presser au-dessus. Offrir salsa additionnelle à table."
   ],
-  "serving_suggestions": [
-    "Riz à la coriandre et lime",
-    "Chips de tortillas et guacamole maison",
-    "Pico de gallo frais",
-    "Jalapeños marinés pour les courageux",
-    "Bière mexicaine avec quartier de lime",
-    "Margarita aux fraises"
+  "categories": [
+    "plat principal",
+    "mexicain",
+    "rapide"
   ],
-  "categories": ["plat principal", "mexicain", "rapide"],
   "difficulty": "facile",
   "heroImage": "/cuisine/tacos-poulet.png",
   "pubDate": "2025-10-05",
-  "draft": false
+  "draft": false,
+  "ingredientIntro": "Une fiesta colorée dans chaque tortilla. Les épices chaudes enrobent le poulet tendre, tandis que haricots noirs et maïs créent l'harmonie parfaite du Sud.",
+  "tips": "Coupez le poulet en lanières de taille uniforme pour une cuisson égale et rapide. Le secret des épices : mélangez-les à sec d'abord, puis enrobez généreusement le poulet avant la cuisson — cela crée une belle croûte épicée. Ne surcuisez pas le poulet : dès qu'il atteint 75°C à cœur, retirez-le pour qu'il reste juteux. Les haricots noirs doivent être bien rincés pour éliminer l'excès d'amidon et de sel. Réchauffez les tortillas juste avant de servir — chaudes, elles sont souples et ne se déchirent pas. Préparez toutes vos garnitures à l'avance et disposez-les joliment sur la table pour que chacun compose son taco selon ses goûts. L'astuce du renard : un filet de lime fraîchement pressé sur chaque taco fait exploser toutes les saveurs."
 }

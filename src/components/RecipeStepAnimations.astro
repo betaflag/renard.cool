@@ -1,0 +1,12 @@
+---
+// Handles step animation setup for recipe detail pages
+// Sets CSS variable --step-index on each .step-prose element for staggered animations
+---
+
+<script>
+  // Add step animation indices
+  document.querySelectorAll(".step-prose").forEach((el, i) => {
+    const stepEl = el as HTMLElement;
+    stepEl.style.setProperty("--step-index", i.toString());
+  });
+</script>

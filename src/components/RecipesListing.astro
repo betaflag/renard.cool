@@ -1,0 +1,144 @@
+---
+import RecipeCard from "./RecipeCard.astro";
+
+export interface Props {
+  recipes: any[];
+}
+
+const { recipes } = Astro.props;
+---
+
+<div class="recipes-grid">
+  {recipes.map((recipe) => <RecipeCard recipe={recipe} />)}
+</div>
+
+<div class="draft-toggle-container">
+  <button id="draft-toggle" class="draft-toggle-link">
+    <span class="draft-toggle-text">◯ Afficher brouillons</span>
+  </button>
+</div>
+
+<style>
+  .recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .draft-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-xl);
+    animation: fadeIn 1s ease-out 0.3s both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .draft-toggle-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 107, 0, 0.3);
+    border-radius: 20px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .draft-toggle-link:hover {
+    background: rgba(255, 107, 0, 0.1);
+    border-color: rgba(255, 107, 0, 0.5);
+    color: #ff6b00;
+  }
+
+  .draft-toggle-link.active {
+    background: rgba(255, 107, 0, 0.2);
+    border-color: rgba(255, 107, 0, 0.6);
+    color: #ff6b00;
+  }
+
+  @media (max-width: 768px) {
+    .recipes-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .draft-toggle-container {
+      margin-top: var(--space-2xl);
+    }
+  }
+</style>
+
+<script>
+  const recipes = document.querySelectorAll(".recipe-card");
+  const draftToggle = document.getElementById("draft-toggle");
+  const draftToggleText = document.querySelector(".draft-toggle-text");
+
+  let showDrafts = false;
+
+  // Check URL params on load
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("showDrafts") === "true") {
+    showDrafts = true;
+    if (draftToggle) draftToggle.classList.add("active");
+    if (draftToggleText) draftToggleText.textContent = "✓ Brouillons affichés";
+  }
+
+  // Hide draft recipes initially if not showing drafts
+  function updateRecipeVisibility() {
+    recipes.forEach((recipe) => {
+      const recipeEl = recipe as HTMLElement;
+      const isDraft = recipeEl.dataset.draft === "true";
+
+      let shouldShow = true;
+
+      // Check draft status
+      if (!showDrafts && isDraft) {
+        shouldShow = false;
+      }
+
+      recipeEl.style.display = shouldShow ? "block" : "none";
+    });
+  }
+
+  // Initial visibility update
+  updateRecipeVisibility();
+
+  // Draft toggle handler
+  if (draftToggle) {
+    draftToggle.addEventListener("click", () => {
+      showDrafts = !showDrafts;
+
+      if (showDrafts) {
+        if (draftToggle) draftToggle.classList.add("active");
+        if (draftToggleText)
+          draftToggleText.textContent = "✓ Brouillons affichés";
+        // Update URL without reload
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set("showDrafts", "true");
+        window.history.pushState({}, "", newUrl);
+      } else {
+        if (draftToggle) draftToggle.classList.remove("active");
+        if (draftToggleText)
+          draftToggleText.textContent = "◯ Afficher brouillons";
+        // Update URL without reload
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.delete("showDrafts");
+        window.history.pushState({}, "", newUrl);
+      }
+
+      updateRecipeVisibility();
+    });
+  }
+</script>

@@ -1,19 +1,18 @@
 ---
 import { getCollection } from "astro:content";
+import CuisineLayout from "../../layouts/CuisineLayout.astro";
+import RecipeDetailNav from "../../components/RecipeDetailNav.astro";
+import RecipeStepAnimations from "../../components/RecipeStepAnimations.astro";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("cuisine");
   return recipes.map((recipe) => ({
     params: { slug: recipe.id },
-    props: {
-      recipe,
-      relatedRecipe: recipe.data.relatedRecipe ?
-        recipes.find(r => r.id === recipe.data.relatedRecipe) : null
-    },
+    props: { recipe },
   }));
 }
 
-const { recipe, relatedRecipe } = Astro.props;
+const { recipe } = Astro.props;
 const data = recipe.data;
 
 const cookTime = data.time.cook;
@@ -32,2086 +31,845 @@ function formatTime(minutes: number) {
 }
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/renard.png" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{data.name} | Renardo Cuisine</title>
-    <meta name="description" content={data.description} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,400&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="grain"></div>
+<CuisineLayout
+  title={`${data.name} | Renardo Cuisine`}
+  description={data.description}
+>
+  <RecipeDetailNav />
 
-    <nav class="minimal-nav" id="nav">
-      <a href="/cuisine" class="nav-back">← Retour</a>
-      {relatedRecipe && (
-        <div class="version-selector">
-          <span class="version-label">Version:</span>
-          {(data as any).variant === 'simple' ? (
-            <>
-              <span class="version-badge active">Simple</span>
-              <a href={`/cuisine/${relatedRecipe.id}`} class="version-badge">Avancée</a>
-            </>
-          ) : (
-            <>
-              <a href={`/cuisine/${relatedRecipe.id}`} class="version-badge">Simple</a>
-              <span class="version-badge active">Avancée</span>
-            </>
-          )}
-        </div>
-      )}
-    </nav>
-
-    <article class="recipe-article">
-      <header class="hero-section">
-        {
-          data.heroImage && (
-            <div class="hero-image-wrapper">
-              <img
-                src={data.heroImage}
-                alt={`Image de ${data.name}`}
-                class="hero-image"
-                loading="eager"
-              />
-            </div>
-          )
-        }
-
-        <div class="title-wrapper">
-          <h1 class="recipe-name">
-            <span class="title-line"
-              >{
-                data.name
-                  .split(" ")
-                  .slice(0, Math.ceil(data.name.split(" ").length / 2))
-                  .join(" ")
-              }</span
-            >
-            <span class="title-line accent"
-              >{
-                data.name
-                  .split(" ")
-                  .slice(Math.ceil(data.name.split(" ").length / 2))
-                  .join(" ")
-              }</span
-            >
-          </h1>
-        </div>
-
-        <div class="recipe-intro">
-          <p>{data.description}</p>
-        </div>
-
-        <div class="recipe-essence">
-          <p>
-            Une recette {data.difficulty} pour <em>{data.servings} convives</em>
-            qui demande
-            {
-              prepTime > 0 && (
-                <span>
-                  <strong>{formatTime(prepTime)}</strong> de préparation et{" "}
+  <article class="recipe-article">
+    <header class="hero-section">
+      {
+        data.heroImage && (
+          <div class="hero-image-wrapper">
+            <img
+              src={data.heroImage}
+              alt={`Image de ${data.name}`}
+              class="hero-image"
+              loading="eager"
+            />
+            <div class="hero-overlay">
+              <div class="difficulty-badge">{data.difficulty}</div>
+              <h1 class="recipe-name">
+                <span class="title-line">
+                  {data.name
+                    .split(" ")
+                    .slice(0, Math.ceil(data.name.split(" ").length / 2))
+                    .join(" ")}
                 </span>
-              )
-            }
-            <strong>{formatTime(cookTime)}</strong> de cuisson {
-              data.cooking_method.toLowerCase()
-            }.
-            {
-              data.time.soak > 0 && (
-                <span>
-                  {" "}
-                  Les haricots doivent tremper{" "}
-                  <strong>{formatTime(data.time.soak)}</strong> à l'avance.
+                <span class="title-line accent">
+                  {data.name
+                    .split(" ")
+                    .slice(Math.ceil(data.name.split(" ").length / 2))
+                    .join(" ")}
                 </span>
-              )
-            }
-            {
-              data.freezable && (
-                <span class="freezable-note">Se congèle parfaitement.</span>
-              )
-            }
-          </p>
-        </div>
-      </header>
-
-      <section class="content-flow">
-        <div class="ingredients-prose">
-          <h2 class="section-heading">Les provisions</h2>
-          <p class="ingredient-intro">
-            {
-              recipe.id.includes("feves-au-lard")
-                ? "Une symphonie d'ingrédients simples mais essentiels, chacun jouant sa partition dans cette recette ancestrale. La qualité fait toute la différence."
-                : recipe.id.includes("poulet-40-gousses")
-                ? "Quarante gousses d'ail peuvent sembler excessif, mais la cuisson lente les transforme en or culinaire. Chaque ingrédient contribue à créer ce plat légendaire."
-                : recipe.id.includes("porc-braise-cidre")
-                ? "Le mariage du porc et des pommes est un classique automnal. Le cidre unit ces saveurs dans une harmonie parfaite, créant un plat réconfortant par excellence."
-                : recipe.id.includes("soupe-oignon")
-                ? "Des oignons humbles transformés en nectar doré. La patience et la technique créent cette soupe légendaire qui réchauffe le corps et l'âme."
-                : recipe.id.includes("ragout-boulettes")
-                ? "Le ragoût de boulettes, âme de la cuisine québécoise. Des boulettes épicées à la cannelle baignent dans une sauce brune onctueuse, créant le réconfort absolu."
-                : recipe.id.includes("tacos-poulet")
-                ? "Une fiesta colorée dans chaque tortilla. Les épices chaudes enrobent le poulet tendre, tandis que haricots noirs et maïs créent l'harmonie parfaite du Sud."
-                : "Des ingrédients simples qui se transforment en symphonie de saveurs grâce à la magie de la cuisson lente. Chaque élément a son rôle à jouer."
-            }
-          </p>
-
-          <div class="ingredients-layout">
-            <div class="ingredients-grid">
-              {
-                data.ingredients.map((ingredient) => {
-                  const [main, note] = ingredient.split(" — ");
-                  return (
-                    <div class="ingredient-line">
-                      <span class="ingredient-bullet">—</span>
-                      <div class="ingredient-content">
-                        <span class="ingredient-main">{main}</span>
-                        {note && <span class="ingredient-note">{note}</span>}
-                      </div>
-                    </div>
-                  );
-                })
-              }
+              </h1>
             </div>
           </div>
-        </div>
+        )
+      }
 
-        <div class="preparation-narrative">
-          <h2 class="section-heading">La méthode</h2>
+      <div class="recipe-intro">
+        <p class="lead-text">{data.description}</p>
+      </div>
+
+      <div class="recipe-metadata">
+        <div class="meta-grid">
+          <div class="meta-item">
+            <div class="meta-label">Difficulté</div>
+            <div class="meta-value meta-highlight">{data.difficulty}</div>
+          </div>
+
+          <div class="meta-item">
+            <div class="meta-label">Portions</div>
+            <div class="meta-value meta-number">{data.servings} convives</div>
+          </div>
 
           {
-            data.steps.map((step, index) => (
-              <div class="step-prose">
-                <span class="step-number-inline">{index + 1}.</span>
-                <p class="step-text">{step}</p>
+            prepTime > 0 && (
+              <div class="meta-item">
+                <div class="meta-label">Préparation</div>
+                <div class="meta-value meta-number">{formatTime(prepTime)}</div>
               </div>
-            ))
+            )
+          }
+
+          <div class="meta-item">
+            <div class="meta-label">Cuisson</div>
+            <div class="meta-value meta-number">{formatTime(cookTime)}</div>
+          </div>
+
+          <div class="meta-item">
+            <div class="meta-label">Méthode</div>
+            <div class="meta-value meta-method">{data.cooking_method}</div>
+          </div>
+
+          {
+            data.freezable && (
+              <div class="meta-item">
+                <div class="meta-label">Conservation</div>
+                <div class="meta-value">Se congèle</div>
+              </div>
+            )
           }
         </div>
+      </div>
 
-        <div class="science-section">
-          <h2 class="section-heading">La science du plat</h2>
+      {
+        data.time.soak > 0 && (
+          <div class="recipe-note">
+            Les haricots doivent tremper{" "}
+            <strong>{formatTime(data.time.soak)}</strong> à l'avance.
+          </div>
+        )
+      }
+    </header>
 
-          <div class="science-content">
-            <p class="science-intro">
-              {
-                recipe.id.includes("feves-au-lard")
-                  ? "Derrière cette recette traditionnelle se cache une fascinante symphonie de réactions chimiques et de transformations culinaires."
-                  : recipe.id.includes("poulet-40-gousses")
-                  ? "Cette recette légendaire révèle la magie de la transformation de l'ail et les secrets d'une cuisson parfaite qui rend le poulet irrésistiblement tendre."
-                  : recipe.id.includes("porc-braise-cidre")
-                  ? "L'alliance du porc et du cidre révèle une alchimie culinaire ancestrale où les acides du cidre transforment les fibres coriaces en soie fondante."
-                  : recipe.id.includes("soupe-oignon")
-                  ? "Cette soupe légendaire illustre la puissance transformatrice de la caramélisation et la magie de la cuisson lente qui convertit l'âcreté de l'oignon en nectar sucré."
-                  : recipe.id.includes("ragout-boulettes")
-                  ? "Le ragoût de boulettes révèle les secrets de la cuisine traditionnelle : l'équilibre des protéines, la magie des épices douces et la transformation lente en sauce onctueuse."
-                  : recipe.id.includes("mac-fromage")
-                  ? "Le mac & cheese illustre la science fascinante de l'émulsion fromagère : comment créer une sauce soyeuse qui enrobe parfaitement chaque pâte sans devenir granuleuse ou huileuse."
-                  : recipe.id.includes("pates-pesto")
-                  ? "Les pâtes au pesto révèlent la chimie délicate du basilic frais, l'importance de l'eau de cuisson et comment transformer des ingrédients simples en sauce crémeuse sans crème."
-                  : recipe.id.includes("tacos-poulet")
-                  ? "Ces tacos illustrent la puissance des épices toastées, la synergie entre protéines et légumineuses, et comment des ingrédients en conserve peuvent créer une explosion de saveurs fraîches."
-                  : "Ce chili révèle les secrets de la cuisine moderne : transformations chimiques, équilibres gustatifs et alchimie des épices s'unissent dans la mijoteuse."
-              }
-            </p>
+    <section class="content-flow">
+      <div class="ingredients-prose">
+        <h2 class="section-heading">Les provisions</h2>
+        <p class="ingredient-intro">{data.ingredientIntro}</p>
 
+        <div class="ingredients-layout">
+          <div class="ingredients-grid">
             {
-              recipe.id.includes("feves-au-lard") ? (
-                <>
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      Le trempage, une préparation essentielle
-                    </h3>
-                    <p>
-                      Les <em>12 heures de trempage</em> permettent aux haricots
-                      d'absorber l'eau par osmose, réhydratant leurs cellules et
-                      dissolvant les oligosaccharides responsables des
-                      inconforts digestifs. Cette étape réduit le temps de
-                      cuisson de moitié tout en préservant la texture.
-                    </p>
+              data.ingredients.map((ingredient) => {
+                const [main, note] = ingredient.split(" — ");
+                return (
+                  <div class="ingredient-line">
+                    <span class="ingredient-bullet">—</span>
+                    <div class="ingredient-content">
+                      <span class="ingredient-main">{main}</span>
+                      {note && <span class="ingredient-note">{note}</span>}
+                    </div>
                   </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">La magie de la mijoteuse</h3>
-                    <p>
-                      La cuisson lente à <em>basse température</em> (environ
-                      85°C) préserve l'intégrité des haricots tout en permettant
-                      une gélatinisation progressive de l'amidon. Le collagène
-                      du lard se transforme doucement en gélatine, créant cette
-                      texture fondante caractéristique.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      L'alchimie du sirop d'érable
-                    </h3>
-                    <p>
-                      Plus qu'un simple édulcorant, le <em>sirop d'érable</em>{" "}
-                      agit comme agent de conservation naturel grâce à sa
-                      concentration en sucre. Ses molécules complexes
-                      caramélisent lentement, développant des notes de vanille
-                      et de caramel qui s'harmonisent avec les protéines du lard
-                      dans une réaction de Maillard contrôlée.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">L'équilibre des saveurs</h3>
-                    <p>
-                      La <em>moutarde de Dijon</em> apporte l'acidité nécessaire
-                      pour équilibrer la richesse du plat, tandis que ses
-                      enzymes attendrissent les fibres végétales. Le ketchup,
-                      avec son umami naturel provenant des tomates concentrées,
-                      amplifie la profondeur gustative sans dominer.
-                    </p>
-                  </div>
-                </>
-              ) : recipe.id.includes("porc-braise-cidre") ? (
-                <>
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La magie acide du cidre
-                    </h3>
-                    <p>
-                      L'<em>acide malique du cidre</em> agit comme un attendrisseur
-                      naturel, brisant les liens entre les fibres de collagène. À
-                      pH 3.5, le cidre dénature doucement les protéines sans les
-                      durcir, créant cette texture fondante caractéristique. Les
-                      sucres résiduels du cidre caramélisent lentement, formant
-                      une sauce brillante et complexe.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">La transformation du collagène</h3>
-                    <p>
-                      L'<em>épaule de porc</em>, riche en tissu conjonctif, est
-                      idéale pour le braisage. À 85°C pendant 8 heures, le
-                      collagène se convertit complètement en gélatine soyeuse. Cette
-                      gélatine épaissit naturellement la sauce tout en lubrifiant
-                      les fibres musculaires, créant cette sensation de fondant
-                      en bouche.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La symbiose pomme-porc
-                    </h3>
-                    <p>
-                      Les <em>pommes et le porc</em> partagent des composés
-                      aromatiques similaires (esters fruités), créant une harmonie
-                      naturelle. La pectine des pommes agit comme épaississant
-                      naturel pendant que leurs sucres se caramélisent. Les pommes
-                      acides équilibrent le gras du porc tandis que les sucrées
-                      ajoutent de la rondeur.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">L'effet Maillard différé</h3>
-                    <p>
-                      <em>Saisir le porc</em> avant le braisage crée une croûte
-                      caramélisée riche en composés sapides. Ces molécules se
-                      dissolvent lentement dans le liquide de cuisson, enrichissant
-                      la sauce de notes grillées et umami. La sauge, avec ses
-                      composés phénoliques, amplifie ces saveurs tout en apportant
-                      ses notes terreuses caractéristiques.
-                    </p>
-                  </div>
-                </>
-              ) : recipe.id.includes("ragout-boulettes") ? (
-                <>
-                  <div class="science-content">
-                    <h3>La magie des boulettes parfaites</h3>
-                    <p>
-                      Le secret des boulettes moelleuses réside dans{" "}
-                      <strong>l'équilibre entre protéines et lipides</strong>. Le
-                      mélange porc-bœuf apporte le ratio idéal : le porc fournit
-                      le gras nécessaire (20-30%) pour la tendreté, tandis que le
-                      bœuf apporte structure et saveur profonde.
-                    </p>
-                    <p>
-                      La <strong>cannelle et le clou de girofle</strong> ne sont
-                      pas là par hasard. Ces épices chaudes contiennent des{" "}
-                      <em>eugénols et cinnamaldéhydes</em> qui, à basse
-                      température, créent une synergie avec les protéines de la
-                      viande, développant des notes sucrées-épicées uniques au
-                      ragoût québécois.
-                    </p>
-                  </div>
-                  <div class="science-content">
-                    <h3>{(recipe.data as any).variant === 'avance' ? 'Le roux grillé, amplificateur de goût' : 'La science du mélange commercial'}</h3>
-                    {(recipe.data as any).variant === 'avance' ? (
-                      <>
-                        <p>
-                          Griller la farine à sec avant de faire le roux est une
-                          technique ancestrale. La <strong>réaction de Maillard</strong>{" "}
-                          transforme les glucides en <em>mélanoïdines</em>, créant
-                          des centaines de composés aromatiques. Cette farine
-                          "noisette" donne à la sauce sa couleur ambrée et ses notes
-                          de caramel subtiles.
-                        </p>
-                        <p>
-                          La mijoteuse maintient une température de{" "}
-                          <strong>85-95°C</strong>, idéale pour que le collagène se
-                          transforme lentement en gélatine sans durcir les protéines.
-                          Les boulettes restent juteuses tandis que la sauce
-                          s'enrichit naturellement.
-                        </p>
-                      </>
-                    ) : (
-                      <>
-                        <p>
-                          Les mélanges commerciaux comme St-Hubert utilisent de la
-                          <strong>farine grillée déshydratée</strong> et des{" "}
-                          <em>protéines hydrolysées</em> qui développent instantanément
-                          l'umami. L'amidon modifié assure une texture lisse sans grumeaux
-                          quand délayé correctement dans l'eau froide.
-                        </p>
-                        <p>
-                          La mijoteuse à <strong>85-95°C</strong> active les agents
-                          épaississants graduellement. Le collagène des boulettes se
-                          transforme en gélatine, enrichissant la sauce commerciale d'une
-                          <em>profondeur maison</em>. L'ajout d'oignon et laurier compense
-                          les saveurs standardisées du mélange.
-                        </p>
-                      </>
-                    )}
-                  </div>
-                </>
-              ) : recipe.id.includes("soupe-oignon") ? (
-                <>
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      L'alchimie de la caramélisation
-                    </h3>
-                    <p>
-                      La <em>caramélisation des oignons</em> est une réaction de
-                      pyrolyse où les sucres naturels (fructose et glucose) se
-                      décomposent à 160°C pour former des centaines de composés
-                      aromatiques. La cuisson lente permet une caramélisation
-                      progressive sans brûler, créant des notes de caramel, noisette
-                      et même chocolat. Chaque étape développe de nouvelles couches
-                      de complexité.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">Les larmes de joie chimiques</h3>
-                    <p>
-                      Couper les oignons libère des <em>composés soufrés volatils</em>
-                      qui nous font pleurer. Mais ces mêmes composés, une fois
-                      cuits, se transforment en molécules sucrées et savoureuses.
-                      L'alliinase, l'enzyme responsable des larmes, se décompose
-                      en composés umami qui donnent cette profondeur
-                      caractéristique à la soupe.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La symbiose fromage-bouillon
-                    </h3>
-                    <p>
-                      Le <em>Gruyère</em> contient des cristaux de tyrosine et du
-                      glutamate naturel qui amplifient l'umami du bouillon. Sa
-                      teneur en matières grasses (32%) crée une émulsion parfaite
-                      avec le bouillon, formant cette croûte dorée iconique. La
-                      protéine de caséine fond à 60°C, créant ces fils élastiques
-                      tant recherchés.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">Le rôle crucial du vin</h3>
-                    <p>
-                      Le <em>vin blanc</em> apporte l'acidité nécessaire pour
-                      équilibrer la douceur des oignons caramélisés. Ses acides
-                      tartrique et malique brightennent les saveurs tandis que
-                      l'alcool, partiellement évaporé, laisse des esters fruités.
-                      Le vin agit aussi comme solvant pour extraire les saveurs
-                      des herbes aromatiques.
-                    </p>
-                  </div>
-                </>
-              ) : recipe.id.includes("poulet-40-gousses") ? (
-                <>
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La métamorphose miraculeuse de l'ail
-                    </h3>
-                    <p>
-                      Les <em>40 gousses d'ail</em> subissent une transformation
-                      remarquable durant la cuisson lente. L'allicine piquante se
-                      décompose en composés soufrés doux et sucrés. À 85°C, les
-                      sucres naturels caramélisent doucement, créant une pâte
-                      beurrée au goût de noisette qui se tartine comme une
-                      confiture savory.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">Le brunissement salvateur</h3>
-                    <p>
-                      <em>Dorer le poulet</em> avant la cuisson lente est crucial.
-                      Cette réaction de Maillard à haute température crée une
-                      barrière protectrice qui emprisonne les jus. Les protéines
-                      de surface forment une croûte dorée riche en glutamate,
-                      l'essence même de l'umami.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      L'effet autoclave de la mijoteuse
-                    </h3>
-                    <p>
-                      Le couvercle hermétique crée un <em>environnement humide</em>
-                      qui attendrit le collagène en gélatine. Cette vapeur
-                      parfumée au vin et aux herbes pénètre profondément dans la
-                      chair, créant une tendreté incomparable. Le poulet cuit
-                      littéralement dans son propre bouillon concentré.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">La chimie du vin blanc</h3>
-                    <p>
-                      L'<em>alcool du vin</em> s'évapore en partie, laissant les
-                      acides organiques qui attendrissent les protéines. Les
-                      tanins légers se lient aux graisses, créant une sauce
-                      équilibrée. Le vin agit aussi comme solvant, extrayant les
-                      huiles essentielles du thym et du romarin pour une infusion
-                      maximale.
-                    </p>
-                  </div>
-                </>
-              ) : recipe.id.includes("mac-fromage") ? (
-                <>
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      L'émulsion fromagère parfaite
-                    </h3>
-                    <p>
-                      Le secret d'une sauce crémeuse réside dans l'<em>émulsion stable</em>
-                      entre les protéines de caséine et les matières grasses. La farine
-                      dans le roux agit comme stabilisant, empêchant les protéines de
-                      s'agglomérer. {(recipe.data as any).variant === 'simple' ?
-                        "Le fromage à la crème fond doucement et apporte une texture veloutée incomparable, ses protéines stabilisées créant une sauce parfaitement lisse." :
-                        "Les fromages vieillis nécessitent une température contrôlée sous 70°C pour éviter la séparation."
-                      }
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      Le rôle crucial de la moutarde
-                    </h3>
-                    <p>
-                      La <em>moutarde en poudre</em> n'est pas qu'un exhausteur de goût.
-                      Ses composés soufrés aident à émulsifier la sauce tandis que son
-                      acidité équilibre la richesse du fromage. {(recipe.data as any).variant === 'avance' ?
-                        "La moutarde de Dijon apporte des notes complexes grâce à la fermentation du vinaigre de vin." :
-                        "Elle amplifie aussi la perception du fromage sans ajouter plus de matières grasses."
-                      }
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      {(recipe.data as any).variant === 'simple' ? 'La magie du roux' : 'La béchamel sophistiquée'}
-                    </h3>
-                    <p>
-                      {(recipe.data as any).variant === 'simple' ? (
-                        <>Le <em>roux blond</em> (beurre + farine cuits) crée un réseau
-                        d'amidon gélatinisé qui épaissit et stabilise la sauce. Cuire le
-                        roux élimine le goût farineux tout en développant des notes noisette
-                        subtiles. C'est la base française classique adaptée au comfort food.</>
-                      ) : (
-                        <>La <em>béchamel enrichie</em> avec crème 35% crée une base
-                        luxueuse. Les échalotes suées libèrent des composés soufrés doux
-                        qui complètent les fromages vieillis. La muscade fraîche apporte
-                        des notes chaudes sans dominer, tandis que l'huile de truffe
-                        ajoute une dimension umami terrestre incomparable.</>
-                      )}
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La cuisson au four stratégique
-                    </h3>
-                    <p>
-                      Le passage au four à <em>{(recipe.data as any).variant === 'simple' ? '180°C' : '190°C'}</em>
-                      permet l'évaporation contrôlée du liquide excédentaire tout en
-                      créant une surface dorée par caramélisation. {(recipe.data as any).variant === 'avance' ?
-                        "Le panko japonais, plus gros que la chapelure ordinaire, reste croustillant grâce à sa structure aérée qui résiste à l'humidité." :
-                        "La chapelure beurrée forme une croûte protectrice qui emprisonne l'humidité des pâtes."
-                      }
-                    </p>
-                  </div>
-                </>
-              ) : recipe.id.includes("pates-pesto") ? (
-                <>
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La magie de l'eau de cuisson des pâtes
-                    </h3>
-                    <p>
-                      L'<em>eau de cuisson</em> n'est pas qu'un simple liquide à jeter.
-                      Elle contient de l'amidon dissous qui agit comme <strong>émulsifiant naturel</strong>.
-                      En ajoutant 60-125 ml d'eau de cuisson au pesto, l'amidon lie l'huile
-                      du pesto aux pâtes, créant une sauce crémeuse et homogène qui adhère
-                      parfaitement. C'est la science italienne ancestrale : pas besoin de crème!
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La chimie volatile du basilic
-                    </h3>
-                    <p>
-                      Le basilic contient des <em>composés aromatiques volatils</em> comme
-                      le linalol et l'eugénol qui se dégradent rapidement avec la chaleur.
-                      C'est pourquoi le <strong>pesto s'ajoute hors du feu</strong> : les
-                      températures élevées détruisent ces molécules délicates. L'huile d'olive
-                      du pesto protège ces arômes et les distribue uniformément sur les pâtes
-                      chaudes sans les cuire.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      Les tomates cerises : explosion de saveur
-                    </h3>
-                    <p>
-                      Les <em>tomates cerises</em> concentrent plus de sucres et d'acides
-                      que les grosses tomates. En les cuisant jusqu'à l'éclatement, on
-                      libère le <strong>glutamate naturel</strong> (umami) et les sucres
-                      caramélisent légèrement. La peau fine éclate facilement, créant une
-                      sauce fraîche qui contraste avec la richesse du pesto. C'est l'équilibre
-                      parfait entre gras, acide et sucré.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      Le parmesan : plus qu'un fromage
-                    </h3>
-                    <p>
-                      Le parmesan vieilli contient des <em>cristaux de tyrosine</em> qui
-                      créent ce croquant caractéristique. Plus important encore, il est
-                      riche en <strong>glutamate libre</strong>, source naturelle d'umami
-                      qui amplifie tous les autres goûts. Râpé finement et ajouté à chaud,
-                      il fond partiellement, ajoutant de la texture et de la profondeur
-                      savoureuse sans alourdir la sauce.
-                    </p>
-                  </div>
-                </>
-              ) : recipe.id.includes("tacos-poulet") ? (
-                <>
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      Le blooming des épices : réveiller les huiles dormantes
-                    </h3>
-                    <p>
-                      Enrober le poulet d'épices <em>avant</em> la cuisson déclenche le blooming :
-                      la chaleur libère les <strong>huiles essentielles volatiles</strong> emprisonnées
-                      dans le cumin, le chili et le paprika. Ces composés liposolubles (qui adorent le gras)
-                      se dissolvent dans l'huile de cuisson et pénètrent la chair du poulet. C'est pourquoi
-                      le poulet épicé puis cuit a un goût incomparablement plus profond que le poulet cuit
-                      puis saupoudré. Le cumin développe ses notes chaudes et terreuses, le paprika fumé
-                      intensifie son caractère grillé, et les capsaïcinoïdes du chili créent cette chaleur
-                      agréable qui persiste sans brûler.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La synergie haricots-maïs : sagesse mésoaméricaine
-                    </h3>
-                    <p>
-                      L'association <em>haricots noirs et maïs</em> n'est pas un simple hasard culinaire,
-                      mais une brillante découverte nutritionnelle ancestrale. Les haricots sont riches en
-                      lysine mais pauvres en méthionine, tandis que le maïs présente exactement le profil
-                      inverse. Ensemble, ils forment une <strong>protéine complète</strong> contenant tous
-                      les acides aminés essentiels que notre corps ne peut fabriquer. Cette combinaison a
-                      nourri les civilisations aztèques et mayas pendant des millénaires sans viande.
-                      Gustativement, l'amidon crémeux des haricots enrobe le maïs sucré et croquant,
-                      créant un contraste de textures addictif.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La salsa : émulsion naturelle et boost d'umami
-                    </h3>
-                    <p>
-                      La <em>salsa</em> transforme ce plat de simple assemblage en création harmonieuse.
-                      Les tomates broyées contiennent de la <strong>pectine naturelle</strong> qui épaissit
-                      la sauce sans farine ni amidon. Leurs acides (citrique et malique) attendrissent
-                      légèrement le poulet tout en réveillant toutes les saveurs. Le secret caché ? Le
-                      <em>glutamate naturel des tomates</em>, même molécule que le MSG, qui explose l'umami
-                      du plat. En mijotant salsa, haricots et maïs ensemble, on ne superpose pas les
-                      ingrédients : on les marie en une sauce unifiée où chaque bouchée contient toutes
-                      les saveurs.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      L'avocat : pompier naturel contre le piquant
-                    </h3>
-                    <p>
-                      Pourquoi l'<em>eau n'éteint jamais le feu du piment</em> mais l'avocat, oui ?
-                      La capsaïcine (molécule responsable du piquant) est <strong>liposoluble</strong>,
-                      pas hydrosoluble. Elle se dissout dans le gras, pas dans l'eau. Les acides gras
-                      monoinsaturés de l'avocat (les mêmes que dans l'huile d'olive) dissolvent littéralement
-                      la capsaïcine, emportant la sensation de brûlure. C'est pourquoi lait, crème sure
-                      et avocat calment le feu, mais l'eau le disperse et l'amplifie. Bonus : la texture
-                      crémeuse de l'avocat contraste parfaitement avec le croquant de la laitue et
-                      l'acidité vive de la lime fraîchement pressée.
-                    </p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La réaction de Maillard, foundation de saveur
-                    </h3>
-                    <p>
-                      Le <em>brunissement du bœuf</em> avant la cuisson lente
-                      déclenche la réaction de Maillard, créant des centaines de
-                      composés aromatiques complexes. Cette étape cruciale
-                      développe l'umami et la profondeur gustative qui
-                      distinguent un excellent chili d'un ordinaire.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">L'alchimie des épices</h3>
-                    <p>
-                      La <em>poudre de chili et le cumin</em> contiennent des
-                      huiles essentielles volatiles qui s'épanouissent avec la
-                      chaleur douce. Le cumin libère ses aldéhydes aromatiques
-                      tandis que les capsaïcinoïdes du chili créent cette
-                      chaleur distinctive sans brutalité.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">
-                      La transformation des protéines
-                    </h3>
-                    <p>
-                      La cuisson lente à <em>basse température</em> (85°C)
-                      permet la dénaturation progressive des protéines du bœuf,
-                      les rendant tendres sans les durcir. Les fibres se
-                      décomposent lentement, créant cette texture fondante
-                      caractéristique du chili parfait.
-                    </p>
-                  </div>
-
-                  <div class="science-point">
-                    <h3 class="science-subtitle">L'équilibre acido-basique</h3>
-                    <p>
-                      Les <em>tomates et la cassonade</em> créent un équilibre
-                      délicat entre acidité et douceur. L'acide citrique des
-                      tomates attendrit les fibres tout en préservant la couleur
-                      vive, tandis que le sucre caramélise subtilement, ajoutant
-                      complexité et rondeur.
-                    </p>
-                  </div>
-                </>
-              )
+                );
+              })
             }
           </div>
         </div>
+      </div>
 
-        <div class="tips-section">
-          <h2 class="section-heading">Les secrets pour la perfection</h2>
-
-          <div class="tips-content">
-            {
-              recipe.id.includes("feves-au-lard") ? (
-                <>
-                  <div class="step-prose">
-                    <span class="step-number-inline">1.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">
-                        Le choix du lard fait toute la différence
-                      </h3>
-                      <p>
-                        Optez pour un <em>lard salé bien entrelardé</em> de
-                        votre boucher. Le gras marbré fondra lentement, infusant
-                        les haricots d'une richesse incomparable. Évitez le
-                        bacon fumé qui dominerait les saveurs délicates.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">2.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le secret du trempage parfait</h3>
-                      <p>
-                        Ajoutez une <em>pincée de bicarbonate de soude</em> à
-                        l'eau de trempage. Cela attendrit les peaux et réduit le
-                        temps de cuisson de 20%. N'oubliez pas de bien rincer
-                        avant la cuisson!
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">3.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">La patience est une vertu</h3>
-                      <p>
-                        Résistez à l'envie de remuer constamment.{" "}
-                        <em>Ouvrez le couvercle maximum 2 fois</em>
-                        pendant la cuisson. Chaque ouverture fait perdre 30
-                        minutes de chaleur accumulée. La mijoteuse fait son
-                        travail en silence.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">4.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">
-                        Le sirop d'érable, pas n'importe lequel
-                      </h3>
-                      <p>
-                        Utilisez du <em>sirop d'érable ambré</em> pour un
-                        équilibre parfait entre douceur et caractère. Le sirop
-                        foncé apporterait trop d'amertume, le doré pas assez de
-                        profondeur. C'est le juste milieu qui sublime.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">5.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">
-                        La touche finale qui change tout
-                      </h3>
-                      <p>
-                        Trente minutes avant la fin, goûtez et ajustez. Un trait
-                        de <em>vinaigre de cidre</em>
-                        réveille les saveurs endormies. Une cuillère de
-                        cassonade ajoute de la profondeur. Et si c'est trop
-                        liquide? Laissez mijoter à découvert la dernière heure.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">6.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le repos, étape cruciale</h3>
-                      <p>
-                        Les meilleures fèves au lard sont celles du{" "}
-                        <em>lendemain</em>. Laissez reposer une nuit au
-                        réfrigérateur, puis réchauffez doucement. Les saveurs se
-                        marient, la texture s'unifie. C'est la magie du temps.
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : recipe.id.includes("poulet-40-gousses") ? (
-                <>
-                  <div class="step-prose">
-                    <span class="step-number-inline">1.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">La douceur cachée de l'ail</h3>
-                      <p>
-                        Le secret ? <em>Ne pas éplucher toutes les gousses</em>.
-                        Gardez la moitié en chemise : elles deviennent crémeuses
-                        et sucrées, se transformant en confit naturel. Les convives
-                        peuvent les écraser sur leur pain - pur bonheur.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">2.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">La peau parfaite</h3>
-                      <p>
-                        Séchez le poulet <em>24 heures au frigo non couvert</em>
-                        pour une peau ultra-croustillante. Glissez du beurre à
-                        l'ail sous la peau avant cuisson. La mijoteuse peut
-                        faire du croustillant - il suffit de finir sous le gril.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">3.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le fond de cuisson magique</h3>
-                      <p>
-                        Les gousses d'ail confites écrasées dans le jus de cuisson
-                        créent une sauce divine. <em>Pas besoin de roux</em> - l'ail
-                        fait le travail d'épaississement naturellement. C'est la
-                        sauce la plus simple et la plus sophistiquée qui soit.
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : recipe.id.includes("porc-braise-cidre") ? (
-                <>
-                  <div class="step-prose">
-                    <span class="step-number-inline">1.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le choix crucial du cidre</h3>
-                      <p>
-                        <em>Évitez le cidre sucré commercial</em>. Un cidre sec
-                        artisanal transforme le plat. Si introuvable, mélangez
-                        jus de pomme et vinaigre de cidre (10:1). Le cidre de
-                        glace en finition ? Luxe absolu.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">2.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Les pommes, timing critique</h3>
-                      <p>
-                        Ajoutez les pommes <em>en deux temps</em> : la moitié au
-                        début pour qu'elles fondent dans la sauce, l'autre moitié
-                        1 heure avant la fin pour texture. Granny Smith pour
-                        l'acidité, Honeycrisp pour la douceur.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">3.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le secret du gras</h3>
-                      <p>
-                        L'épaule de porc est grasse - c'est sa force.
-                        <em>Ne dégraissez pas trop</em>. Le gras porte les saveurs
-                        du cidre et des pommes. Réfrigérez le plat, retirez le
-                        gras solidifié si désiré, mais gardez-en pour l'onctuosité.
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : recipe.id.includes("ragout-boulettes") ? (
-                <>
-                  <div class="step-prose">
-                    <span class="step-number-inline">1.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le secret du mélange parfait</h3>
-                      <p>
-                        <em>Travaillez la viande le moins possible</em>. Mélangez
-                        avec les mains mouillées d'eau froide, juste assez pour
-                        incorporer. Trop mélanger = boulettes dures. Laissez reposer
-                        30 minutes au frais permet aux saveurs de se marier et à
-                        la texture de se stabiliser.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">2.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Les épices douces québécoises</h3>
-                      <p>
-                        La cannelle et le clou de girofle sont <em>l'âme du ragoût</em>.
-                        Utilisez-les avec parcimonie - trop et le plat devient un
-                        dessert. {(recipe.data as any).variant === 'avance' ?
-                          "Grillez-les 30 secondes à sec pour réveiller leurs huiles essentielles." :
-                          "Même avec un mélange commercial, ces épices dans les boulettes font toute la différence."
-                        } C'est ce qui différencie un ragoût ordinaire d'un chef-d'œuvre.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">3.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">{(recipe.data as any).variant === 'avance' ? 'La sauce brune parfaite' : 'Le secret du mélange à sauce'}</h3>
-                      <p>
-                        {(recipe.data as any).variant === 'avance' ? (
-                          <>Le secret ultime ? <em>Griller la farine avant le roux</em>.
-                          Dans une poêle sèche, dorez-la jusqu'à couleur noisette.
-                          Cette étape crée des notes caramélisées profondes. Pour une
-                          sauce soyeuse, incorporez le bouillon chaud graduellement,
-                          en fouettant constamment. Patience et technique font toute
-                          la différence.</>
-                        ) : (
-                          <>Pour éviter les grumeaux, <em>délayez toujours dans l'eau froide</em>
-                          avant d'ajouter le reste du liquide. Deux sachets donnent une sauce
-                          bien épaisse et savoureuse. Ajoutez un oignon en quartiers et des
-                          feuilles de laurier pendant la cuisson pour enrichir la saveur.
-                          La mijoteuse fait le reste du travail!</>
-                        )}
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : recipe.id.includes("soupe-oignon") ? (
-                <>
-                  <div class="step-prose">
-                    <span class="step-number-inline">1.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">La caramélisation parfaite</h3>
-                      <p>
-                        <em>45 minutes minimum</em> pour caraméliser les oignons.
-                        Pas de raccourcis. Ajoutez une pincée de bicarbonate pour
-                        accélérer la réaction de Maillard. Les oignons doivent être
-                        couleur acajou, pas blonds.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">2.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le bouillon fait la différence</h3>
-                      <p>
-                        Un bouillon de bœuf maison change tout. Sinon,
-                        <em>enrichissez le commercial</em> : faites-le mijoter
-                        avec os à moelle, carotte, céleri 2 heures avant usage.
-                        Ajoutez un trait de sauce soya pour l'umami secret.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">3.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le gratinage spectaculaire</h3>
-                      <p>
-                        Pain rassis de 2 jours, grillé des deux côtés.
-                        <em>Gruyère de grotte</em> pour le goût, mozzarella pour
-                        le filant. Le secret ultime ? Une fine couche de moutarde
-                        de Dijon sur le pain avant le fromage.
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : recipe.id.includes("mac-fromage") ? (
-                <>
-                  <div class="step-prose">
-                    <span class="step-number-inline">1.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le choix des pâtes fait la différence</h3>
-                      <p>
-                        {(recipe.data as any).variant === 'simple' ? (
-                          <><em>Les coudes classiques</em> sont parfaits pour retenir la sauce.
-                          Cuisez-les 1 minute de moins que les instructions - elles finiront
-                          de cuire au four. Rincez rapidement à l'eau froide pour stopper
-                          la cuisson si vous préparez la sauce à l'avance.</>
-                        ) : (
-                          <><em>Cavatappi ou shells</em> avec leurs spirales et cavités
-                          emprisonnent magnifiquement la sauce. Les pâtes artisanales
-                          en bronze ont une texture rugueuse qui accroche mieux la sauce.
-                          Al dente est crucial - elles absorberont la sauce au four.</>
-                        )}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">2.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le secret du fromage qui ne fait pas de fils</h3>
-                      <p>
-                        {(recipe.data as any).variant === 'simple' ? (
-                          <><em>Râpez votre propre fromage</em> - le pré-râpé contient de
-                          la cellulose qui empêche une fonte lisse. Ajoutez le fromage
-                          hors du feu et mélangez par poignées. Le fromage à la crème doit
-                          être à température ambiante pour une incorporation parfaite.</>
-                        ) : (
-                          <><em>Température critique : 70°C maximum</em>. Au-delà, les protéines
-                          se séparent et la sauce devient granuleuse. Retirez du feu avant
-                          d'ajouter les fromages. Le gruyère et le cheddar vieilli nécessitent
-                          patience et douceur. Râpez finement pour une fonte uniforme.</>
-                        )}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">3.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">{(recipe.data as any).variant === 'simple' ? 'La garniture qui change tout' : 'L\'art de la croûte parfaite'}</h3>
-                      <p>
-                        {(recipe.data as any).variant === 'simple' ? (
-                          <><em>Panko + beurre = magie</em>. Mélangez à la main pour
-                          enrober chaque miette. Le bacon émietté ajoute du croquant
-                          salé qui contraste avec le crémeux. Parsemez juste avant
-                          d'enfourner pour éviter qu'il ne brûle.</>
-                        ) : (
-                          <>La <em>garniture aux herbes fraîches</em> élève le plat.
-                          Le zeste de citron apporte une fraîcheur inattendue qui
-                          coupe la richesse. Mélangez le panko avec le beurre fondu
-                          jusqu'à obtenir une texture sableuse. Les herbes ajoutées
-                          en fin évitent qu'elles ne brûlent.</>
-                        )}
-                      </p>
-                    </div>
-                  </div>
-
-                  {(recipe.data as any).variant === 'avance' && (
-                    <div class="step-prose">
-                      <span class="step-number-inline">4.</span>
-                      <div class="step-text">
-                        <h3 class="tip-title">Les additions luxueuses</h3>
-                        <p>
-                          Pour la version ultime, ajoutez du <em>homard poêlé au beurre</em>
-                          ou du canard confit juste avant de servir. L'huile de truffe
-                          s'ajoute à la toute fin, hors du feu - la chaleur détruit ses
-                          arômes délicats. Les champignons sauvages sautés entre les
-                          couches créent des poches umami surprenantes.
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </>
-              ) : recipe.id.includes("pates-pesto") ? (
-                <>
-                  <div class="step-prose">
-                    <span class="step-number-inline">1.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">L'eau de cuisson, or liquide des pâtes</h3>
-                      <p>
-                        <em>Réservez toujours 250 ml d'eau de cuisson</em> avant d'égoutter
-                        les pâtes. Salez généreusement l'eau (comme la mer!) car c'est votre
-                        seule chance d'assaisonner les pâtes de l'intérieur. Cette eau riche
-                        en amidon transforme le pesto huileux en sauce soyeuse. Ajoutez-la
-                        progressivement - trop peu et la sauce reste grasse, trop et elle
-                        devient diluée.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">2.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le poulet parfaitement doré</h3>
-                      <p>
-                        Cubes de <em>poulet uniformes (2 cm)</em> = cuisson égale. Séchez-les
-                        bien avec du papier avant de les assaisonner - l'humidité empêche la
-                        dorure. Poêle très chaude, huile qui brille : ajoutez le poulet et
-                        <strong>ne touchez pas pendant 2 minutes</strong>. La patience crée
-                        cette croûte dorée qui ajoute texture et goût. Température interne
-                        75°C = parfait et juteux.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">3.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Tomates cerises : patience récompensée</h3>
-                      <p>
-                        <em>Coupez-les en deux</em> pour exposer plus de surface et accélérer
-                        l'éclatement. Feu moyen, pas de précipitation - elles vont d'abord
-                        siffler, puis ramollir, puis éclater magnifiquement (4-5 min). Écrasez
-                        légèrement avec le dos d'une cuillère pour libérer tout leur jus. Cette
-                        "sauce" naturelle sucrée-acidulée équilibre parfaitement la richesse
-                        du pesto.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">4.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le pesto, star fragile à protéger</h3>
-                      <p>
-                        <strong>Jamais de pesto sur le feu!</strong> Ajoutez-le hors du feu
-                        pour préserver les arômes volatils du basilic. Si vous utilisez du
-                        pesto maison, sortez-le 30 min avant pour qu'il soit à température
-                        ambiante - il se mélangera mieux. Pesto commercial? Choisissez-en un
-                        avec l'huile d'olive en premier ingrédient. <em>Goûtez toujours avant
-                        d'ajouter du sel</em> - le pesto et le parmesan sont déjà salés!
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : recipe.id.includes("tacos-poulet") ? (
-                <>
-                  <div class="step-prose">
-                    <span class="step-number-inline">1.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Le mélange d'épices maison surpasse tout</h3>
-                      <p>
-                        Vous pouvez utiliser un sachet d'assaisonnement à tacos du commerce, mais
-                        <em>le mélange maison change absolument tout</em>. Combinez poudre de chili,
-                        cumin, poudre d'ail et paprika fumé : vous contrôlez le sel, éliminez les agents
-                        anti-agglomérants et obtenez une fraîcheur explosive. Le secret du renard rusé ?
-                        Toastez les épices entières (graines de cumin, piment séché) 30 secondes à sec
-                        dans la poêle, puis broyez-les. L'arôme emplit la cuisine et transforme le plat.
-                        Attention : ça brûle en un éclair! Remuez constamment, retirez dès que ça embaume.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">2.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Haricots en conserve : rincer est non négociable</h3>
-                      <p>
-                        <em>Toujours, toujours rincer vos haricots noirs</em> sous l'eau froide pendant
-                        30 secondes. Ce liquide visqueux de conservation contient l'excès de sodium
-                        (réduction de 40%!) et des oligosaccharides qui causent ballonnements. Bonus :
-                        égouttez-les bien, puis faites-les revenir 1-2 minutes dans la poêle avec une
-                        goutte d'huile avant d'ajouter le reste. Cette étape chasse l'humidité et développe
-                        une légère croûte dorée qui ajoute du caractère. Vos haricots seront crémeux
-                        dedans, légèrement caramélisés dehors. La différence est spectaculaire.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">3.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">Tortillas chaudes ou tacos cassés</h3>
-                      <p>
-                        Une tortilla froide se brise au premier pli. <strong>Réchauffez-les correctement</strong>
-                        pour une flexibilité parfaite. Méthode rapide : enveloppez 5 tortillas dans un
-                        linge humide, micro-ondes 45 secondes. Méthode du renard pro : poêle en fonte
-                        sèche très chaude, 15 secondes par côté jusqu'à ce qu'elles gonflent légèrement
-                        et développent quelques taches dorées. Elles doivent être <em>chaudes, souples,
-                        légèrement fumées</em>. Gardez-les enveloppées dans un linge pendant l'assemblage.
-                        Tortillas de maïs ? Doublez-les systématiquement pour éviter les déchirures tragiques.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">4.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">L'architecture du taco parfait</h3>
-                      <p>
-                        L'ordre d'assemblage n'est pas qu'esthétique : c'est <em>structurel et gustatif</em>.
-                        Couche 1 : mélange poulet-haricots-maïs chaud (la chaleur fait fondre le fromage).
-                        Couche 2 : fromage râpé généreusement. Couche 3 : crème sure froide (contraste
-                        température). Couche 4 : tranches d'avocat. Couche 5 : laitue croquante. Finition :
-                        coriandre fraîche, squeeze de lime au dernier instant. La règle d'or du renard :
-                        <strong>ne surchargez jamais</strong>. Un taco trop plein explose à la première
-                        bouchée. Mieux vaut en faire deux bien construits qu'un bordélique. Et goûtez
-                        avant de saler : la salsa et le fromage sont déjà bien assaisonnés!
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div class="step-prose">
-                    <span class="step-number-inline">1.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">
-                        Le brunissement, étape non négociable
-                      </h3>
-                      <p>
-                        <em>Saisissez le bœuf par petites quantités</em> dans
-                        une poêle très chaude. Ne surchargez pas : la vapeur
-                        empêche le brunissement. Égouttez tout le gras pour
-                        éviter un chili trop riche. Cette étape détermine 70% du
-                        goût final.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">2.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">L'art du layering des épices</h3>
-                      <p>
-                        Ajoutez les <em>épices en trois temps</em> : poudre de
-                        chili et cumin dès le début, paprika fumé et origan à
-                        mi-cuisson, cayenne et poivre noir dans la dernière
-                        heure. Cette stratification crée une profondeur
-                        incomparable.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">3.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">La règle d'or de la mijoteuse</h3>
-                      <p>
-                        <em>Résistez à l'envie de soulever le couvercle</em>{" "}
-                        plus de deux fois pendant la cuisson. Chaque ouverture
-                        fait chuter la température de 10°C et ajoute 20 minutes
-                        au temps total. La patience récompense toujours.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">4.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">
-                        Le secret de la consistance parfaite
-                      </h3>
-                      <p>
-                        Si votre chili est trop liquide,{" "}
-                        <em>écrasez quelques haricots</em> contre les parois
-                        dans la dernière heure. L'amidon libéré épaissit
-                        naturellement. Pour un chili plus épais encore, retirez
-                        le couvercle les 30 dernières minutes.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">5.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">L'acidité qui révèle tout</h3>
-                      <p>
-                        Dix minutes avant la fin, ajoutez un{" "}
-                        <em>trait de vinaigre de vin rouge</em>
-                        ou quelques gouttes de lime. Cette pointe d'acidité
-                        réveille tous les arômes endormis et équilibre la
-                        richesse du plat de façon spectaculaire.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="step-prose">
-                    <span class="step-number-inline">6.</span>
-                    <div class="step-text">
-                      <h3 class="tip-title">La magie du lendemain</h3>
-                      <p>
-                        Le <em>meilleur chili est celui du lendemain</em>. Les
-                        saveurs se marient, les épices s'harmonisent, la texture
-                        se parfait. Conservez au réfrigérateur et réchauffez à
-                        feu doux. Il se bonifie pendant 3 jours.
-                      </p>
-                    </div>
-                  </div>
-                </>
-              )
-            }
-          </div>
-        </div>
+      <div class="preparation-narrative">
+        <h2 class="section-heading">La méthode</h2>
 
         {
-          data.serving_suggestions && data.serving_suggestions.length > 0 && (
-            <div class="serving-section">
-              <h2 class="section-heading">Pour sublimer le service</h2>
-
-              <div class="serving-content">
-                <p class="serving-intro">
-                  Ces accompagnements transforment un excellent plat en
-                  expérience mémorable. Choisissez selon vos envies et
-                  l'occasion.
-                </p>
-
-                <div class="serving-grid">
-                  {data.serving_suggestions.map((suggestion) => (
-                    <div class="serving-item">
-                      <span class="serving-bullet">◦</span>
-                      <span class="serving-text">{suggestion}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          data.steps.map((step, index) => (
+            <div class="step-prose">
+              <span class="step-number-inline">{index + 1}</span>
+              <p class="step-text">{step}</p>
             </div>
-          )
+          ))
         }
+      </div>
 
-        <div class="recipe-categories-prose">
-          <p class="category-line">
-            Une recette <em>{data.categories.join(", ")}</em> qui réchauffe le cœur.
-          </p>
-        </div>
-      </section>
-    </article>
-
-    <footer class="minimal-footer">
-      <a href="/cuisine" class="return-link">Découvrir d'autres recettes</a>
-    </footer>
-
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      {
+        data.tips && (
+          <div class="tips-card">
+            <h2 class="tips-heading">
+              <img src="/renard.png" alt="Renard" class="tips-icon" />
+              Les conseils de Renard
+            </h2>
+            <p class="tips-text">{data.tips}</p>
+          </div>
+        )
       }
 
-      :root {
-        /* Colors - warm and inviting */
-        --bg: #faf8f3;
-        --text: #2c2825;
-        --text-light: #6b645d;
-        --accent: #d35400;
-        --accent-light: #ff8c42;
-        --gold: #daa520;
-        --warm-brown: #8b4513;
+      <div class="recipe-categories-prose">
+        <p class="category-line">
+          Une recette <em>{data.categories.join(", ")}</em> qui réchauffe le cœur.
+        </p>
+      </div>
+    </section>
+  </article>
 
-        /* Typography scale (1.25x) */
-        --text-xs: 0.8rem;
-        --text-sm: 0.9rem;
-        --text-base: 1rem;
-        --text-lg: 1.25rem;
-        --text-xl: 1.563rem;
-        --text-2xl: 1.953rem;
-        --text-3xl: 2.441rem;
-        --text-4xl: 3.052rem;
-        --text-5xl: 3.815rem;
-        --text-6xl: 4.768rem;
+  <footer class="minimal-footer">
+    <a href="/cuisine" class="return-link">Découvrir d'autres recettes</a>
+  </footer>
 
-        /* Spacing scale */
-        --space-xs: 0.5rem;
-        --space-sm: 1rem;
-        --space-md: 1.5rem;
-        --space-lg: 2rem;
-        --space-xl: 3rem;
-        --space-2xl: 4rem;
-        --space-3xl: 6rem;
+  <RecipeStepAnimations />
+
+  <style>
+    .recipe-article {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--space-3xl) var(--space-xl) var(--space-2xl);
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-section {
+      margin-bottom: var(--space-3xl);
+    }
+
+    .hero-image-wrapper {
+      margin-bottom: var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.8s ease-out;
+      width: 100%;
+      height: 450px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+      transition: transform 0.5s ease;
+      filter: sepia(5%) saturate(115%) contrast(110%) brightness(95%);
+    }
+
+    .hero-image-wrapper:hover .hero-image {
+      transform: scale(1.03);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-2xl) var(--space-xl);
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        transparent 100%
+      );
+      z-index: 2;
+    }
+
+    .difficulty-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgba(211, 84, 0, 0.9);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 20px;
+      margin-bottom: var(--space-sm);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .recipe-name {
+      font-family: "Playfair Display", serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-shadow:
+        3px 3px 6px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(0, 0, 0, 0.4);
+      margin: 0;
+    }
+
+    .title-line {
+      display: block;
+    }
+
+    .title-line.accent {
+      color: #ff8c3a;
+      font-style: italic;
+      margin-top: 0.15em;
+      font-weight: 700;
+      text-shadow:
+        3px 3px 6px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(255, 107, 0, 0.5);
+    }
+
+    .recipe-intro {
+      margin: var(--space-2xl) 0 var(--space-xl);
+      text-align: center;
+      animation: fadeIn 1s ease-out 0.2s both;
+    }
+
+    .lead-text {
+      font-size: clamp(1.15rem, 3vw, 1.35rem);
+      line-height: 1.75;
+      color: var(--text);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .recipe-metadata {
+      margin: var(--space-2xl) 0;
+      padding: var(--space-xl) 0;
+      border-top: 1px solid rgba(211, 84, 0, 0.15);
+      border-bottom: 1px solid rgba(211, 84, 0, 0.15);
+    }
+
+    .meta-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg) var(--space-xl);
+      max-width: 900px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+
+    .meta-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      min-width: 140px;
+    }
+
+    .meta-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-light);
+      font-weight: 600;
+      opacity: 0.7;
+    }
+
+    .meta-value {
+      font-size: 1.15rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .meta-highlight {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .meta-number {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--warm-brown);
+    }
+
+    .meta-method {
+      font-style: italic;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .freezable-tag {
+      color: #4a90e2;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .recipe-note {
+      background: rgba(255, 165, 0, 0.08);
+      border-left: 4px solid var(--accent);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: 8px;
+      font-size: 1rem;
+      color: var(--text);
+      margin: var(--space-lg) 0;
+      font-style: italic;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
       }
-
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: "Crimson Pro", Georgia, serif;
-        line-height: 1.7;
-        font-size: 1.125rem;
-        overflow-x: hidden;
-        font-weight: 400;
-      }
-
-      .grain {
-        position: fixed;
-        top: -50%;
-        left: -50%;
-        right: -50%;
-        bottom: -50%;
-        width: 200%;
-        height: 200%;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='1' seed='2' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 1;
-        opacity: 0.4;
-        mix-blend-mode: multiply;
-      }
-
-      .minimal-nav {
-        position: fixed;
-        top: var(--space-lg);
-        left: var(--space-lg);
-        right: var(--space-lg);
-        z-index: 100;
+      to {
         opacity: 1;
-        transition: opacity 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
       }
+    }
 
-      .minimal-nav.scrolled {
-        opacity: 0.5;
+    .section-heading {
+      font-family: "Playfair Display", serif;
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: var(--text);
+      margin: var(--space-3xl) 0 var(--space-xl);
+      position: relative;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+
+    .section-heading::before {
+      content: "✦";
+      display: block;
+      font-size: 1.5rem;
+      color: var(--accent);
+      opacity: 0.5;
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-heading::after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        transparent
+      );
+      margin: var(--space-sm) auto 0;
+    }
+
+    .ingredient-intro {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: var(--space-2xl);
+      text-align: center;
+      font-style: italic;
+      line-height: 1.7;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ingredients-layout {
+      background: linear-gradient(135deg, #faf7f4 0%, #f8f4ef 100%);
+      border: 1px solid rgba(211, 84, 0, 0.1);
+      border-radius: 16px;
+      padding: var(--space-xl);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: var(--space-2xl);
+      row-gap: var(--space-md);
+    }
+
+    .ingredient-line {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-sm);
+      font-size: 1.05rem;
+      color: var(--text);
+      transition: all 0.2s ease;
+      padding: var(--space-sm);
+      border-radius: 8px;
+    }
+
+    .ingredient-line:hover {
+      background: rgba(255, 255, 255, 0.6);
+      transform: translateX(2px);
+    }
+
+    .ingredient-bullet {
+      color: var(--accent);
+      opacity: 0.6;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+      font-size: 1.2em;
+      line-height: 1.4;
+    }
+
+    .ingredient-line:hover .ingredient-bullet {
+      opacity: 1;
+    }
+
+    .ingredient-content {
+      line-height: 1.4;
+    }
+
+    .ingredient-main {
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .ingredient-line:hover .ingredient-main {
+      color: var(--warm-brown);
+    }
+
+    .ingredient-note {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-style: italic;
+      display: block;
+      margin-top: 0.25rem;
+      opacity: 0.85;
+      line-height: 1.4;
+    }
+
+    .preparation-narrative {
+      margin: var(--space-3xl) 0;
+    }
+
+    .step-prose {
+      margin-bottom: var(--space-2xl);
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: var(--space-lg);
+      align-items: start;
+      padding: var(--space-lg);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(250, 247, 244, 0.3) 100%
+      );
+      border-left: 4px solid rgba(211, 84, 0, 0.2);
+      border-radius: 12px;
+      animation: slideIn 0.6s ease-out both;
+      animation-delay: calc(var(--step-index, 0) * 0.1s);
+      transition: all 0.3s ease;
+    }
+
+    .step-prose:hover {
+      border-left-color: var(--accent);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(250, 247, 244, 0.5) 100%
+      );
+      transform: translateX(4px);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
       }
-
-      .minimal-nav:hover {
+      to {
         opacity: 1;
+        transform: translateX(0);
       }
+    }
 
-      .nav-back {
-        color: var(--text-light);
-        text-decoration: none;
-        font-size: var(--text-sm);
-        letter-spacing: 0.05em;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        padding: var(--space-xs) var(--space-sm);
-        background: rgba(250, 248, 243, 0.8);
-        backdrop-filter: blur(10px);
-        border-radius: 2rem;
-        display: inline-block;
-        text-transform: uppercase;
-        font-weight: 500;
+    .step-number-inline {
+      font-family: "Playfair Display", serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--accent);
+      opacity: 0.15;
+      line-height: 0.9;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .step-number-inline::after {
+      content: ".";
+      position: absolute;
+      bottom: -0.1em;
+      right: -0.15em;
+    }
+
+    .step-prose:hover .step-number-inline {
+      opacity: 0.3;
+      transform: scale(1.05);
+    }
+
+    .step-text {
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: var(--text);
+      padding-top: 0.5rem;
+    }
+
+    .step-text::first-letter {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--accent);
+      float: left;
+      line-height: 0.85;
+      margin-right: 0.08em;
+      font-family: "Playfair Display", serif;
+    }
+
+    .tips-card {
+      margin: var(--space-3xl) 0;
+      padding: var(--space-2xl);
+      background: linear-gradient(
+        135deg,
+        rgba(92, 64, 51, 0.95) 0%,
+        rgba(139, 90, 43, 0.9) 50%,
+        rgba(101, 67, 33, 0.95) 100%
+      );
+      border: 3px solid #d4a574;
+      border-radius: 16px;
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(211, 84, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+      animation: tipsFadeIn 0.8s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tips-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+      pointer-events: none;
+      border-radius: 16px;
+    }
+
+    .tips-card::after {
+      content: "❝";
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 6rem;
+      color: rgba(212, 165, 116, 0.15);
+      font-family: Georgia, serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    @keyframes tipsFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
       }
-
-      .nav-back:hover {
-        color: var(--accent);
-        transform: translateX(-3px);
-        background: rgba(250, 248, 243, 0.95);
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
 
-      .version-selector {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
+    .tips-heading {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #f4e8d8;
+      margin: 0 0 var(--space-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(212, 165, 116, 0.3);
+      position: relative;
+      z-index: 1;
+    }
 
-      .version-label {
-        font-size: 0.9rem;
-        color: var(--text-light);
-        opacity: 0.8;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
+    .tips-icon {
+      width: 3rem;
+      height: 3rem;
+      display: inline-block;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 165, 0, 0.2),
+        transparent 70%
+      );
+      padding: 0.1rem;
+      box-shadow:
+        0 0 20px rgba(255, 140, 0, 0.4),
+        0 0 40px rgba(255, 107, 0, 0.2);
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
 
-      .version-badge {
-        padding: 0.35rem 0.9rem;
-        border: 1px solid rgba(211, 84, 0, 0.3);
-        border-radius: 20px;
-        font-size: 0.85rem;
-        color: var(--text-light);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        background: rgba(250, 248, 243, 0.8);
-        backdrop-filter: blur(10px);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 500;
-      }
+    .tips-text {
+      font-family: "Crimson Pro", serif;
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #f5ede1;
+      margin: 0;
+      font-style: italic;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 1;
+    }
 
-      .version-badge:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-        background: rgba(250, 248, 243, 0.95);
-      }
+    .tips-text::first-letter {
+      font-size: 2.2em;
+      font-weight: 700;
+      color: #d4a574;
+      float: left;
+      line-height: 0.8;
+      margin-right: 0.15em;
+      margin-top: 0.1em;
+      text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.6),
+        0 0 10px rgba(212, 165, 116, 0.5);
+    }
 
-      .version-badge.active {
-        background: var(--accent);
-        color: var(--cream);
-        border-color: var(--accent);
-        font-weight: 600;
-      }
+    .recipe-categories-prose {
+      margin: var(--space-3xl) 0 var(--space-lg);
+      padding-top: var(--space-xl);
+      border-top: 2px dotted rgba(211, 84, 0, 0.15);
+      text-align: center;
+    }
 
+    .category-line {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      font-style: italic;
+      letter-spacing: 0.02em;
+    }
+
+    .category-line em {
+      color: var(--accent);
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .minimal-footer {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      margin-top: var(--space-3xl);
+    }
+
+    .return-link {
+      font-family: "Crimson Pro", serif;
+      font-size: 1.15rem;
+      color: var(--accent);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .return-link::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .return-link:hover {
+      color: var(--accent-light);
+    }
+
+    .return-link:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
       .recipe-article {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
-        position: relative;
-        z-index: 10;
-      }
-
-      .hero-section {
-        margin-bottom: var(--space-2xl);
+        padding: var(--space-2xl) var(--space-md);
       }
 
       .hero-image-wrapper {
-        margin-bottom: var(--space-xl);
-        position: relative;
-        overflow: hidden;
+        height: 350px;
         border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        animation: fadeIn 0.8s ease-out;
-        width: 100%;
-        max-width: 400px;
-        height: 300px;
-        margin-left: auto;
-        margin-right: auto;
       }
 
-      .hero-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 12px;
-        transition: transform 0.3s ease;
-        filter: sepia(10%) saturate(110%) contrast(105%);
-      }
-
-      .hero-image:hover {
-        transform: scale(1.02);
-      }
-
-      .hero-image-wrapper::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 12px;
-        background: linear-gradient(
-          135deg,
-          rgba(211, 84, 0, 0.1),
-          transparent 30%
-        );
-        pointer-events: none;
-      }
-
-      .title-wrapper {
-        margin-bottom: var(--space-xl);
-        text-align: center;
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      .hero-overlay {
+        padding: var(--space-xl) var(--space-md);
       }
 
       .recipe-name {
-        font-family: "Playfair Display", serif;
-        font-weight: 900;
-        font-size: clamp(var(--text-4xl), 10vw, var(--text-6xl));
-        line-height: 0.95;
-        letter-spacing: -0.03em;
-        color: var(--text);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+        font-size: clamp(2rem, 7vw, 2.5rem);
       }
 
-      .title-line {
-        display: block;
-        transition: letter-spacing 0.3s ease;
+      .difficulty-badge {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
       }
 
-      .title-line.accent {
-        color: var(--accent);
-        font-style: italic;
-        margin-top: 0.1em;
-        font-weight: 700;
-        background: linear-gradient(135deg, var(--accent), var(--accent-light));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      .lead-text {
+        font-size: 1.1rem;
       }
 
-      .recipe-name:hover .title-line {
-        letter-spacing: 0;
-      }
-
-      .recipe-intro {
-        margin: var(--space-xl) 0;
-        animation: fadeIn 1s ease-out 0.2s both;
-      }
-
-      .recipe-intro p {
-        font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
-        line-height: 1.65;
-        color: var(--text);
-        font-weight: 400;
-        letter-spacing: -0.01em;
-      }
-
-      .recipe-intro p::first-line {
-        font-weight: 500;
-        color: var(--warm-brown);
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      .recipe-essence {
+      .meta-line {
         font-size: 1.05rem;
-        color: var(--text-light);
-        margin-top: var(--space-lg);
-        padding-top: var(--space-lg);
-        border-top: 2px solid rgba(211, 84, 0, 0.1);
-        animation: fadeIn 1.2s ease-out 0.4s both;
       }
-
-      .recipe-essence em {
-        font-style: italic;
-        color: var(--accent);
-        font-weight: 500;
-      }
-
-      .recipe-essence strong {
-        font-weight: 600;
-        color: var(--text);
-        border-bottom: 2px solid var(--gold);
-        padding-bottom: 1px;
-      }
-
-      .freezable-note {
-        display: inline-block;
-        margin-left: 0.5rem;
-        color: var(--accent);
-        font-style: italic;
-      }
-
-      /* All content uses same max-width from .recipe-article */
 
       .section-heading {
-        font-family: "Playfair Display", serif;
-        font-size: var(--text-2xl);
-        font-weight: 700;
-        color: var(--text);
+        font-size: 1.75rem;
         margin: var(--space-2xl) 0 var(--space-lg);
-        position: relative;
-        padding-bottom: var(--space-sm);
-      }
-
-      .section-heading::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(90deg, var(--accent), transparent);
-        transition: width 0.3s ease;
-      }
-
-      .section-heading:hover::after {
-        width: 100px;
-      }
-
-      .ingredient-intro {
-        font-size: 1.05rem;
-        color: var(--text-light);
-        margin-bottom: var(--space-lg);
-        text-align: center;
-        font-style: italic;
-        line-height: 1.6;
       }
 
       .ingredients-layout {
-        margin-top: var(--space-lg);
+        padding: var(--space-lg);
       }
 
       .ingredients-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: var(--space-xl);
-        row-gap: var(--space-xs);
-      }
-
-      .ingredient-line {
-        display: grid;
-        grid-template-columns: 1.2rem 1fr;
-        gap: var(--space-xs);
-        font-size: 1rem;
-        color: var(--text);
-        transition: transform 0.2s ease;
-        padding: var(--space-xs) 0;
-      }
-
-      .ingredient-line:hover {
-        transform: translateX(3px);
-      }
-
-      .ingredient-bullet {
-        color: var(--accent);
-        opacity: 0.4;
-        font-weight: 300;
-        transition: opacity 0.2s ease;
-        font-size: 0.9em;
-        line-height: 1.2;
-      }
-
-      .ingredient-line:hover .ingredient-bullet {
-        opacity: 0.7;
-      }
-
-      .ingredient-content {
-        padding-bottom: var(--space-xs);
-        border-bottom: 1px solid rgba(211, 84, 0, 0.06);
-      }
-
-      .ingredient-line:last-child .ingredient-content {
-        border-bottom: none;
-      }
-
-      .ingredient-main {
-        color: var(--text);
-        transition: color 0.2s ease;
-      }
-
-      .ingredient-line:hover .ingredient-main {
-        color: var(--warm-brown);
-      }
-
-      .ingredient-note {
-        font-size: 0.9rem;
-        color: var(--text-light);
-        font-style: italic;
-        display: block;
-        margin-top: 0.2rem;
-        opacity: 0.8;
-        line-height: 1.4;
-      }
-
-
-      .preparation-narrative {
-        margin: var(--space-2xl) 0;
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
       }
 
       .step-prose {
-        margin-bottom: var(--space-lg);
-        display: grid;
-        grid-template-columns: 3rem 1fr;
+        grid-template-columns: 3.5rem 1fr;
         gap: var(--space-md);
-        align-items: baseline;
-        animation: slideIn 0.6s ease-out both;
-        animation-delay: calc(var(--step-index, 0) * 0.1s);
-      }
-
-      @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateX(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
+        padding: var(--space-lg);
+        margin-bottom: var(--space-lg);
       }
 
       .step-number-inline {
-        font-family: "Playfair Display", serif;
-        font-size: 2.5rem;
-        font-weight: 300;
-        color: var(--accent);
-        opacity: 0.25;
-        line-height: 1;
-        transition: opacity 0.3s ease;
-      }
-
-      .step-prose:hover .step-number-inline {
-        opacity: 0.4;
+        font-size: 3rem;
       }
 
       .step-text {
-        font-size: 1.15rem;
-        line-height: 1.75;
-        color: var(--text);
-      }
-
-      .step-text::first-letter {
-        font-size: 1.4em;
-        font-weight: 500;
-        color: var(--warm-brown);
-      }
-
-      .science-section {
-        margin: var(--space-3xl) 0 var(--space-xl);
-        padding-top: var(--space-xl);
-        position: relative;
-      }
-
-      .science-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--accent),
-          transparent
-        );
-      }
-
-      .science-content {
-        margin-top: var(--space-lg);
-      }
-
-      .science-intro {
-        font-size: 1.15rem;
-        color: var(--text-light);
-        margin-bottom: var(--space-xl);
-        font-style: italic;
-        text-align: center;
-        line-height: 1.7;
-      }
-
-      .science-point {
-        margin-bottom: var(--space-lg);
-      }
-
-      .science-subtitle {
-        font-family: "Playfair Display", serif;
-        font-size: var(--text-lg);
-        font-weight: 600;
-        color: var(--accent);
-        margin-bottom: var(--space-xs);
-        letter-spacing: -0.01em;
-      }
-
-      .science-point p {
         font-size: 1.05rem;
-        line-height: 1.75;
-        color: var(--text);
       }
 
-      .science-point em {
-        color: var(--accent);
-        font-style: normal;
-        font-weight: 500;
-        background: linear-gradient(
-          180deg,
-          transparent 85%,
-          rgba(211, 84, 0, 0.1) 85%
-        );
-        padding: 0 2px;
+      .tips-card {
+        padding: var(--space-lg);
       }
 
-      .tips-section {
-        margin: var(--space-2xl) 0;
+      .tips-heading {
+        font-size: 1.35rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .recipe-article {
+        padding: var(--space-xl) var(--space-sm);
       }
 
-      .tips-content {
-        margin-top: var(--space-lg);
+      .hero-image-wrapper {
+        height: 280px;
       }
 
-      .tip-title {
-        font-family: "Crimson Pro", serif;
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: var(--space-xs);
-        letter-spacing: -0.01em;
+      .hero-overlay {
+        padding: var(--space-lg) var(--space-md);
       }
 
-      .tips-content .step-prose .step-number-inline {
-        color: var(--gold);
+      .recipe-name {
+        font-size: 1.75rem;
       }
 
-      .tips-content .step-text em {
-        color: var(--accent);
-        font-style: normal;
-        font-weight: 500;
-        background: linear-gradient(
-          180deg,
-          transparent 85%,
-          rgba(218, 165, 32, 0.15) 85%
-        );
-        padding: 0 2px;
+      .meta-line {
+        font-size: 1rem;
+        line-height: 1.8;
       }
 
-      .tips-content .step-text::first-letter {
-        font-size: 1em;
-        font-weight: 400;
-        color: inherit;
-      }
-
-      .serving-section {
-        margin: var(--space-2xl) 0;
-        padding-top: var(--space-xl);
-        border-top: 1px solid rgba(211, 84, 0, 0.1);
-      }
-
-      .serving-content {
-        margin-top: var(--space-lg);
-      }
-
-      .serving-intro {
-        font-size: 1.05rem;
-        color: var(--text-light);
-        margin-bottom: var(--space-lg);
-        font-style: italic;
-        text-align: center;
-        line-height: 1.7;
-      }
-
-      .serving-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      .step-prose {
+        grid-template-columns: 1fr;
         gap: var(--space-sm);
-        margin-top: var(--space-md);
       }
 
-      .serving-item {
-        display: flex;
-        align-items: center;
-        gap: var(--space-xs);
-        font-size: 1.05rem;
-        color: var(--text);
-        padding: var(--space-xs) var(--space-sm);
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        background: rgba(211, 84, 0, 0.02);
+      .step-number-inline {
+        font-size: 2.5rem;
+        text-align: left;
+        margin-bottom: var(--space-xs);
       }
 
-      .serving-item:hover {
-        background: rgba(211, 84, 0, 0.05);
-        transform: translateX(3px);
+      .ingredients-layout {
+        padding: var(--space-md);
       }
+    }
 
-      .serving-bullet {
-        color: var(--accent);
-        font-weight: 600;
-        font-size: 1.2em;
-        opacity: 0.6;
-        transition: opacity 0.2s ease;
+    /* Subtle print styles */
+    @media print {
+      .grain {
+        display: none;
       }
-
-      .serving-item:hover .serving-bullet {
-        opacity: 1;
-      }
-
-      .serving-text {
-        font-weight: 500;
-        letter-spacing: 0.01em;
-      }
-
-      .recipe-categories-prose {
-        margin: var(--space-3xl) 0 var(--space-lg);
-        padding-top: var(--space-xl);
-        border-top: 2px dotted rgba(211, 84, 0, 0.15);
-        text-align: center;
-      }
-
-      .category-line {
-        font-size: 1.05rem;
-        color: var(--text-light);
-        font-style: italic;
-        letter-spacing: 0.02em;
-      }
-
-      .category-line em {
-        color: var(--accent);
-        font-weight: 500;
-        font-style: normal;
-      }
-
-      .minimal-footer {
-        text-align: center;
-        padding: var(--space-2xl) var(--space-lg);
-        margin-top: var(--space-3xl);
-      }
-
-      .return-link {
-        font-family: "Crimson Pro", serif;
-        font-size: 1.15rem;
-        color: var(--accent);
-        text-decoration: none;
-        position: relative;
-        transition: color 0.3s ease;
-        letter-spacing: 0.02em;
-      }
-
-      .return-link::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 2px;
-        background: var(--accent);
-        transition: width 0.3s ease;
-      }
-
-      .return-link:hover {
-        color: var(--accent-light);
-      }
-
-      .return-link:hover::after {
-        width: 100%;
-      }
-
-      @media (max-width: 768px) {
-        :root {
-          --text-base: 0.95rem;
-        }
-
-        .recipe-article {
-          padding: var(--space-2xl) var(--space-sm);
-        }
-
-        .recipe-name {
-          font-size: clamp(2rem, 8vw, 3rem);
-        }
-
-        .recipe-intro p {
-          font-size: var(--text-lg);
-        }
-
-        .section-heading {
-          font-size: var(--text-xl);
-          margin: var(--space-xl) 0 var(--space-md);
-        }
-
-        .ingredients-grid {
-          grid-template-columns: 1fr;
-          column-gap: 0;
-        }
-
-        .step-prose {
-          grid-template-columns: 2rem 1fr;
-          gap: var(--space-sm);
-        }
-
-        .step-number-inline {
-          font-size: var(--text-lg);
-        }
-
-        .hero-image-wrapper {
-          max-width: 280px;
-          height: 220px;
-        }
-
-        .minimal-nav {
-          top: var(--space-sm);
-          left: var(--space-sm);
-        }
-      }
-
-      @media (max-width: 480px) {
-        .step-prose {
-          display: block;
-        }
-
-        .step-number-inline {
-          display: block;
-          margin-bottom: var(--space-xs);
-        }
-      }
-
-      /* Subtle print styles */
-      @media print {
-        .minimal-nav,
-        .grain {
-          display: none;
-        }
-      }
-    </style>
-
-    <script>
-      // Restore scroll detection for nav
-      const nav = document.getElementById("nav");
-
-      window.addEventListener("scroll", () => {
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > 100) {
-          nav?.classList.add("scrolled");
-        } else {
-          nav?.classList.remove("scrolled");
-        }
-      });
-
-      // Add step animation indices
-      document.querySelectorAll(".step-prose").forEach((el, i) => {
-        (el as HTMLElement).style.setProperty("--step-index", i.toString());
-      });
-    </script>
-  </body>
-</html>
+    }
+  </style>
+</CuisineLayout>

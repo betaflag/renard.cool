@@ -10,7 +10,6 @@
     "soak": 0
   },
   "cooking_method": "Mijoteuse",
-  "relatedRecipe": "ragout-boulettes-avance",
   "ingredients": [
     "750 g de porc haché — mi-maigre idéalement",
     "250 g de bœuf haché — pour la profondeur",
@@ -39,15 +38,16 @@
     "Couvrir et cuire à basse température (Low) 5-6 heures ou à haute température (High) 3-4 heures. La sauce épaissira pendant la cuisson.",
     "Goûter et rectifier l'assaisonnement au besoin. Si la sauce est trop épaisse, ajouter un peu d'eau. Si trop liquide, laisser mijoter à découvert 30 minutes."
   ],
-  "serving_suggestions": [
-    "Purée de pommes de terre crémeuse",
-    "Petits pois verts",
-    "Betteraves marinées",
-    "Pain croûté pour saucer"
+  "categories": [
+    "plat principal",
+    "traditionnel",
+    "québécois",
+    "réconfortant"
   ],
-  "categories": ["plat principal", "traditionnel", "québécois", "réconfortant"],
   "difficulty": "facile",
   "heroImage": "/cuisine/ragout-boulettes.png",
   "pubDate": "2025-10-03",
-  "draft": false
+  "draft": false,
+  "tips": "Le secret des boulettes parfaites réside dans la délicatesse. Travaillez la viande avec les mains mouillées d'eau froide, juste assez pour incorporer les ingrédients — trop mélanger rendra les boulettes dures. Pour la sauce, délayez toujours le mélange dans l'eau froide avant d'ajouter le reste du liquide, c'est la clé d'une texture soyeuse sans grumeaux. La cannelle et le clou de girofle sont l'âme de ce plat québécois traditionnel : utilisez-les généreusement dans les boulettes, c'est ce qui différencie un ragoût ordinaire d'un chef-d'œuvre. Et surtout, laissez la mijoteuse faire son travail lentement — la patience transforme ces ingrédients simples en pur réconfort.",
+  "ingredientIntro": "Le ragoût de boulettes, âme de la cuisine québécoise. Des boulettes épicées à la cannelle baignent dans une sauce brune onctueuse, créant le réconfort absolu."
 }

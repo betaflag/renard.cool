@@ -1,5 +1,5 @@
 {
-  "name": "Pâtes au pesto du Renard Rusé (Simple)",
+  "name": "Pâtes au pesto du Renard Rusé",
   "description": "Un plat italien réinventé par le renard : pâtes enrobées de pesto au basilic frais, poulet tendre et tomates cerises éclatées. Simple, rapide et délicieusement parfumé. Le repas parfait pour les soirs de semaine.",
   "servings": 4,
   "freezable": false,
@@ -35,15 +35,15 @@
     "Incorporer l'eau de cuisson réservée et le parmesan râpé. Mélanger jusqu'à ce que la sauce soit crémeuse et enrobe bien les pâtes.",
     "Goûter et ajuster l'assaisonnement. Servir immédiatement garni de pignons grillés, basilic frais et copeaux de parmesan."
   ],
-  "serving_suggestions": [
-    "Pain à l'ail croustillant",
-    "Salade de roquette au citron",
-    "Vin blanc sec italien (Pinot Grigio)",
-    "Parmesan vieilli en bloc pour râper à table"
+  "categories": [
+    "plat principal",
+    "italien",
+    "rapide"
   ],
-  "categories": ["plat principal", "italien", "rapide"],
   "difficulty": "facile",
   "heroImage": "/cuisine/pates-pesto.png",
   "pubDate": "2025-10-05",
-  "draft": false
+  "draft": false,
+  "ingredientIntro": "Le basilic frais rencontre le poulet doré et les tomates éclatées dans une danse méditerranéenne. Chaque ingrédient brille de sa propre lumière tout en s'harmonisant parfaitement.",
+  "tips": "Réservez toujours l'eau de cuisson des pâtes — c'est l'ingrédient magique qui transforme le pesto en sauce soyeuse et liante. Coupez le poulet en cubes uniformes pour une cuisson égale et rapide. Ne bougez pas les morceaux de poulet pendant les 2 premières minutes de cuisson : cela permet une belle coloration dorée. Les tomates cerises éclatent naturellement à la chaleur — aidez-les en les écrasant légèrement avec le dos d'une cuillère pour libérer leur jus sucré. Ajoutez le pesto hors du feu pour préserver sa couleur vive et ses arômes de basilic frais. Le parmesan râpé finement fond dans la chaleur résiduelle et lie tous les éléments. Pour une touche de luxe, grillez les pignons de pin à sec quelques minutes — leur arôme de noisette sublime le plat. Ce plat se mange immédiatement, il ne se réchauffe pas bien."
 }
