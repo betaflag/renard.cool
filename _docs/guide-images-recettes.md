@@ -6,16 +6,244 @@ Ce guide explique comment créer des images distinctives et de haute qualité po
 
 Les images du livre de cuisine de Renard Cool doivent incarner la même philosophie que les recettes elles-mêmes : **accessibles, mystérieuses, pédagogiques, et profondément enracinées dans la culture québécoise**.
 
-Chaque image de recette doit:
-- **Être unique**: Éviter les compositions répétitives — chaque recette mérite sa propre histoire visuelle
-- **Refléter l'identité Renard**: Steampunk victorien subtil, ambiance automnale, chaleur familiale, mystère culinaire
-- **Mettre le plat en valeur**: Le plat est la star absolue — appétissant, texturé, authentique
-- **Raconter l'histoire de la recette**: Capturer un moment de transmission, d'apprentissage, ou de découverte culinaire
-- **Célébrer la famille et la transmission**: Papa Renard enseigne, Maman Renard embellit, Renardo apprend — la cuisine est un acte familial
-- **Inspirer confiance**: L'image doit montrer que cette recette est accessible, pas intimidante
-- **Respecter les traditions**: Les recettes québécoises patrimoniales méritent des images qui honorent leur héritage
+### Principe directeur : **Le plat est la vedette absolue**
 
-## La famille Renard
+**Approche recommandée (★★★★★)** : Photographie culinaire professionnelle avec le plat comme héros central, entouré d'un agencement sublime d'ingrédients et accessoires steampunk victoriens. La présence de la famille Renard est subtile ou symbolique.
+
+Chaque image de recette doit:
+- **Le plat comme vedette incontestée (70-80% de l'impact visuel)**: Composition centrée sur le plat dans toute sa gloire — textures visibles, couleurs vibrantes, cuisson parfaite évidente
+- **Agencement artistique sublime**: Ingrédients frais, accessoires victoriens, éléments steampunk disposés avec intention autour du plat pour créer une composition équilibrée et narrative
+- **Être unique**: Éviter les compositions répétitives — chaque recette mérite sa propre histoire visuelle et son propre agencement
+- **Refléter l'identité Renard**: Steampunk victorien subtil, ambiance automnale, mystère culinaire, sans que les personnages dominent l'image
+- **Présence Renard subtile mais reconnaissable**: Accessoires identitaires (lunettes en cuivre, gant en cuir, foulard victorien), ombres, ou petit personnage en arrière-plan flou
+- **Raconter l'histoire du plat**: Ingrédients visibles racontent la recette, vapeur évoque la cuisson, textures révèlent la technique
+- **Inspirer l'appétit avant tout**: L'image doit donner faim immédiatement, montrer le plat dans toute son appétence
+- **Respecter les traditions**: Les recettes québécoises patrimoniales méritent des images qui honorent leur héritage avec authenticité
+
+---
+
+## 🎯 Résumé visuel — Règle d'or
+
+**Pour 95% des recettes, utilisez l'approche Hero Dish** :
+
+```
+┌─────────────────────────────────────────────────────┐
+│                                                     │
+│              🍲 LE PLAT (70% dominance)             │
+│         textures · vapeur · appétence               │
+│                                                     │
+│    🌿 ingrédients  🔧 ustensiles  🍷 liquides      │
+│         disposés artistiquement                     │
+│                                                     │
+│    🦊 Identité Renard subtile :                    │
+│    👓 lunettes · 🧤 gants · 📔 carnet              │
+│    OU figurine discrète floue                       │
+│                                                     │
+│    ⚙️ Touches steampunk minimalistes               │
+│    🎨 Éclairage cinématographique                  │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+
+✨ Le plat donne faim → Tout le reste raconte son histoire
+```
+
+**Quand NE PAS utiliser Hero Dish** :
+- Recettes ultra-simples pour enfants où l'aspect pédagogique (Focus Renardo) prime
+- Recettes familiales transmises de génération en génération où la dynamique familiale (Trio) est le message principal
+
+**Dans le doute** : Hero Dish. Toujours.
+
+---
+
+## Approche "Hero Dish" — Style recommandé (★★★★★)
+
+### Concept principal
+
+Le plat est photographié comme le héros absolu de l'image, dans un agencement sublime qui raconte son histoire culinaire à travers les ingrédients, accessoires et ambiance victorienne.
+
+### Caractéristiques visuelles
+
+**Composition centrée sur le plat** :
+- Le plat occupe 50-70% du cadre, positionné au centre ou selon la règle des tiers
+- Photographié dans son récipient de cuisson (cocotte en cuivre, poêle en fonte, plat victorien)
+- Textures ultra-détaillées : croûte dorée, sauce onctueuse, herbes fraîches visibles
+- Vapeur s'élevant dramatiquement pour montrer que c'est fraîchement cuit
+
+**Agencement artistique autour du plat** :
+- **Ingrédients clés disposés intentionnellement** : bouquets d'herbes fraîches, légumes entiers, épices dans petits bols en cuivre
+- **Accessoires victoriens stratégiquement placés** : cuillères en laiton, louche vintage, montre de poche ouverte, petits engrenages
+- **Bouteille de vin ou alcool** visible si pertinent à la recette
+- **Éléments québécois** pour recettes traditionnelles : sirop d'érable, courges, feuilles d'automne
+- Disposition en cercle ou arc autour du plat, créant équilibre visuel
+
+**Présence Renard subtile** :
+- **Accessoires identitaires sans personnage** : lunettes en cuivre de Papa posées sur la table, foulard de Maman drapé élégamment, carnet de notes de Renardo ouvert
+- **Ombre ou silhouette floue** en arrière-plan suggérant présence
+- **Petit personnage discret** : Renard en figurine steampunk miniature, ou personnage très flou à l'arrière
+- L'identité Renard est présente mais ne vole jamais la vedette au plat
+
+**Éclairage cinématographique** :
+- Lumière latérale dramatique créant ombres profondes et contrastes
+- Contre-jour capturant la vapeur en volutes éthérées
+- Golden hour ou lumière de fin d'après-midi pour chaleur
+- Spots de lumière sur le plat, zones d'ombre pour profondeur
+
+### Exemples de prompts Hero Dish
+
+**Poulet chasseur (comme Image #1)** :
+```
+Dramatic food photography of golden-brown chicken thighs in a rustic copper
+skillet, nestled in rich tomato-based chasseur sauce with visible mushrooms
+(cremini, button), pearl onions, and fresh herbs. Shot from a 45-degree angle
+showing the glistening caramelized chicken skin and bubbling sauce. Elegant
+steam wisps rise from the hot dish, backlit by warm side lighting. Artfully
+arranged around the skillet on worn wooden table: fresh red bell peppers,
+whole brown mushrooms with forest debris, vintage dark wine bottle with aged
+label, brass pocket watch lying open showing mechanisms, scattered fresh
+parsley and thyme sprigs, small brass cooking utensils. Papa Renard's copper
+goggles rest subtly at the edge of frame. Warm autumn afternoon light streams
+from the left, creating dramatic shadows and highlighting the sauce's glossy
+texture. Small brass gears scattered decoratively. Color palette: deep amber
+from chicken, rich burgundy sauce, copper tones, forest green herbs, warm
+wood browns. Photorealistic professional food photography with shallow depth
+of field (f/2.8), sharp focus on the chicken and sauce, surrounding elements
+gradually blur. The atmosphere is sophisticated, appetizing, and mysteriously
+Victorian. The dish is the absolute star - 70% visual dominance.
+```
+
+**Ragoût de boulettes (comme Image #2)** :
+```
+Cinematic overhead food photography of a traditional Quebec meatball stew in
+an antique cast-iron Dutch oven with brass handles, filled with perfectly
+browned meatballs in rich, glossy brown gravy showing depth and heartiness.
+Gentle steam rises in ethereal wisps, backlit by soft window light. The pot
+sits on a rustic wooden table with visible grain. Surrounding in deliberate
+artistic arrangement: vintage dark wine bottle, bundles of fresh rosemary and
+thyme tied with twine, antique brass measuring spoons, whole carrots and
+onions, small brass clockwork mechanisms as decor. A small steampunk fox
+figurine stands at the edge, slightly out of focus. Warm directional lighting
+from right side creates dramatic shadows and highlights the stew's rich
+texture. Color palette: deep mahogany brown gravy, golden-brown meatballs,
+copper and brass accents, vibrant green herbs, rich wood tones. Shot with
+medium format camera aesthetic, shallow depth of field focusing on the
+meatballs and gravy texture. Photorealistic culinary magazine style with
+slightly warm color grading. The atmosphere is cozy, traditional, and
+utterly appetizing. The stew dominates the composition - absolute hero of
+the frame.
+```
+
+**Pourquoi cette approche fonctionne** :
+- ✅ Le plat est immédiatement appétissant et irrésistible
+- ✅ Agencement sublime raconte l'histoire de la recette visuellement
+- ✅ Identité Renard présente mais discrète (accessoires, figurine)
+- ✅ Compositions variées et uniques pour chaque recette
+- ✅ Style professionnel digne d'un magazine culinaire haut de gamme
+- ✅ Équilibre parfait entre esthétique et appétence
+
+### Vapeur dramatique — Élément de vie essentiel
+
+La vapeur transforme une photo de plat statique en image vivante et appétissante. Elle doit être décrite précisément pour obtenir un rendu spectaculaire.
+
+**Comment décrire la vapeur efficacement** :
+
+**Mouvement et forme** :
+- "Abundant steam rises in elegant spirals" — Mouvement gracieux, spirales
+- "Gentle steam wisps curl upward" — Volutes douces et délicates
+- "Dramatic steam plumes rise in thick clouds" — Vapeur dense et imposante
+- "Ethereal steam tendrils drift lazily" — Fins filaments vaporeux
+
+**Interaction avec la lumière** (CRITIQUE) :
+- "Backlit by [light source], making steam visible and ethereal" — Contre-jour rendant vapeur lumineuse
+- "Steam catching warm afternoon light" — Vapeur capturant la lumière ambiante
+- "Side-lit steam creating visible wisps" — Éclairage latéral révélant structure
+- "Steam illuminated as it rises, glowing softly" — Vapeur auto-lumineuse
+
+**Intensité et quantité** :
+- Pour soupes/ragoûts chauds : "Abundant steam" ou "Generous steam wisps"
+- Pour plats tièdes : "Gentle steam" ou "Subtle steam rising"
+- Pour plats fraîchement sortis du four : "Dramatic steam plumes"
+
+**Exemples de descriptions complètes de vapeur** :
+```
+"Abundant steam rises in elegant spirals, backlit by warm afternoon sunlight
+from a side window, creating ethereal wisps that become visible as they curl
+upward."
+
+"Gentle steam wisps drift from the hot dish, side-lit by golden hour light,
+making each tendril glow softly against the darker background."
+
+"Dramatic steam plumes rise in thick clouds, caught by directional lighting
+that highlights their movement and creates depth."
+```
+
+**Pourquoi c'est important** :
+- ✅ Montre que le plat est chaud et fraîchement préparé
+- ✅ Ajoute mouvement et vie à une image statique
+- ✅ Crée profondeur et atmosphère mystérieuse
+- ✅ Guide l'œil vers le plat (vapeur comme flèche visuelle)
+- ✅ Renforce l'appétence (nourriture chaude = réconfortant)
+
+### Principes d'agencement sublime
+
+L'art de l'agencement consiste à disposer intentionnellement les éléments autour du plat pour raconter son histoire culinaire sans distraction.
+
+**Règles de composition** :
+1. **Cercle ou arc autour du héros** : Disposer les éléments en cercle ou demi-cercle autour du plat central, créant un mouvement visuel naturel vers le plat
+2. **Hiérarchie visuelle** : Le plat (100% importance) > Ingrédients clés (70%) > Accessoires victoriens (50%) > Éléments décoratifs (30%)
+3. **Espacement intentionnel** : Laisser de l'espace entre les éléments — pas d'encombrement, chaque objet respire
+4. **Groupements narratifs** : Grouper les éléments par fonction (herbes ensemble, épices ensemble, outils ensemble)
+5. **Profondeur par flou** : Les éléments plus éloignés du plat sont plus flous (shallow depth of field), gardant l'attention sur le héros
+
+**Que placer autour du plat** (ordre de priorité) :
+
+1. **Ingrédients signature de la recette** (essentiel)
+   - Herbes fraîches en bouquets attachés avec ficelle
+   - Légumes entiers avec traces de terre pour authenticité
+   - Épices visibles (bâtons cannelle, étoiles badiane, grains poivre)
+   - Fromages avec textures visibles (Parmesan vieilli, fromage québécois)
+
+2. **Accessoires culinaires victoriens** (important)
+   - Ustensiles en laiton/cuivre (louche vintage, cuillères, fourchettes)
+   - Récipients de service en cuivre gravé
+   - Planche à découper en bois patiné
+   - Petits bols en cuivre pour épices/sauces
+
+3. **Éléments identitaires Renard** (subtil mais reconnaissable)
+   - Lunettes en cuivre de Papa posées sur table
+   - Gant en cuir sans doigts de Papa drapé élégamment
+   - Foulard victorien de Maman noué délicat
+   - Carnet de notes de Renardo ouvert avec notes écrites
+   - OU petite figurine renard steampunk en arrière-plan flou
+
+4. **Liquides pertinents** (si applicable à la recette)
+   - Bouteille de vin rouge/blanc vintage avec étiquette vieillie
+   - Bouteille d'alcool de cuisson (cidre, cognac)
+   - Cruche de sirop d'érable pour recettes québécoises
+   - Huile d'olive dans bouteille ancienne
+
+5. **Éléments steampunk décoratifs** (minimaliste)
+   - Montre de poche ouverte montrant mécanisme
+   - 3-5 petits engrenages en laiton disposés artistiquement
+   - Manomètre vintage miniature
+   - Clés victoriennes en laiton
+
+6. **Éléments saisonniers/québécois** (contextuel)
+   - Feuilles d'érable tombées (automne)
+   - Courges miniatures (automne/hiver)
+   - Branches de sapin ou baies (hiver)
+   - Bourgeons ou pussy willows (printemps/cabane à sucre)
+
+**Ce qu'il faut ÉVITER dans l'agencement** :
+- ❌ Trop d'objets (surchargé, distrait du plat)
+- ❌ Objets modernes (smartphone, ustensiles IKEA, contenants plastique)
+- ❌ Personnages Renard visibles et dominants (vole la vedette au plat)
+- ❌ Disposition symétrique rigide (trop artificiel, préférer asymétrie naturelle)
+- ❌ Ingrédients non pertinents à la recette (confus, mensonger)
+- ❌ Éléments steampunk trop nombreux ou imposants (perte du focus culinaire)
+
+## La famille Renard (présence optionnelle dans les images)
+
+**Note importante** : Avec l'approche "Hero Dish", la famille Renard apparaît principalement à travers accessoires symboliques ou présence très subtile. Les descriptions ci-dessous sont utiles si vous choisissez d'inclure les personnages.
 
 ### Renard Cool (Papa Renard)
 Le chef principal de la famille, père pédagogue qui transmet sa passion culinaire. Passionné de cuisine traditionnelle québécoise et d'ingénierie steampunk.
@@ -89,7 +317,34 @@ Basé sur les meilleures pratiques officielles de Google Gemini AI, les prompts 
 [Style photographique et paramètres techniques]
 ```
 
-### Template recommandé par Gemini (adapté pour Renard)
+### Template recommandé — Approche Hero Dish (★★★★★)
+
+**Structure optimale pour mettre le plat en vedette** :
+
+```
+[Photographic style and angle] of [detailed dish with hyper-specific textures]
+in [cooking vessel description], positioned [placement in frame] on [surface].
+The dish shows [texture details, cooking state, visible ingredients].
+[Steam/vapor description if applicable]. Shot from [angle] to [reason for angle].
+
+Artfully arranged around [the dish]: [ingredient 1 with details], [ingredient 2
+with details], [Victorian accessory 1], [Victorian accessory 2], [liquid if
+applicable], [Renard identity element - accessory OR small figurine].
+[Steampunk elements - minimal, 3-5 items] scattered decoratively.
+
+Illuminated by [specific lighting source] from [direction], creating
+[specific lighting effects on the dish and steam]. [How light interacts
+with dish textures].
+
+Color palette: [dominant colors from dish], [supporting colors from
+environment and accessories].
+
+[Technical photography specifications - angle, depth of field, focus point].
+[Atmospheric description in one sentence]. The dish is the absolute hero/star -
+[70%] visual dominance.
+```
+
+### Template alternatif avec personnages (optionnel)
 
 ```
 A [photographic style] [angle] of [detailed dish description with textures]
@@ -397,19 +652,43 @@ parents' subtle presence shows support without overshadowing Renardo's moment.
 - [ ] La palette de couleurs est-elle spécifiée?
 - [ ] Y a-t-il des détails de texture (crémeux, croustillant, etc.)?
 
-## Guide de sélection de la configuration familiale
+## Guide de sélection de la configuration visuelle
+
+### ★★★★★ Hero Dish — APPROCHE RECOMMANDÉE PAR DÉFAUT
+**Quand l'utiliser**:
+- **Toutes les recettes** où le plat mérite d'être la vedette absolue
+- Plats avec textures spectaculaires (croûtes dorées, sauces onctueuses, garnitures colorées)
+- Recettes où les ingrédients racontent visuellement l'histoire
+- Compositions culinaires magazine/éditorial haut de gamme
+- Quand on veut maximiser l'appétence et l'impact visuel
+
+**Configuration**:
+- Plat au centre (50-70% du cadre)
+- Agencement sublime d'ingrédients et accessoires autour
+- Présence Renard via accessoires identitaires (lunettes, gants, foulard, carnet) OU petite figurine steampunk floue
+- Éclairage cinématographique dramatique
+- Vapeur pour dynamisme
+
+**Message**: Le plat est irrésistible, la recette est un chef-d'œuvre culinaire, l'identité Renard enrichit sans dominer
+
+**Exemples de recettes**: Poulet chasseur, Ragoût de boulettes, Bœuf bourguignon, Coq au vin, Filet mignon, Risotto, Pâtes alla Norma — **pratiquement toute recette!**
+
+---
+
+### Configurations avec personnages visibles (usage optionnel)
+
+**Note**: Les configurations ci-dessous sont des alternatives à l'approche Hero Dish. Utilisez-les si vous voulez mettre l'accent sur l'aspect familial, pédagogique, ou la transmission des savoirs plutôt que sur le plat lui-même.
 
 ### Solo - Papa Renard
 **Quand l'utiliser**:
-- Recettes techniques complexes (risotto, réductions, saisies de viande)
-- Plats nécessitant concentration et précision
-- Recettes traditionnelles québécoises (ragoût, tourtière, viandes braisées)
-- Recettes BBQ ou grillades
-- Vue aérienne où on veut juste une patte/accessoire mystérieux
+- Recettes techniques complexes où on veut montrer la maîtrise d'une technique
+- Plats nécessitant expertise et concentration visibles
+- Quand le geste technique est aussi important que le résultat
+- Vue avec main gantée effectuant une action précise
 
 **Message**: Maîtrise technique, concentration, expertise, transmission des traditions
 
-**Exemples de recettes**: Risotto aux champignons, Porc braisé au cidre, Bœuf bourguignon, Soupe à l'oignon gratinée
+**Exemples de recettes**: Risotto aux champignons (si focus sur le geste de touiller), Déglaçage de viande, Techniques de roux
 
 ### Solo - Maman Renard
 **Quand l'utiliser**:
@@ -529,11 +808,18 @@ parents' subtle presence shows support without overshadowing Renardo's moment.
 **Pourquoi** : Les images deviennent interchangeables, manque de variété narrative
 **Bon** : Varier : overhead pour risottos, 45-degree pour soupes, eye-level pour viandes, macro pour desserts
 
-### ❌ Renard(s) trop dominant(s)
+### ❌ Renard(s) trop dominant(s) — ERREUR MAJEURE
 
 **Mauvais** : "Giant fox face filling the frame, three foxes taking up 80% of composition..."
-**Pourquoi** : Le plat devient accessoire, ressemble à portrait de famille avec nourriture en décor
-**Bon** : "Papa Renard's leather-gloved paw visible holding ladle, with copper goggles resting nearby" (présence subtile mais identifiable)
+**Pourquoi** : Le plat devient accessoire, ressemble à portrait de famille avec nourriture en décor — L'IMAGE RATE SA MISSION PREMIÈRE
+**Bon (Approche Hero Dish ★★★★★)** : "Papa Renard's copper goggles rest at table edge, or small steampunk fox figurine in soft focus background" (identité présente, plat dominant)
+**Bon (Alternatif)** : "Papa Renard's leather-gloved paw visible at edge of frame holding ladle" (présence minimale mais identifiable)
+
+### ❌ Plat relégué au second plan
+
+**Mauvais** : "Beautiful Victorian kitchen with elaborate steampunk machinery, copper pipes, three foxes cooking together, and a small bowl of soup in the corner"
+**Pourquoi** : Le plat n'est plus le héros, c'est devenu une scène de genre avec nourriture comme accessoire
+**Bon** : "Steaming bowl of soup as centerpiece (70% visual dominance), surrounded by brass spoon, herbs, bread, with Papa's goggles at edge and small brass gears as decor"
 
 ### ❌ Configuration familiale inappropriée
 
@@ -571,105 +857,155 @@ parents' subtle presence shows support without overshadowing Renardo's moment.
 **Pourquoi** : Peut produire couleurs criardes ou palette incohérente avec l'identité Renard
 **Bon** : "Color palette: deep amber, warm copper, rich browns, ivory cream, with pops of forest green from herbs"
 
-## Formules gagnantes par type de plat
+## Formules gagnantes par type de plat (Approche Hero Dish)
 
 ### Plats mijotés / ragoûts (recettes québécoises réconfortantes)
-**Focus**: Vapeur, texture riche, chaleur familiale
-**Configuration recommandée**: Trio (transmission familiale) ou Solo Papa (tradition)
+**Focus**: Le plat comme vedette — vapeur dramatique, texture riche du ragoût, viande tendre visible
+**Configuration recommandée**: Hero Dish (★★★★★)
 ```
-Close-up of a steaming [dish] in a well-worn copper pot,
-bubbling gently with rich gravy, tender meat visible.
-Papa Renard's leather-gloved paw holds a vintage wooden ladle,
-Renardo watches with curiosity from the side, notebook in hand.
-Maman Renard adds final herb garnish. Steam rises in elegant spirals,
-backlit by warm autumn afternoon light through a foggy window.
-On the worn wooden table: scattered bay leaves, whole spices,
-root vegetables. Small brass gears as decoration. The atmosphere
-is cozy, traditional, filled with the warmth of generational
-cooking. Photorealistic style emphasizing the tender moment of
-culinary transmission and the hearty, comforting stew.
+Cinematic food photography of a hearty [dish name] in a well-worn
+cast-iron Dutch oven with brass handles, positioned center frame on
+rustic wooden table with visible grain and patina. The stew shows
+rich, glossy brown gravy with visible tender meat chunks, root
+vegetables (carrots, turnips), and fresh herbs floating on surface.
+Abundant steam rises in dramatic ethereal wisps, backlit by warm
+golden-hour side lighting from left. Shot from 45-degree angle to
+show depth and layers. Artfully arranged around the pot: whole
+carrots and turnips with soil traces, bundles of fresh thyme and
+bay leaves tied with twine, vintage dark wine bottle with aged
+label, antique brass ladle resting on pot edge, scattered whole
+spices. Papa Renard's copper goggles rest subtly at table edge,
+or small steampunk fox figurine in soft focus background. Small
+brass clockwork gears decoratively placed. Warm directional lighting
+creates dramatic shadows and highlights the stew's bubbling texture.
+Color palette: deep mahogany gravy, golden-brown meat, amber carrots,
+copper brass tones, forest green herbs, rich walnut wood. Professional
+culinary magazine photography with shallow depth of field (f/2.8),
+sharp focus on the stew's texture and steam. The atmosphere is cozy,
+traditional, utterly appetizing. The stew is the absolute hero - 70%
+visual dominance.
 ```
 
 ### Pâtes / risottos (techniques italiennes)
-**Focus**: Texture crémeuse, all'onda, ingrédients visibles
-**Configuration recommandée**: Solo Papa (technique) ou Présence subtile (vue aérienne)
+**Focus**: Le plat comme vedette — texture crémeuse all'onda, ingrédients incorporés visibles
+**Configuration recommandée**: Hero Dish (★★★★★)
 ```
-Overhead view of creamy [pasta/risotto] in an ornate brass pan
-with Victorian engravings, showing the distinctive all'onda wave
-texture. Papa Renard's leather-gloved paw delicately holds a
-vintage brass ladle mid-stir, creating subtle ripples. Surrounding
-the pan: scattered fresh herbs (parsley, thyme), aged parmesan
-wedges with brass grater, raw ingredients, autumn mushrooms.
-Small brass clockwork mechanisms scattered decoratively. Warm
-afternoon light creates dramatic shadows and highlights steam wisps.
-Focus on the creamy texture and ingredients. Photorealistic food
-photography with shallow depth of field.
+Overhead dramatic food photography of creamy [pasta/risotto] in an
+ornate antique brass pan with Victorian engravings, centered on worn
+wooden table. The dish shows perfect all'onda wave texture - rice/pasta
+flows slightly with silky, loose consistency. Studded with visible
+ingredients (caramelized mushrooms, fresh peas, crispy pancetta).
+Gentle steam rises catching side light. A vintage brass ladle or
+fork rests in the dish. Surrounding the pan in artistic circular
+arrangement: scattered fresh herbs (Italian parsley, basil, thyme)
+with water droplets, aged Parmigiano-Reggiano wedge with small brass
+grater, raw arborio rice or dry pasta scattered artistically, whole
+mushrooms showing natural texture, small bowl of truffle oil or white
+wine. Papa Renard's fingerless leather glove draped casually at edge,
+or his copper goggles reflecting light. Small brass clockwork
+mechanisms as subtle decoration. Warm afternoon sunlight from window
+creates directional shadows and highlights the creamy texture, makes
+steam visible in backlight. Color palette: ivory cream of risotto/pasta,
+deep amber mushrooms, vibrant green herbs, aged wood browns, copper
+brass highlights. Shot with shallow depth of field (f/2.8), sharp focus
+on center of dish showing texture details, surrounding elements
+gradually blur. Photorealistic professional food photography style.
+The dish dominates - absolute centerpiece.
 ```
 
 ### Viandes rôties / braisées (plats québécois traditionnels)
-**Focus**: Croûte dorée/caramélisée, jus, herbes locales
-**Configuration recommandée**: Solo Papa (maîtrise) ou Duo (service élégant)
+**Focus**: Le plat comme vedette — croûte dorée spectaculaire, jus brillants, cuisson parfaite
+**Configuration recommandée**: Hero Dish (★★★★★)
 ```
-Golden-brown [meat] on a rustic Victorian copper serving platter,
-perfectly caramelized crust glistening with natural juices.
-Papa Renard carves with a vintage brass-handled knife while
-Maman Renard garnishes with fresh Quebec herbs (thyme, rosemary).
-Surrounding: roasted root vegetables (carrots, parsnips, turnips),
-autumn leaves scattered artfully. Steam rising gently. Small brass
-pocket watch nearby. Warm autumn lighting through window. Color
-palette: deep amber from meat, copper tones, forest green herbs.
-Photorealistic with focus on the beautiful caramelization and the
-couple's harmonious collaboration.
+Dramatic food photography of perfectly roasted [meat] on a rustic
+Victorian copper serving platter or cast-iron skillet, positioned
+prominently in frame. The meat shows spectacular golden-brown
+caramelized crust with visible Maillard reaction, glistening with
+natural juices and rendered fat. Shot from eye-level or slight
+45-degree angle to showcase the crust texture and juiciness. Gentle
+steam rises from the hot meat. Surrounding on weathered wooden table:
+roasted root vegetables (carrots, parsnips, turnips) showing
+caramelization, fresh Quebec herb bundles (rosemary, thyme), whole
+garlic bulbs, vintage brass carving knife and fork, dark wine bottle,
+scattered autumn maple leaves. Small brass pocket watch open showing
+mechanisms, or Papa Renard's copper goggles at edge. Warm directional
+lighting from side creates dramatic chiaroscuro - highlights on the
+crust, deep shadows for depth. Color palette: deep amber and mahogany
+from meat crust, copper tones, forest green herbs, rich browns, golden
+vegetable caramelization. Photorealistic culinary magazine style with
+shallow depth of field, sharp focus on the meat's texture and juices.
+The atmosphere is rustic elegance, traditionally Quebecois, utterly
+appetizing. The meat is the absolute star of the composition.
 ```
 
 ### Soupes traditionnelles québécoises
-**Focus**: Vapeur abondante, profondeur, textures variées, réconfort
-**Configuration recommandée**: Trio (familial) ou Solo Papa (tradition)
+**Focus**: Le plat comme vedette — vapeur abondante, profondeur visible, textures dans le bouillon
+**Configuration recommandée**: Hero Dish (★★★★★)
 ```
-Steaming bowl of [soup] photographed from a 45-degree angle,
-showing rich layers and hearty texture. Renardo holds the vintage
-brass spoon about to taste, his eyes wide with anticipation, while
-Papa Renard supervises with a gentle smile. Maman Renard garnishes
-with fresh parsley. On the worn wooden table: fresh bread torn for
-dipping, butter crock, scattered herbs. Abundant steam rises,
-catching warm afternoon light. Small brass elements (spoon rest,
-napkin ring). The scene feels cozy, nourishing, traditionally
-Quebecois. Photorealistic emphasizing the abundant steam, hearty
-ingredients visible in the soup, and the family moment.
+Cinematic food photography of steaming [soup name] in a rustic ceramic
+bowl or vintage copper pot, photographed from 45-degree angle showing
+depth and layers. The soup shows rich, hearty texture with visible
+ingredients (vegetables, meat, beans, herbs) floating in flavorful
+broth. Abundant dramatic steam rises in elegant spirals, backlit by
+warm window light making it ethereal and inviting. The bowl sits on
+worn wooden table. Artfully arranged around: torn fresh crusty bread
+pieces for dipping, vintage brass soup spoon, small crock of butter,
+scattered fresh herbs (parsley, thyme), whole vegetables that went
+into the soup, small brass salt cellar. Papa Renard's leather glove
+or Maman's lace napkin draped nearby, or small steampunk fox figurine
+watching. Warm afternoon lighting creates cozy atmosphere. Color
+palette: rich amber or cream broth, golden bread, forest green herbs,
+copper brass accents, warm wood. Professional food photography with
+shallow depth of field focusing on the soup's texture and abundant
+steam. The atmosphere is nourishing, cozy, traditionally Quebecois.
+The soup dominates the frame - hero of the image.
 ```
 
 ### Desserts traditionnels québécois
-**Focus**: Texture (croustillant/sirupeux/moelleux), générosité, tradition
-**Configuration recommandée**: Solo Maman (présentation) ou Focus Renardo (fierté)
+**Focus**: Le plat comme vedette — textures séduisantes (croûte, sirop, crémeux), générosité
+**Configuration recommandée**: Hero Dish (★★★★★)
 ```
-Intimate close-up of [dessert] showing visible texture details
-(flaky crust for tarte au sucre, syrupy richness for pouding chômeur).
-Maman Renard's delicate paw with lace cuffs garnishes the dessert
-with final artistic touch, or Renardo proudly presents his creation
-with parents' hands visible in supportive gestures. On antique
-porcelain with delicate patterns. Vintage brass dessert fork, small
-oil lamp creating warm glow. Quebec maple syrup bottle visible in
-background. Color palette: golden amber, deep brown sugar, cream,
-copper accents. Photorealistic with shallow depth of field focusing
-on the dessert's irresistible texture. Should feel indulgent,
-traditionally Quebecois, and utterly comforting.
+Intimate macro food photography of [dessert] showing exquisite texture
+details in sharp focus: flaky golden crust for tarte au sucre, syrupy
+glossy richness for pouding chômeur, caramelized top for crème brûlée.
+Shot from 45-degree angle or slight overhead to showcase texture. The
+dessert sits on antique porcelain plate with delicate Victorian patterns,
+or in rustic cast-iron skillet if appropriate. Surrounding on wooden
+table: vintage brass dessert fork, Quebec maple syrup bottle or jug,
+small oil lamp casting warm glow, scattered maple leaves, fresh cream
+in small pitcher, vintage linen napkin. Maman Renard's lace cuff or
+Victorian scarf draped elegantly nearby, or her small brass reading
+glasses. Warm soft lighting creates intimate atmosphere, highlights
+the dessert's texture (crispy, syrupy, creamy). Color palette: golden
+amber syrup, deep caramelized brown sugar, cream, copper brass accents,
+warm wood tones. Photorealistic with very shallow depth of field (f/1.8),
+razor-sharp focus on the dessert's most appetizing texture detail,
+background softly blurred. The atmosphere is indulgent, traditionally
+Quebecois, utterly irresistible. The dessert is the absolute star,
+demanding to be tasted immediately.
 ```
 
 ### Recettes de cabane à sucre
-**Focus**: Sirop d'érable, tradition printanière, chaleur familiale
-**Configuration recommandée**: Trio (tradition familiale forte)
+**Focus**: Le plat comme vedette — sirop d'érable visible, tradition printanière, générosité
+**Configuration recommandée**: Hero Dish (★★★★★)
 ```
-Warm scene with the Renard family preparing [dish] together.
-Prominent Quebec maple syrup bottle or jug visible, amber liquid
-being poured. Papa Renard manages the main cooking (ham glazing,
-beans simmering), Maman Renard adds artistic maple drizzle, young
-Renardo tastes and approves with sticky paws. Steam rising from
-hot dishes. On the table: maple products, traditional ingredients
-(ham, beans, eggs). Small touches of spring (pussy willows, early
-buds). Victorian brass kitchen with rustic wood. The atmosphere
-should feel festive, traditionally Quebecois, celebrating the sugar
-shack season. Photorealistic emphasizing the golden maple syrup
-and the joyful family tradition.
+Warm food photography of [sugar shack dish] as the centerpiece hero,
+showing generous maple syrup glaze, drizzle, or incorporation. The
+dish sits in traditional cookware (cast iron, ceramic) on rustic
+wooden table with visible grain. Shot from angle that best showcases
+the dish and maple syrup's role. Surrounding in artistic arrangement:
+prominent authentic Quebec maple syrup bottle or vintage jug with
+amber liquid visible, fresh ingredients (ham, beans, eggs depending
+on dish), early spring touches (pussy willows in small vase, budding
+maple twigs), vintage brass or wooden serving utensils, small enamel
+cups, checkered napkin. A small steampunk fox figurine or Papa
+Renard's copper goggles subtly placed. Warm natural lighting suggests
+springtime, creates cozy sugar shack atmosphere. Color palette: rich
+golden amber maple syrup, warm browns, cream, copper accents, pops
+of spring green. Photorealistic food photography with focus on the
+dish and the beautiful maple syrup glaze/drizzle. The atmosphere is
+festive, traditionally Quebecois, celebrates sugar shack season. The
+dish and maple syrup are the dual heroes of the composition.
 ```
 
 ## Palette de couleurs Renard
@@ -874,55 +1210,93 @@ Avant de générer l'image, vérifier que :
 
 L'image parfaite pour une recette du livre de cuisine de Renard Cool combine :
 
-- ✨ **Unicité**: Composition originale qui se démarque, jamais répétitive
-- 🍽️ **Appétit**: Le plat donne envie d'être mangé immédiatement
-- 🦊 **Personnalité Renard**: L'essence mystérieuse mais chaleureuse est présente
-- 🔧 **Steampunk subtil**: Des touches victoriennes élégantes sans surcharger
-- 🍁 **Identité québécoise**: Respecte et célèbre les traditions culinaires
-- 👨‍👩‍👦 **Famille et transmission**: La cuisine est un acte collectif d'amour
-- 📚 **Pédagogie visuelle**: L'image enseigne et inspire confiance
-- 🍂 **Chaleur automnale**: Réconfort, saison, lumière dorée
-- 📸 **Qualité photographique**: Style professionnel, photorealistic
-- 🎯 **Accessibilité**: Montre que "toi aussi tu peux le faire"
+### Approche Hero Dish (★★★★★ Recommandée)
+
+- 🍽️ **Le plat comme vedette absolue (70-80%)**: Composition centrée, textures spectaculaires, appétence maximale
+- 🎨 **Agencement sublime**: Ingrédients et accessoires disposés artistiquement pour raconter l'histoire
+- ✨ **Unicité de composition**: Angle, disposition, éclairage uniques pour chaque recette
+- 🦊 **Identité Renard subtile**: Accessoires iconiques (lunettes cuivre, gants cuir, foulard) ou figurine discrète
+- 🔧 **Steampunk victorien dosé**: Touches de cuivre, laiton, engrenages sans jamais surcharger
+- 💨 **Vapeur dramatique**: Volutes éthérées capturant la chaleur et la fraîcheur du plat
+- 💡 **Éclairage cinématographique**: Source, qualité et effets lumineux précisément décrits
+- 🍁 **Identité québécoise authentique**: Ingrédients traditionnels, accessoires patrimoniaux visibles
+- 🍂 **Chaleur automnale**: Palette terre, lumière dorée, ambiance réconfortante
+- 📸 **Qualité photographique pro**: Style éditorial culinaire magazine, shallow depth of field
+- 🎯 **Appétence immédiate**: Si l'image ne donne pas faim instantanément, elle échoue
+
+### Éléments secondaires (approches alternatives)
+
+- 👨‍👩‍👦 **Famille et transmission** (optionnel): Si l'aspect pédagogique prime sur l'appétence
+- 📚 **Pédagogie visuelle** (optionnel): Pour recettes éducatives type "Focus Renardo"
 
 ### Mantras de création d'images
 
-> **"Le plat est la star, le steampunk est l'ambiance, la famille est l'âme."**
+> **"Le plat est la vedette absolue — tout le reste enrichit, jamais ne domine."**
 
-> **"Papa maîtrise, Maman embellit, Renardo apprend — ensemble ils créent."**
+> **"Un agencement sublime raconte l'histoire du plat sans dire un mot."**
 
-> **"Chaque recette raconte non seulement comment cuisiner, mais avec qui partager."**
+> **"L'identité Renard se murmure à travers les accessoires, pas à travers les personnages."**
 
-> **"Si l'image intimide plutôt qu'inspire, elle a échoué sa mission."**
+> **"Si le plat ne donne pas faim immédiatement, l'image a raté sa mission première."**
+
+> **"Vapeur, textures, éclairage dramatique — la photographie culinaire est un art cinématographique."**
 
 > **"Une image de recette québécoise doit honorer la tradition, pas la réinventer."**
 
-> **"Le mystère culinaire se trouve dans la transformation, pas dans la complexité."**
+> **"Le mystère culinaire se trouve dans la transformation visible — croûte dorée, sauce onctueuse, vapeur éthérée."**
+
+> **"Chaque ingrédient placé autour du plat doit avoir une raison narrative d'exister."**
 
 ### Workflow de création recommandé
 
-1. **Lire la recette complète** (description, tips, catégories, difficulté)
-2. **Identifier le message clé** (tradition? apprentissage? maîtrise? collaboration?)
-3. **Choisir la configuration familiale** selon difficulté et type de recette
-4. **Sélectionner la composition et angle** (overhead, 45-degree, eye-level, macro)
-5. **Lister les éléments québécois** à inclure (si applicable)
-6. **Construire le prompt progressivement** :
-   - Commencer par l'angle de caméra et composition
-   - Décrire le plat avec textures hyper-spécifiques
-   - Ajouter les personnages Renard avec détails distinctifs
-   - Définir l'éclairage (source, qualité, effets)
-   - Intégrer éléments steampunk subtils
-   - Spécifier la palette de couleurs
-   - Ajouter paramètres photographiques techniques
-   - Conclure avec l'ambiance narrative
-7. **Réviser le prompt** :
-   - Vérifier que l'éclairage est bien décrit (source + qualité + effets)
-   - S'assurer que les textures sont spécifiques, pas vagues
-   - Confirmer que le langage est positif (pas négatif)
-   - Valider que les interactions lumière-matière sont mentionnées
+1. **Lire la recette complète** (description, ingrédients, étapes, tips, catégories)
+2. **Identifier l'élément visuel le plus spectaculaire du plat**
+   - Quelle texture est la plus appétissante? (croûte dorée, sauce onctueuse, crémeux)
+   - Quel moment de cuisson est le plus photogénique? (vapeur montante, bouillonnement)
+   - Quels ingrédients racontent visuellement l'histoire de la recette?
+3. **Choisir l'approche visuelle**
+   - **Par défaut: Hero Dish (★★★★★)** - Le plat est la vedette absolue
+   - Alternatif: Configurations familiales si aspect pédagogique/transmission est prioritaire
+4. **Sélectionner l'angle photographique optimal** pour le plat
+   - Overhead (vue aérienne): Pâtes, risottos, tartes, soupes
+   - 45-degree angle: Ragoûts, plats mijotés, montrer profondeur
+   - Eye-level: Viandes rôties, montrer croûte et hauteur
+   - Macro close-up: Desserts, textures ultra-détaillées
+5. **Planifier l'agencement sublime autour du plat**
+   - Ingrédients clés de la recette (herbes, légumes, épices)
+   - Accessoires victoriens pertinents (ustensiles en laiton, louche vintage)
+   - Éléments québécois si applicable (sirop d'érable, courges, feuilles)
+   - Présence Renard subtile (lunettes cuivre, gants cuir, foulard, ou figurine)
+   - Petits éléments steampunk décoratifs (engrenages, montre de poche)
+6. **Construire le prompt Hero Dish progressivement** :
+   - **Composition**: Angle de caméra, position du plat dans le cadre
+   - **Le plat**: Description ultra-détaillée avec textures spécifiques, récipient de cuisson
+   - **Vapeur**: Comment elle s'élève, comment la lumière l'attrape
+   - **Agencement**: Disposition artistique des ingrédients et accessoires autour
+   - **Présence Renard**: Accessoires identitaires OU figurine discrète en arrière-plan flou
+   - **Éclairage**: Source précise (window, golden hour), qualité (soft, dramatic), effets (backlit steam, shadows)
+   - **Palette**: Couleurs dominantes du plat et de l'environnement
+   - **Style photographique**: Paramètres techniques (shallow depth of field, focus point)
+   - **Ambiance**: Atmosphère narrative en une phrase
+   - **Affirmation finale**: "The dish is the absolute hero/star - 70% visual dominance"
+7. **Réviser le prompt avec checklist Hero Dish** :
+   - ✅ Le plat occupe 50-70% de l'importance visuelle?
+   - ✅ Textures du plat hyper-spécifiques (pas vagues comme "delicious")?
+   - ✅ Vapeur décrite si plat chaud?
+   - ✅ Éclairage détaillé: source + qualité + effets sur le plat?
+   - ✅ Agencement artistique d'ingrédients/accessoires racontant l'histoire?
+   - ✅ Présence Renard subtile (accessoires ou figurine, pas personnages dominants)?
+   - ✅ Palette de couleurs spécifiée?
+   - ✅ Paramètres photographiques (angle, depth of field, focus)?
+   - ✅ Langage positif (décrit ce qu'on VEUT, pas ce qu'on ne veut pas)?
 8. **Générer avec** : `npm run gemini -- -d ./public/cuisine "<prompt>" <filename>`
-9. **Évaluer le résultat** avec la checklist finale
-10. **Ajuster si nécessaire** : Affiner les détails problématiques et régénérer
+9. **Évaluer le résultat** :
+   - Le plat donne-t-il faim immédiatement?
+   - Le plat est-il clairement la vedette?
+   - L'agencement est-il sublime et équilibré?
+   - L'identité Renard est-elle présente mais discrète?
+   - La composition est-elle unique comparée aux autres recettes?
+10. **Ajuster si nécessaire** : Affiner les détails problématiques (éclairage, agencement, textures) et régénérer
 
 ## Informations techniques Gemini
 

@@ -458,7 +458,6 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
 
   /* Mobile Menu */
   .nav-mobile-menu {
-    display: none;
     position: fixed;
     top: 4.5rem;
     left: 0;
@@ -468,11 +467,20 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     overflow-y: auto;
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 199;
+    z-index: 250;
+    visibility: visible;
   }
 
   .nav-mobile-menu.active {
     transform: translateX(0);
+    visibility: visible;
+  }
+
+  /* Hide mobile menu on desktop */
+  @media (min-width: 1025px) {
+    .nav-mobile-menu {
+      display: none;
+    }
   }
 
   .mobile-section {
@@ -674,8 +682,11 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
 
   // Mobile menu toggle
   navMobileToggle?.addEventListener("click", () => {
+    console.log("Mobile toggle clicked");
+    console.log("Before toggle - navMobileMenu classes:", navMobileMenu?.className);
     navMobileToggle.classList.toggle("active");
     navMobileMenu?.classList.toggle("active");
+    console.log("After toggle - navMobileMenu classes:", navMobileMenu?.className);
   });
 
   // Close mobile menu on link click
