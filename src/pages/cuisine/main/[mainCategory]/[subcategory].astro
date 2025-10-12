@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import CuisineLayout from "../../../../layouts/CuisineLayout.astro";
 import CuisineNav from "../../../../components/CuisineNav.astro";
 import RecipesListing from "../../../../components/RecipesListing.astro";
+import { slugify } from "../../../../lib/slugify";
 
 export async function getStaticPaths() {
   const allRecipes = await getCollection("cuisine");
@@ -29,12 +30,17 @@ export async function getStaticPaths() {
     return { mainCategory, subcategory };
   });
 
-  // Generate pages
+  // Generate pages using slugified URLs
   return uniquePaths.map(({ mainCategory, subcategory }) => ({
-    params: { mainCategory, subcategory },
+    params: {
+      mainCategory: slugify(mainCategory),
+      subcategory: slugify(subcategory)
+    },
     props: {
       mainCategory,
       subcategory,
+      mainCategorySlug: slugify(mainCategory),
+      subcategorySlug: slugify(subcategory),
       recipes: allRecipes
         .filter(
           (recipe) =>
@@ -50,7 +56,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { mainCategory, subcategory, recipes } = Astro.props;
+const { mainCategory, subcategory, mainCategorySlug, subcategorySlug, recipes } = Astro.props;
 
 // Capitalize for display
 const subcategoryDisplay =
@@ -74,7 +80,7 @@ const subcategoryDisplay =
         <span class="separator">›</span>
         <a href="/cuisine">Cuisine</a>
         <span class="separator">›</span>
-        <a href={`/cuisine/main/${encodeURIComponent(mainCategory)}`}
+        <a href={`/cuisine/main/${mainCategorySlug}`}
           >{mainCategory}</a
         >
         <span class="separator">›</span>

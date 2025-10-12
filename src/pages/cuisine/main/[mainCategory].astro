@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import CuisineLayout from "../../../layouts/CuisineLayout.astro";
 import CuisineNav from "../../../components/CuisineNav.astro";
 import RecipesListing from "../../../components/RecipesListing.astro";
+import { slugify } from "../../../lib/slugify";
 
 export async function getStaticPaths() {
   const allRecipes = await getCollection("cuisine");
@@ -15,11 +16,12 @@ export async function getStaticPaths() {
     }
   });
 
-  // Generate a page for each main category
+  // Generate a page for each main category using slugified URLs
   return Array.from(mainCategorySet).map((mainCategory) => ({
-    params: { mainCategory },
+    params: { mainCategory: slugify(mainCategory) },
     props: {
       mainCategory,
+      mainCategorySlug: slugify(mainCategory),
       recipes: allRecipes
         .filter((recipe) => recipe.data.mainCategory === mainCategory)
         .sort(
@@ -31,7 +33,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { mainCategory, recipes } = Astro.props;
+const { mainCategory, mainCategorySlug, recipes } = Astro.props;
 ---
 
 <CuisineLayout

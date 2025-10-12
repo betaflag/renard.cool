@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import CuisineLayout from "../../../layouts/CuisineLayout.astro";
 import CuisineNav from "../../../components/CuisineNav.astro";
 import RecipesListing from "../../../components/RecipesListing.astro";
+import { slugify } from "../../../lib/slugify";
 
 export async function getStaticPaths() {
   const allRecipes = await getCollection("cuisine");
@@ -16,11 +17,12 @@ export async function getStaticPaths() {
     }
   });
 
-  // Generate a page for each standalone category
+  // Generate a page for each standalone category using slugified URLs
   return Array.from(categorySet).map((category) => ({
-    params: { category },
+    params: { category: slugify(category) },
     props: {
       category,
+      categorySlug: slugify(category),
       recipes: allRecipes
         .filter(
           (recipe) =>
@@ -36,7 +38,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { category, recipes } = Astro.props;
+const { category, categorySlug, recipes } = Astro.props;
 
 // Capitalize first letter for display
 const categoryDisplay =

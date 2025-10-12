@@ -20,65 +20,12 @@ const { recipes } = Astro.props;
   }
 </div>
 
-<div class="draft-toggle-container">
-  <button id="draft-toggle" class="draft-toggle-link">
-    <span class="draft-toggle-text">◯ Afficher brouillons</span>
-  </button>
-</div>
-
 <style>
   .recipes-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 3rem;
-  }
-
-  .draft-toggle-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(211, 84, 0, 0.1);
-    animation: fadeIn 1s ease-out 0.5s both;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .draft-toggle-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background: transparent;
-    border: 1px solid rgba(211, 84, 0, 0.25);
-    border-radius: 2px;
-    color: #999;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    font-family: inherit;
-  }
-
-  .draft-toggle-link:hover {
-    background: rgba(211, 84, 0, 0.05);
-    border-color: rgba(211, 84, 0, 0.4);
-    color: #d35400;
-  }
-
-  .draft-toggle-link.active {
-    background: rgba(211, 84, 0, 0.1);
-    border-color: rgba(211, 84, 0, 0.5);
-    color: #d35400;
   }
 
   @media (max-width: 1024px) {
@@ -92,72 +39,19 @@ const { recipes } = Astro.props;
     .recipes-grid {
       gap: 1.5rem;
     }
-
-    .draft-toggle-container {
-      margin-top: 3rem;
-    }
   }
 </style>
 
 <script>
   const recipes = document.querySelectorAll(".recipe-card");
-  const draftToggle = document.getElementById("draft-toggle");
-  const draftToggleText = document.querySelector(".draft-toggle-text");
 
-  let showDrafts = false;
+  // Hide draft recipes by default
+  recipes.forEach((recipe) => {
+    const recipeEl = recipe as HTMLElement;
+    const isDraft = recipeEl.dataset.draft === "true";
 
-  // Check URL params on load
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get("showDrafts") === "true") {
-    showDrafts = true;
-    if (draftToggle) draftToggle.classList.add("active");
-    if (draftToggleText) draftToggleText.textContent = "✓ Brouillons affichés";
-  }
-
-  // Hide draft recipes initially if not showing drafts
-  function updateRecipeVisibility() {
-    recipes.forEach((recipe) => {
-      const recipeEl = recipe as HTMLElement;
-      const isDraft = recipeEl.dataset.draft === "true";
-
-      let shouldShow = true;
-
-      // Check draft status
-      if (!showDrafts && isDraft) {
-        shouldShow = false;
-      }
-
-      recipeEl.style.display = shouldShow ? "block" : "none";
-    });
-  }
-
-  // Initial visibility update
-  updateRecipeVisibility();
-
-  // Draft toggle handler
-  if (draftToggle) {
-    draftToggle.addEventListener("click", () => {
-      showDrafts = !showDrafts;
-
-      if (showDrafts) {
-        if (draftToggle) draftToggle.classList.add("active");
-        if (draftToggleText)
-          draftToggleText.textContent = "✓ Brouillons affichés";
-        // Update URL without reload
-        const newUrl = new URL(window.location.href);
-        newUrl.searchParams.set("showDrafts", "true");
-        window.history.pushState({}, "", newUrl);
-      } else {
-        if (draftToggle) draftToggle.classList.remove("active");
-        if (draftToggleText)
-          draftToggleText.textContent = "◯ Afficher brouillons";
-        // Update URL without reload
-        const newUrl = new URL(window.location.href);
-        newUrl.searchParams.delete("showDrafts");
-        window.history.pushState({}, "", newUrl);
-      }
-
-      updateRecipeVisibility();
-    });
-  }
+    if (isDraft) {
+      recipeEl.style.display = "none";
+    }
+  });
 </script>

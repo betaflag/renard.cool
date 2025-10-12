@@ -1,5 +1,6 @@
 ---
 import CategoryMenuItem from "./CategoryMenuItem.astro";
+import { slugify } from "../lib/slugify";
 
 interface Subcategory {
   name: string;
@@ -25,8 +26,8 @@ const {
   activeSubcategory,
 } = Astro.props;
 
-// Generate unique ID for this category group
-const groupId = `category-group-${mainCategoryName.toLowerCase().replace(/\s+/g, "-")}`;
+// Generate unique ID for this category group using slug
+const groupId = `category-group-${slugify(mainCategoryName)}`;
 ---
 
 <div class="collapsible-category-group" data-group-id={groupId}>

@@ -4,6 +4,7 @@ import MealPlanWidget from "./MealPlanWidget.astro";
 import ShoppingListWidget from "./ShoppingListWidget.astro";
 import CategoryMenuItem from "./CategoryMenuItem.astro";
 import CollapsibleCategoryGroup from "./CollapsibleCategoryGroup.astro";
+import { slugify } from "../lib/slugify";
 
 export interface Props {
   variant?: "index" | "detail";
@@ -84,7 +85,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
 
     <div class="nav-center">
       <a
-        href="/cuisine/main/Petite%20École"
+        href={`/cuisine/main/${slugify("Petite École")}`}
         class={`nav-link-button ${activeMainCategory === "Petite École" ? 'active' : ''}`}
       >
         Petite École
@@ -106,7 +107,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
           {/* Standalone categories first (alphabetically) */}
           {categories.map(([category, count]) => (
             <CategoryMenuItem
-              href={`/cuisine/categories/${encodeURIComponent(category)}`}
+              href={`/cuisine/categories/${slugify(category)}`}
               name={category}
               count={count}
               isActive={activeCategory === category && !activeMainCategory}
@@ -119,14 +120,14 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
             .map((mainCat) => (
               <CollapsibleCategoryGroup
                 mainCategoryName={mainCat.name}
-                mainCategoryUrl={`/cuisine/main/${encodeURIComponent(mainCat.name)}`}
+                mainCategoryUrl={`/cuisine/main/${slugify(mainCat.name)}`}
                 mainCategoryCount={mainCat.count}
                 subcategories={Array.from(mainCat.subcategories?.entries() || [])
                   .sort((a, b) => a[0].localeCompare(b[0]))
                   .map(([name, count]) => ({
                     name,
                     count,
-                    url: `/cuisine/main/${encodeURIComponent(mainCat.name)}/${encodeURIComponent(name)}`,
+                    url: `/cuisine/main/${slugify(mainCat.name)}/${slugify(name)}`,
                   }))}
                 isActive={activeMainCategory === mainCat.name}
                 activeSubcategory={activeCategory}
@@ -150,7 +151,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     <div class="mobile-section">
       <h3 class="mobile-section-title">Menu</h3>
       <a
-        href="/cuisine/main/Petite%20École"
+        href={`/cuisine/main/${slugify("Petite École")}`}
         class={`mobile-item ${activeMainCategory === "Petite École" ? 'active' : ''}`}
       >
         <span class="item-name">Petite École</span>
@@ -167,7 +168,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
       {/* Standalone categories first (alphabetically) */}
       {categories.map(([category, count]) => (
         <a
-          href={`/cuisine/categories/${encodeURIComponent(category)}`}
+          href={`/cuisine/categories/${slugify(category)}`}
           class={`mobile-item ${activeCategory === category && !activeMainCategory ? 'active' : ''}`}
         >
           <span class="item-name">{category}</span>
@@ -179,12 +180,12 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
       {mainCategories
         .filter((mainCat) => mainCat.name !== "Petite École")
         .map((mainCat) => {
-          const mobileGroupId = `mobile-category-group-${mainCat.name.toLowerCase().replace(/\s+/g, "-")}`;
+          const mobileGroupId = `mobile-category-group-${slugify(mainCat.name)}`;
           return (
             <div class="mobile-collapsible-group" data-group-id={mobileGroupId}>
               <div class="mobile-category-header">
                 <a
-                  href={`/cuisine/main/${encodeURIComponent(mainCat.name)}`}
+                  href={`/cuisine/main/${slugify(mainCat.name)}`}
                   class={`mobile-item main-category ${activeMainCategory === mainCat.name ? 'active' : ''}`}
                 >
                   <span class="item-name">{mainCat.name}</span>
@@ -204,7 +205,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
                   .sort((a, b) => a[0].localeCompare(b[0]))
                   .map(([subcat, subcount]) => (
                     <a
-                      href={`/cuisine/main/${encodeURIComponent(mainCat.name)}/${encodeURIComponent(subcat)}`}
+                      href={`/cuisine/main/${slugify(mainCat.name)}/${slugify(subcat)}`}
                       class={`mobile-item subcategory ${activeMainCategory === mainCat.name && activeCategory === subcat ? 'active' : ''}`}
                     >
                       <span class="item-name">→ {subcat}</span>
