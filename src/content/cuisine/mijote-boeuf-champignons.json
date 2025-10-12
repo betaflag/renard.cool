@@ -1,7 +1,10 @@
 {
   "name": "Mijoté de bœuf aux champignons d'automne du Renard",
   "description": "Un ragoût réconfortant où le bœuf fond sous la langue et les champignons d'automne libèrent leurs parfums boisés. Braisé lentement au vin rouge avec carottes et herbes fraîches, ce plat capture l'essence même de la saison des récoltes.",
-  "servings": 6,
+  "servings": {
+    "quantity": 6,
+    "unit": "personnes"
+  },
   "freezable": true,
   "time": {
     "prep": 25,
@@ -42,12 +45,8 @@
     "Retirer du four. Goûter et rectifier l'assaisonnement. Si la sauce est trop liquide, retirer la viande et les légumes, puis réduire la sauce à feu vif 5-10 minutes.",
     "Servir dans des bols creux, parsemé de persil frais. Accompagner de purée de pommes de terre crémeuse, de pâtes larges ou de pain croûté pour saucer."
   ],
-  "categories": [
-    "plat principal",
-    "réconfortant",
-    "automne",
-    "français"
-  ],
+  "categories": ["plat principal"],
+  "tags": ["français", "réconfortant", "automne", "four", "congélation"],
   "difficulty": "moyen",
   "heroImage": "/cuisine/mijote-boeuf-champignons.png",
   "pubDate": "2025-10-11",

@@ -1,0 +1,183 @@
+---
+import { getCollection } from "astro:content";
+import CuisineLayout from "../../../layouts/CuisineLayout.astro";
+import CuisineNav from "../../../components/CuisineNav.astro";
+import RecipesListing from "../../../components/RecipesListing.astro";
+
+export async function getStaticPaths() {
+  const allRecipes = await getCollection("cuisine");
+
+  // Extract unique main categories
+  const mainCategorySet = new Set<string>();
+  allRecipes.forEach((recipe) => {
+    if (recipe.data.mainCategory) {
+      mainCategorySet.add(recipe.data.mainCategory);
+    }
+  });
+
+  // Generate a page for each main category
+  return Array.from(mainCategorySet).map((mainCategory) => ({
+    params: { mainCategory },
+    props: {
+      mainCategory,
+      recipes: allRecipes
+        .filter((recipe) => recipe.data.mainCategory === mainCategory)
+        .sort(
+          (a, b) =>
+            new Date(b.data.pubDate).valueOf() -
+            new Date(a.data.pubDate).valueOf()
+        ),
+    },
+  }));
+}
+
+const { mainCategory, recipes } = Astro.props;
+---
+
+<CuisineLayout
+  title={`${mainCategory} | Renardo Cuisine`}
+  description={`Découvrez toutes les recettes de ${mainCategory}`}
+>
+  <CuisineNav variant="index" activeMainCategory={mainCategory} />
+
+  <main>
+    <div class="header-section">
+      <div class="breadcrumb">
+        <a href="/">Accueil</a>
+        <span class="separator">›</span>
+        <a href="/cuisine">Cuisine</a>
+        <span class="separator">›</span>
+        <span class="current">{mainCategory}</span>
+      </div>
+
+      <h1 class="page-title">
+        <span class="accent">{mainCategory}</span>
+      </h1>
+      <p class="subtitle">{recipes.length} recette{recipes.length > 1 ? "s" : ""} dans cette catégorie</p>
+    </div>
+
+    <RecipesListing recipes={recipes} />
+  </main>
+
+  <style>
+    main {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .header-section {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 2px solid rgba(211, 84, 0, 0.15);
+      animation: fadeInUp 0.8s ease-out;
+      position: relative;
+    }
+
+    .header-section::after {
+      content: "✦";
+      position: absolute;
+      bottom: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.25rem;
+      color: #d35400;
+      background: #faf8f3;
+      padding: 0 1rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .breadcrumb a {
+      color: #999;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: #d35400;
+    }
+
+    .breadcrumb .separator {
+      color: #ccc;
+    }
+
+    .breadcrumb .current {
+      color: #d35400;
+      font-weight: 600;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #2c2c2c;
+      margin-bottom: 1.5rem;
+    }
+
+    .accent {
+      color: #d35400;
+      font-style: italic;
+      display: inline-block;
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: #777;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.02em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 5.5rem 1.25rem 3rem;
+      }
+
+      .header-section {
+        margin-bottom: 3rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .breadcrumb {
+        font-size: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .page-title {
+        font-size: clamp(2.25rem, 10vw, 3rem);
+        margin-bottom: 1.25rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</CuisineLayout>

@@ -1,7 +1,10 @@
 {
   "name": "Risotto aux champignons d'automne du Renard",
   "description": "Un risotto crémeux et réconfortant qui célèbre les champignons de saison. Le riz arborio libère lentement son amidon pour créer cette texture soyeuse signature, pendant que les champignons apportent leurs notes terreuses et boisées.",
-  "servings": 4,
+  "servings": {
+    "quantity": 4,
+    "unit": "personnes"
+  },
   "freezable": false,
   "time": {
     "prep": 10,
@@ -109,7 +112,8 @@
     "Retirer du feu. Ajouter le reste du beurre (15 ml) et le parmesan râpé. Remuer vigoureusement 1 minute pour créer la mantecatura (texture crémeuse et onctueuse). Ajuster la consistance avec un peu de bouillon si nécessaire — le risotto doit couler légèrement dans l'assiette.",
     "Rectifier l'assaisonnement. Servir immédiatement dans des assiettes chaudes, garnir avec les champignons réservés, le persil ciselé, des copeaux de parmesan et quelques gouttes d'huile de truffe si désiré."
   ],
-  "categories": ["plat principal", "réconfortant", "italien", "automne"],
+  "categories": ["plat principal"],
+  "tags": ["italien", "réconfortant", "automne"],
   "difficulty": "moyen",
   "heroImage": "/cuisine/risotto-champignons.png",
   "pubDate": "2025-10-11",

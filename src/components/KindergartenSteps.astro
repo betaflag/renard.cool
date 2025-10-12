@@ -49,15 +49,15 @@ const { steps } = Astro.props;
   .kindergarten-steps {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
     margin: 2rem 0;
   }
 
   .visual-step {
     background: white;
-    border: 3px solid #ff6b00;
+    border: 2px solid #ff6b00;
     border-radius: 16px;
-    padding: 2.5rem;
+    padding: 2rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
   }
@@ -75,12 +75,12 @@ const { steps } = Astro.props;
   .step-header {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
   .step-number {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #ff6b00;
     font-family: "Playfair Display", serif;
@@ -93,7 +93,7 @@ const { steps } = Astro.props;
   }
 
   .step-instruction {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #2c2c2c;
     font-weight: 600;
     line-height: 1.3;
@@ -102,13 +102,13 @@ const { steps } = Astro.props;
   }
 
   .step-actor {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: white;
     background: #ff6b00;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 8px;
     flex-shrink: 0;
     align-self: flex-start;
@@ -128,7 +128,7 @@ const { steps } = Astro.props;
   .visual-elements {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: flex-start;
     justify-content: flex-start;
   }
@@ -137,18 +137,18 @@ const { steps } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    max-width: 160px;
+    gap: 0.75rem;
+    max-width: 140px;
     flex: 0 0 auto;
   }
 
   .visual-element img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     border: 2px solid #ddd;
     border-radius: 12px;
-    padding: 0.75rem;
+    padding: 0.65rem;
     background: white;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -169,7 +169,7 @@ const { steps } = Astro.props;
   }
 
   .element-label {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #444;
     text-align: center;
@@ -177,13 +177,13 @@ const { steps } = Astro.props;
   }
 
   .element-quantity {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #ff6b00;
     text-align: center;
     font-family: "Crimson Pro", serif;
     line-height: 1.2;
-    padding: 0.35rem 0.75rem;
+    padding: 0.3rem 0.65rem;
     background: rgba(255, 107, 0, 0.12);
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -192,11 +192,11 @@ const { steps } = Astro.props;
   /* Mobile responsive */
   @media (max-width: 768px) {
     .kindergarten-steps {
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .visual-step {
-      padding: 2rem;
+      padding: 1.5rem;
       border-width: 2px;
     }
 
@@ -205,70 +205,21 @@ const { steps } = Astro.props;
     }
 
     .step-number {
-      font-size: 3rem;
-    }
-
-    .step-instruction {
-      font-size: 1.2rem;
-    }
-
-    .step-actor {
-      font-size: 0.7rem;
-      padding: 0.4rem 0.8rem;
-    }
-
-    .visual-elements {
-      gap: 2rem;
-      justify-content: center;
-    }
-
-    .visual-element {
-      max-width: 130px;
-    }
-
-    .visual-element img {
-      width: 100px;
-      height: 100px;
-      padding: 0.6rem;
-      border-width: 2px;
-    }
-
-    .element-label {
-      font-size: 1rem;
-    }
-
-    .element-quantity {
-      font-size: 1.4rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .visual-step {
-      padding: 1.5rem;
-    }
-
-    .step-header {
-      flex-wrap: wrap;
-    }
-
-    .step-number {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
     }
 
     .step-instruction {
       font-size: 1.1rem;
-      flex-basis: 100%;
-      order: 3;
     }
 
     .step-actor {
-      font-size: 0.65rem;
-      padding: 0.35rem 0.6rem;
-      order: 2;
+      font-size: 0.7rem;
+      padding: 0.35rem 0.7rem;
     }
 
     .visual-elements {
       gap: 1.5rem;
+      justify-content: center;
     }
 
     .visual-element {
@@ -276,18 +227,67 @@ const { steps } = Astro.props;
     }
 
     .visual-element img {
-      width: 90px;
-      height: 90px;
+      width: 85px;
+      height: 85px;
+      padding: 0.5rem;
       border-width: 2px;
     }
 
     .element-label {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .element-quantity {
-      font-size: 1.3rem;
-      padding: 0.3rem 0.5rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .visual-step {
+      padding: 1.25rem;
+    }
+
+    .step-header {
+      flex-wrap: wrap;
+    }
+
+    .step-number {
+      font-size: 2rem;
+    }
+
+    .step-instruction {
+      font-size: 1rem;
+      flex-basis: 100%;
+      order: 3;
+    }
+
+    .step-actor {
+      font-size: 0.65rem;
+      padding: 0.3rem 0.6rem;
+      order: 2;
+    }
+
+    .visual-elements {
+      gap: 1.25rem;
+    }
+
+    .visual-element {
+      max-width: 100px;
+    }
+
+    .visual-element img {
+      width: 80px;
+      height: 80px;
+      border-width: 2px;
+    }
+
+    .element-label {
+      font-size: 0.85rem;
+    }
+
+    .element-quantity {
+      font-size: 1.2rem;
+      padding: 0.25rem 0.5rem;
     }
   }
 
@@ -302,48 +302,48 @@ const { steps } = Astro.props;
       page-break-inside: avoid;
       border: 2px solid #ddd;
       box-shadow: none;
-      padding: 2rem;
+      padding: 1.5rem;
       margin-bottom: 1rem;
     }
 
     .step-header {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .step-number {
-      font-size: 3rem;
+      font-size: 2.25rem;
     }
 
     .step-instruction {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
 
     .step-actor {
-      font-size: 0.75rem;
-      padding: 0.4rem 0.8rem;
+      font-size: 0.7rem;
+      padding: 0.35rem 0.7rem;
     }
 
     .visual-elements {
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .visual-element {
-      max-width: 140px;
+      max-width: 120px;
     }
 
     .visual-element img {
-      width: 110px;
-      height: 110px;
+      width: 95px;
+      height: 95px;
       border-width: 2px;
       box-shadow: none;
     }
 
     .element-label {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
 
     .element-quantity {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
   }
 </style>

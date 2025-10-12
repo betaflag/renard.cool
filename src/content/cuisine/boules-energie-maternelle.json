@@ -1,0 +1,150 @@
+{
+  "name": "Boules d'Énergie Tournesol-Miel de la Petite École",
+  "description": "Des boules d'énergie délicieuses et nutritives que les enfants peuvent faire ENTIÈREMENT avec leurs mains — AUCUNE cuisson nécessaire! Rouler des boules collantes est une activité sensorielle extraordinaire que les enfants de 5-6 ans adorent. Résultat immédiat, succès garanti, et c'est bon pour la santé!",
+  "servings": {
+    "quantity": 20,
+    "unit": "boules"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 15,
+    "cook": 0,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Aucune",
+  "ingredients": [
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "flocons d'avoine à cuisson rapide",
+      "note": "1 tasse - la base collante"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "graines de tournesol",
+      "note": "½ tasse - sans noix, sans danger"
+    },
+    {
+      "quantity": "75",
+      "unit": "ml",
+      "ingredient": "miel liquide",
+      "note": "⅓ tasse - le liant sucré"
+    },
+    {
+      "quantity": "75",
+      "unit": "ml",
+      "ingredient": "raisins secs",
+      "note": "⅓ tasse - pour la douceur"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "extrait de vanille",
+      "note": "1 c. à thé - sent bon!"
+    }
+  ],
+  "steps": [
+    "Dans un GRAND bol, l'ADULTE ou les ENFANTS versent tous les ingrédients: les flocons d'avoine, les graines de tournesol, le miel, les raisins secs et la vanille.",
+    "Avec une GRANDE cuillère en bois, les ENFANTS mélangent tout ensemble. Au début c'est sec, puis ça devient collant — c'est parfait! Mélanger bien jusqu'à ce que tout soit combiné.",
+    "Les ENFANTS se lavent les mains et les sèchent bien.",
+    "Chaque ENFANT prend environ 15 ml (1 cuillère à soupe) du mélange collant avec ses mains propres et roule entre les paumes pour faire une boule. Presser fort pour que ça colle!",
+    "Les ENFANTS déposent leurs boules sur une grande assiette ou un plateau. Faire 20 boules en tout.",
+    "FACULTATIF: Mettre au réfrigérateur 15-30 minutes pour que les boules deviennent plus fermes. MAIS on peut aussi les manger tout de suite!",
+    "Tout le monde déguste sa boule d'énergie avec un verre de lait ou d'eau."
+  ],
+  "visualSteps": [
+    {
+      "instruction": "Mettre tous les ingrédients dans le grand bol",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/pictogrammes/bol-grand.png",
+          "label": "Grand bol"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/avoine.png",
+          "label": "Avoine",
+          "quantity": "250 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/graines-tournesol.png",
+          "label": "Graines tournesol",
+          "quantity": "125 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/miel.png",
+          "label": "Miel",
+          "quantity": "75 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/raisins-secs.png",
+          "label": "Raisins secs",
+          "quantity": "75 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/vanille.png",
+          "label": "Vanille",
+          "quantity": "5 ml"
+        }
+      ]
+    },
+    {
+      "instruction": "Mélanger tout ensemble avec la cuillère en bois",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "action",
+          "image": "/pictogrammes/melanger.png",
+          "label": "Mélanger fort"
+        }
+      ]
+    },
+    {
+      "instruction": "Rouler le mélange en boules avec les mains",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "action",
+          "image": "/pictogrammes/faire-boule.png",
+          "label": "Faire une boule"
+        }
+      ]
+    },
+    {
+      "instruction": "Déposer les boules sur une assiette",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/pictogrammes/plaque-biscuits.png",
+          "label": "Assiette ou plateau"
+        }
+      ]
+    }
+  ],
+  "serving_suggestions": [
+    "Avec un verre de lait froid",
+    "Pour la collation du matin ou après-midi",
+    "Emballées individuellement pour rapporter à la maison",
+    "Conservées au réfrigérateur jusqu'à 5 jours"
+  ],
+  "mainCategory": "Petite École",
+  "categories": ["collation", "dessert"],
+  "tags": ["maternelle", "sans-cuisson", "rapide", "santé", "congélation"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/boules-energie-maternelle.png",
+  "pubDate": "2025-10-12",
+  "draft": false,
+  "variant": "maternelle",
+  "ingredientIntro": "Seulement 5 ingrédients simples et AUCUNE cuisson! Les graines de tournesol remplacent les noix pour éviter les allergies. Le miel et les raisins apportent le sucre naturel — pas besoin de cassonade. L'avoine et les graines donnent de l'énergie durable. Parfait pour les petites mains qui adorent toucher, presser et rouler des textures collantes!",
+  "tips": "POUR LES ENSEIGNANTS ET PARENTS: Cette recette est PARFAITE pour les premières expériences culinaires en maternelle — zéro cuisson, zéro danger, résultat immédiat! Le mélange sera TRÈS collant — c'est exactement ce qu'on veut pour l'expérience sensorielle. Ayez des lingettes humides à portée de main. Si le mélange est trop sec et ne tient pas ensemble, ajoutez 15 ml de miel. Si trop collant pour manipuler, mouillez légèrement les mains des enfants avec de l'eau froide. Les graines de tournesol remplacent les arachides/noix — vérifiez quand même les allergies aux graines avant l'activité. Utilisez du miel LIQUIDE (pas cristallisé) pour faciliter le mélange. Les flocons d'avoine à cuisson rapide fonctionnent mieux que l'avoine instantanée. Vocabulaire à enseigner: collant, rouler, presser, texture, boule, ingrédients secs vs liquides, mélange. Chaque enfant peut faire 1-2 boules et les rapporter à la maison dans un petit sac Ziploc étiqueté. Les boules se conservent 5 jours au réfrigérateur et se congèlent parfaitement (3 mois). Activité ULTRA-RAPIDE: 15 minutes du début à la fin. Les enfants peuvent décorer leurs boules en les roulant dans de la noix de coco râpée, des graines de sésame, ou du cacao en poudre (facultatif). Cette recette développe la motricité fine (rouler, presser, former) et enseigne les mesures. Succès garanti — impossible de rater!",
+  "note": "SÉCURITÉ: Aucun four, aucune cuisson, aucun couteau. Activité 100% sécuritaire. Vérifier allergies: graines de tournesol, miel (pas avant 1 an pour bébés, mais OK pour 5-6 ans). Les boules peuvent être mangées immédiatement — pas besoin d'attendre."
+}

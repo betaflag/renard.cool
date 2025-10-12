@@ -1,7 +1,10 @@
 {
   "name": "Soupe à l'oignon gratinée de l'Automne",
   "description": "La classique soupe à l'oignon française adaptée pour la mijoteuse. Les oignons caramélisent lentement pour développer une douceur profonde, couronnée de pain croûté et de fromage fondu doré.",
-  "servings": 6,
+  "servings": {
+    "quantity": 6,
+    "unit": "personnes"
+  },
   "freezable": true,
   "time": {
     "prep": 20,
@@ -33,11 +36,8 @@
     "Pour servir : préchauffer le gril du four. Verser la soupe dans des bols allant au four. Flotter une tranche de pain sur chaque bol, couvrir généreusement de fromage râpé.",
     "Gratiner sous le gril 3-5 minutes jusqu'à ce que le fromage soit doré et bouillonnant. Servir immédiatement."
   ],
-  "categories": [
-    "soupe",
-    "traditionnel",
-    "français"
-  ],
+  "categories": ["entrée"],
+  "tags": ["français", "traditionnel", "réconfortant", "mijoteuse", "congélation"],
   "difficulty": "facile",
   "heroImage": "/cuisine/soupe-oignon.png",
   "pubDate": "2025-10-03",

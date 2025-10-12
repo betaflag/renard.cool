@@ -1,0 +1,84 @@
+---
+export interface Props {
+  href: string;
+  name: string;
+  count: number;
+  isActive?: boolean;
+  isSubcategory?: boolean;
+}
+
+const { href, name, count, isActive = false, isSubcategory = false } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`category-menu-item ${isActive ? 'active' : ''} ${isSubcategory ? 'subcategory' : ''}`}
+>
+  <span class="item-name">{isSubcategory ? `→ ${name}` : name}</span>
+  <span class="item-count">{count}</span>
+</a>
+
+<style>
+  .category-menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    color: #2c2c2c;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(211, 84, 0, 0.08);
+    transition: all 0.2s ease;
+  }
+
+  .category-menu-item:last-child {
+    border-bottom: none;
+  }
+
+  .category-menu-item:hover {
+    background: rgba(250, 248, 243, 0.8);
+    color: #d35400;
+    transform: translateX(3px);
+    box-shadow: -3px 0 0 #d35400;
+  }
+
+  .category-menu-item.active {
+    background: rgba(211, 84, 0, 0.1);
+    color: #d35400;
+    font-weight: 600;
+  }
+
+  .item-name {
+    text-transform: capitalize;
+  }
+
+  .item-count {
+    background: rgba(211, 84, 0, 0.15);
+    color: #d35400;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .category-menu-item.active .item-count {
+    background: #d35400;
+    color: white;
+  }
+
+  /* Subcategory styling */
+  .category-menu-item.subcategory {
+    padding-left: 2rem;
+    font-size: 0.88rem;
+    background: rgba(250, 248, 243, 0.5);
+  }
+
+  .category-menu-item.subcategory .item-name {
+    color: #555;
+  }
+
+  .category-menu-item.subcategory:hover .item-name {
+    color: #d35400;
+  }
+</style>

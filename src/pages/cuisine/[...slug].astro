@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import CuisineLayout from "../../layouts/CuisineLayout.astro";
-import RecipeDetailNav from "../../components/RecipeDetailNav.astro";
+import CuisineNav from "../../components/CuisineNav.astro";
 import RecipeStepAnimations from "../../components/RecipeStepAnimations.astro";
 import KindergartenSteps from "../../components/KindergartenSteps.astro";
 
@@ -36,7 +36,7 @@ function formatTime(minutes: number) {
   title={`${data.name} | Renardo Cuisine`}
   description={data.description}
 >
-  <RecipeDetailNav />
+  <CuisineNav variant="detail" />
 
   <article class="recipe-article">
     <header class="hero-section">
@@ -74,7 +74,7 @@ function formatTime(minutes: number) {
 
           <div class="meta-item">
             <div class="meta-label">Portions</div>
-            <div class="meta-value meta-number">{data.servings} convives</div>
+            <div class="meta-value meta-number">{data.servings.quantity} {data.servings.unit}</div>
           </div>
 
           {
@@ -254,7 +254,7 @@ function formatTime(minutes: number) {
     .recipe-article {
       max-width: 800px;
       margin: 0 auto;
-      padding: var(--space-3xl) var(--space-xl) var(--space-2xl);
+      padding: 6rem var(--space-xl) var(--space-2xl);
       position: relative;
       z-index: 10;
     }
@@ -762,7 +762,7 @@ function formatTime(minutes: number) {
     /* Responsive Styles */
     @media (max-width: 768px) {
       .recipe-article {
-        padding: 2rem 1.25rem;
+        padding: 5.5rem 1.25rem 2rem;
       }
 
       .hero-image-wrapper {
@@ -816,7 +816,7 @@ function formatTime(minutes: number) {
 
     @media (max-width: 480px) {
       .recipe-article {
-        padding: var(--space-xl) var(--space-sm);
+        padding: 5rem var(--space-sm) var(--space-xl);
       }
 
       .hero-image-wrapper {

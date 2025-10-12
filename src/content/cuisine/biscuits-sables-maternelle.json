@@ -1,0 +1,212 @@
+{
+  "name": "Biscuits Sablés Express de la Petite École",
+  "description": "Des biscuits sablés classiques à 3 ingrédients seulement! Les enfants adorent rouler la pâte avec le rouleau à pâtisserie et découper des formes avec les emporte-pièces. Étoiles, cœurs, cercles — la créativité au rendez-vous! Cuisson rapide de 10 minutes et texture croustillante parfaite. Simple, amusant et délicieux!",
+  "servings": {
+    "quantity": 30,
+    "unit": "biscuits"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 20,
+    "cook": 10,
+    "wait": 5,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "beurre ramolli",
+      "note": "1 tasse - sorti 30 min avant"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "sucre blanc",
+      "note": "½ tasse - pour la douceur"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "farine tout-usage",
+      "note": "2 tasses - la structure du biscuit"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "extrait de vanille",
+      "note": "½ c. à thé - pour le goût"
+    },
+    { "subsection": "Décoration facultative" },
+    {
+      "quantity": "au goût",
+      "unit": null,
+      "ingredient": "sucre coloré",
+      "note": "pour saupoudrer avant cuisson"
+    }
+  ],
+  "steps": [
+    "L'ADULTE allume le four à 350°F. L'ADULTE couvre 2 plaques à biscuits de papier parchemin.",
+    "Dans un GRAND bol, l'ADULTE ou les ENFANTS mettent le beurre ramolli et le sucre. Avec une cuillère en bois, les ENFANTS mélangent fort jusqu'à ce que ce soit crémeux et pâle — environ 2 minutes de mélange vigoureux!",
+    "Les ENFANTS ajoutent la vanille et mélangent. Puis ajouter la farine petit à petit en mélangeant. La pâte va devenir épaisse et friable — c'est normal!",
+    "Les ENFANTS rassemblent la pâte avec leurs mains pour former une grosse boule. Si la pâte est trop sèche et s'effrite, ajouter 15 ml (1 cuillère à soupe) de lait.",
+    "L'ADULTE saupoudre un peu de farine sur la table propre. Les ENFANTS, en petits groupes de 4-5, placent une portion de pâte sur la table farinée.",
+    "Avec le rouleau à pâtisserie, les ENFANTS roulent la pâte pour l'aplatir jusqu'à environ 5 mm d'épaisseur (environ l'épaisseur d'un crayon couché). Rouler dans toutes les directions!",
+    "Avec les emporte-pièces, les ENFANTS découpent des formes dans la pâte aplatie. Presser fermement l'emporte-pièce, puis soulever délicatement le biscuit et le déposer sur la plaque.",
+    "Les ENFANTS rassemblent les restes de pâte, roulent à nouveau, et découpent encore des formes jusqu'à ce qu'il n'y ait plus de pâte.",
+    "FACULTATIF: Les ENFANTS saupoudrent un peu de sucre coloré sur les biscuits avant la cuisson.",
+    "L'ADULTE met les plaques au four. ATTENTION: Le four est très chaud! Les ENFANTS regardent de loin.",
+    "L'ADULTE cuit les biscuits 8-10 minutes. Les biscuits sont prêts quand les bords commencent JUSTE à dorer. Ne pas trop cuire — ils durcissent en refroidissant!",
+    "L'ADULTE sort les plaques du four avec des mitaines. Laisser refroidir 5 minutes sur la plaque avant de manipuler.",
+    "Quand les biscuits sont froids, tout le monde peut en déguster avec du lait!"
+  ],
+  "visualSteps": [
+    {
+      "instruction": "Préparer le four et les plaques",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "tool",
+          "image": "/pictogrammes/four.png",
+          "label": "Four",
+          "quantity": "350°F"
+        },
+        {
+          "type": "container",
+          "image": "/pictogrammes/plaque-biscuits.png",
+          "label": "Plaques préparées"
+        }
+      ]
+    },
+    {
+      "instruction": "Mélanger beurre et sucre jusqu'à crémeux",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/pictogrammes/bol-grand.png",
+          "label": "Grand bol"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/beurre.png",
+          "label": "Beurre ramolli",
+          "quantity": "250 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/sucre.png",
+          "label": "Sucre",
+          "quantity": "125 ml"
+        },
+        {
+          "type": "action",
+          "image": "/pictogrammes/melanger.png",
+          "label": "Mélanger fort"
+        }
+      ]
+    },
+    {
+      "instruction": "Ajouter vanille et farine, mélanger",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/vanille.png",
+          "label": "Vanille",
+          "quantity": "2,5 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/farine.png",
+          "label": "Farine",
+          "quantity": "500 ml"
+        },
+        {
+          "type": "action",
+          "image": "/pictogrammes/melanger.png",
+          "label": "Mélanger"
+        }
+      ]
+    },
+    {
+      "instruction": "Former une boule avec les mains",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "action",
+          "image": "/pictogrammes/faire-boule.png",
+          "label": "Former une grosse boule"
+        }
+      ]
+    },
+    {
+      "instruction": "Rouler la pâte avec le rouleau à pâtisserie",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "action",
+          "image": "/pictogrammes/rouleau-patisserie.png",
+          "label": "Rouler la pâte"
+        }
+      ]
+    },
+    {
+      "instruction": "Découper des formes avec les emporte-pièces",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "action",
+          "image": "/pictogrammes/emporte-piece.png",
+          "label": "Découper formes"
+        },
+        {
+          "type": "container",
+          "image": "/pictogrammes/plaque-biscuits.png",
+          "label": "Déposer sur plaque"
+        }
+      ]
+    },
+    {
+      "instruction": "Cuire au four — CHAUD!",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "tool",
+          "image": "/pictogrammes/four.png",
+          "label": "Four CHAUD",
+          "quantity": "8-10 min"
+        }
+      ]
+    },
+    {
+      "instruction": "Sortir et laisser refroidir",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/pictogrammes/plaque-biscuits.png",
+          "label": "Refroidir 5 min"
+        }
+      ]
+    }
+  ],
+  "serving_suggestions": [
+    "Avec un grand verre de lait froid",
+    "Décorés avec du glaçage royal pour occasions spéciales",
+    "Emballés dans des sachets pour rapporter à la maison",
+    "Empilés sur une assiette pour partager en classe"
+  ],
+  "mainCategory": "Petite École",
+  "categories": ["dessert", "collation"],
+  "tags": ["maternelle", "classique", "four", "formes", "congélation"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/biscuits-sables-maternelle.png",
+  "pubDate": "2025-10-12",
+  "draft": false,
+  "variant": "maternelle",
+  "ingredientIntro": "Seulement 3 ingrédients de base! Cette recette ultra-simple donne des biscuits sablés classiques, croustillants et délicats. Le beurre donne le goût riche, le sucre la douceur, la farine la structure. Pas d'œufs, pas de poudre à pâte, pas de complications. Rouler la pâte et découper des formes sont des activités motrices fantastiques pour les 5-6 ans!",
+  "tips": "POUR LES ENSEIGNANTS ET PARENTS: Le beurre DOIT être ramolli (température pièce) — sortez-le du réfrigérateur 30-60 minutes avant l'activité. Si oublié, coupez en petits cubes pour ramollir plus vite. Cette recette développe la motricité fine ET globale: mélanger vigoureusement (bras), rouler la pâte (coordination), découper (précision). Fournissez des emporte-pièces de DIFFÉRENTES TAILLES et formes pour stimuler la créativité: étoiles, cœurs, cercles, animaux, saisons (feuilles d'automne, sapins Noël). Farinez légèrement la table ET le rouleau à pâtisserie pour éviter que la pâte colle. Si la pâte est trop collante, ajoutez un peu de farine. Si trop sèche et s'effrite, ajoutez 15 ml de lait. Les enfants ADORENT rassembler les restes de pâte et re-rouler — laissez-les faire plusieurs fois! La pâte peut être roulée/découpée 3-4 fois sans problème. Ne cuisez PAS trop longtemps — les biscuits doivent être PÂLES avec juste les bords qui commencent à dorer. Ils durcissent beaucoup en refroidissant. Vocabulaire à enseigner: rouler, aplatir, découper, emporte-pièce, épaisseur, crémeux, sablé, texture. VARIANTES THÉMATIQUES: Noël (sapin, étoile, bonhomme pain d'épices), Saint-Valentin (cœurs), Halloween (citrouille, fantôme), Pâques (lapin, œuf). Ajoutez 2,5 ml de cannelle ou de zeste de citron râpé pour variation de saveur. Ces biscuits se conservent 7 jours dans contenant hermétique et se congèlent 3 mois. Budget: Environ 5-8$ pour 30 biscuits (ingrédients de base très économiques). ORGANISATION: Divisez la classe en stations — une station roule, une autre découpe, rotation toutes les 5 minutes. La pâte peut être préparée À L'AVANCE et réfrigérée jusqu'à 2 jours (ramollir 10 min avant de rouler).",
+  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les plaques chaudes. Les emporte-pièces en métal peuvent avoir des bords tranchants — supervision lors de la découpe. Vérifier allergies: gluten, lactose (beurre). Version sans lactose: remplacer beurre par margarine végétale."
+}

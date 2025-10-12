@@ -1,7 +1,10 @@
 {
   "name": "Biscuits Dorés à la Citrouille du Terrier",
   "description": "Des biscuits moelleux et parfumés aux épices d'automne, gorgés de purée de citrouille. Leur texture est nuageuse, leur goût réconfortant, et leur préparation si simple que Renardo peut les faire presque tout seul. La cuisine se remplit d'arômes de cannelle et de gingembre.",
-  "servings": 24,
+  "servings": {
+    "quantity": 24,
+    "unit": "biscuits"
+  },
   "freezable": true,
   "time": {
     "prep": 15,
@@ -127,7 +130,8 @@
     "Dans la boîte à lunch avec une pomme",
     "Tartinés de beurre d'arachide ou de fromage à la crème"
   ],
-  "categories": ["dessert", "collation", "automne", "familial"],
+  "categories": ["dessert", "collation"],
+  "tags": ["automne", "familial", "four", "congélation"],
   "difficulty": "facile",
   "heroImage": "/cuisine/biscuits-citrouille.png",
   "pubDate": "2025-10-12",

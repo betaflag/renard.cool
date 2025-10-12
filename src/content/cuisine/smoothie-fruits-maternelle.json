@@ -1,0 +1,146 @@
+{
+  "name": "Smoothie aux Fruits Glacés de la Petite École",
+  "description": "Un smoothie coloré et délicieux que les enfants préparent eux-mêmes en versant les ingrédients dans le mélangeur! Observer la transformation des fruits congelés en boisson crémeuse est magique pour les petits de 5-6 ans. Résultat immédiat, aucune cuisson, et tellement rafraîchissant!",
+  "servings": {
+    "quantity": 20,
+    "unit": "petits verres"
+  },
+  "freezable": false,
+  "time": {
+    "prep": 10,
+    "cook": 0,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Mélangeur",
+  "ingredients": [
+    {
+      "quantity": "1",
+      "unit": "kg",
+      "ingredient": "fruits congelés mélangés",
+      "note": "fraises, bleuets, framboises — 1 gros sac"
+    },
+    {
+      "quantity": "750",
+      "unit": "ml",
+      "ingredient": "yogourt nature",
+      "note": "3 tasses - texture crémeuse"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "lait",
+      "note": "2 tasses - pour la fluidité"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "miel",
+      "note": "¼ tasse - pour sucrer"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "extrait de vanille",
+      "note": "1 c. à thé - pour le goût"
+    }
+  ],
+  "steps": [
+    "L'ADULTE sort le mélangeur et le place sur une table stable. S'assurer que le couvercle est à portée de main.",
+    "Les ENFANTS, à tour de rôle en petits groupes de 4-5, versent les ingrédients dans le mélangeur: d'abord les fruits congelés, puis le yogourt, le lait, le miel et la vanille.",
+    "L'ADULTE place le couvercle fermement sur le mélangeur. Les ENFANTS reculent de quelques pas — le mélangeur va être bruyant!",
+    "L'ADULTE actionne le mélangeur à vitesse moyenne pendant 30-60 secondes jusqu'à ce que le mélange soit lisse et crémeux. Les ENFANTS observent la transformation: les morceaux de fruits deviennent une boisson rose/mauve!",
+    "L'ADULTE verse le smoothie dans 20 petits verres en plastique (environ 125 ml chacun). Les ENFANTS peuvent aider à tenir les verres.",
+    "Tout le monde déguste son smoothie frais et fruité immédiatement!",
+    "NOTE: Si le smoothie est trop épais, ajouter un peu de lait. Si trop liquide, ajouter plus de yogourt ou fruits congelés."
+  ],
+  "visualSteps": [
+    {
+      "instruction": "Sortir le mélangeur et le préparer",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "tool",
+          "image": "/pictogrammes/melangeur.png",
+          "label": "Mélangeur"
+        }
+      ]
+    },
+    {
+      "instruction": "Verser tous les ingrédients dans le mélangeur",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/fruits-congeles.png",
+          "label": "Fruits congelés",
+          "quantity": "1 kg"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/yogourt.png",
+          "label": "Yogourt",
+          "quantity": "750 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/lait.png",
+          "label": "Lait",
+          "quantity": "500 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/miel.png",
+          "label": "Miel",
+          "quantity": "60 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/vanille.png",
+          "label": "Vanille",
+          "quantity": "5 ml"
+        }
+      ]
+    },
+    {
+      "instruction": "Fermer le couvercle — mélanger!",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "tool",
+          "image": "/pictogrammes/melangeur.png",
+          "label": "Mélanger 30-60 sec"
+        }
+      ]
+    },
+    {
+      "instruction": "Verser dans les petits verres",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/pictogrammes/verre.png",
+          "label": "Petits verres",
+          "quantity": "20"
+        }
+      ]
+    }
+  ],
+  "serving_suggestions": [
+    "Servir immédiatement bien frais",
+    "Avec une paille colorée pour chaque enfant",
+    "Décorer avec une tranche de fraise sur le bord du verre (optionnel)",
+    "Parfait pour la collation d'été ou après une activité physique"
+  ],
+  "mainCategory": "Petite École",
+  "categories": ["collation", "boisson"],
+  "tags": ["maternelle", "sans-cuisson", "rapide", "santé", "été"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/smoothie-fruits-maternelle.png",
+  "pubDate": "2025-10-12",
+  "draft": false,
+  "variant": "maternelle",
+  "ingredientIntro": "Seulement 5 ingrédients simples pour un smoothie délicieux! Les fruits congelés sont parfaits: pas besoin de couper, pas de glace nécessaire, et ils sont disponibles toute l'année. Le yogourt ajoute des protéines et une texture crémeuse. Le miel sucre naturellement — pas besoin de sucre blanc. Observer la transformation liquide est fascinant pour les enfants!",
+  "tips": "POUR LES ENSEIGNANTS ET PARENTS: Cette recette est idéale pour enseigner la transformation des états (solide congelé → liquide crémeux). SEUL L'ADULTE manipule le mélangeur en marche — les lames sont très tranchantes et dangereuses. Les enfants peuvent verser les ingrédients avant que le mélangeur soit branché, puis reculer pendant le mélange. Utilisez un mélangeur puissant (700+ watts) pour bien broyer les fruits congelés. Si votre mélangeur est moins puissant, laissez décongeler les fruits 10-15 minutes avant. Faites la recette en 2-3 lots si votre mélangeur est petit (moins de 1,5 L de capacité). Utilisez des verres en plastique transparent pour que les enfants voient la belle couleur! Préparez 20 verres à l'avance sur un plateau. Vocabulaire à enseigner: mélangeur/blender, liquide, crémeux, transformation, fruits congelés, lisse, texture. Les fruits congelés sont plus économiques que les frais et ne se gaspillent jamais. Achetez en format familial ou club pour économiser. Variantes: remplacer 250 ml de lait par du jus d'orange pour version plus fruitée. Ajouter 1 banane fraîche pour épaissir. Utiliser mangue congelée pour saveur tropicale. ALLERGIES: Vérifier lait, yogourt (lactose). Peut être fait avec lait d'amande et yogourt végétal. Cette recette ne se congèle pas bien — doit être consommée immédiatement. Si restes, garder au réfrigérateur maximum 24h dans contenant fermé. Le smoothie devient rapidement une belle activité SCIENTIFIQUE: états de la matière, transformation, couleurs qui se mélangent!",
+  "note": "SÉCURITÉ: SEUL L'ADULTE utilise le mélangeur en marche. Les enfants ne touchent JAMAIS le mélangeur branché ou les lames. Toujours débrancher le mélangeur avant d'enlever le couvercle. Les enfants doivent reculer de 1-2 mètres pendant que le mélangeur fonctionne (c'est bruyant!). Vérifier allergies: lait, miel."
+}

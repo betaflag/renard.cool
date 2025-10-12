@@ -1,7 +1,10 @@
 {
   "name": "Ragoût de boulettes préféré de Renard",
   "description": "Le réconfort ultime simplifié avec un mélange à sauce du commerce. Des boulettes moelleuses épicées à la cannelle baignent dans une sauce brune onctueuse, mijotant doucement. Toute la saveur traditionnelle québécoise, avec la commodité moderne.",
-  "servings": 8,
+  "servings": {
+    "quantity": 8,
+    "unit": "personnes"
+  },
   "freezable": true,
   "time": {
     "prep": 20,
@@ -38,7 +41,8 @@
     "Couvrir et cuire à basse température (Low) 5-6 heures ou à haute température (High) 3-4 heures. La sauce épaissira pendant la cuisson.",
     "Goûter et rectifier l'assaisonnement au besoin. Si la sauce est trop épaisse, ajouter un peu d'eau. Si trop liquide, laisser mijoter à découvert 30 minutes."
   ],
-  "categories": ["plat principal", "traditionnel", "québécois", "réconfortant"],
+  "categories": ["plat principal"],
+  "tags": ["québécois", "traditionnel", "réconfortant", "mijoteuse", "congélation"],
   "difficulty": "facile",
   "heroImage": "/cuisine/ragout-boulettes.png",
   "pubDate": "2025-10-03",

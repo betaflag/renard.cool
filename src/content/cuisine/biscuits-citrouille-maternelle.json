@@ -1,7 +1,10 @@
 {
   "name": "Biscuits à l'Avoine et Citrouille de la Petite École",
   "description": "Une version ultra-simplifiée des biscuits à l'avoine et citrouille, parfaite pour les classes de maternelle. Les petits de 5-6 ans peuvent faire presque toutes les étapes avec leurs mains et une cuillère en bois — pas besoin de batteur électrique ou d'équipement compliqué. L'avoine ajoute une texture délicieusement moelleuse et nutritive. Simple, amusant, et délicieux!",
-  "servings": 18,
+  "servings": {
+    "quantity": 20,
+    "unit": "biscuits"
+  },
   "freezable": true,
   "time": {
     "prep": 20,
@@ -109,13 +112,9 @@
     "Pour la collation de l'après-midi",
     "Emballés dans du papier ciré pour rapporter à la maison"
   ],
-  "categories": [
-    "dessert",
-    "collation",
-    "automne",
-    "éducatif",
-    "maternelle"
-  ],
+  "mainCategory": "Petite École",
+  "categories": ["dessert", "collation"],
+  "tags": ["maternelle", "automne", "familial", "four", "congélation"],
   "difficulty": "facile",
   "heroImage": "/cuisine/biscuits-citrouille.png",
   "pubDate": "2025-10-12",

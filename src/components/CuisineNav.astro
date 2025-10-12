@@ -1,0 +1,767 @@
+---
+import { getCollection } from "astro:content";
+import MealPlanWidget from "./MealPlanWidget.astro";
+import ShoppingListWidget from "./ShoppingListWidget.astro";
+import CategoryMenuItem from "./CategoryMenuItem.astro";
+import CollapsibleCategoryGroup from "./CollapsibleCategoryGroup.astro";
+
+export interface Props {
+  variant?: "index" | "detail";
+  activeCategory?: string;
+  activeMainCategory?: string;
+  activeTag?: string;
+}
+
+const { variant = "index", activeCategory, activeMainCategory, activeTag } = Astro.props;
+
+// Get all recipes to extract categories and tags
+const allRecipes = await getCollection("cuisine");
+
+// Count recipes excluding "Petite École" for main listing
+const mainListingRecipes = allRecipes.filter(
+  (recipe) => recipe.data.mainCategory !== "Petite École"
+);
+
+// Build hierarchical category structure
+interface CategoryNode {
+  name: string;
+  count: number;
+  subcategories?: Map<string, number>;
+}
+
+const mainCategoryMap = new Map<string, CategoryNode>();
+const standaloneCategories = new Map<string, number>();
+
+allRecipes.forEach((recipe) => {
+  const mainCat = recipe.data.mainCategory;
+
+  if (mainCat) {
+    // This recipe has a main category
+    if (!mainCategoryMap.has(mainCat)) {
+      mainCategoryMap.set(mainCat, {
+        name: mainCat,
+        count: 0,
+        subcategories: new Map(),
+      });
+    }
+    const node = mainCategoryMap.get(mainCat)!;
+    node.count++;
+
+    // Add subcategories
+    recipe.data.categories?.forEach((subcat) => {
+      node.subcategories!.set(subcat, (node.subcategories!.get(subcat) || 0) + 1);
+    });
+  } else {
+    // Standalone categories (no main category)
+    recipe.data.categories?.forEach((cat) => {
+      standaloneCategories.set(cat, (standaloneCategories.get(cat) || 0) + 1);
+    });
+  }
+});
+
+// Sort main categories alphabetically
+const mainCategories = Array.from(mainCategoryMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+
+// Sort standalone categories alphabetically
+const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+
+// Extract unique tags with counts
+const tagMap = new Map<string, number>();
+allRecipes.forEach((recipe) => {
+  recipe.data.tags?.forEach((tag) => {
+    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+  });
+});
+const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort by count descending
+---
+
+<nav class="cuisine-nav" id="cuisineNav">
+  <div class="nav-container">
+    <div class="nav-left">
+      {variant === "detail" && (
+        <a href="/cuisine" class="nav-back-link">
+          ← Retour
+        </a>
+      )}
+      <a href="/cuisine" class="nav-logo">
+        <span class="logo-icon">🦊</span>
+        <span class="logo-text">Renardo Cuisine</span>
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <div class="nav-dropdown" id="categoriesDropdown">
+        <button class="nav-dropdown-toggle" id="categoriesToggle">
+          Catégories
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="nav-dropdown-menu" id="categoriesMenu">
+          <CategoryMenuItem
+            href="/cuisine"
+            name="Toutes les recettes"
+            count={mainListingRecipes.length}
+            isActive={activeCategory === undefined && activeMainCategory === undefined}
+          />
+
+          {/* Standalone categories first (alphabetically) */}
+          {categories.map(([category, count]) => (
+            <CategoryMenuItem
+              href={`/cuisine/categories/${encodeURIComponent(category)}`}
+              name={category}
+              count={count}
+              isActive={activeCategory === category && !activeMainCategory}
+            />
+          ))}
+
+          {/* Main categories with subcategories last (alphabetically, Petite École will be last) */}
+          {mainCategories.map((mainCat) => (
+            <CollapsibleCategoryGroup
+              mainCategoryName={mainCat.name}
+              mainCategoryUrl={`/cuisine/main/${encodeURIComponent(mainCat.name)}`}
+              mainCategoryCount={mainCat.count}
+              subcategories={Array.from(mainCat.subcategories?.entries() || [])
+                .sort((a, b) => a[0].localeCompare(b[0]))
+                .map(([name, count]) => ({
+                  name,
+                  count,
+                  url: `/cuisine/main/${encodeURIComponent(mainCat.name)}/${encodeURIComponent(name)}`,
+                }))}
+              isActive={activeMainCategory === mainCat.name}
+              activeSubcategory={activeCategory}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div class="nav-dropdown" id="tagsDropdown">
+        <button class="nav-dropdown-toggle" id="tagsToggle">
+          Tags
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="nav-dropdown-menu" id="tagsMenu">
+          {tags.map(([tag, count]) => (
+            <a
+              href={`/cuisine/tags/${encodeURIComponent(tag)}`}
+              class={`dropdown-item ${activeTag === tag ? 'active' : ''}`}
+            >
+              <span class="item-name">{tag}</span>
+              <span class="item-count">{count}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <ShoppingListWidget />
+      <MealPlanWidget />
+    </div>
+
+    <button class="nav-mobile-toggle" id="navMobileToggle">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <div class="mobile-section">
+      <h3 class="mobile-section-title">Catégories</h3>
+      <a href="/cuisine" class="mobile-item {activeCategory === undefined && activeMainCategory === undefined ? 'active' : ''}">
+        <span class="item-name">Toutes</span>
+        <span class="item-count">{mainListingRecipes.length}</span>
+      </a>
+
+      {/* Standalone categories first (alphabetically) */}
+      {categories.map(([category, count]) => (
+        <a
+          href={`/cuisine/categories/${encodeURIComponent(category)}`}
+          class={`mobile-item ${activeCategory === category && !activeMainCategory ? 'active' : ''}`}
+        >
+          <span class="item-name">{category}</span>
+          <span class="item-count">{count}</span>
+        </a>
+      ))}
+
+      {/* Main categories with subcategories last (alphabetically) */}
+      {mainCategories.map((mainCat) => {
+        const mobileGroupId = `mobile-category-group-${mainCat.name.toLowerCase().replace(/\s+/g, "-")}`;
+        return (
+          <div class="mobile-collapsible-group" data-group-id={mobileGroupId}>
+            <div class="mobile-category-header">
+              <a
+                href={`/cuisine/main/${encodeURIComponent(mainCat.name)}`}
+                class={`mobile-item main-category ${activeMainCategory === mainCat.name ? 'active' : ''}`}
+              >
+                <span class="item-name">{mainCat.name}</span>
+                <span class="item-count">{mainCat.count}</span>
+              </a>
+              <button
+                class="mobile-collapse-toggle"
+                data-group-id={mobileGroupId}
+                aria-label={`Toggle ${mainCat.name} subcategories`}
+                aria-expanded="false"
+              >
+                <span class="mobile-chevron">▶</span>
+              </button>
+            </div>
+            <div class="mobile-subcategories" data-group-id={mobileGroupId}>
+              {mainCat.subcategories && Array.from(mainCat.subcategories.entries())
+                .sort((a, b) => a[0].localeCompare(b[0]))
+                .map(([subcat, subcount]) => (
+                  <a
+                    href={`/cuisine/main/${encodeURIComponent(mainCat.name)}/${encodeURIComponent(subcat)}`}
+                    class={`mobile-item subcategory ${activeMainCategory === mainCat.name && activeCategory === subcat ? 'active' : ''}`}
+                  >
+                    <span class="item-name">→ {subcat}</span>
+                    <span class="item-count">{subcount}</span>
+                  </a>
+                ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="mobile-section">
+      <h3 class="mobile-section-title">Tags</h3>
+      {tags.map(([tag, count]) => (
+        <a
+          href={`/cuisine/tags/${encodeURIComponent(tag)}`}
+          class={`mobile-item ${activeTag === tag ? 'active' : ''}`}
+        >
+          <span class="item-name">{tag}</span>
+          <span class="item-count">{count}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style is:global>
+  .cuisine-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: rgba(250, 248, 243, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(211, 84, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.875rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  /* Left Section */
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-back-link {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid rgba(211, 84, 0, 0.2);
+    border-radius: 2rem;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .nav-back-link:hover {
+    color: #d35400;
+    border-color: rgba(211, 84, 0, 0.4);
+    background: rgba(211, 84, 0, 0.03);
+    transform: translateX(-2px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #2c2c2c;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-logo:hover {
+    color: #d35400;
+  }
+
+  .logo-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  /* Center Section */
+  .nav-center {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid rgba(211, 84, 0, 0.2);
+    border-radius: 2rem;
+    color: #555;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-family: "Crimson Pro", serif;
+  }
+
+  .nav-dropdown-toggle:hover,
+  .nav-dropdown.active .nav-dropdown-toggle {
+    background: rgba(211, 84, 0, 0.05);
+    border-color: rgba(211, 84, 0, 0.4);
+    color: #d35400;
+  }
+
+  .dropdown-arrow {
+    font-size: 0.65rem;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 0;
+    min-width: 220px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #fff;
+    border: 2px solid rgba(211, 84, 0, 0.2);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      0 12px 32px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 300;
+  }
+
+  .nav-dropdown.active .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+
+  /* Right Section */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Mobile Toggle */
+  .nav-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+    border: 1px solid rgba(211, 84, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-mobile-toggle:hover {
+    background: rgba(211, 84, 0, 0.05);
+    border-color: rgba(211, 84, 0, 0.4);
+  }
+
+  .hamburger {
+    position: relative;
+    width: 1.25rem;
+    height: 2px;
+    background: #555;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #555;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger::before {
+    top: -6px;
+  }
+
+  .hamburger::after {
+    bottom: -6px;
+  }
+
+  .nav-mobile-toggle.active .hamburger {
+    background: transparent;
+  }
+
+  .nav-mobile-toggle.active .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .nav-mobile-toggle.active .hamburger::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* Mobile Menu */
+  .nav-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 4.5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 199;
+  }
+
+  .nav-mobile-menu.active {
+    transform: translateX(0);
+  }
+
+  .mobile-section {
+    padding: 1.5rem 1.25rem;
+    border-bottom: 1px solid rgba(211, 84, 0, 0.12);
+  }
+
+  .mobile-section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #d35400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 1rem 0;
+  }
+
+  .mobile-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1rem;
+    margin-bottom: 0.5rem;
+    color: #2c2c2c;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    background: #fff;
+    border: 1px solid rgba(211, 84, 0, 0.12);
+    transition: all 0.2s ease;
+  }
+
+  .mobile-item:hover {
+    background: rgba(250, 248, 243, 0.8);
+    border-color: rgba(211, 84, 0, 0.3);
+    color: #d35400;
+  }
+
+  .mobile-item.active {
+    background: rgba(211, 84, 0, 0.1);
+    border-color: rgba(211, 84, 0, 0.3);
+    color: #d35400;
+    font-weight: 600;
+  }
+
+  .mobile-collapsible-group {
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-category-header {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .mobile-category-header .mobile-item {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .mobile-item.main-category {
+    font-weight: 600;
+    background: rgba(211, 84, 0, 0.05);
+    border-left: 3px solid rgba(211, 84, 0, 0.3);
+  }
+
+  .mobile-collapse-toggle {
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(211, 84, 0, 0.05);
+    border: 1px solid rgba(211, 84, 0, 0.12);
+    border-left: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #999;
+    font-family: inherit;
+  }
+
+  .mobile-collapse-toggle:active {
+    background: rgba(211, 84, 0, 0.15);
+    color: #d35400;
+  }
+
+  .mobile-chevron {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .mobile-collapse-toggle[aria-expanded="true"] .mobile-chevron {
+    transform: rotate(90deg);
+  }
+
+  .mobile-subcategories {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .mobile-subcategories.expanded {
+    max-height: 500px;
+  }
+
+  .mobile-item.subcategory {
+    padding-left: 2rem;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    background: rgba(250, 248, 243, 0.8);
+  }
+
+  .mobile-item.subcategory .item-name {
+    color: #555;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .nav-center {
+      display: none;
+    }
+
+    .nav-mobile-toggle {
+      display: flex;
+    }
+
+    .nav-mobile-menu {
+      display: block;
+    }
+
+    .logo-text {
+      display: none;
+    }
+
+    .nav-container {
+      padding: 0.75rem 1.25rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-back-link {
+      font-size: 0.7rem;
+      padding: 0.4rem 0.75rem;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+    }
+
+    .logo-icon {
+      font-size: 1.35rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-container {
+      padding: 0.625rem 1rem;
+      gap: 1rem;
+    }
+
+    .nav-right {
+      gap: 0.5rem;
+    }
+
+    .nav-back-link {
+      display: none;
+    }
+  }
+
+  @media print {
+    .cuisine-nav {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  // Dropdown toggles
+  const categoriesDropdown = document.getElementById("categoriesDropdown");
+  const categoriesToggle = document.getElementById("categoriesToggle");
+  const tagsDropdown = document.getElementById("tagsDropdown");
+  const tagsToggle = document.getElementById("tagsToggle");
+
+  // Mobile menu
+  const navMobileToggle = document.getElementById("navMobileToggle");
+  const navMobileMenu = document.getElementById("navMobileMenu");
+
+  // Toggle categories dropdown
+  categoriesToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    categoriesDropdown?.classList.toggle("active");
+    tagsDropdown?.classList.remove("active");
+  });
+
+  // Toggle tags dropdown
+  tagsToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    tagsDropdown?.classList.toggle("active");
+    categoriesDropdown?.classList.remove("active");
+  });
+
+  // Close dropdowns on outside click
+  document.addEventListener("click", () => {
+    categoriesDropdown?.classList.remove("active");
+    tagsDropdown?.classList.remove("active");
+  });
+
+  // Mobile menu toggle
+  navMobileToggle?.addEventListener("click", () => {
+    navMobileToggle.classList.toggle("active");
+    navMobileMenu?.classList.toggle("active");
+  });
+
+  // Close mobile menu on link click
+  const mobileLinks = document.querySelectorAll(".mobile-item");
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navMobileToggle?.classList.remove("active");
+      navMobileMenu?.classList.remove("active");
+    });
+  });
+
+  // Collapsible category groups (desktop)
+  const collapseToggles = document.querySelectorAll(".collapse-toggle");
+
+  collapseToggles.forEach((toggle) => {
+    const groupId = toggle.getAttribute("data-group-id");
+    if (!groupId) return;
+
+    const container = document.querySelector(
+      `.subcategories-container[data-group-id="${groupId}"]`
+    );
+
+    if (!container) return;
+
+    // Check sessionStorage for saved state
+    const savedState = sessionStorage.getItem(`category-${groupId}`);
+    if (savedState === "expanded") {
+      toggle.setAttribute("aria-expanded", "true");
+      container.classList.add("expanded");
+    }
+
+    // Add click handler
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
+      if (isExpanded) {
+        toggle.setAttribute("aria-expanded", "false");
+        container.classList.remove("expanded");
+        sessionStorage.removeItem(`category-${groupId}`);
+      } else {
+        toggle.setAttribute("aria-expanded", "true");
+        container.classList.add("expanded");
+        sessionStorage.setItem(`category-${groupId}`, "expanded");
+      }
+    });
+  });
+
+  // Mobile collapsible category groups
+  const mobileCollapseToggles = document.querySelectorAll(
+    ".mobile-collapse-toggle"
+  );
+
+  mobileCollapseToggles.forEach((toggle) => {
+    const groupId = toggle.getAttribute("data-group-id");
+    if (!groupId) return;
+
+    const container = document.querySelector(
+      `.mobile-subcategories[data-group-id="${groupId}"]`
+    );
+
+    if (!container) return;
+
+    // Check sessionStorage for saved state
+    const savedState = sessionStorage.getItem(`mobile-${groupId}`);
+    if (savedState === "expanded") {
+      toggle.setAttribute("aria-expanded", "true");
+      container.classList.add("expanded");
+    }
+
+    // Add click handler
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
+      if (isExpanded) {
+        toggle.setAttribute("aria-expanded", "false");
+        container.classList.remove("expanded");
+        sessionStorage.removeItem(`mobile-${groupId}`);
+      } else {
+        toggle.setAttribute("aria-expanded", "true");
+        container.classList.add("expanded");
+        sessionStorage.setItem(`mobile-${groupId}`, "expanded");
+      }
+    });
+  });
+</script>

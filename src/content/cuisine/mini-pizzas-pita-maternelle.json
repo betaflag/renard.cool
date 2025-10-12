@@ -1,0 +1,186 @@
+{
+  "name": "Mini Pizzas Pita de la Petite École",
+  "description": "Des mini pizzas individuelles que chaque enfant peut créer et personnaliser! Étaler la sauce, saupoudrer le fromage, ajouter les garnitures — les enfants de 5-6 ans adorent décorer leur propre pizza. Cuisson rapide de 12 minutes et résultat délicieux. Créativité, autonomie et fierté garanties!",
+  "servings": {
+    "quantity": 40,
+    "unit": "mini-pizzas"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 15,
+    "cook": 12,
+    "wait": 2,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    {
+      "quantity": "20",
+      "unit": null,
+      "ingredient": "pains pita de taille moyenne",
+      "note": "coupés en 2 pour faire 40 moitiés"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "sauce à pizza ou sauce tomate",
+      "note": "2 tasses - la base rouge"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "fromage mozzarella râpé",
+      "note": "2 tasses - bien fondant"
+    },
+    {
+      "quantity": "200",
+      "unit": "g",
+      "ingredient": "pepperoni tranché",
+      "note": "facultatif - la garniture classique"
+    },
+    { "subsection": "Garnitures facultatives au choix" },
+    {
+      "quantity": "au goût",
+      "unit": null,
+      "ingredient": "poivrons en dés",
+      "note": "couleurs variées"
+    },
+    {
+      "quantity": "au goût",
+      "unit": null,
+      "ingredient": "champignons tranchés",
+      "note": "en conserve, égouttés"
+    },
+    {
+      "quantity": "au goût",
+      "unit": null,
+      "ingredient": "olives noires tranchées",
+      "note": "en conserve, égouttées"
+    },
+    {
+      "quantity": "au goût",
+      "unit": null,
+      "ingredient": "ananas en morceaux",
+      "note": "pour pizza hawaïenne"
+    }
+  ],
+  "steps": [
+    "L'ADULTE allume le four à 400°F. L'ADULTE couvre 2-3 plaques à biscuits de papier parchemin.",
+    "L'ADULTE coupe chaque pain pita en 2 moitiés pour faire 40 mini-pizzas. Les placer sur les plaques préparées.",
+    "Les ENFANTS, avec une grande cuillère, étalent environ 15 ml (1 cuillère à soupe) de sauce tomate sur chaque moitié de pita. Étaler avec le dos de la cuillère jusqu'aux bords — comme si on peinture!",
+    "Les ENFANTS saupoudrent du fromage râpé sur la sauce tomate de chaque pizza. Chacun décide de la quantité — beaucoup ou un peu!",
+    "Les ENFANTS choisissent leurs garnitures préférées et décorent leurs mini-pizzas: pepperoni, poivrons, champignons, olives, ananas. C'est le moment créatif — chaque pizza est unique!",
+    "L'ADULTE met les plaques au four. ATTENTION: Le four est très chaud! Les ENFANTS regardent de loin sans toucher.",
+    "L'ADULTE cuit les mini-pizzas 10-12 minutes. Les pizzas sont prêtes quand le fromage est fondu et bouillonne, et les bords des pitas sont légèrement dorés.",
+    "L'ADULTE sort les plaques du four avec des mitaines. Laisser refroidir 2 minutes — le fromage est TRÈS chaud!",
+    "Quand les pizzas sont assez tièdes, tout le monde déguste sa création personnalisée!"
+  ],
+  "visualSteps": [
+    {
+      "instruction": "Préparer le four et les plaques, couper les pitas",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "tool",
+          "image": "/pictogrammes/four.png",
+          "label": "Four",
+          "quantity": "400°F"
+        },
+        {
+          "type": "container",
+          "image": "/pictogrammes/plaque-biscuits.png",
+          "label": "Plaques préparées"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/pain-pita.png",
+          "label": "Pains pita",
+          "quantity": "20 coupés"
+        }
+      ]
+    },
+    {
+      "instruction": "Étaler la sauce tomate sur chaque pita",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/sauce-tomate.png",
+          "label": "Sauce tomate"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/pain-pita.png",
+          "label": "Sur chaque pita"
+        },
+        {
+          "type": "action",
+          "image": "/pictogrammes/melanger.png",
+          "label": "Étaler avec cuillère"
+        }
+      ]
+    },
+    {
+      "instruction": "Saupoudrer le fromage râpé sur la sauce",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/fromage-rape.png",
+          "label": "Fromage râpé"
+        }
+      ]
+    },
+    {
+      "instruction": "Ajouter les garnitures préférées",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/pepperoni.png",
+          "label": "Pepperoni et autres"
+        }
+      ]
+    },
+    {
+      "instruction": "Cuire au four — CHAUD!",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "tool",
+          "image": "/pictogrammes/four.png",
+          "label": "Four CHAUD",
+          "quantity": "10-12 min"
+        }
+      ]
+    },
+    {
+      "instruction": "Sortir et laisser refroidir un peu",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/pictogrammes/plaque-biscuits.png",
+          "label": "Refroidir 2 min"
+        }
+      ]
+    }
+  ],
+  "serving_suggestions": [
+    "Servir avec des bâtonnets de légumes (carottes, concombres)",
+    "Accompagner d'un verre de lait ou de jus",
+    "Parfait pour un dîner spécial à l'école",
+    "Les restes se réchauffent bien au four grille-pain"
+  ],
+  "mainCategory": "Petite École",
+  "categories": ["plat principal", "dîner"],
+  "tags": ["maternelle", "familial", "four", "personnalisable", "congélation"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/mini-pizzas-pita-maternelle.png",
+  "pubDate": "2025-10-12",
+  "draft": false,
+  "variant": "maternelle",
+  "ingredientIntro": "Les pains pita remplacent la pâte à pizza — aucun pétrissage, aucune levée, aucune complication! Chaque enfant crée SES pizzas exactement comme il les aime. Station de garnitures = créativité et autonomie maximales. Les enfants apprennent les choix alimentaires, les quantités, et la séquence (sauce → fromage → garnitures). Budget économique pour nourrir 20 enfants!",
+  "tips": "POUR LES ENSEIGNANTS ET PARENTS: Organisez une STATION DE GARNITURES avec des bols séparés pour chaque ingrédient. Les enfants passent devant la station avec leur pita et choisissent ce qu'ils veulent — comme un buffet! Utilisez des pitas de taille moyenne (15-18 cm de diamètre). Trop grands sont difficiles à manipuler pour les petites mains. Préparez les garnitures À L'AVANCE: ouvrir les conserves, égoutter, couper les légumes frais en petits dés. Mettez des petites cuillères dans chaque bol de garnitures pour faciliter le service. La sauce tomate ordinaire fonctionne si vous n'avez pas de sauce à pizza — ajoutez juste un peu d'origan séché. Les enfants ont tendance à mettre BEAUCOUP de garnitures — c'est correct! Le fromage tient tout ensemble. Si certains enfants veulent juste fromage (sans garnitures), c'est parfait aussi — respectez leurs préférences. Vocabulaire à enseigner: étaler, saupoudrer, garnitures, fondre, personnaliser, créer. Cuisson en LOTS: faites cuire 12-15 pizzas à la fois selon la taille de vos plaques et de votre four. Les pizzas cuisent vite (10-12 min) donc 3 lots = 30-40 minutes total. Ces mini-pizzas se CONGÈLENT excellemment: après cuisson et refroidissement, emballez individuellement et congelez jusqu'à 2 mois. Réchauffer au four 350°F pendant 8-10 minutes. Budget: Environ 25-30$ pour 40 mini-pizzas (20 enfants = 2 pizzas chacun). Achetez pains pita, fromage et sauce en format économique. ASTUCE D'ORGANISATION: Étiquetez chaque plaque avec les prénoms des enfants (papier sous le parchemin) pour savoir à qui appartient quelle pizza! Cette activité enseigne la séquence, les choix, la créativité, ET les mathématiques (2 moitiés = 1 entier, portions, partage).",
+  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les plaques chaudes. Le fromage fondu reste TRÈS chaud longtemps — attendre 2 minutes avant de manger. Vérifier allergies: gluten (pita), lactose (fromage), viandes transformées (pepperoni). Version végétarienne facile: omettre pepperoni, ajouter plus de légumes."
+}

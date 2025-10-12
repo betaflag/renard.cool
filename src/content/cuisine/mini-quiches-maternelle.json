@@ -1,0 +1,205 @@
+{
+  "name": "Mini Quiches Muffin de la Petite École",
+  "description": "Des mini quiches individuelles cuites dans un moule à muffins — parfaites pour les petites mains! Les enfants cassent les œufs, fouettent le mélange, et versent dans les moules. Observer les œufs liquides devenir solides au four est fascinant! Déjeuner, dîner ou collation protéinée — ces mini quiches sont polyvalentes et délicieuses!",
+  "servings": {
+    "quantity": 24,
+    "unit": "mini-quiches"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 15,
+    "cook": 18,
+    "wait": 3,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    {
+      "quantity": "8",
+      "unit": null,
+      "ingredient": "gros œufs",
+      "note": "la base protéinée"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "lait",
+      "note": "1 tasse - pour la texture crémeuse"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": "½ c. à thé - pour le goût"
+    },
+    {
+      "quantity": "1,25",
+      "unit": "ml",
+      "ingredient": "poivre",
+      "note": "¼ c. à thé - juste un peu"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "fromage cheddar ou mozzarella râpé",
+      "note": "1 tasse - bien fondant"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "légumes hachés fins",
+      "note": "poivrons, champignons, épinards au choix"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "jambon coupé en petits dés",
+      "note": "½ tasse - facultatif, pour saveur"
+    }
+  ],
+  "steps": [
+    "L'ADULTE allume le four à 375°F. L'ADULTE graisse généreusement 24 moules à muffins avec du beurre ou vaporise avec huile en aérosol.",
+    "Dans un GRAND bol, les ENFANTS, en petits groupes avec supervision, cassent les 8 œufs un par un. Si des coquilles tombent, l'adulte les retire.",
+    "Les ENFANTS ajoutent le lait, le sel et le poivre dans le bol avec les œufs.",
+    "Avec un fouet ou une fourchette, les ENFANTS fouettent vigoureusement le mélange d'œufs et lait pendant 30-60 secondes jusqu'à ce que tout soit bien combiné et un peu mousseux.",
+    "Les ENFANTS ajoutent le fromage râpé, les légumes hachés et le jambon (si utilisé) dans le mélange d'œufs. Mélanger délicatement avec une cuillère.",
+    "L'ADULTE aide les ENFANTS à verser le mélange dans les moules à muffins. Remplir chaque moule aux 2/3 (environ 60 ml chacun). Utiliser une louche ou un verre mesureur avec bec verseur facilite le versement.",
+    "L'ADULTE met le moule à muffins au four. ATTENTION: Le four est très chaud! Les ENFANTS regardent de loin.",
+    "L'ADULTE cuit les mini-quiches 15-18 minutes. Les quiches sont prêtes quand elles sont gonflées, dorées sur le dessus, et fermes au toucher.",
+    "L'ADULTE sort le moule du four avec des mitaines. Laisser refroidir 3 minutes dans le moule.",
+    "L'ADULTE démoule délicatement les mini-quiches avec une petite spatule ou un couteau. Servir tièdes ou à température pièce."
+  ],
+  "visualSteps": [
+    {
+      "instruction": "Préparer le four et graisser les moules à muffins",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "tool",
+          "image": "/pictogrammes/four.png",
+          "label": "Four",
+          "quantity": "375°F"
+        },
+        {
+          "type": "container",
+          "image": "/pictogrammes/moule-muffins.png",
+          "label": "Moules graissés"
+        }
+      ]
+    },
+    {
+      "instruction": "Casser les œufs dans le grand bol",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/pictogrammes/bol-grand.png",
+          "label": "Grand bol"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/oeuf.png",
+          "label": "Œufs",
+          "quantity": "8"
+        }
+      ]
+    },
+    {
+      "instruction": "Ajouter lait, sel et poivre, puis fouetter",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/lait.png",
+          "label": "Lait",
+          "quantity": "250 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/sel.png",
+          "label": "Sel et poivre"
+        },
+        {
+          "type": "action",
+          "image": "/pictogrammes/fouetter.png",
+          "label": "Fouetter bien"
+        }
+      ]
+    },
+    {
+      "instruction": "Ajouter fromage, légumes et jambon, mélanger",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/fromage-rape.png",
+          "label": "Fromage râpé",
+          "quantity": "250 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/legumes-haches.png",
+          "label": "Légumes hachés",
+          "quantity": "250 ml"
+        },
+        {
+          "type": "action",
+          "image": "/pictogrammes/melanger.png",
+          "label": "Mélanger"
+        }
+      ]
+    },
+    {
+      "instruction": "Verser le mélange dans les moules à muffins",
+      "actorRole": "enfants",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/pictogrammes/moule-muffins.png",
+          "label": "Remplir aux 2/3"
+        }
+      ]
+    },
+    {
+      "instruction": "Cuire au four — CHAUD!",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "tool",
+          "image": "/pictogrammes/four.png",
+          "label": "Four CHAUD",
+          "quantity": "15-18 min"
+        }
+      ]
+    },
+    {
+      "instruction": "Sortir et laisser refroidir, puis démouler",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/pictogrammes/moule-muffins.png",
+          "label": "Refroidir 3 min"
+        }
+      ]
+    }
+  ],
+  "serving_suggestions": [
+    "Servir tiède pour le déjeuner avec des fruits frais",
+    "À température pièce pour la collation ou le dîner",
+    "Accompagner de tranches de pain grillé",
+    "Emballer individuellement pour rapporter à la maison",
+    "Se réchauffent bien au micro-ondes (20-30 secondes)"
+  ],
+  "mainCategory": "Petite École",
+  "categories": ["déjeuner", "dîner", "collation"],
+  "tags": ["maternelle", "protéines", "four", "polyvalent", "congélation"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/mini-quiches-maternelle.png",
+  "pubDate": "2025-10-12",
+  "draft": false,
+  "variant": "maternelle",
+  "ingredientIntro": "Des ingrédients simples et nutritifs pour des mini-quiches protéinées! Les œufs sont la base, le lait rend la texture crémeuse, le fromage ajoute le goût, et les légumes colorent et nourrissent. Chaque enfant apprend à casser des œufs (compétence de vie!), fouetter (motricité), et verser avec précision. Recette adaptable selon les goûts et les allergies!",
+  "tips": "POUR LES ENSEIGNANTS ET PARENTS: Casser des œufs est une COMPÉTENCE DE VIE que les enfants de 5-6 ans peuvent apprendre avec supervision. Faites-les casser dans un petit bol séparé d'abord — si coquilles tombent, facile de retirer avant d'ajouter au grand bol. Graissez GÉNÉREUSEMENT les moules — sinon les quiches colleront. Utilisez du beurre fondu ou spray antiadhésif. Si vous n'avez pas 2 moules à 12 muffins, cuisez en 2 lots. Légumes pré-hachés congelés (décongelés et égouttés) fonctionnent parfaitement et économisent temps. Épinards, poivrons, champignons, oignons — tout fonctionne! Version VÉGÉTARIENNE: omettez le jambon, ajoutez plus de légumes ou du tofu émietté. Fouetter crée des bulles d'air qui rendent les quiches légères et gonflées. Les enfants adorent voir le mouvement du fouet! Les quiches vont GONFLER au four puis retomber un peu en refroidissant — c'est normal! Elles seront encore moelleuses et délicieuses. Remplissez les moules aux 2/3 SEULEMENT — le mélange gonfle et peut déborder si trop plein. Vocabulaire à enseigner: fouetter, casser (œufs), verser, moule, liquide → solide, transformation. CONSERVATION: Réfrigérateur 3-4 jours dans contenant hermétique. Congélateur 2-3 mois (emballer individuellement). Réchauffer au micro-ondes 20-30 secondes ou four 350°F pendant 8-10 minutes. Budget: Environ 12-15$ pour 24 mini-quiches (classe de 20 = 1-2 par enfant selon appétit). PERSONNALISATION: Créez des \"stations de garnitures\" — chaque enfant peut choisir ses légumes préférés pour personnaliser ses quiches. Cette recette enseigne: transformation (liquide → solide), nutrition (protéines des œufs), mesures, et précision (verser sans renverser).",
+  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les moules chauds. Supervision étroite lors du cassage des œufs — laver les mains après avoir touché les coquilles (salmonelle). Les quiches restent chaudes longtemps — attendre 3 minutes avant de démouler et servir. Vérifier allergies: œufs, lait, gluten (si ajout de farine dans certaines variantes). Version sans lactose: lait d'amande + fromage végétal."
+}

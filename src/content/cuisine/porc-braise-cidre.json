@@ -1,7 +1,10 @@
 {
   "name": "Porc braisé au cidre et aux pommes",
   "description": "Un classique automnal québécois où l'épaule de porc devient fondante dans un bain de cidre et de pommes caramélisées. Cette version simple capture toute l'essence réconfortante du plat avec un minimum d'effort.",
-  "servings": 8,
+  "servings": {
+    "quantity": 8,
+    "unit": "personnes"
+  },
   "freezable": true,
   "time": {
     "prep": 20,
@@ -32,11 +35,8 @@
     "30 minutes avant la fin, saupoudrer la farine et bien mélanger pour épaissir la sauce.",
     "Rectifier l'assaisonnement et servir chaud."
   ],
-  "categories": [
-    "plat principal",
-    "traditionnel",
-    "québécois"
-  ],
+  "categories": ["plat principal"],
+  "tags": ["québécois", "traditionnel", "automne", "mijoteuse", "congélation"],
   "difficulty": "facile",
   "heroImage": "/cuisine/porc-cidre.png",
   "pubDate": "2025-10-03",

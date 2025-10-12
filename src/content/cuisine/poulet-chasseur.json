@@ -1,7 +1,10 @@
 {
   "name": "Cocotte du Chasseur Rusé",
   "description": "Le classique poulet chasseur français-italien où les cuisses de poulet dorées mijotent dans une sauce tomate rustique aux champignons, poivrons et vin blanc. Les arômes enivrants de cette cocotte transforment une soirée ordinaire en festin chaleureux.",
-  "servings": 4,
+  "servings": {
+    "quantity": 4,
+    "unit": "personnes"
+  },
   "freezable": true,
   "time": {
     "prep": 15,
@@ -49,13 +52,8 @@
     "Pain croûté italien pour saucer",
     "Légumes verts simplement sautés (haricots, broccolini)"
   ],
-  "categories": [
-    "plat principal",
-    "français",
-    "italien",
-    "automne",
-    "romantique"
-  ],
+  "categories": ["plat principal"],
+  "tags": ["français", "italien", "romantique", "automne", "congélation"],
   "difficulty": "moyen",
   "heroImage": "/cuisine/poulet-chasseur.png",
   "pubDate": "2025-10-12",

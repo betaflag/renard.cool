@@ -1,7 +1,10 @@
 {
   "name": "Fèves au lard de Renard",
   "description": "Les traditionnelles «bines» sont faites dans la mijoteuse, pour un résultat tendre et cuit juste à point. Cette version simple met de l'avant les ingrédients essentiels pour créer un plat authentique sans complications.",
-  "servings": 8,
+  "servings": {
+    "quantity": 8,
+    "unit": "personnes"
+  },
   "freezable": true,
   "time": {
     "prep": 10,
@@ -11,15 +14,60 @@
   },
   "cooking_method": "Mijoteuse",
   "ingredients": [
-    { "quantity": "450", "unit": "g", "ingredient": "haricots blancs secs Navy", "note": "la fondation crémeuse" },
-    { "quantity": "1,5", "unit": "litre", "ingredient": "eau fraîche", "note": "pour réveiller les légumineuses" },
-    { "quantity": "250", "unit": "ml", "ingredient": "sirop d'érable ambré du Québec", "note": "le cœur sucré de la recette" },
-    { "quantity": "125", "unit": "ml", "ingredient": "ketchup", "note": "l'umami secret" },
-    { "quantity": "225", "unit": "g", "ingredient": "lard salé entrelardé", "note": "du boucher, sans couenne" },
-    { "quantity": "2", "unit": null, "ingredient": "oignons jaunes moyens", "note": "hachés grossièrement pour fondre dans la sauce" },
-    { "quantity": "15", "unit": "ml", "ingredient": "moutarde de Dijon", "note": "la pointe d'acidité révélatrice" },
-    { "quantity": "5", "unit": "ml", "ingredient": "sel de mer", "note": "pour équilibrer les saveurs" },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "poivre noir fraîchement moulu", "note": "la touche finale" }
+    {
+      "quantity": "450",
+      "unit": "g",
+      "ingredient": "haricots blancs secs Navy",
+      "note": "la fondation crémeuse"
+    },
+    {
+      "quantity": "1,5",
+      "unit": "litre",
+      "ingredient": "eau fraîche",
+      "note": "pour réveiller les légumineuses"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "sirop d'érable ambré du Québec",
+      "note": "le cœur sucré de la recette"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "ketchup",
+      "note": "l'umami secret"
+    },
+    {
+      "quantity": "225",
+      "unit": "g",
+      "ingredient": "lard salé entrelardé",
+      "note": "du boucher, sans couenne"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "oignons jaunes moyens",
+      "note": "hachés grossièrement pour fondre dans la sauce"
+    },
+    {
+      "quantity": "15",
+      "unit": "ml",
+      "ingredient": "moutarde de Dijon",
+      "note": "la pointe d'acidité révélatrice"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "sel de mer",
+      "note": "pour équilibrer les saveurs"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "poivre noir fraîchement moulu",
+      "note": "la touche finale"
+    }
   ],
   "steps": [
     "Placer les haricots dans un grand bol. Couvrir d'eau et laisser tremper 12 heures ou toute une nuit à la température ambiante. Ajouter de l'eau au besoin afin que les haricots soient toujours bien couverts. Rincer et égoutter.",
@@ -28,13 +76,10 @@
     "Une heure avant la fin de cuisson, bien remuer et rectifier l'assaisonnement.",
     "Laisser reposer 10 minutes pour que les saveurs se marient parfaitement."
   ],
-  "categories": [
-    "plat principal",
-    "traditionnel",
-    "québécois"
-  ],
+  "categories": ["plat principal"],
+  "tags": ["québécois", "traditionnel", "mijoteuse", "congélation"],
   "difficulty": "facile",
-  "heroImage": "/cuisine/beans-cover.png",
+  "heroImage": "/cuisine/feves-au-lard.png",
   "pubDate": "2025-09-25",
   "ingredientIntro": "Une symphonie d'ingrédients simples mais essentiels, chacun jouant sa partition dans cette recette ancestrale. La qualité fait toute la différence.",
   "tips": "Le trempage des haricots est absolument essentiel — ne le sautez jamais. Des haricots bien trempés cuisent uniformément et ont une texture crémeuse parfaite. Utilisez un sirop d'érable authentique du Québec, pas de substitut : c'est l'âme même de ce plat traditionnel. Le lard salé doit être bien entrelardé pour libérer sa saveur et son gras pendant la cuisson lente. Si la sauce semble trop liquide en fin de cuisson, retirez le couvercle durant la dernière heure pour la faire réduire. Les fèves sont encore meilleures réchauffées le lendemain — les saveurs se marient et s'intensifient avec le temps. Congelez les restants en portions individuelles pour un repas réconfortant à tout moment.",

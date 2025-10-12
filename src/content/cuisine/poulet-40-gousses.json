@@ -1,7 +1,10 @@
 {
   "name": "Poulet aux 40 gousses d'ail",
   "description": "Le classique poulet aux quarante gousses d'ail, adapté pour la mijoteuse. Cette version simple transforme l'ail en une pâte douce et sucrée qui se tartine comme du beurre, pendant que le poulet devient incroyablement tendre.",
-  "servings": 6,
+  "servings": {
+    "quantity": 6,
+    "unit": "personnes"
+  },
   "freezable": true,
   "time": {
     "prep": 15,
@@ -29,11 +32,8 @@
     "Dans la dernière demi-heure, arroser de jus de citron et rectifier l'assaisonnement.",
     "Servir le poulet avec les gousses d'ail que les convives presseront pour extraire la pâte d'ail caramélisée."
   ],
-  "categories": [
-    "plat principal",
-    "traditionnel",
-    "français"
-  ],
+  "categories": ["plat principal"],
+  "tags": ["français", "traditionnel", "mijoteuse", "congélation"],
   "difficulty": "facile",
   "heroImage": "/cuisine/poulet-40-gousses.png",
   "pubDate": "2025-10-03",

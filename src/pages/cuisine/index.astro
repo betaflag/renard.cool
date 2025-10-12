@@ -2,25 +2,23 @@
 import { getCollection } from "astro:content";
 import CuisineLayout from "../../layouts/CuisineLayout.astro";
 import RecipesListing from "../../components/RecipesListing.astro";
-import MealPlanWidget from "../../components/MealPlanWidget.astro";
+import CuisineNav from "../../components/CuisineNav.astro";
 
 // For static site, we need to include all recipes and filter client-side
-const recipes = (await getCollection("cuisine")).sort(
-  (a, b) =>
-    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
-);
+// Exclude "Petite École" recipes from main listing
+const recipes = (await getCollection("cuisine"))
+  .filter((recipe) => recipe.data.mainCategory !== "Petite École")
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  );
 ---
 
 <CuisineLayout
   title="Renardo Cuisine | Recettes futées"
   description="Découvrez les recettes secrètes du renard cuisinier"
 >
-  <header>
-    <nav class="top-nav">
-      <a href="/" class="home-link">← Accueil</a>
-      <MealPlanWidget />
-    </nav>
-  </header>
+  <CuisineNav variant="index" />
 
   <main>
     <div class="header-section">
@@ -34,47 +32,12 @@ const recipes = (await getCollection("cuisine")).sort(
   </main>
 
   <style>
-    header {
-      position: relative;
-      z-index: 10;
-      padding: 1.5rem 2rem 0;
-    }
-
-    .top-nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .home-link {
-      color: #999;
-      text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      transition: all 0.3s ease;
-      padding: 8px 16px;
-      background: transparent;
-      border: 1px solid rgba(211, 84, 0, 0.2);
-      border-radius: 2px;
-      display: inline-block;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .home-link:hover {
-      color: #d35400;
-      border-color: rgba(211, 84, 0, 0.4);
-      background: rgba(211, 84, 0, 0.03);
-    }
-
     main {
       position: relative;
       z-index: 10;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 3rem 2rem 4rem;
+      padding: 6rem 2rem 4rem;
     }
 
     .header-section {
@@ -136,12 +99,8 @@ const recipes = (await getCollection("cuisine")).sort(
     }
 
     @media (max-width: 768px) {
-      header {
-        padding: 1rem 1.25rem 0;
-      }
-
       main {
-        padding: 2rem 1.25rem 3rem;
+        padding: 5.5rem 1.25rem 3rem;
       }
 
       .header-section {

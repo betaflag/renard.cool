@@ -19,7 +19,10 @@ const cuisine = defineCollection({
   schema: z.object({
     name: z.string(),
     description: z.string(),
-    servings: z.number(),
+    servings: z.object({
+      quantity: z.number(),
+      unit: z.string(),
+    }),
     freezable: z.boolean().default(false),
     time: z.object({
       prep: z.number(),
@@ -52,7 +55,9 @@ const cuisine = defineCollection({
       })),
     })).optional(),
     serving_suggestions: z.array(z.string()).optional(),
+    mainCategory: z.string().optional(),
     categories: z.array(z.string()).default(['plat principal']),
+    tags: z.array(z.string()).optional(),
     difficulty: z.enum(['facile', 'moyen', 'difficile']).default('moyen'),
     variant: z.enum(['simple', 'avance', 'maternelle']).optional(),
     relatedRecipe: z.string().optional(),

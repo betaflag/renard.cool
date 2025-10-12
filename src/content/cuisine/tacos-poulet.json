@@ -1,7 +1,10 @@
 {
   "name": "Tacos au poulet du Renard Festif",
   "description": "Des tacos colorés et vibrants qui célèbrent les saveurs du Sud : poulet épicé, haricots noirs crémeux, maïs sucré et salsa fraîche. Un festin rapide et joyeux qui transforme les soirs de semaine en fiesta.",
-  "servings": 4,
+  "servings": {
+    "quantity": 4,
+    "unit": "personnes"
+  },
   "freezable": false,
   "time": {
     "prep": 10,
@@ -42,11 +45,8 @@
     "Assembler les tacos : garnir chaque tortilla de mélange poulet-haricots-maïs, puis ajouter fromage râpé, crème sure, avocat, laitue et coriandre.",
     "Servir immédiatement avec quartiers de lime pour presser au-dessus. Offrir salsa additionnelle à table."
   ],
-  "categories": [
-    "plat principal",
-    "mexicain",
-    "rapide"
-  ],
+  "categories": ["plat principal"],
+  "tags": ["mexicain", "rapide", "familial"],
   "difficulty": "facile",
   "heroImage": "/cuisine/tacos-poulet.png",
   "pubDate": "2025-10-05",
