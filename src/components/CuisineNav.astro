@@ -66,15 +66,6 @@ const mainCategories = Array.from(mainCategoryMap.values()).sort((a, b) => a.nam
 
 // Sort standalone categories alphabetically
 const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0].localeCompare(b[0]));
-
-// Extract unique tags with counts
-const tagMap = new Map<string, number>();
-allRecipes.forEach((recipe) => {
-  recipe.data.tags?.forEach((tag) => {
-    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
-  });
-});
-const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort by count descending
 ---
 
 <nav class="cuisine-nav" id="cuisineNav">
@@ -92,6 +83,13 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort b
     </div>
 
     <div class="nav-center">
+      <a
+        href="/cuisine/main/Petite%20École"
+        class={`nav-link-button ${activeMainCategory === "Petite École" ? 'active' : ''}`}
+      >
+        Petite École
+      </a>
+
       <div class="nav-dropdown" id="categoriesDropdown">
         <button class="nav-dropdown-toggle" id="categoriesToggle">
           Catégories
@@ -115,41 +113,25 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort b
             />
           ))}
 
-          {/* Main categories with subcategories last (alphabetically, Petite École will be last) */}
-          {mainCategories.map((mainCat) => (
-            <CollapsibleCategoryGroup
-              mainCategoryName={mainCat.name}
-              mainCategoryUrl={`/cuisine/main/${encodeURIComponent(mainCat.name)}`}
-              mainCategoryCount={mainCat.count}
-              subcategories={Array.from(mainCat.subcategories?.entries() || [])
-                .sort((a, b) => a[0].localeCompare(b[0]))
-                .map(([name, count]) => ({
-                  name,
-                  count,
-                  url: `/cuisine/main/${encodeURIComponent(mainCat.name)}/${encodeURIComponent(name)}`,
-                }))}
-              isActive={activeMainCategory === mainCat.name}
-              activeSubcategory={activeCategory}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div class="nav-dropdown" id="tagsDropdown">
-        <button class="nav-dropdown-toggle" id="tagsToggle">
-          Tags
-          <span class="dropdown-arrow">▼</span>
-        </button>
-        <div class="nav-dropdown-menu" id="tagsMenu">
-          {tags.map(([tag, count]) => (
-            <a
-              href={`/cuisine/tags/${encodeURIComponent(tag)}`}
-              class={`dropdown-item ${activeTag === tag ? 'active' : ''}`}
-            >
-              <span class="item-name">{tag}</span>
-              <span class="item-count">{count}</span>
-            </a>
-          ))}
+          {/* Main categories with subcategories last (alphabetically), excluding Petite École */}
+          {mainCategories
+            .filter((mainCat) => mainCat.name !== "Petite École")
+            .map((mainCat) => (
+              <CollapsibleCategoryGroup
+                mainCategoryName={mainCat.name}
+                mainCategoryUrl={`/cuisine/main/${encodeURIComponent(mainCat.name)}`}
+                mainCategoryCount={mainCat.count}
+                subcategories={Array.from(mainCat.subcategories?.entries() || [])
+                  .sort((a, b) => a[0].localeCompare(b[0]))
+                  .map(([name, count]) => ({
+                    name,
+                    count,
+                    url: `/cuisine/main/${encodeURIComponent(mainCat.name)}/${encodeURIComponent(name)}`,
+                  }))}
+                isActive={activeMainCategory === mainCat.name}
+                activeSubcategory={activeCategory}
+              />
+            ))}
         </div>
       </div>
     </div>
@@ -165,6 +147,16 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort b
   </div>
 
   <div class="nav-mobile-menu" id="navMobileMenu">
+    <div class="mobile-section">
+      <h3 class="mobile-section-title">Menu</h3>
+      <a
+        href="/cuisine/main/Petite%20École"
+        class={`mobile-item ${activeMainCategory === "Petite École" ? 'active' : ''}`}
+      >
+        <span class="item-name">Petite École</span>
+      </a>
+    </div>
+
     <div class="mobile-section">
       <h3 class="mobile-section-title">Catégories</h3>
       <a href="/cuisine" class="mobile-item {activeCategory === undefined && activeMainCategory === undefined ? 'active' : ''}">
@@ -183,57 +175,46 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort b
         </a>
       ))}
 
-      {/* Main categories with subcategories last (alphabetically) */}
-      {mainCategories.map((mainCat) => {
-        const mobileGroupId = `mobile-category-group-${mainCat.name.toLowerCase().replace(/\s+/g, "-")}`;
-        return (
-          <div class="mobile-collapsible-group" data-group-id={mobileGroupId}>
-            <div class="mobile-category-header">
-              <a
-                href={`/cuisine/main/${encodeURIComponent(mainCat.name)}`}
-                class={`mobile-item main-category ${activeMainCategory === mainCat.name ? 'active' : ''}`}
-              >
-                <span class="item-name">{mainCat.name}</span>
-                <span class="item-count">{mainCat.count}</span>
-              </a>
-              <button
-                class="mobile-collapse-toggle"
-                data-group-id={mobileGroupId}
-                aria-label={`Toggle ${mainCat.name} subcategories`}
-                aria-expanded="false"
-              >
-                <span class="mobile-chevron">▶</span>
-              </button>
+      {/* Main categories with subcategories last (alphabetically), excluding Petite École */}
+      {mainCategories
+        .filter((mainCat) => mainCat.name !== "Petite École")
+        .map((mainCat) => {
+          const mobileGroupId = `mobile-category-group-${mainCat.name.toLowerCase().replace(/\s+/g, "-")}`;
+          return (
+            <div class="mobile-collapsible-group" data-group-id={mobileGroupId}>
+              <div class="mobile-category-header">
+                <a
+                  href={`/cuisine/main/${encodeURIComponent(mainCat.name)}`}
+                  class={`mobile-item main-category ${activeMainCategory === mainCat.name ? 'active' : ''}`}
+                >
+                  <span class="item-name">{mainCat.name}</span>
+                  <span class="item-count">{mainCat.count}</span>
+                </a>
+                <button
+                  class="mobile-collapse-toggle"
+                  data-group-id={mobileGroupId}
+                  aria-label={`Toggle ${mainCat.name} subcategories`}
+                  aria-expanded="false"
+                >
+                  <span class="mobile-chevron">▶</span>
+                </button>
+              </div>
+              <div class="mobile-subcategories" data-group-id={mobileGroupId}>
+                {mainCat.subcategories && Array.from(mainCat.subcategories.entries())
+                  .sort((a, b) => a[0].localeCompare(b[0]))
+                  .map(([subcat, subcount]) => (
+                    <a
+                      href={`/cuisine/main/${encodeURIComponent(mainCat.name)}/${encodeURIComponent(subcat)}`}
+                      class={`mobile-item subcategory ${activeMainCategory === mainCat.name && activeCategory === subcat ? 'active' : ''}`}
+                    >
+                      <span class="item-name">→ {subcat}</span>
+                      <span class="item-count">{subcount}</span>
+                    </a>
+                  ))}
+              </div>
             </div>
-            <div class="mobile-subcategories" data-group-id={mobileGroupId}>
-              {mainCat.subcategories && Array.from(mainCat.subcategories.entries())
-                .sort((a, b) => a[0].localeCompare(b[0]))
-                .map(([subcat, subcount]) => (
-                  <a
-                    href={`/cuisine/main/${encodeURIComponent(mainCat.name)}/${encodeURIComponent(subcat)}`}
-                    class={`mobile-item subcategory ${activeMainCategory === mainCat.name && activeCategory === subcat ? 'active' : ''}`}
-                  >
-                    <span class="item-name">→ {subcat}</span>
-                    <span class="item-count">{subcount}</span>
-                  </a>
-                ))}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-
-    <div class="mobile-section">
-      <h3 class="mobile-section-title">Tags</h3>
-      {tags.map(([tag, count]) => (
-        <a
-          href={`/cuisine/tags/${encodeURIComponent(tag)}`}
-          class={`mobile-item ${activeTag === tag ? 'active' : ''}`}
-        >
-          <span class="item-name">{tag}</span>
-          <span class="item-count">{count}</span>
-        </a>
-      ))}
+          );
+        })}
     </div>
   </div>
 </nav>
@@ -316,6 +297,31 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort b
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+
+  .nav-link-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid rgba(211, 84, 0, 0.2);
+    border-radius: 2rem;
+    color: #555;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-family: "Crimson Pro", serif;
+  }
+
+  .nav-link-button:hover,
+  .nav-link-button.active {
+    background: rgba(211, 84, 0, 0.05);
+    border-color: rgba(211, 84, 0, 0.4);
+    color: #d35400;
   }
 
   .nav-dropdown {
@@ -587,6 +593,10 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort b
       display: none;
     }
 
+    .nav-link-button {
+      display: none;
+    }
+
     .nav-mobile-toggle {
       display: flex;
     }
@@ -645,8 +655,6 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort b
   // Dropdown toggles
   const categoriesDropdown = document.getElementById("categoriesDropdown");
   const categoriesToggle = document.getElementById("categoriesToggle");
-  const tagsDropdown = document.getElementById("tagsDropdown");
-  const tagsToggle = document.getElementById("tagsToggle");
 
   // Mobile menu
   const navMobileToggle = document.getElementById("navMobileToggle");
@@ -656,20 +664,11 @@ const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]); // Sort b
   categoriesToggle?.addEventListener("click", (e) => {
     e.stopPropagation();
     categoriesDropdown?.classList.toggle("active");
-    tagsDropdown?.classList.remove("active");
-  });
-
-  // Toggle tags dropdown
-  tagsToggle?.addEventListener("click", (e) => {
-    e.stopPropagation();
-    tagsDropdown?.classList.toggle("active");
-    categoriesDropdown?.classList.remove("active");
   });
 
   // Close dropdowns on outside click
   document.addEventListener("click", () => {
     categoriesDropdown?.classList.remove("active");
-    tagsDropdown?.classList.remove("active");
   });
 
   // Mobile menu toggle
