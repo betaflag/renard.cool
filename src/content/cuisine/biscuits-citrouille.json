@@ -1,0 +1,138 @@
+{
+  "name": "Biscuits Dorés à la Citrouille du Terrier",
+  "description": "Des biscuits moelleux et parfumés aux épices d'automne, gorgés de purée de citrouille. Leur texture est nuageuse, leur goût réconfortant, et leur préparation si simple que Renardo peut les faire presque tout seul. La cuisine se remplit d'arômes de cannelle et de gingembre.",
+  "servings": 24,
+  "freezable": true,
+  "time": {
+    "prep": 15,
+    "cook": 12,
+    "wait": 5,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    {
+      "quantity": "375",
+      "unit": "ml",
+      "ingredient": "farine tout-usage",
+      "note": "tamisée si possible"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "poudre à pâte",
+      "note": "pour la levée"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "bicarbonate de soude",
+      "note": "pour la texture moelleuse"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "cannelle moulue",
+      "note": "l'épice star de l'automne"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "gingembre moulu",
+      "note": "la chaleur épicée"
+    },
+    {
+      "quantity": "1,25",
+      "unit": "ml",
+      "ingredient": "muscade moulue",
+      "note": "la note mystérieuse"
+    },
+    {
+      "quantity": "0,6",
+      "unit": "ml",
+      "ingredient": "clou de girofle moulu",
+      "note": "une pincée pour la profondeur"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": "pour équilibrer la douceur"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "beurre non salé",
+      "note": "ramolli à température ambiante"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "cassonade",
+      "note": "tassée, pour richesse"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "gros œuf",
+      "note": "à température ambiante"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "purée de citrouille",
+      "note": "en conserve ou fraîche"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "extrait de vanille",
+      "note": "pour parfumer"
+    },
+    { "subsection": "Ajouts optionnels (au choix)" },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "pépites de chocolat",
+      "note": "semi-sucrées ou au lait"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "raisins secs",
+      "note": "ou canneberges séchées"
+    },
+    {
+      "quantity": "75",
+      "unit": "ml",
+      "ingredient": "pacanes",
+      "note": "hachées grossièrement"
+    }
+  ],
+  "steps": [
+    "Préchauffer le four à 180°C (350°F). Tapisser deux plaques à biscuits de papier parchemin.",
+    "Dans un bol moyen, mélanger la farine, la poudre à pâte, le bicarbonate de soude, la cannelle, le gingembre, la muscade, le clou de girofle et le sel. Réserver ce mélange sec.",
+    "Dans un grand bol, battre le beurre ramolli et la cassonade ensemble avec un batteur électrique (ou à la main énergiquement) pendant 2-3 minutes jusqu'à ce que le mélange soit pâle et crémeux — l'air incorporé donnera des biscuits moelleux.",
+    "Ajouter l'œuf et la vanille au mélange de beurre et battre 1 minute jusqu'à bien incorporé. Ajouter la purée de citrouille et mélanger jusqu'à homogène — ne vous inquiétez pas si le mélange semble granuleux, c'est normal.",
+    "Ajouter le mélange d'ingrédients secs aux ingrédients humides. Mélanger délicatement avec une cuillère en bois ou une spatule juste jusqu'à ce que la farine disparaisse — ne sur-mélangez pas ou les biscuits seront durs. La pâte sera épaisse et légèrement collante.",
+    "Si désiré, incorporer délicatement les pépites de chocolat, raisins secs ou pacanes (ou un mélange!).",
+    "Déposer la pâte par cuillerées à soupe combles sur les plaques préparées, en espaçant les biscuits de 5 cm (2 pouces) — ils s'étaleront légèrement à la cuisson.",
+    "Cuire au four 11-13 minutes, jusqu'à ce que les bords soient légèrement dorés et que le dessus rebondisse légèrement au toucher. Les centres peuvent sembler un peu mous — c'est parfait, ils raffermiront en refroidissant.",
+    "Laisser refroidir sur la plaque 5 minutes (important pour qu'ils se tiennent!), puis transférer sur une grille pour refroidir complètement.",
+    "Répéter avec le reste de la pâte. Déguster tièdes ou à température ambiante."
+  ],
+  "serving_suggestions": [
+    "Avec un verre de lait froid",
+    "Accompagnés d'un café au lait épicé à la cannelle",
+    "Dans la boîte à lunch avec une pomme",
+    "Tartinés de beurre d'arachide ou de fromage à la crème"
+  ],
+  "categories": ["dessert", "collation", "automne", "familial"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/biscuits-citrouille.png",
+  "pubDate": "2025-10-12",
+  "draft": true,
+  "ingredientIntro": "La citrouille rencontre les épices d'automne dans une danse parfaite. Chaque ingrédient contribue à créer ces biscuits moelleux qui goûtent l'automne québécois. Simple, mais magique.",
+  "tips": "Le secret de biscuits parfaitement moelleux commence par le battage du beurre et de la cassonade : ce geste incorpore de l'air qui crée la texture légère et tendre. Battez 2-3 minutes complètes, ne précipitez pas cette étape. La purée de citrouille doit être bien égouttée si vous utilisez de la citrouille fraîche — trop d'eau donnera des biscuits plats. La conserve fonctionne parfaitement. Ne sur-mélangez JAMAIS la pâte après l'ajout de la farine : mélangez juste jusqu'à ce que la farine disparaisse. Sur-mélanger développe le gluten et rend les biscuits durs et denses. Les biscuits peuvent sembler un peu mous à la sortie du four — c'est normal! Ils raffermiront en refroidissant. Si vous les cuisez trop longtemps, ils seront secs. Les épices peuvent être ajustées selon vos goûts : plus de cannelle pour les amateurs, moins de gingembre si vous préférez doux. Ces biscuits se conservent 4-5 jours dans un contenant hermétique à température ambiante et se congèlent merveilleusement (jusqu'à 3 mois). Pour une version encore plus indulgente, préparez un glaçage au fromage à la crème avec du sucre en poudre et un peu de vanille — étalez sur les biscuits refroidis. Parfaits pour l'Halloween, l'Action de grâce, ou n'importe quel après-midi d'automne où l'on a besoin de réconfort sucré.",
+  "note": "La pâte peut être préparée à l'avance et réfrigérée jusqu'à 24h. Sortir 10 minutes avant de façonner les biscuits."
+}

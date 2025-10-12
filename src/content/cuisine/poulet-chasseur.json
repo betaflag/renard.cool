@@ -1,0 +1,66 @@
+{
+  "name": "Cocotte du Chasseur Rusé",
+  "description": "Le classique poulet chasseur français-italien où les cuisses de poulet dorées mijotent dans une sauce tomate rustique aux champignons, poivrons et vin blanc. Les arômes enivrants de cette cocotte transforment une soirée ordinaire en festin chaleureux.",
+  "servings": 4,
+  "freezable": true,
+  "time": {
+    "prep": 15,
+    "cook": 45,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière",
+  "ingredients": [
+    { "quantity": "4", "unit": null, "ingredient": "cuisses de poulet avec peau", "note": "environ 800g, la peau donnera saveur et richesse" },
+    { "quantity": "250", "unit": "g", "ingredient": "champignons cremini", "note": "ou mélange champignons, tranchés" },
+    { "quantity": "1", "unit": null, "ingredient": "poivron rouge", "note": "coupé en lanières" },
+    { "quantity": "1", "unit": null, "ingredient": "poivron jaune", "note": "coupé en lanières, pour couleur et douceur" },
+    { "quantity": "1", "unit": null, "ingredient": "oignon jaune moyen", "note": "haché" },
+    { "quantity": "4", "unit": "gousses", "ingredient": "ail", "note": "hachées finement" },
+    { "quantity": "1", "unit": "boîte (796 ml)", "ingredient": "tomates concassées", "note": "de qualité italienne si possible" },
+    { "quantity": "45", "unit": "ml", "ingredient": "pâte de tomates", "note": "pour concentrer la saveur" },
+    { "quantity": "175", "unit": "ml", "ingredient": "vin blanc sec", "note": "pour déglacer et parfumer" },
+    { "quantity": "125", "unit": "ml", "ingredient": "bouillon de poulet", "note": "pour enrichir la sauce" },
+    { "quantity": "15", "unit": "ml", "ingredient": "huile d'olive", "note": "pour dorer le poulet" },
+    { "quantity": "5", "unit": "ml", "ingredient": "thym séché", "note": "l'herbe provençale classique" },
+    { "quantity": "2,5", "unit": "ml", "ingredient": "origan séché", "note": "la touche italienne" },
+    { "quantity": "1", "unit": "branche", "ingredient": "romarin frais", "note": "optionnel, pour profondeur aromatique" },
+    { "quantity": "2", "unit": "feuilles", "ingredient": "laurier", "note": "l'âme des mijotés" },
+    { "quantity": null, "unit": null, "ingredient": "Sel et poivre noir", "note": "fraîchement moulu, au goût" },
+    { "subsection": "Garnitures (optionnelles)" },
+    { "quantity": "75", "unit": "ml", "ingredient": "olives noires Kalamata", "note": "dénoyautées, tranchées - authentique mais facultatif" },
+    { "quantity": "30", "unit": "ml", "ingredient": "persil frais", "note": "ciselé, pour finition" }
+  ],
+  "steps": [
+    "Assaisonner généreusement les cuisses de poulet de sel et poivre sur toutes les faces.",
+    "Dans une grande cocotte ou poêle profonde, chauffer l'huile d'olive à feu moyen-vif. Déposer les cuisses de poulet côté peau vers le bas. Laisser dorer 5-6 minutes sans bouger — la peau doit devenir croustillante et profondément dorée. Retourner et dorer l'autre côté 3-4 minutes. Réserver le poulet dans une assiette.",
+    "Dans la même cocotte (conserver le gras et les sucs de cuisson), ajouter l'oignon haché. Cuire 3-4 minutes à feu moyen jusqu'à translucide, en raclant les sucs dorés au fond de la cocotte.",
+    "Ajouter les champignons tranchés et cuire 5 minutes jusqu'à ce qu'ils relâchent leur eau et commencent à dorer. Ajouter les poivrons et l'ail. Cuire 2 minutes jusqu'à parfumé.",
+    "Verser le vin blanc et porter à ébullition en raclant bien tous les sucs caramélisés au fond de la cocotte avec une cuillère en bois — c'est là que réside la saveur profonde. Laisser réduire 2-3 minutes.",
+    "Ajouter les tomates concassées, la pâte de tomates, le bouillon de poulet, le thym, l'origan, le romarin (si utilisé) et les feuilles de laurier. Mélanger et porter à frémissement.",
+    "Retourner les cuisses de poulet dans la sauce, côté peau vers le haut pour qu'elle reste croustillante. Réduire à feu doux, couvrir partiellement et laisser mijoter 30-35 minutes, jusqu'à ce que le poulet soit tendre et que la sauce ait épaissi et réduit.",
+    "À mi-cuisson (après 15-20 minutes), ajouter les olives si désiré et rectifier l'assaisonnement.",
+    "Retirer les feuilles de laurier et la branche de romarin. Si la sauce est trop liquide, retirer le poulet, monter le feu et faire réduire 3-5 minutes à découvert.",
+    "Garnir de persil frais ciselé et servir immédiatement dans des assiettes chaudes, en nappant généreusement de sauce."
+  ],
+  "serving_suggestions": [
+    "Polenta crémeuse qui absorbe merveilleusement la sauce",
+    "Pâtes fraîches (tagliatelles, pappardelle) ou riz blanc",
+    "Pain croûté italien pour saucer",
+    "Légumes verts simplement sautés (haricots, broccolini)"
+  ],
+  "categories": [
+    "plat principal",
+    "français",
+    "italien",
+    "automne",
+    "romantique"
+  ],
+  "difficulty": "moyen",
+  "heroImage": "/cuisine/poulet-chasseur.png",
+  "pubDate": "2025-10-12",
+  "draft": false,
+  "ingredientIntro": "Le poulet chasseur tire son nom de la sauce « à la chasseur » — tomates, champignons, vin blanc — que les chasseurs français et italiens préparaient au retour de la chasse. Chaque ingrédient contribue à cette alchimie rustique et réconfortante.",
+  "tips": "Le secret d'un poulet chasseur mémorable commence par le dorage : la peau doit être profondément dorée et croustillante — résistez à l'envie de bouger les cuisses trop tôt. Laissez la chaleur faire son travail. Les sucs bruns caramélisés au fond de la cocotte sont de l'or pur : c'est le déglaçage au vin blanc qui les libère et les transforme en fond de sauce intense. Ne sautez jamais cette étape. La réduction est cruciale : la sauce doit être concentrée, riche, et nappe le dos d'une cuillère — si elle est trop liquide, faites-la réduire à découvert en fin de cuisson. Les champignons cremini sont parfaits pour leur saveur terreuse, mais un mélange de champignons (shiitake, pleurotes) apporte encore plus de complexité. Les olives Kalamata ajoutent une note salée et méditerranéenne qui équilibre l'acidité des tomates — elles ne sont pas obligatoires mais hautement recommandées pour l'authenticité. Ce plat se bonifie en reposant : préparez-le quelques heures à l'avance et réchauffez-le doucement — les saveurs se marieront davantage. Servez dans des assiettes chaudes pour que la sauce reste onctueuse et fumante. Le poulet chasseur incarne le réconfort rustique français-italien : des ingrédients simples transformés par la patience et la technique en un festin digne des meilleures tables.",
+  "note": "Le poulet se congèle très bien dans sa sauce. Décongeler au réfrigérateur et réchauffer doucement."
+}

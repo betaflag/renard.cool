@@ -1,0 +1,61 @@
+{
+  "name": "Biscuits à l'Avoine et Citrouille de la Petite École",
+  "description": "Une version ultra-simplifiée des biscuits à l'avoine et citrouille, parfaite pour les classes de maternelle. Les petits de 5-6 ans peuvent faire presque toutes les étapes avec leurs mains et une cuillère en bois — pas besoin de batteur électrique ou d'équipement compliqué. L'avoine ajoute une texture délicieusement moelleuse et nutritive. Simple, amusant, et délicieux!",
+  "servings": 18,
+  "freezable": true,
+  "time": {
+    "prep": 20,
+    "cook": 12,
+    "wait": 5,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    { "quantity": "375", "unit": "ml", "ingredient": "farine tout-usage", "note": "1½ tasse - la base de nos biscuits" },
+    { "quantity": "250", "unit": "ml", "ingredient": "flocons d'avoine à cuisson rapide", "note": "1 tasse - pour la texture moelleuse" },
+    { "quantity": "5", "unit": "ml", "ingredient": "poudre à pâte", "note": "1 c. à thé - pour que ça lève" },
+    { "quantity": "1,25", "unit": "ml", "ingredient": "sel", "note": "¼ c. à thé - juste un peu" },
+    { "quantity": "10", "unit": "ml", "ingredient": "mélange d'épices à tarte à la citrouille", "note": "2 c. à thé - l'odeur de l'automne!" },
+    { "quantity": "75", "unit": "ml", "ingredient": "huile végétale", "note": "⅓ tasse - facile à mélanger" },
+    { "quantity": "125", "unit": "ml", "ingredient": "cassonade", "note": "½ tasse - pour le goût riche" },
+    { "quantity": "1", "unit": null, "ingredient": "gros œuf", "note": "pour tenir la pâte ensemble" },
+    { "quantity": "175", "unit": "ml", "ingredient": "purée de citrouille", "note": "¾ tasse - en conserve ou fraîche" },
+    { "quantity": "5", "unit": "ml", "ingredient": "extrait de vanille", "note": "1 c. à thé - pour sentir bon" },
+    { "subsection": "Ajout facultatif" },
+    { "quantity": "75", "unit": "ml", "ingredient": "raisins secs", "note": "⅓ tasse - si on veut!" }
+  ],
+  "steps": [
+    "L'ADULTE allume le four à 180°C (350°F). L'ADULTE met du papier parchemin sur deux plaques à biscuits.",
+    "Dans un GRAND bol, les ENFANTS mettent la farine, les flocons d'avoine, la poudre à pâte, le sel et les épices à citrouille. Avec une cuillère en bois, les ENFANTS mélangent tout ensemble. Mettre ce bol de côté.",
+    "Dans un PETIT bol, un ENFANT (avec l'aide d'un ADULTE) casse l'œuf doucement. Ajouter l'huile, la cassonade, la purée de citrouille et la vanille dans le même bol.",
+    "Avec la cuillère en bois, les ENFANTS mélangent les ingrédients du petit bol jusqu'à ce que tout soit bien mélangé — ça devient orange et liquide avec du sucre brun.",
+    "Verser le mélange orange (liquide) dans le grand bol avec la farine et l'avoine (poudre). Avec la cuillère en bois, les ENFANTS mélangent doucement jusqu'à ce qu'on ne voie plus de farine blanche. La pâte sera épaisse et un peu collante avec des flocons d'avoine — c'est parfait!",
+    "Si on veut des raisins secs, les ENFANTS les ajoutent maintenant et mélangent délicatement.",
+    "Les ENFANTS se lavent les mains. Ensuite, chaque ENFANT prend une petite cuillère à soupe de pâte, fait une boule avec ses mains propres, et la dépose sur la plaque. Laisser de l'espace entre les boules — environ deux doigts d'espace.",
+    "L'ADULTE met les plaques au four. ATTENTION: Le four est très chaud! Les ENFANTS regardent de loin sans toucher.",
+    "L'ADULTE cuit les biscuits 12-14 minutes. Les biscuits sont prêts quand les bords sont un peu dorés et le dessus est ferme.",
+    "L'ADULTE sort les plaques du four avec des mitaines. Les biscuits doivent refroidir 5 minutes sur la plaque — ne pas toucher, c'est chaud!",
+    "Quand les biscuits sont tièdes, tout le monde peut en prendre un et déguster ensemble avec du lait!"
+  ],
+  "serving_suggestions": [
+    "Avec un verre de lait froid ou chocolat",
+    "Pour la collation de l'après-midi",
+    "Emballés dans du papier ciré pour rapporter à la maison"
+  ],
+  "categories": [
+    "dessert",
+    "collation",
+    "automne",
+    "éducatif",
+    "maternelle"
+  ],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/biscuits-citrouille.png",
+  "pubDate": "2025-10-12",
+  "draft": false,
+  "variant": "maternelle",
+  "relatedRecipe": "biscuits-citrouille",
+  "ingredientIntro": "Seulement 10 ingrédients simples! Les enfants de maternelle peuvent mesurer, mélanger et former les biscuits presque tout seuls. L'avoine ajoute de la nutrition et une texture moelleuse que les enfants adorent. C'est une vraie recette de grands, mais adaptée pour les petites mains.",
+  "tips": "POUR LES ENSEIGNANTS ET PARENTS: Cette recette est spécialement conçue pour les classes de maternelle (5-6 ans). Pré-mesurez les ingrédients secs dans des petits sacs Ziploc étiquetés pour chaque groupe d'enfants — ça simplifie énormément la préparation. L'avoine à cuisson rapide (pas instantanée!) donne une texture moelleuse et nutritive sans compliquer la recette. Les enfants adorent voir et toucher les flocons d'avoine! Utilisez de l'huile végétale au lieu du beurre : c'est beaucoup plus facile pour les petites mains de mélanger, et ça ne nécessite pas de batteur électrique. Le mélange d'épices à tarte à la citrouille du commerce (trouvable dans toutes les épiceries à l'automne) remplace 5 épices différentes — un seul ingrédient à mesurer! La cassonade ajoute une saveur riche qui se marie parfaitement avec l'avoine. Les enfants peuvent casser l'œuf dans un petit bol séparé (avec supervision) : si des coquilles tombent, c'est facile de les retirer sans contaminer toute la pâte. Faire des boules avec les mains est une excellente activité motrice fine ET sensorielle. La pâte sera collante — c'est normal et les enfants adorent cette texture! Ayez des lingettes humides à portée de main. Si la pâte est trop collante pour manipuler, mouillez légèrement les mains des enfants avec de l'eau froide. Vocabulaire à enseigner: liquide vs solide, mélanger, pâte, texture collante, flocons d'avoine, épices qui sentent bon, céréales complètes. Les biscuits ne seront pas tous parfaitement ronds — et c'est parfait! Chacun est unique, comme son créateur. Ces biscuits se conservent 3-4 jours et peuvent être congelés. Parfait pour l'Halloween, l'Action de grâce, ou n'importe quelle journée thématique d'automne à l'école.",
+  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud. Les enfants ne touchent jamais les plaques chaudes. Vérifier les allergies (œufs, gluten) avant de faire l'activité en classe."
+}

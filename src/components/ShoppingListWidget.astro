@@ -320,6 +320,8 @@ import { ShoppingBasket } from "lucide-astro";
     transition: all 0.2s ease;
     border: 1px solid;
     font-family: "Crimson Pro", serif;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .action-button.secondary {
@@ -386,6 +388,14 @@ import { ShoppingBasket } from "lucide-astro";
 
     .dropdown-actions {
       flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 1.5rem 1.25rem;
+    }
+
+    .action-button {
+      padding: 0.875rem 1rem;
+      font-size: 0.85rem;
+      min-height: 44px;
     }
   }
 </style>
@@ -429,8 +439,14 @@ import { ShoppingBasket } from "lucide-astro";
 
   // Remove checked items
   removeCheckedBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
     e.stopPropagation();
-    if (confirm("Retirer tous les ingrédients cochés?")) {
+    const checkedCount = getShoppingList().filter(item => item.checked).length;
+    if (checkedCount === 0) {
+      alert("Aucun ingrédient coché à retirer.");
+      return;
+    }
+    if (confirm(`Retirer ${checkedCount} ingrédient${checkedCount > 1 ? 's' : ''} coché${checkedCount > 1 ? 's' : ''}?`)) {
       removeCheckedItems();
       renderShoppingList();
     }
@@ -438,8 +454,14 @@ import { ShoppingBasket } from "lucide-astro";
 
   // Clear all
   clearAllBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
     e.stopPropagation();
-    if (confirm("Effacer toute la liste d'épicerie?")) {
+    const totalCount = getShoppingList().length;
+    if (totalCount === 0) {
+      alert("La liste est déjà vide.");
+      return;
+    }
+    if (confirm(`Effacer tous les ${totalCount} ingrédients de la liste?`)) {
       clearShoppingList();
       renderShoppingList();
     }
