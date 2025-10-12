@@ -6,12 +6,18 @@ import CuisineNav from "../../components/CuisineNav.astro";
 
 // For static site, we need to include all recipes and filter client-side
 // Exclude "Petite École" recipes from main listing
-const recipes = (await getCollection("cuisine"))
+// Include drafts for client-side toggle, but featured recipe (index 0) should not be a draft
+const allRecipes = (await getCollection("cuisine"))
   .filter((recipe) => recipe.data.mainCategory !== "Petite École")
   .sort(
     (a, b) =>
       new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
+
+// Ensure first recipe (featured) is not a draft
+const nonDraftRecipes = allRecipes.filter((recipe) => !recipe.data.draft);
+const draftRecipes = allRecipes.filter((recipe) => recipe.data.draft);
+const recipes = [...nonDraftRecipes, ...draftRecipes];
 ---
 
 <CuisineLayout

@@ -7,19 +7,26 @@ import RecipesListing from "../../../components/RecipesListing.astro";
 export async function getStaticPaths() {
   const allRecipes = await getCollection("cuisine");
 
-  // Extract unique categories
+  // Extract unique categories ONLY from recipes without a mainCategory
+  // (standalone categories should not include recipes from main category groups)
   const categorySet = new Set<string>();
   allRecipes.forEach((recipe) => {
-    recipe.data.categories?.forEach((cat) => categorySet.add(cat));
+    if (!recipe.data.mainCategory) {
+      recipe.data.categories?.forEach((cat) => categorySet.add(cat));
+    }
   });
 
-  // Generate a page for each category
+  // Generate a page for each standalone category
   return Array.from(categorySet).map((category) => ({
     params: { category },
     props: {
       category,
       recipes: allRecipes
-        .filter((recipe) => recipe.data.categories?.includes(category))
+        .filter(
+          (recipe) =>
+            !recipe.data.mainCategory &&
+            recipe.data.categories?.includes(category)
+        )
         .sort(
           (a, b) =>
             new Date(b.data.pubDate).valueOf() -

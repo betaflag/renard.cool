@@ -36,7 +36,8 @@ allRecipes.forEach((recipe) => {
   const mainCat = recipe.data.mainCategory;
 
   if (mainCat) {
-    // This recipe has a main category
+    // This recipe belongs to a main category (e.g., "Petite École")
+    // Its categories array becomes subcategories under the main category
     if (!mainCategoryMap.has(mainCat)) {
       mainCategoryMap.set(mainCat, {
         name: mainCat,
@@ -47,12 +48,13 @@ allRecipes.forEach((recipe) => {
     const node = mainCategoryMap.get(mainCat)!;
     node.count++;
 
-    // Add subcategories
+    // Add subcategories (e.g., "dessert", "collation" under "Petite École")
     recipe.data.categories?.forEach((subcat) => {
       node.subcategories!.set(subcat, (node.subcategories!.get(subcat) || 0) + 1);
     });
   } else {
     // Standalone categories (no main category)
+    // These recipes appear in the main listing and standalone category pages
     recipe.data.categories?.forEach((cat) => {
       standaloneCategories.set(cat, (standaloneCategories.get(cat) || 0) + 1);
     });

@@ -38,6 +38,12 @@
     "Incorporer l'eau de cuisson réservée et le parmesan râpé. Mélanger jusqu'à ce que la sauce soit crémeuse et enrobe bien les pâtes.",
     "Goûter et ajuster l'assaisonnement. Servir immédiatement garni de pignons grillés, basilic frais et copeaux de parmesan."
   ],
+  "serving_suggestions": [
+    "Accompagné d'une salade roquette et parmesan au vinaigre balsamique",
+    "Servi avec du pain à l'ail croustillant",
+    "Dans des bols avec un filet d'huile d'olive extra-vierge",
+    "Garni généreusement de basilic frais et parmesan en copeaux"
+  ],
   "categories": ["plat principal"],
   "tags": ["italien", "rapide", "une-casserole"],
   "difficulty": "facile",
