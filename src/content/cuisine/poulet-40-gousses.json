@@ -32,12 +32,19 @@
     "Dans la dernière demi-heure, arroser de jus de citron et rectifier l'assaisonnement.",
     "Servir le poulet avec les gousses d'ail que les convives presseront pour extraire la pâte d'ail caramélisée."
   ],
+  "serving_suggestions": [
+    "Servi avec du pain croûté pour tartiner l'ail confit",
+    "Accompagné de pommes de terre rôties ou purée crémeuse",
+    "Avec des haricots verts sautés au beurre",
+    "Sur un lit de riz pilaf aux herbes fraîches"
+  ],
   "categories": ["plat principal"],
   "tags": ["français", "traditionnel", "mijoteuse", "congélation"],
   "difficulty": "facile",
   "heroImage": "/cuisine/poulet-40-gousses.png",
   "pubDate": "2025-10-03",
-  "draft": true,
+  "draft": false,
   "ingredientIntro": "Quarante gousses d'ail peuvent sembler excessif, mais la cuisson lente les transforme en or culinaire. Chaque ingrédient contribue à créer ce plat légendaire.",
-  "tips": "N'ayez crainte des quarante gousses d'ail — la cuisson lente les transforme en purée douce et crémeuse, sans l'âcreté du cru. Gardez les gousses entières avec leur peau pour une saveur plus délicate. Le secret d'un poulet juteux : saisir d'abord la peau à feu vif pour la rendre dorée et croustillante, puis laisser la mijoteuse travailler sa magie. Le vin blanc déglaçage la poêle et ajoute de la complexité — ne sautez pas cette étape. En fin de cuisson, pressez quelques gousses d'ail confites dans la sauce pour l'enrichir davantage. Servez avec du pain croûté pour étaler l'ail fondant, c'est un délice qui ne se refuse pas."
+  "tips": "N'ayez crainte des quarante gousses d'ail — la cuisson lente les transforme en purée douce et crémeuse, sans l'âcreté du cru. Gardez les gousses entières avec leur peau pour une saveur plus délicate. Le secret d'un poulet juteux : saisir d'abord la peau à feu vif pour la rendre dorée et croustillante, puis laisser la mijoteuse travailler sa magie. Le vin blanc déglaçage la poêle et ajoute de la complexité — ne sautez pas cette étape. En fin de cuisson, pressez quelques gousses d'ail confites dans la sauce pour l'enrichir davantage. Servez avec du pain croûté pour étaler l'ail fondant, c'est un délice qui ne se refuse pas.",
+  "note": "Se congèle très bien jusqu'à 3 mois. L'ail confit devient encore plus doux après congélation. Pour un maximum de saveur, préparez-le la veille et réchauffez — les saveurs se développent magnifiquement."
 }

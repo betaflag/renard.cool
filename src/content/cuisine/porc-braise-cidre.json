@@ -35,12 +35,19 @@
     "30 minutes avant la fin, saupoudrer la farine et bien mélanger pour épaissir la sauce.",
     "Rectifier l'assaisonnement et servir chaud."
   ],
+  "serving_suggestions": [
+    "Servi sur un lit de purée de pommes de terre crémeuse",
+    "Accompagné de nouilles aux œufs larges au beurre",
+    "Avec des légumes racines rôtis (carottes, panais, navets)",
+    "Garni de persil frais avec du pain croûté pour saucer"
+  ],
   "categories": ["plat principal"],
   "tags": ["québécois", "traditionnel", "automne", "mijoteuse", "congélation"],
   "difficulty": "facile",
   "heroImage": "/cuisine/porc-cidre.png",
   "pubDate": "2025-10-03",
-  "draft": true,
+  "draft": false,
   "ingredientIntro": "Le mariage du porc et des pommes est un classique automnal. Le cidre unit ces saveurs dans une harmonie parfaite, créant un plat réconfortant par excellence.",
-  "tips": "Choisissez des pommes qui tiennent bien à la cuisson comme les Cortland ou Honeycrisp — elles garderont leur forme tout en devenant tendres. Le dorage initial du porc n'est pas facultatif : cette étape scelle les jus et développe une profondeur de saveur incomparable. Utilisez un cidre artisanal non filtré pour plus de caractère — évitez les cidres trop sucrés qui déséquilibreraient le plat. La sauge et le thym sont les herbes parfaites pour l'automne et se marient divinement avec le porc et les pommes. Si vous préférez une sauce plus épaisse, ajoutez la farine 30 minutes avant la fin plutôt qu'à la dernière minute. Ce plat se bonifie en vieillissant et se congèle à merveille."
+  "tips": "Choisissez des pommes qui tiennent bien à la cuisson comme les Cortland ou Honeycrisp — elles garderont leur forme tout en devenant tendres. Le dorage initial du porc n'est pas facultatif : cette étape scelle les jus et développe une profondeur de saveur incomparable. Utilisez un cidre artisanal non filtré pour plus de caractère — évitez les cidres trop sucrés qui déséquilibreraient le plat. La sauge et le thym sont les herbes parfaites pour l'automne et se marient divinement avec le porc et les pommes. Si vous préférez une sauce plus épaisse, ajoutez la farine 30 minutes avant la fin plutôt qu'à la dernière minute. Ce plat se bonifie en vieillissant et se congèle à merveille.",
+  "note": "Se congèle parfaitement jusqu'à 3 mois dans des contenants hermétiques. La sauce épaissit légèrement à la congélation. Les saveurs se développent magnifiquement après 24 heures au réfrigérateur — n'hésitez pas à préparer la veille. Réchauffez doucement à feu doux en ajoutant un peu de cidre si nécessaire."
 }
