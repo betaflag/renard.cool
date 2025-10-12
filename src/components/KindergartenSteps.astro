@@ -1,0 +1,336 @@
+---
+interface VisualElement {
+  type: 'container' | 'ingredient' | 'action' | 'tool';
+  image: string;
+  label: string;
+  quantity?: string;
+}
+
+interface VisualStep {
+  instruction: string;
+  actorRole: 'adulte' | 'enfants';
+  visualElements: VisualElement[];
+}
+
+interface Props {
+  steps: VisualStep[];
+}
+
+const { steps } = Astro.props;
+---
+
+<div class="kindergarten-steps">
+  {steps.map((step, index) => (
+    <div class="visual-step" data-actor={step.actorRole}>
+      <div class="step-header">
+        <span class="step-number">{index + 1}</span>
+        <p class="step-instruction">{step.instruction}</p>
+        <span class="step-actor">
+          {step.actorRole}
+        </span>
+      </div>
+
+      <div class="visual-elements">
+        {step.visualElements.map((element) => (
+          <div class={`visual-element visual-${element.type}`}>
+            <img src={element.image} alt={element.label} />
+            <span class="element-label">{element.label}</span>
+            {element.quantity && (
+              <span class="element-quantity">{element.quantity}</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .kindergarten-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 2rem 0;
+  }
+
+  .visual-step {
+    background: white;
+    border: 3px solid #ff6b00;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+
+  .visual-step[data-actor="adulte"] {
+    border-color: #d35400;
+    background: linear-gradient(to bottom, rgba(211, 84, 0, 0.04), rgba(211, 84, 0, 0.01));
+  }
+
+  .visual-step[data-actor="enfants"] {
+    border-color: #ff6b00;
+    background: linear-gradient(to bottom, rgba(255, 107, 0, 0.04), rgba(255, 107, 0, 0.01));
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .step-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ff6b00;
+    font-family: "Playfair Display", serif;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .visual-step[data-actor="adulte"] .step-number {
+    color: #d35400;
+  }
+
+  .step-instruction {
+    font-size: 1.3rem;
+    color: #2c2c2c;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    flex: 1;
+  }
+
+  .step-actor {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+
+  .visual-step[data-actor="adulte"] .step-actor {
+    background: rgba(211, 84, 0, 0.1);
+    color: #d35400;
+  }
+
+  .visual-step[data-actor="enfants"] .step-actor {
+    background: rgba(255, 107, 0, 0.1);
+    color: #ff6b00;
+  }
+
+  .visual-elements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .visual-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 140px;
+    flex: 0 0 auto;
+  }
+
+  .visual-element img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .visual-element:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .visual-container img,
+  .visual-tool img {
+    border-color: #ff6b00;
+  }
+
+  .visual-action img {
+    border-color: #27ae60;
+  }
+
+  .element-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .element-quantity {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ff6b00;
+    text-align: center;
+    font-family: "Crimson Pro", serif;
+    line-height: 1.2;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 107, 0, 0.08);
+    border-radius: 6px;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .kindergarten-steps {
+      gap: 2rem;
+    }
+
+    .visual-step {
+      padding: 1.5rem;
+      border-width: 2px;
+    }
+
+    .step-header {
+      gap: 1rem;
+    }
+
+    .step-number {
+      font-size: 2.5rem;
+    }
+
+    .step-instruction {
+      font-size: 1.1rem;
+    }
+
+    .step-actor {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+    }
+
+    .visual-elements {
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .visual-element {
+      max-width: 110px;
+    }
+
+    .visual-element img {
+      width: 80px;
+      height: 80px;
+      padding: 0.4rem;
+      border-width: 2px;
+    }
+
+    .element-label {
+      font-size: 0.9rem;
+    }
+
+    .element-quantity {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .visual-step {
+      padding: 1.25rem;
+    }
+
+    .step-header {
+      flex-wrap: wrap;
+    }
+
+    .step-number {
+      font-size: 2rem;
+    }
+
+    .step-instruction {
+      font-size: 1rem;
+      flex-basis: 100%;
+      order: 3;
+    }
+
+    .step-actor {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.5rem;
+      order: 2;
+    }
+
+    .visual-elements {
+      gap: 1.25rem;
+    }
+
+    .visual-element {
+      max-width: 90px;
+    }
+
+    .visual-element img {
+      width: 70px;
+      height: 70px;
+      border-width: 1px;
+    }
+
+    .element-label {
+      font-size: 0.85rem;
+    }
+
+    .element-quantity {
+      font-size: 1.1rem;
+      padding: 0.2rem 0.4rem;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .kindergarten-steps {
+      gap: 1.5rem;
+    }
+
+    .visual-step {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border: 2px solid #ddd;
+      box-shadow: none;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .step-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .step-number {
+      font-size: 2.5rem;
+    }
+
+    .step-instruction {
+      font-size: 1.2rem;
+    }
+
+    .step-actor {
+      font-size: 0.7rem;
+    }
+
+    .visual-elements {
+      gap: 1.25rem;
+    }
+
+    .visual-element img {
+      border-width: 2px;
+      box-shadow: none;
+    }
+
+    .element-quantity {
+      font-size: 1.3rem;
+    }
+  }
+</style>

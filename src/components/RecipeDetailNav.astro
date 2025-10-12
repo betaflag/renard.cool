@@ -13,6 +13,14 @@ import ShoppingListWidget from "./ShoppingListWidget.astro";
 </nav>
 
 <style>
+  @media print {
+    .minimal-nav,
+    .nav-back,
+    .nav-widgets {
+      display: none !important;
+    }
+  }
+
   .minimal-nav {
     position: fixed;
     top: var(--space-lg);

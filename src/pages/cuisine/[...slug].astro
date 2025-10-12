@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import CuisineLayout from "../../layouts/CuisineLayout.astro";
 import RecipeDetailNav from "../../components/RecipeDetailNav.astro";
 import RecipeStepAnimations from "../../components/RecipeStepAnimations.astro";
+import KindergartenSteps from "../../components/KindergartenSteps.astro";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("cuisine");
@@ -189,32 +190,38 @@ function formatTime(minutes: number) {
       <div class="preparation-narrative">
         <h2 class="section-heading">La méthode</h2>
 
-        {
-          data.steps.map((step, index) => {
-            // Detect subsection headers (end with ':')
-            const isSubsection = step.endsWith(':') && step.length < 100;
+        {data.variant === 'maternelle' && data.visualSteps ? (
+          <KindergartenSteps steps={data.visualSteps} />
+        ) : (
+          <>
+            {
+              data.steps.map((step, index) => {
+                // Detect subsection headers (end with ':')
+                const isSubsection = step.endsWith(':') && step.length < 100;
 
-            if (isSubsection) {
-              return (
-                <div class="step-subsection">
-                  {step}
-                </div>
-              );
+                if (isSubsection) {
+                  return (
+                    <div class="step-subsection">
+                      {step}
+                    </div>
+                  );
+                }
+
+                // Regular step - calculate actual step number (excluding subsections)
+                const stepNumber = data.steps.slice(0, index).filter(s =>
+                  !(s.endsWith(':') && s.length < 100)
+                ).length + 1;
+
+                return (
+                  <div class="step-prose">
+                    <span class="step-number-inline">{stepNumber}</span>
+                    <p class="step-text">{step}</p>
+                  </div>
+                );
+              })
             }
-
-            // Regular step - calculate actual step number (excluding subsections)
-            const stepNumber = data.steps.slice(0, index).filter(s =>
-              !(s.endsWith(':') && s.length < 100)
-            ).length + 1;
-
-            return (
-              <div class="step-prose">
-                <span class="step-number-inline">{stepNumber}</span>
-                <p class="step-text">{step}</p>
-              </div>
-            );
-          })
-        }
+          </>
+        )}
       </div>
 
       {
@@ -854,10 +861,66 @@ function formatTime(minutes: number) {
       }
     }
 
-    /* Subtle print styles */
+    /* Print styles */
     @media print {
       .grain {
         display: none;
+      }
+
+      /* Hide navigation and interactive elements */
+      nav,
+      .minimal-nav,
+      .meal-plan-actions,
+      .add-to-shopping-btn,
+      .add-to-meal-plan-btn,
+      .minimal-footer,
+      .nav-back,
+      .nav-widgets {
+        display: none !important;
+      }
+
+      /* Page breaks between sections */
+      .hero-section {
+        page-break-after: always;
+        break-after: always;
+      }
+
+      .ingredients-prose {
+        page-break-after: always;
+        break-after: always;
+      }
+
+      .preparation-narrative {
+        page-break-after: always;
+        break-after: always;
+      }
+
+      .tips-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* Avoid breaking visual steps across pages */
+      .visual-step {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* Adjust spacing for print */
+      .recipe-article {
+        padding: 0;
+      }
+
+      .hero-section {
+        margin-bottom: 1rem;
+      }
+
+      /* Remove shadows and borders for cleaner print */
+      .visual-step,
+      .ingredients-layout,
+      .tips-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
       }
     }
   </style>

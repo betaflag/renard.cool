@@ -119,3 +119,4 @@ To add a new recipe:
 5. Generate hero image using: `npm run gemini -- -d ./public/cuisine "<prompt>" <filename>`
 6. See `_docs/guide-images-recettes.md` for image generation guidelines
 7. Set `draft: false` when ready to publish
+- Utilise toujours des farenheights au lieu des celsius pour tout ce qui est cuisson

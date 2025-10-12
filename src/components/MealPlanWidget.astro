@@ -347,6 +347,14 @@ const recipeMap = Object.fromEntries(
       right: 0.5rem;
     }
   }
+
+  @media print {
+    .meal-plan-widget,
+    .meal-plan-toggle,
+    .meal-plan-dropdown {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>

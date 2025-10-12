@@ -25,7 +25,7 @@
     { "quantity": "75", "unit": "ml", "ingredient": "raisins secs", "note": "⅓ tasse - si on veut!" }
   ],
   "steps": [
-    "L'ADULTE allume le four à 180°C (350°F). L'ADULTE met du papier parchemin sur deux plaques à biscuits.",
+    "L'ADULTE allume le four à 350°F. L'ADULTE met du papier parchemin sur deux plaques à biscuits.",
     "Dans un GRAND bol, les ENFANTS mettent la farine, les flocons d'avoine, la poudre à pâte, le sel et les épices à citrouille. Avec une cuillère en bois, les ENFANTS mélangent tout ensemble. Mettre ce bol de côté.",
     "Dans un PETIT bol, un ENFANT (avec l'aide d'un ADULTE) casse l'œuf doucement. Ajouter l'huile, la cassonade, la purée de citrouille et la vanille dans le même bol.",
     "Avec la cuillère en bois, les ENFANTS mélangent les ingrédients du petit bol jusqu'à ce que tout soit bien mélangé — ça devient orange et liquide avec du sucre brun.",
@@ -36,6 +36,73 @@
     "L'ADULTE cuit les biscuits 12-14 minutes. Les biscuits sont prêts quand les bords sont un peu dorés et le dessus est ferme.",
     "L'ADULTE sort les plaques du four avec des mitaines. Les biscuits doivent refroidir 5 minutes sur la plaque — ne pas toucher, c'est chaud!",
     "Quand les biscuits sont tièdes, tout le monde peut en prendre un et déguster ensemble avec du lait!"
+  ],
+  "visualSteps": [
+    {
+      "instruction": "Préparer le four et les plaques",
+      "actorRole": "adulte",
+      "visualElements": [
+        { "type": "tool", "image": "/pictogrammes/four.png", "label": "Four", "quantity": "350°F" },
+        { "type": "container", "image": "/pictogrammes/plaque-biscuits.png", "label": "Plaques avec papier" }
+      ]
+    },
+    {
+      "instruction": "Mélanger les ingrédients secs dans le grand bol",
+      "actorRole": "enfants",
+      "visualElements": [
+        { "type": "container", "image": "/pictogrammes/bol-grand.png", "label": "Grand bol" },
+        { "type": "ingredient", "image": "/pictogrammes/farine.png", "label": "Farine", "quantity": "375 ml" },
+        { "type": "ingredient", "image": "/pictogrammes/avoine.png", "label": "Avoine", "quantity": "250 ml" },
+        { "type": "ingredient", "image": "/pictogrammes/poudre-pate.png", "label": "Poudre à pâte", "quantity": "5 ml" },
+        { "type": "ingredient", "image": "/pictogrammes/sel.png", "label": "Sel", "quantity": "1,25 ml" },
+        { "type": "ingredient", "image": "/pictogrammes/epices-citrouille.png", "label": "Épices citrouille", "quantity": "10 ml" },
+        { "type": "action", "image": "/pictogrammes/melanger.png", "label": "Mélanger" }
+      ]
+    },
+    {
+      "instruction": "Casser l'œuf dans le petit bol, ajouter les ingrédients liquides et mélanger",
+      "actorRole": "enfants",
+      "visualElements": [
+        { "type": "container", "image": "/pictogrammes/bol-petit.png", "label": "Petit bol" },
+        { "type": "ingredient", "image": "/pictogrammes/oeuf.png", "label": "Œuf", "quantity": "1" },
+        { "type": "ingredient", "image": "/pictogrammes/huile.png", "label": "Huile", "quantity": "75 ml" },
+        { "type": "ingredient", "image": "/pictogrammes/cassonade.png", "label": "Cassonade", "quantity": "125 ml" },
+        { "type": "ingredient", "image": "/pictogrammes/puree-citrouille.png", "label": "Purée citrouille", "quantity": "175 ml" },
+        { "type": "ingredient", "image": "/pictogrammes/vanille.png", "label": "Vanille", "quantity": "5 ml" },
+        { "type": "action", "image": "/pictogrammes/melanger.png", "label": "Mélanger bien" }
+      ]
+    },
+    {
+      "instruction": "Verser le mélange du petit bol dans le grand bol avec les ingrédients secs et mélanger",
+      "actorRole": "enfants",
+      "visualElements": [
+        { "type": "container", "image": "/pictogrammes/bol-petit.png", "label": "Petit bol" },
+        { "type": "container", "image": "/pictogrammes/bol-grand.png", "label": "Grand bol" },
+        { "type": "action", "image": "/pictogrammes/melanger.png", "label": "Mélanger doucement" }
+      ]
+    },
+    {
+      "instruction": "Faire des boules avec les mains et déposer sur la plaque",
+      "actorRole": "enfants",
+      "visualElements": [
+        { "type": "action", "image": "/pictogrammes/faire-boule.png", "label": "Faire une boule" },
+        { "type": "container", "image": "/pictogrammes/plaque-biscuits.png", "label": "Déposer sur plaque" }
+      ]
+    },
+    {
+      "instruction": "Mettre les plaques au four — CHAUD!",
+      "actorRole": "adulte",
+      "visualElements": [
+        { "type": "tool", "image": "/pictogrammes/four.png", "label": "Four CHAUD", "quantity": "12-14 min" }
+      ]
+    },
+    {
+      "instruction": "Sortir les plaques et laisser refroidir",
+      "actorRole": "adulte",
+      "visualElements": [
+        { "type": "container", "image": "/pictogrammes/plaque-biscuits.png", "label": "Refroidir 5 min" }
+      ]
+    }
   ],
   "serving_suggestions": [
     "Avec un verre de lait froid ou chocolat",

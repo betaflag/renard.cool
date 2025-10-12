@@ -398,6 +398,14 @@ import { ShoppingBasket } from "lucide-astro";
       min-height: 44px;
     }
   }
+
+  @media print {
+    .shopping-list-widget,
+    .shopping-list-toggle,
+    .shopping-list-dropdown {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>

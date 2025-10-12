@@ -41,6 +41,16 @@ const cuisine = defineCollection({
     ])),
     optional_ingredients: z.array(z.string()).optional(),
     steps: z.array(z.string()),
+    visualSteps: z.array(z.object({
+      instruction: z.string(),
+      actorRole: z.enum(['adulte', 'enfants']),
+      visualElements: z.array(z.object({
+        type: z.enum(['container', 'ingredient', 'action', 'tool']),
+        image: z.string(),
+        label: z.string(),
+        quantity: z.string().optional(),
+      })),
+    })).optional(),
     serving_suggestions: z.array(z.string()).optional(),
     categories: z.array(z.string()).default(['plat principal']),
     difficulty: z.enum(['facile', 'moyen', 'difficile']).default('moyen'),
