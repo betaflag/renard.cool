@@ -1,0 +1,67 @@
+{
+  "name": "Cipâte de la famille",
+  "description": "Un ragoût légendaire des chantiers forestiers québécois, où des couches de viandes tendres alternent avec une pâte rustique dans une symphonie de saveurs réconfortantes. Ce plat ancestral transforme des ingrédients simples en festin généreux qui nourrit le corps et réchauffe l'âme.",
+  "servings": {
+    "quantity": 8,
+    "unit": "personnes"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 45,
+    "cook": 240,
+    "wait": 15,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    { "subsection": "Pour la pâte" },
+    { "quantity": "500", "unit": "ml", "ingredient": "farine tout-usage", "note": "pour la structure" },
+    { "quantity": "10", "unit": "ml", "ingredient": "poudre à pâte", "note": "pour la légèreté" },
+    { "quantity": "5", "unit": "ml", "ingredient": "sel", "note": null },
+    { "quantity": "125", "unit": "ml", "ingredient": "graisse végétale ou saindoux", "note": "froid, en dés" },
+    { "quantity": "175", "unit": "ml", "ingredient": "eau froide", "note": "environ" },
+    { "subsection": "Pour le ragoût" },
+    { "quantity": "500", "unit": "g", "ingredient": "bœuf à ragoût", "note": "en cubes de 2 cm" },
+    { "quantity": "500", "unit": "g", "ingredient": "porc à ragoût", "note": "en cubes de 2 cm" },
+    { "quantity": "2", "unit": null, "ingredient": "cuisses de poulet", "note": "désossées, en cubes" },
+    { "quantity": "3", "unit": null, "ingredient": "pommes de terre moyennes", "note": "en cubes de 2 cm" },
+    { "quantity": "2", "unit": null, "ingredient": "carottes", "note": "en rondelles épaisses" },
+    { "quantity": "2", "unit": null, "ingredient": "oignons moyens", "note": "hachés grossièrement" },
+    { "quantity": "2", "unit": "gousses", "ingredient": "ail", "note": "hachées" },
+    { "quantity": "750", "unit": "ml", "ingredient": "bouillon de poulet", "note": "chaud" },
+    { "quantity": "5", "unit": "ml", "ingredient": "sel", "note": null },
+    { "quantity": "2,5", "unit": "ml", "ingredient": "poivre noir", "note": null },
+    { "quantity": "2,5", "unit": "ml", "ingredient": "cannelle moulue", "note": "l'âme québécoise" },
+    { "quantity": "1", "unit": "ml", "ingredient": "clou de girofle moulu", "note": "la signature traditionnelle" },
+    { "quantity": "2", "unit": "feuilles", "ingredient": "laurier", "note": null },
+    { "quantity": "2,5", "unit": "ml", "ingredient": "sarriette séchée", "note": "l'herbe des chantiers" },
+    { "quantity": "45", "unit": "ml", "ingredient": "farine", "note": "pour épaissir le bouillon" }
+  ],
+  "steps": [
+    "Préparer la pâte : Dans un grand bol, mélanger la farine, la poudre à pâte et le sel. Ajouter la graisse froide en dés et travailler avec les doigts jusqu'à obtenir une texture de chapelure grossière.",
+    "Ajouter graduellement l'eau froide en mélangeant à la fourchette jusqu'à ce que la pâte se tienne. Former une boule, envelopper dans une pellicule plastique et réfrigérer 30 minutes pendant la préparation du ragoût.",
+    "Préchauffer le four à 325°F (165°C).",
+    "Préparer les viandes et légumes : Dans un grand bol, mélanger tous les cubes de viande (bœuf, porc, poulet) avec les pommes de terre, carottes, oignons et ail. Ajouter le sel, poivre, cannelle, clou de girofle et sarriette. Bien mélanger pour enrober uniformément.",
+    "Dans un petit bol, délayer les 45 ml de farine dans 125 ml (½ tasse) de bouillon froid en fouettant pour éviter les grumeaux. Ajouter le reste du bouillon chaud et les feuilles de laurier.",
+    "Assemblage en couches : Diviser la pâte en 3 portions inégales (40%, 35%, 25%). Abaisser la plus grande portion sur une surface farinée et tapisser le fond et les parois d'un faitout ou cocotte allant au four (environ 4 litres).",
+    "Déposer la moitié du mélange de viandes et légumes sur la pâte du fond. Abaisser la deuxième portion de pâte et la déposer sur la première couche de ragoût. Ajouter le reste du mélange de viandes et légumes.",
+    "Verser le bouillon épaissi sur le dessus jusqu'à ce qu'il affleure presque la surface (ne pas noyer complètement). Abaisser la dernière portion de pâte et la déposer sur le dessus. Sceller les bords en pinçant et faire 3-4 incisions au centre pour permettre à la vapeur de s'échapper.",
+    "Couvrir hermétiquement avec le couvercle (ou papier d'aluminium bien scellé). Cuire au four 4 heures. La magie opère lentement — les viandes deviennent tendres, les pâtes absorbent les sucs, et les saveurs fusionnent en une étreinte réconfortante.",
+    "Retirer du four et laisser reposer 15 minutes avant de servir. Le cipâte se sert directement à la louche dans des bols profonds, avec un morceau de chaque couche de pâte."
+  ],
+  "serving_suggestions": [
+    "Servir avec du pain croûté pour saucer",
+    "Accompagner de cornichons à l'aneth pour contraster",
+    "Un verre de vin rouge corsé sublime l'expérience",
+    "Les restes sont encore meilleurs le lendemain"
+  ],
+  "categories": ["plat principal", "traditionnel", "québécois", "réconfortant", "hiver"],
+  "tags": ["chantier forestier", "ragoût en étages", "pâte maison", "viandes mélangées", "congélation"],
+  "difficulty": "moyen",
+  "heroImage": "/cuisine/cipate-famille.png",
+  "pubDate": "2025-10-13",
+  "draft": false,
+  "tips": "Le cipâte est un plat de patience et de tradition. La pâte doit rester froide pendant la préparation — utilisez de l'eau glacée et travaillez rapidement pour obtenir une texture feuilletée et tendre. Les trois viandes ne sont pas négociables : le bœuf apporte la profondeur, le porc la richesse, et le poulet la légèreté. Délayez toujours la farine dans le bouillon froid avant d'ajouter le liquide chaud — c'est le secret d'une sauce veloutée sans grumeaux qui liera parfaitement les couches. La cannelle et la sarriette sont les signatures aromatiques des chantiers forestiers québécois : ne les omettez jamais. La cuisson longue à basse température (325°F) est essentielle — c'est ce qui transforme les viandes en tendreté fondante et permet aux pâtes d'absorber tous les sucs sans se désintégrer. Si le dessus commence à trop dorer, couvrez d'une feuille d'aluminium supplémentaire. Ce plat se congèle magnifiquement : préparez-en deux et gardez-en un pour une soirée d'hiver où seul un festin ancestral peut réconforter.",
+  "ingredientIntro": "Le cipâte réunit les trésors simples du terroir québécois dans une alchimie ancestrale. Trois viandes, des légumes racines, et une pâte rustique s'unissent en couches mystérieuses pour créer le réconfort absolu des bûcherons.",
+  "note": "Ce plat nécessite un faitout ou cocotte d'au moins 4 litres avec couvercle hermétique. La cuisson longue de 4 heures est essentielle à la réussite."
+}

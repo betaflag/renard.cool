@@ -1,0 +1,264 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Prévisions météo avec une touche mystique de renard"
+} = Astro.props;
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/renard.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | renard.cool</title>
+    <meta name="description" content={description} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Smoke effect background -->
+    <div class="smoke-container">
+      <div class="smoke"></div>
+      <div class="smoke smoke-2"></div>
+      <div class="smoke smoke-3"></div>
+    </div>
+
+    <!-- Top navigation -->
+    <nav class="top-nav">
+      <a href="/" class="home-link">
+        <img src="/renard.png" alt="Retour" class="nav-icon" />
+        <span>renard.cool</span>
+      </a>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+      <slot />
+    </main>
+
+    <style is:global>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0a0a0a;
+        color: #e8e8e8;
+        font-family: "Raleway", sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          #0a0a0a 0%,
+          #1a1a2e 40%,
+          #16213e 80%,
+          #1a1a2e 100%
+        );
+        z-index: 0;
+      }
+
+      .smoke-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .smoke {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(255, 107, 0, 0.03),
+          transparent 50%
+        );
+        animation: drift 20s infinite;
+      }
+
+      .smoke-2 {
+        animation-delay: -5s;
+        animation-duration: 25s;
+        background: radial-gradient(
+          circle at 30% 70%,
+          rgba(255, 107, 0, 0.02),
+          transparent 60%
+        );
+      }
+
+      .smoke-3 {
+        animation-delay: -10s;
+        animation-duration: 30s;
+        background: radial-gradient(
+          circle at 70% 30%,
+          rgba(255, 107, 0, 0.025),
+          transparent 55%
+        );
+      }
+
+      @keyframes drift {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) rotate(0deg) scale(1);
+          opacity: 0.5;
+        }
+        33% {
+          transform: translate(-30%, -60%) rotate(120deg) scale(1.1);
+          opacity: 0.8;
+        }
+        66% {
+          transform: translate(-60%, -40%) rotate(240deg) scale(0.9);
+          opacity: 0.6;
+        }
+      }
+
+      .top-nav {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+      }
+
+      .home-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #e8e8e8;
+        background: rgba(26, 26, 46, 0.8);
+        padding: 8px 16px;
+        border-radius: 25px;
+        border: 1px solid rgba(255, 107, 0, 0.2);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .home-link:hover {
+        background: rgba(26, 26, 46, 0.95);
+        border-color: rgba(255, 107, 0, 0.4);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.2);
+      }
+
+      .nav-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+      }
+
+      main {
+        position: relative;
+        z-index: 10;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 100px 20px 40px;
+        min-height: 100vh;
+      }
+
+      /* Utility classes */
+      .hidden {
+        display: none !important;
+      }
+
+      /* Common animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes titleGlow {
+        0% {
+          text-shadow:
+            0 0 30px rgba(255, 107, 0, 0.5),
+            0 0 50px rgba(255, 107, 0, 0.3);
+        }
+        100% {
+          text-shadow:
+            0 0 40px rgba(255, 107, 0, 0.7),
+            0 0 70px rgba(255, 107, 0, 0.4);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(255, 107, 0, 0.6);
+        }
+      }
+
+      @media (max-width: 768px) {
+        main {
+          padding: 80px 15px 30px;
+        }
+      }
+    </style>
+  </body>
+</html>
