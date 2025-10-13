@@ -1,0 +1,65 @@
+{
+  "name": "Trempette chaude aux artichauts et épinards",
+  "description": "Une trempette crémeuse et addictive où artichauts tendres et épinards se fondent dans un mélange de fromages fondants. Dorée au four jusqu'à ce qu'elle bouillonne mystérieusement, cette entrée conviviale disparaît avant même que le four ne refroidisse. Le classique des apéros nord-américains qui transforme n'importe quelle réunion en moment de partage chaleureux.",
+  "servings": {
+    "quantity": 8,
+    "unit": "personnes"
+  },
+  "freezable": false,
+  "time": {
+    "prep": 15,
+    "cook": 25,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    { "subsection": "Base de la trempette" },
+    { "quantity": "1", "unit": "boîte (398 ml)", "ingredient": "cœurs d'artichauts", "note": "égouttés et hachés grossièrement" },
+    { "quantity": "300", "unit": "g", "ingredient": "épinards surgelés", "note": "décongelés et bien essorés" },
+    { "quantity": "250", "unit": "g", "ingredient": "fromage à la crème", "note": "ramolli à température ambiante" },
+    { "quantity": "125", "unit": "ml", "ingredient": "crème sure", "note": "14% ou 18%" },
+    { "quantity": "125", "unit": "ml", "ingredient": "mayonnaise", "note": null },
+    { "subsection": "Fromages" },
+    { "quantity": "125", "unit": "ml", "ingredient": "parmesan râpé", "note": "fraîchement râpé si possible" },
+    { "quantity": "250", "unit": "ml", "ingredient": "mozzarella râpée", "note": "pour le filant magique" },
+    { "subsection": "Assaisonnements" },
+    { "quantity": "3", "unit": "gousses", "ingredient": "ail", "note": "hachées finement" },
+    { "quantity": "2,5", "unit": "ml", "ingredient": "sel", "note": "au goût" },
+    { "quantity": "1,25", "unit": "ml", "ingredient": "poivre noir", "note": "fraîchement moulu" },
+    { "quantity": "1,25", "unit": "ml", "ingredient": "poudre d'oignon", "note": "optionnel mais recommandé" },
+    { "quantity": "une pincée", "unit": null, "ingredient": "cayenne", "note": "pour une touche de chaleur subtile" },
+    { "subsection": "Pour servir" },
+    { "quantity": "1", "unit": null, "ingredient": "baguette française", "note": "tranchée et grillée" },
+    { "quantity": null, "unit": null, "ingredient": "Craquelins de blé ou tortillas chips", "note": "selon préférence" },
+    { "quantity": null, "unit": null, "ingredient": "Légumes crus", "note": "carottes, céleri, poivrons" }
+  ],
+  "steps": [
+    "Préchauffer le four à 375°F (190°C). Beurrer légèrement un plat allant au four d'environ 20 cm (8 po) ou un plat à gratin.",
+    "Préparer les épinards : S'ils sont surgelés, les décongeler complètement au micro-ondes ou en les laissant reposer. IMPORTANT : Presser fermement les épinards dans un linge propre ou une passoire pour extraire toute l'eau excédentaire. Les épinards doivent être presque secs - c'est le secret d'une trempette crémeuse et non aqueuse.",
+    "Préparer les artichauts : Égoutter les cœurs d'artichauts et les hacher grossièrement en morceaux de taille moyenne. Pas besoin de les réduire en purée - on veut garder de la texture!",
+    "Dans un grand bol, mélanger le fromage à la crème ramolli, la crème sure et la mayonnaise jusqu'à consistance lisse et homogène. Vous pouvez utiliser un batteur à main ou une cuillère en bois robuste.",
+    "Ajouter l'ail haché, le sel, le poivre, la poudre d'oignon et la cayenne au mélange crémeux. Bien incorporer les assaisonnements.",
+    "Ajouter les épinards essorés, les artichauts hachés et 75 ml (⅓ tasse) du parmesan râpé. Mélanger délicatement mais complètement pour distribuer tous les ingrédients uniformément.",
+    "Transférer le mélange dans le plat préparé et lisser le dessus avec une spatule. Saupoudrer uniformément avec le reste du parmesan (50 ml / ¼ tasse) et toute la mozzarella râpée.",
+    "Cuire au four 25-30 minutes, jusqu'à ce que le dessus soit doré et bouillonnant sur les bords. Si vous voulez un gratin encore plus doré, passez sous le gril (broil) pendant 2-3 minutes à la fin - surveillez attentivement pour éviter de brûler!",
+    "Retirer du four et laisser reposer 5 minutes avant de servir. La trempette sera très chaude et continuera à épaissir légèrement en refroidissant.",
+    "Servir chaud avec baguette grillée, craquelins, chips de tortillas ou légumes crus. La trempette se déguste idéalement pendant qu'elle est encore chaude et crémeuse, avec le fromage qui file élégamment."
+  ],
+  "serving_suggestions": [
+    "Servir avec tranches de baguette grillées frottées à l'ail",
+    "Accompagner de légumes croquants : carottes, céleri, poivrons colorés",
+    "Excellent avec chips de tortillas ou pita grillés",
+    "Garnir de persil frais haché ou de ciboulette avant de servir",
+    "Se réchauffe bien au four - couvrir de papier d'aluminium à 300°F (150°C)"
+  ],
+  "categories": ["entrée", "apéritif", "convivial", "réception"],
+  "tags": ["nord-américain", "fromage", "gratinée", "party", "classique"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/trempette-artichauts-epinards.png",
+  "pubDate": "2025-10-13",
+  "draft": false,
+  "tips": "Le secret absolu d'une trempette parfaite réside dans les épinards parfaitement essorés - l'eau résiduelle est l'ennemi numéro un de la texture crémeuse. Pressez-les sans pitié dans un linge propre jusqu'à ce qu'ils soient presque secs au toucher. Le fromage à la crème doit être bien ramolli à température ambiante pour faciliter le mélange - sortez-le du frigo 30-45 minutes avant de commencer, ou ramollissez-le 10-15 secondes au micro-ondes (attention, pas trop!). Pour une version encore plus gourmande, ajoutez 125 ml (½ tasse) de bacon cuit émietté au mélange - le fumé du bacon sublime les artichauts. Cette trempette peut être préparée complètement à l'avance : assemblez-la dans le plat, couvrez et réfrigérez jusqu'à 24 heures. Ajoutez simplement 5-10 minutes au temps de cuisson si elle sort directement du frigo. Les restes (s'il y en a!) se conservent 3-4 jours au réfrigérateur et se réchauffent magnifiquement au four ou au micro-ondes. Petit truc de Renard : gardez toujours une boîte d'artichauts et des épinards surgelés dans le garde-manger pour les imprévus - cette trempette sauve n'importe quelle visite surprise!",
+  "ingredientIntro": "Artichauts tendres et épinards verdoyants s'unissent dans une symphonie crémeuse de trois fromages. Des ingrédients simples du commerce transformés en pure magie conviviale.",
+  "note": "Cette recette peut facilement être doublée pour une grande réception. Utiliser un plat 23x33 cm (9x13 po) et augmenter le temps de cuisson de 5-10 minutes."
+}

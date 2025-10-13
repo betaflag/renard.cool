@@ -1,0 +1,439 @@
+---
+// Today's morning/afternoon forecast component with enriched UI
+---
+
+<section id="today-forecast" class="today-forecast hidden">
+  <h2 class="today-title">Aujourd'hui à l'école</h2>
+  <div class="today-grid">
+    <!-- Morning Card -->
+    <div class="period-card morning-card">
+      <div class="period-header">
+        <div class="period-title-group">
+          <i data-lucide="sun-medium" class="period-icon"></i>
+          <span class="period-name">Matin</span>
+        </div>
+        <span class="period-time">8h - 12h</span>
+      </div>
+
+      <div class="period-main">
+        <div class="period-temp-section">
+          <div class="period-temp">
+            <span class="period-temp-value">--</span>
+            <span class="period-temp-unit">°C</span>
+          </div>
+          <div class="period-weather">
+            <i data-lucide="cloud" class="period-weather-icon"></i>
+            <span class="period-weather-text">--</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="period-details">
+        <div class="detail-mini">
+          <i data-lucide="droplets" class="detail-mini-icon"></i>
+          <span class="morning-precipitation">-- mm</span>
+        </div>
+        <div class="detail-mini">
+          <i data-lucide="wind" class="detail-mini-icon"></i>
+          <span class="morning-wind">-- km/h</span>
+        </div>
+      </div>
+
+      <div class="clothing-section">
+        <div class="clothing-header">
+          <i data-lucide="shirt" class="clothing-icon"></i>
+          <h3 class="clothing-title">Tenue recommandée</h3>
+        </div>
+        <div class="clothing-list">
+          <!-- Clothing items will be inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Afternoon Card -->
+    <div class="period-card afternoon-card">
+      <div class="period-header">
+        <div class="period-title-group">
+          <i data-lucide="sun" class="period-icon"></i>
+          <span class="period-name">Après-midi</span>
+        </div>
+        <span class="period-time">12h - 17h</span>
+      </div>
+
+      <div class="period-main">
+        <div class="period-temp-section">
+          <div class="period-temp">
+            <span class="period-temp-value">--</span>
+            <span class="period-temp-unit">°C</span>
+          </div>
+          <div class="period-weather">
+            <i data-lucide="cloud" class="period-weather-icon"></i>
+            <span class="period-weather-text">--</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="period-details">
+        <div class="detail-mini">
+          <i data-lucide="droplets" class="detail-mini-icon"></i>
+          <span class="afternoon-precipitation">-- mm</span>
+        </div>
+        <div class="detail-mini">
+          <i data-lucide="wind" class="detail-mini-icon"></i>
+          <span class="afternoon-wind">-- km/h</span>
+        </div>
+      </div>
+
+      <div class="clothing-section">
+        <div class="clothing-header">
+          <i data-lucide="shirt" class="clothing-icon"></i>
+          <h3 class="clothing-title">Tenue recommandée</h3>
+        </div>
+        <div class="clothing-list">
+          <!-- Clothing items will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .today-forecast {
+    margin-bottom: 50px;
+    animation: fadeIn 0.7s ease-out;
+  }
+
+  .today-title {
+    font-family: "Cinzel", serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ff6b00;
+    text-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+  }
+
+  .today-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+
+  .period-card {
+    position: relative;
+    background: rgba(26, 26, 46, 0.5);
+    border: 1px solid rgba(255, 107, 0, 0.25);
+    border-radius: 22px;
+    padding: 28px;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.6s ease-out backwards;
+    overflow: hidden;
+  }
+
+  .period-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at top right,
+      rgba(255, 107, 0, 0.06),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .period-card:hover::before {
+    opacity: 1;
+  }
+
+  .period-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .morning-card {
+    background: linear-gradient(
+      135deg,
+      rgba(26, 26, 46, 0.7) 0%,
+      rgba(26, 46, 66, 0.6) 100%
+    );
+    animation-delay: 0.1s;
+  }
+
+  .afternoon-card {
+    background: linear-gradient(
+      135deg,
+      rgba(46, 36, 26, 0.7) 0%,
+      rgba(66, 46, 26, 0.6) 100%
+    );
+    animation-delay: 0.2s;
+  }
+
+  .period-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 107, 0, 0.4);
+    box-shadow: 0 12px 30px rgba(255, 107, 0, 0.15);
+  }
+
+  /* Header */
+  .period-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+  }
+
+  .period-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .period-icon {
+    width: 32px;
+    height: 32px;
+    stroke: #ff6b00;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.3));
+  }
+
+  .period-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ff6b00;
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+  }
+
+  .period-time {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    font-weight: 500;
+    padding: 4px 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  /* Main section */
+  .period-main {
+    margin-bottom: 18px;
+  }
+
+  .period-temp-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .period-temp {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .period-temp-value {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ff6b00;
+    text-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+    line-height: 1;
+  }
+
+  .period-temp-unit {
+    font-size: 1.8rem;
+    color: #a8a8a8;
+    margin-left: 6px;
+    font-weight: 400;
+  }
+
+  .period-weather {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .period-weather-icon {
+    width: 28px;
+    height: 28px;
+    stroke: #ff6b00;
+    opacity: 0.9;
+  }
+
+  .period-weather-text {
+    font-size: 1.1rem;
+    color: #d1d5db;
+    font-weight: 500;
+  }
+
+  /* Details section */
+  .period-details {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+  }
+
+  .detail-mini {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: #d1d5db;
+    font-weight: 500;
+  }
+
+  .detail-mini-icon {
+    width: 18px;
+    height: 18px;
+    stroke: rgba(255, 107, 0, 0.8);
+    flex-shrink: 0;
+  }
+
+  /* Clothing section */
+  .clothing-section {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 107, 0, 0.15);
+    border-radius: 16px;
+    padding: 18px;
+    margin-top: 20px;
+  }
+
+  .clothing-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .clothing-icon {
+    width: 20px;
+    height: 20px;
+    stroke: #ff6b00;
+  }
+
+  .clothing-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ff6b00;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .clothing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Dynamic elements created by JavaScript need :global() */
+  :global(.clothing-item) {
+    font-size: 0.95rem;
+    color: #e8e8e8;
+    padding: 8px 12px;
+    background: rgba(255, 107, 0, 0.08);
+    border-radius: 10px;
+    border-left: 3px solid rgba(255, 107, 0, 0.5);
+    transition: all 0.2s ease;
+    animation: slideInRight 0.4s ease-out backwards;
+  }
+
+  :global(.clothing-item:hover) {
+    background: rgba(255, 107, 0, 0.12);
+    transform: translateX(3px);
+  }
+
+  :global(.clothing-item:nth-child(1)) {
+    animation-delay: 0.1s;
+  }
+
+  :global(.clothing-item:nth-child(2)) {
+    animation-delay: 0.15s;
+  }
+
+  :global(.clothing-item:nth-child(3)) {
+    animation-delay: 0.2s;
+  }
+
+  :global(.clothing-item:nth-child(4)) {
+    animation-delay: 0.25s;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .today-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .period-card {
+      padding: 22px;
+    }
+
+    .period-temp-value {
+      font-size: 3.5rem;
+    }
+
+    .period-name {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .period-card {
+      padding: 18px;
+    }
+
+    .period-temp-value {
+      font-size: 3rem;
+    }
+
+    .period-temp-unit {
+      font-size: 1.5rem;
+    }
+
+    .period-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .period-weather-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .period-details {
+      gap: 15px;
+      padding: 10px;
+    }
+
+    .detail-mini {
+      font-size: 0.85rem;
+    }
+
+    .detail-mini-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>

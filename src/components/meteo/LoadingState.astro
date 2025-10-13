@@ -1,0 +1,24 @@
+---
+// Loading state component for weather app
+---
+
+<div id="loading" class="loading hidden">
+  <i data-lucide="loader" class="loading-spinner"></i>
+  <p>Le renard consulte les étoiles...</p>
+</div>
+
+<style>
+  .loading {
+    text-align: center;
+    padding: 40px;
+  }
+
+  .loading-spinner {
+    width: 48px;
+    height: 48px;
+    stroke: #ff6b00;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+    display: block;
+  }
+</style>

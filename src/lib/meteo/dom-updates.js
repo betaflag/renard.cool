@@ -1,0 +1,584 @@
+/**
+ * Meteo DOM Updates
+ * Functions to update the UI with weather data
+ */
+
+import { getWeatherInfo, getClothingRecommendations, generateSmartTips } from './weather-logic.js';
+import { formatTime } from './utils.js';
+
+/**
+ * Show loading state
+ */
+export function showLoading() {
+  const loadingEl = document.getElementById("loading");
+  if (loadingEl) {
+    loadingEl.classList.remove("hidden");
+  }
+}
+
+/**
+ * Hide loading state
+ */
+export function hideLoading() {
+  const loadingEl = document.getElementById("loading");
+  if (loadingEl) {
+    loadingEl.classList.add("hidden");
+  }
+}
+
+/**
+ * Show error message
+ * @param {string} message - Error message to display
+ */
+export function showError(message) {
+  const errorDiv = document.getElementById("error-message");
+  if (errorDiv) {
+    const messageEl = errorDiv.querySelector("p");
+    if (messageEl) {
+      messageEl.textContent = message;
+    }
+    errorDiv.classList.remove("hidden");
+  }
+  hideLoading();
+}
+
+/**
+ * Hide error message
+ */
+export function hideError() {
+  const errorDiv = document.getElementById("error-message");
+  if (errorDiv) {
+    errorDiv.classList.add("hidden");
+  }
+}
+
+/**
+ * Helper function to convert wind direction degrees to cardinal direction
+ * @param {number} degrees - Wind direction in degrees
+ * @returns {string} Cardinal direction (N, NE, E, etc.)
+ */
+function getWindDirection(degrees) {
+  const directions = ['N', 'NE', 'E', 'SE', 'S', 'SO', 'O', 'NO'];
+  const index = Math.round(((degrees % 360) / 45)) % 8;
+  return directions[index];
+}
+
+/**
+ * Update current weather display with enriched data
+ * @param {Object} data - Weather API data
+ */
+export function updateCurrentWeather(data) {
+  const current = data.current;
+  const daily = data.daily;
+  const weatherInfo = getWeatherInfo(current.weathercode);
+
+  // Update temperature
+  const tempValueEl = document.querySelector(".temp-value");
+  if (tempValueEl) {
+    tempValueEl.textContent = Math.round(current.temperature_2m);
+  }
+
+  // Update weather icon and description
+  const iconElement = document.querySelector(".weather-icon-main");
+  if (iconElement) {
+    iconElement.setAttribute("data-lucide", weatherInfo.icon);
+  }
+
+  const weatherTextEl = document.querySelector(".weather-text");
+  if (weatherTextEl) {
+    weatherTextEl.textContent = weatherInfo.text;
+  }
+
+  // Update min/max temperatures
+  const tempMaxEl = document.querySelector(".temp-max");
+  if (tempMaxEl && daily.temperature_2m_max) {
+    tempMaxEl.textContent = `Max: ${Math.round(daily.temperature_2m_max[0])}°`;
+  }
+
+  const tempMinEl = document.querySelector(".temp-min");
+  if (tempMinEl && daily.temperature_2m_min) {
+    tempMinEl.textContent = `Min: ${Math.round(daily.temperature_2m_min[0])}°`;
+  }
+
+  // Generate and display badges
+  const badges = [];
+  if (current.precipitation > 0.5) {
+    badges.push('<span class="weather-badge badge-rain"><i data-lucide="cloud-rain" class="badge-icon"></i>Pluie</span>');
+  }
+  if (current.windspeed_10m > 30) {
+    badges.push('<span class="weather-badge badge-wind"><i data-lucide="wind" class="badge-icon"></i>Vent fort</span>');
+  }
+  if (current.relative_humidity_2m >= 80) {
+    badges.push('<span class="weather-badge badge-humid"><i data-lucide="droplets" class="badge-icon"></i>Humide</span>');
+  }
+
+  const badgesContainer = document.querySelector(".current-badges");
+  if (badgesContainer) {
+    badgesContainer.innerHTML = badges.join('');
+  }
+
+  // Update wind with direction
+  const windSpeedEl = document.querySelector(".wind-speed");
+  if (windSpeedEl) {
+    const windSpeed = Math.round(current.windspeed_10m);
+    const windGusts = current.wind_gusts_10m ? Math.round(current.wind_gusts_10m) : null;
+    windSpeedEl.textContent = windGusts && windGusts > windSpeed
+      ? `${windSpeed} km/h (rafales ${windGusts})`
+      : `${windSpeed} km/h`;
+  }
+
+  const windDirectionEl = document.querySelector(".wind-direction");
+  if (windDirectionEl && current.wind_direction_10m !== undefined) {
+    windDirectionEl.textContent = `Direction: ${getWindDirection(current.wind_direction_10m)}`;
+  }
+
+  // Update humidity with progress bar
+  const humidityEl = document.querySelector(".humidity");
+  if (humidityEl && current.relative_humidity_2m !== undefined) {
+    humidityEl.textContent = `${Math.round(current.relative_humidity_2m)}%`;
+  }
+
+  const humidityFillEl = document.querySelector(".humidity-fill");
+  if (humidityFillEl && current.relative_humidity_2m !== undefined) {
+    setTimeout(() => {
+      humidityFillEl.style.width = `${current.relative_humidity_2m}%`;
+    }, 100);
+  }
+
+  // Update feels like
+  const feelsLikeEl = document.querySelector(".feels-like");
+  if (feelsLikeEl) {
+    feelsLikeEl.textContent = `${Math.round(current.apparent_temperature)}°C`;
+  }
+
+  // Update pressure
+  const pressureEl = document.querySelector(".pressure");
+  if (pressureEl && current.pressure_msl !== undefined) {
+    pressureEl.textContent = `${Math.round(current.pressure_msl)} hPa`;
+  }
+
+  // Update precipitation
+  const precipitationEl = document.querySelector(".precipitation");
+  if (precipitationEl) {
+    precipitationEl.textContent = `${current.precipitation.toFixed(1)} mm`;
+  }
+
+  // Update visibility
+  const visibilityEl = document.querySelector(".visibility");
+  if (visibilityEl && current.visibility !== undefined) {
+    const visibilityKm = (current.visibility / 1000).toFixed(1);
+    visibilityEl.textContent = `${visibilityKm} km`;
+  }
+
+  // Update sunrise and sunset
+  if (daily.sunrise && daily.sunset) {
+    const sunriseEl = document.querySelector(".sunrise");
+    if (sunriseEl) {
+      sunriseEl.textContent = formatTime(daily.sunrise[0]);
+    }
+
+    const sunsetEl = document.querySelector(".sunset");
+    if (sunsetEl) {
+      sunsetEl.textContent = formatTime(daily.sunset[0]);
+    }
+  }
+
+  // Show the section
+  const currentWeatherEl = document.getElementById("current-weather");
+  if (currentWeatherEl) {
+    currentWeatherEl.classList.remove("hidden");
+  }
+
+  // Refresh Lucide icons (including new badge icons)
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+/**
+ * Update today's AM/PM forecast
+ * @param {Object} data - Weather API data
+ */
+export function updateTodayForecast(data) {
+  if (!data.hourly || !data.hourly.time) return;
+
+  const now = new Date();
+  const todayDate = now.toISOString().split("T")[0];
+
+  // Find today's hourly data
+  const todayIndices = [];
+  data.hourly.time.forEach((time, index) => {
+    if (time.startsWith(todayDate)) {
+      todayIndices.push(index);
+    }
+  });
+
+  if (todayIndices.length === 0) return;
+
+  // Morning hours (8-12)
+  const morningHours = [8, 9, 10, 11];
+  const morningIndices = todayIndices.filter((i) => {
+    const hour = new Date(data.hourly.time[i]).getHours();
+    return morningHours.includes(hour);
+  });
+
+  // Afternoon hours (12-17)
+  const afternoonHours = [12, 13, 14, 15, 16];
+  const afternoonIndices = todayIndices.filter((i) => {
+    const hour = new Date(data.hourly.time[i]).getHours();
+    return afternoonHours.includes(hour);
+  });
+
+  // Calculate morning averages and update card
+  if (morningIndices.length > 0) {
+    const morningTemps = morningIndices.map(
+      (i) =>
+        data.hourly.apparent_temperature[i] ||
+        data.hourly.temperature_2m[i]
+    );
+    const morningAvgTemp =
+      morningTemps.reduce((a, b) => a + b, 0) / morningTemps.length;
+    const morningWeatherCode =
+      data.hourly.weathercode[
+        morningIndices[Math.floor(morningIndices.length / 2)]
+      ];
+    const morningPrecipitation = Math.max(
+      ...morningIndices.map((i) => data.hourly.precipitation[i] || 0)
+    );
+    const morningWind = Math.max(
+      ...morningIndices.map((i) => data.hourly.windspeed_10m[i] || 0)
+    );
+    const morningWeather = getWeatherInfo(morningWeatherCode);
+
+    // Update morning card
+    const morningTempEl = document.querySelector(
+      ".morning-card .period-temp-value"
+    );
+    if (morningTempEl) {
+      morningTempEl.textContent = Math.round(morningAvgTemp);
+    }
+
+    const morningIconEl = document.querySelector(".morning-card .period-weather-icon");
+    if (morningIconEl) {
+      morningIconEl.setAttribute("data-lucide", morningWeather.icon);
+    }
+
+    const morningTextEl = document.querySelector(
+      ".morning-card .period-weather-text"
+    );
+    if (morningTextEl) {
+      morningTextEl.textContent = morningWeather.text;
+    }
+
+    // Update morning precipitation and wind
+    const morningPrecipEl = document.querySelector(".morning-precipitation");
+    if (morningPrecipEl) {
+      morningPrecipEl.textContent = `${morningPrecipitation.toFixed(1)} mm`;
+    }
+
+    const morningWindEl = document.querySelector(".morning-wind");
+    if (morningWindEl) {
+      morningWindEl.textContent = `${Math.round(morningWind)} km/h`;
+    }
+
+    // Get and display morning clothing recommendations
+    const morningClothes = getClothingRecommendations(
+      morningAvgTemp,
+      morningWeatherCode,
+      morningPrecipitation,
+      morningWind
+    );
+    const morningClothingList = document.querySelector(
+      ".morning-card .clothing-list"
+    );
+    if (morningClothingList) {
+      morningClothingList.innerHTML = morningClothes
+        .map((item) => `<div class="clothing-item">${item}</div>`)
+        .join("");
+    }
+  }
+
+  // Calculate afternoon averages and update card
+  if (afternoonIndices.length > 0) {
+    const afternoonTemps = afternoonIndices.map(
+      (i) =>
+        data.hourly.apparent_temperature[i] ||
+        data.hourly.temperature_2m[i]
+    );
+    const afternoonAvgTemp =
+      afternoonTemps.reduce((a, b) => a + b, 0) / afternoonTemps.length;
+    const afternoonWeatherCode =
+      data.hourly.weathercode[
+        afternoonIndices[Math.floor(afternoonIndices.length / 2)]
+      ];
+    const afternoonPrecipitation = Math.max(
+      ...afternoonIndices.map((i) => data.hourly.precipitation[i] || 0)
+    );
+    const afternoonWind = Math.max(
+      ...afternoonIndices.map((i) => data.hourly.windspeed_10m[i] || 0)
+    );
+    const afternoonWeather = getWeatherInfo(afternoonWeatherCode);
+
+    // Update afternoon card
+    const afternoonTempEl = document.querySelector(
+      ".afternoon-card .period-temp-value"
+    );
+    if (afternoonTempEl) {
+      afternoonTempEl.textContent = Math.round(afternoonAvgTemp);
+    }
+
+    const afternoonIconEl = document.querySelector(".afternoon-card .period-weather-icon");
+    if (afternoonIconEl) {
+      afternoonIconEl.setAttribute("data-lucide", afternoonWeather.icon);
+    }
+
+    const afternoonTextEl = document.querySelector(
+      ".afternoon-card .period-weather-text"
+    );
+    if (afternoonTextEl) {
+      afternoonTextEl.textContent = afternoonWeather.text;
+    }
+
+    // Update afternoon precipitation and wind
+    const afternoonPrecipEl = document.querySelector(".afternoon-precipitation");
+    if (afternoonPrecipEl) {
+      afternoonPrecipEl.textContent = `${afternoonPrecipitation.toFixed(1)} mm`;
+    }
+
+    const afternoonWindEl = document.querySelector(".afternoon-wind");
+    if (afternoonWindEl) {
+      afternoonWindEl.textContent = `${Math.round(afternoonWind)} km/h`;
+    }
+
+    // Get and display afternoon clothing recommendations
+    const afternoonClothes = getClothingRecommendations(
+      afternoonAvgTemp,
+      afternoonWeatherCode,
+      afternoonPrecipitation,
+      afternoonWind
+    );
+    const afternoonClothingList = document.querySelector(
+      ".afternoon-card .clothing-list"
+    );
+    if (afternoonClothingList) {
+      afternoonClothingList.innerHTML = afternoonClothes
+        .map((item) => `<div class="clothing-item">${item}</div>`)
+        .join("");
+    }
+  }
+
+  // Generate and display smart tips
+  if (morningIndices.length > 0 && afternoonIndices.length > 0) {
+    const morningAvgTemp =
+      morningIndices
+        .map(
+          (i) =>
+            data.hourly.apparent_temperature[i] ||
+            data.hourly.temperature_2m[i]
+        )
+        .reduce((a, b) => a + b, 0) / morningIndices.length;
+    const afternoonAvgTemp =
+      afternoonIndices
+        .map(
+          (i) =>
+            data.hourly.apparent_temperature[i] ||
+            data.hourly.temperature_2m[i]
+        )
+        .reduce((a, b) => a + b, 0) / afternoonIndices.length;
+    const morningWeatherCode =
+      data.hourly.weathercode[
+        morningIndices[Math.floor(morningIndices.length / 2)]
+      ];
+    const afternoonWeatherCode =
+      data.hourly.weathercode[
+        afternoonIndices[Math.floor(afternoonIndices.length / 2)]
+      ];
+    const morningPrecipitation = Math.max(
+      ...morningIndices.map((i) => data.hourly.precipitation[i] || 0)
+    );
+    const afternoonPrecipitation = Math.max(
+      ...afternoonIndices.map((i) => data.hourly.precipitation[i] || 0)
+    );
+    const maxWind = Math.max(
+      ...morningIndices.map((i) => data.hourly.windspeed_10m[i] || 0),
+      ...afternoonIndices.map((i) => data.hourly.windspeed_10m[i] || 0)
+    );
+
+    const smartTips = generateSmartTips(
+      morningAvgTemp,
+      morningWeatherCode,
+      morningPrecipitation,
+      afternoonAvgTemp,
+      afternoonWeatherCode,
+      afternoonPrecipitation,
+      maxWind
+    );
+
+    // Display smart tips
+    if (smartTips.length > 0) {
+      const tipsList = document.querySelector(".tips-list");
+      if (tipsList) {
+        tipsList.innerHTML = smartTips
+          .map((tip) => `<div class="tip-item">${tip}</div>`)
+          .join("");
+
+        const smartTipsEl = document.getElementById("smart-tips");
+        if (smartTipsEl) {
+          smartTipsEl.classList.remove("hidden");
+        }
+      }
+    }
+  }
+
+  // Show the section
+  const todayForecastEl = document.getElementById("today-forecast");
+  if (todayForecastEl) {
+    todayForecastEl.classList.remove("hidden");
+  }
+
+  // Refresh Lucide icons
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+/**
+ * Update 5-day forecast display with enriched data
+ * @param {Object} data - Weather API data
+ */
+export function updateFiveDayForecast(data) {
+  const forecastGrid = document.querySelector(".forecast-grid");
+  if (!forecastGrid) return;
+
+  forecastGrid.innerHTML = "";
+
+  for (let i = 0; i < 5 && i < data.daily.time.length; i++) {
+    const weatherInfo = getWeatherInfo(data.daily.weathercode[i]);
+    const tempMax = Math.round(data.daily.temperature_2m_max[i]);
+    const tempMin = Math.round(data.daily.temperature_2m_min[i]);
+    const precipitation = data.daily.precipitation_sum[i] || 0;
+
+    // Format date (ex: "Lun 14/10")
+    const date = new Date(data.daily.time[i]);
+    const shortDate = `${date.getDate()}/${date.getMonth() + 1}`;
+
+    // Format sunrise/sunset
+    const sunrise = data.daily.sunrise[i] ? formatTime(data.daily.sunrise[i]) : "--:--";
+    const sunset = data.daily.sunset[i] ? formatTime(data.daily.sunset[i]) : "--:--";
+
+    // Calculate max wind from hourly data for this day
+    let maxWind = 0;
+    if (data.hourly && data.hourly.windspeed_10m) {
+      const dayStart = data.daily.time[i];
+      const dayIndices = data.hourly.time
+        .map((time, idx) => time.startsWith(dayStart) ? idx : -1)
+        .filter(idx => idx !== -1);
+
+      if (dayIndices.length > 0) {
+        maxWind = Math.max(...dayIndices.map(idx => data.hourly.windspeed_10m[idx] || 0));
+      }
+    }
+    maxWind = Math.round(maxWind);
+
+    // Generate badges
+    const badges = [];
+    if (precipitation > 5) {
+      badges.push('<span class="badge badge-rain"><i data-lucide="cloud-rain" class="badge-icon"></i>Pluie</span>');
+    }
+    if (maxWind > 25) {
+      badges.push('<span class="badge badge-wind"><i data-lucide="wind" class="badge-icon"></i>Venteux</span>');
+    }
+    if (tempMax > 28) {
+      badges.push('<span class="badge badge-hot"><i data-lucide="thermometer-sun" class="badge-icon"></i>Chaud</span>');
+    }
+    if (tempMax < 5) {
+      badges.push('<span class="badge badge-cold"><i data-lucide="snowflake" class="badge-icon"></i>Froid</span>');
+    }
+
+    const badgesHtml = badges.length > 0
+      ? `<div class="forecast-badges">${badges.join('')}</div>`
+      : '';
+
+    const card = document.createElement("div");
+    card.className = "forecast-card";
+    card.setAttribute("data-temp", tempMax);
+
+    card.innerHTML = `
+      <div class="forecast-header">
+        <span class="forecast-day-name">${getShortDayName(data.daily.time[i])}</span>
+        <span class="forecast-date">${shortDate}</span>
+      </div>
+
+      <div class="forecast-main">
+        <i data-lucide="${weatherInfo.icon}" class="forecast-icon-large"></i>
+        <div class="forecast-temps-large">
+          <span class="temp-high">${tempMax}°</span>
+          <span class="temp-separator">/</span>
+          <span class="temp-low">${tempMin}°</span>
+        </div>
+      </div>
+
+      ${badgesHtml}
+
+      <div class="forecast-details-grid">
+        <div class="detail-mini">
+          <i data-lucide="droplets" class="detail-mini-icon"></i>
+          <span>${precipitation.toFixed(1)} mm</span>
+        </div>
+        <div class="detail-mini">
+          <i data-lucide="wind" class="detail-mini-icon"></i>
+          <span>${maxWind} km/h</span>
+        </div>
+        <div class="detail-mini">
+          <i data-lucide="sunrise" class="detail-mini-icon"></i>
+          <span>${sunrise}</span>
+        </div>
+        <div class="detail-mini">
+          <i data-lucide="sunset" class="detail-mini-icon"></i>
+          <span>${sunset}</span>
+        </div>
+      </div>
+
+      <div class="forecast-description-text">${weatherInfo.text}</div>
+    `;
+
+    forecastGrid.appendChild(card);
+  }
+
+  const forecastEl = document.getElementById("forecast");
+  if (forecastEl) {
+    forecastEl.classList.remove("hidden");
+  }
+
+  // Refresh Lucide icons
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+// Helper function for getShortDayName (duplicated from utils for standalone use)
+function getShortDayName(dateStr) {
+  const date = new Date(dateStr);
+  const today = new Date();
+
+  if (date.toDateString() === today.toDateString()) {
+    return "Aujourd'hui";
+  }
+
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  if (date.toDateString() === tomorrow.toDateString()) {
+    return "Demain";
+  }
+
+  const days = [
+    "Dimanche",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
+  ];
+  return days[date.getDay()];
+}

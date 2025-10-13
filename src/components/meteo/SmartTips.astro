@@ -1,0 +1,98 @@
+---
+// Smart tips component with Renard's advice
+---
+
+<section id="smart-tips" class="smart-tips hidden">
+  <div class="tips-card">
+    <div class="tips-header">
+      <img src="/renard.png" alt="Renard" class="tips-fox-icon" />
+      <h2 class="tips-title">Conseils du Renard</h2>
+    </div>
+    <div class="tips-content">
+      <div class="tips-list">
+        <!-- Tips will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .smart-tips {
+    margin-bottom: 50px;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .tips-card {
+    background: linear-gradient(
+      135deg,
+      rgba(26, 26, 46, 0.6) 0%,
+      rgba(46, 26, 46, 0.5) 100%
+    );
+    border: 1px solid rgba(255, 107, 0, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.7s ease-out;
+  }
+
+  .tips-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+  }
+
+  .tips-fox-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .tips-title {
+    font-family: "Cinzel", serif;
+    font-size: 1.6rem;
+    color: #ff6b00;
+    margin: 0;
+    text-shadow: 0 0 15px rgba(255, 107, 0, 0.3);
+  }
+
+  .tips-content {
+    padding: 10px 0;
+  }
+
+  .tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Dynamic elements created by JavaScript need :global() */
+  :global(.tip-item) {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e8e8e8;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border-left: 3px solid rgba(255, 107, 0, 0.5);
+    animation: slideInRight 0.5s ease-out backwards;
+  }
+
+  :global(.tip-item:nth-child(1)) {
+    animation-delay: 0.1s;
+  }
+  :global(.tip-item:nth-child(2)) {
+    animation-delay: 0.2s;
+  }
+  :global(.tip-item:nth-child(3)) {
+    animation-delay: 0.3s;
+  }
+  :global(.tip-item:nth-child(4)) {
+    animation-delay: 0.4s;
+  }
+</style>
