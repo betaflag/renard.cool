@@ -889,6 +889,33 @@ Si Gemini TTS ne convient pas :
 4. **Google Cloud Text-to-Speech** : Alternative plus mature que Gemini
 5. **Enregistrement humain professionnel** : Option traditionnelle de référence
 
+### Prompts Validés (Tests Octobre 2025)
+
+**Prompt optimal pour méditations guidées** :
+```
+Speak with a calm, warm voice at a natural, moderate pace. Use gentle pauses between sentences.
+```
+
+**Résultats des tests** :
+- **Voix recommandée** : Charon (masculine, chaleureuse)
+- **Voix alternatives testées** : Fenrir, Kore (également masculines)
+- **Modèle** : gemini-2.5-flash-preview-tts
+- **Langue** : fr-FR
+- **Format de sortie** : PCM 16-bit 24kHz (converti en WAV)
+
+**Caractéristiques** :
+- Rythme naturel et agréable (ni trop lent, ni trop rapide)
+- Pauses bien placées entre les phrases
+- Ton chaleureux et apaisant
+- Adapté pour méditations de 30 secondes à 30 minutes
+
+**Usage avec l'outil CLI** :
+```bash
+npm run tts -- -i meditation.txt -o output -v Charon -p "Speak with a calm, warm voice at a natural, moderate pace. Use gentle pauses between sentences."
+```
+
+**Note** : Ce prompt fonctionne sans spécifier de vitesse explicite (pas de "50 mots/minute"), ce qui permet à Gemini de choisir un rythme naturel adapté au contexte méditatif.
+
 ## Références et Ressources
 
 ### Sources de Qualité (Français)

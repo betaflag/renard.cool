@@ -13,7 +13,7 @@ interface CliOptions {
   output: string;
   model: string;
   voice?: string;
-  style: string;
+  instructions?: string;
   language: string;
   verbose: boolean;
   dir?: string;
@@ -55,7 +55,7 @@ OPTIONS:
   -o, --output <name>       Output filename (alternative to positional arg)
   -m, --model <model>       Gemini TTS model (default: gemini-2.5-flash-preview-tts)
   -v, --voice <name>        Voice to use (see AVAILABLE VOICES below)
-  -s, --style <prompt>      Style description (e.g., "calm, soothing, slow")
+  -p, --prompt <text>       Custom instructions for voice generation
   -l, --language <code>     Language code (default: fr-FR)
   -d, --dir <directory>     Output directory (default: current directory)
   -V, --verbose             Enable verbose logging
@@ -74,36 +74,40 @@ LANGUAGES:
   fr-FR (French), en-US (English US), es-ES (Spanish), de-DE (German),
   ar-XA (Arabic), and 19+ other languages supported
 
-STYLE EXAMPLES:
-  - "calm, soothing, slow, meditative"
-  - "energetic, upbeat, clear"
-  - "gentle, warm, compassionate"
-  - "neutral, professional, clear"
+PROMPT INSTRUCTIONS:
+  Use -p/--prompt to control the voice style, pace, and delivery.
+  Without custom instructions, the text will be read naturally.
+
+  Examples:
+  - "Speak calmly and slowly, with gentle pauses"
+  - "Read this meditation guide with a warm, soothing voice at a moderate pace"
+  - "Speak clearly and professionally"
+  - "Use an energetic, upbeat tone"
 
 ENVIRONMENT:
   GEMINI_API_KEY           Required. Your Google Gemini API key.
                           Get one at: https://aistudio.google.com/apikey
 
 EXAMPLES:
-  # Generate speech from text
+  # Generate speech with default natural reading
   npm run tts -- "Bienvenue à cette méditation de pleine conscience" meditation_intro
 
   # Using a file as input
   npm run tts -- -i scripts/meditation.txt -o meditation_full
 
-  # Specify voice and style
-  npm run tts -- -v Enceladus -s "calm, slow, meditative" "Prenez une profonde respiration" breath_intro
+  # Specify voice and custom instructions
+  npm run tts -- -v Charon -p "Speak calmly with a warm, meditative tone at a moderate pace" -i meditation.txt -o output
 
-  # Use Pro model with custom style
-  npm run tts -- -m gemini-2.5-pro-preview-tts -s "gentle, compassionate" "Que vous soyez en paix" loving_kindness
+  # Use Pro model with detailed instructions
+  npm run tts -- -m gemini-2.5-pro-preview-tts -p "Read this slowly and gently, with pauses for breath" "Prenez une profonde respiration" breath_intro
 
   # Specify output directory
-  npm run tts -- -d ./public/audio/meditations "Observez votre respiration" breath_awareness
+  npm run tts -- -d ./public/audio/meditations -i meditation.txt -o breath_awareness
 
   # Verbose mode with detailed logging
-  npm run tts -- -V "Détendez vos épaules" relaxation_shoulders
+  npm run tts -- -V -i meditation.txt -o relaxation_shoulders
 
-  # English meditation
+  # English meditation with natural reading
   npm run tts -- -l en-US "Welcome to this mindfulness practice" welcome_en
 `);
 }
@@ -127,7 +131,7 @@ function parseArgs(): CliOptions {
   let output = "";
   let model = "gemini-2.5-flash-preview-tts";
   let voice: string | undefined = undefined;
-  let style = "calm, soothing, slow, meditative";
+  let instructions: string | undefined = undefined;
   let language = "fr-FR";
   let verbose = false;
   let dir: string | undefined = undefined;
@@ -174,10 +178,10 @@ function parseArgs(): CliOptions {
           i++;
         }
         break;
-      case "-s":
-      case "--style":
+      case "-p":
+      case "--prompt":
         if (nextArg && !nextArg.startsWith("-")) {
-          style = nextArg;
+          instructions = nextArg;
           i++;
         }
         break;
@@ -230,7 +234,7 @@ function parseArgs(): CliOptions {
         // Skip the flag and its value if it has one
         if (
           ["-t", "--text", "-i", "--input", "-o", "--output", "-m", "--model",
-           "-v", "--voice", "-s", "--style", "-l", "--language", "-d", "--dir"].includes(arg)
+           "-v", "--voice", "-p", "--prompt", "-l", "--language", "-d", "--dir"].includes(arg)
         ) {
           i++; // Skip next arg (the value)
         }
@@ -259,7 +263,7 @@ function parseArgs(): CliOptions {
     process.exit(1);
   }
 
-  return { text, output, model, voice, style, language, verbose, dir, inputFile };
+  return { text, output, model, voice, instructions, language, verbose, dir, inputFile };
 }
 
 function convertPcmToWav(pcmData: Buffer, mimeType: string): Promise<Buffer> {
@@ -325,15 +329,11 @@ async function saveAudioFile(fileName: string, content: Buffer, mimeType: string
   });
 }
 
-function buildStylePrompt(text: string, style: string, voice?: string): string {
-  const voiceInstruction = voice ? `avec la voix ${voice}` : "";
-
-  return `Lisez ce texte de méditation guidée ${voiceInstruction} avec un style ${style}.
-Parlez très lentement (environ 50 mots par minute), avec un rythme fluide et des pauses naturelles.
-Le ton doit être chaleureux, neutre et adapté à la méditation de pleine conscience.
-
-Texte à lire:
-${text}`;
+function buildPrompt(text: string, instructions?: string): string {
+  if (instructions) {
+    return `${instructions}\n\nTexte à lire:\n${text}`;
+  }
+  return text;
 }
 
 async function main() {
@@ -370,7 +370,9 @@ async function main() {
     if (options.voice) {
       console.log(`🎤 Voice: ${options.voice}`);
     }
-    console.log(`🎨 Style: ${options.style}`);
+    if (options.instructions) {
+      console.log(`📋 Instructions: ${options.instructions}`);
+    }
     console.log(`🌍 Language: ${options.language}`);
     console.log(`💾 Output: ${outputPath}`);
     console.log();
@@ -392,14 +394,14 @@ async function main() {
       } : undefined,
     };
 
-    const stylePrompt = buildStylePrompt(options.text, options.style, options.voice);
+    const prompt = buildPrompt(options.text, options.instructions);
 
     const contents = [
       {
         role: "user",
         parts: [
           {
-            text: stylePrompt,
+            text: prompt,
           },
         ],
       },

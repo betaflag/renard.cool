@@ -353,13 +353,76 @@ Voir section [Conseils et astuces](#conseils-et-astuces-tips) pour plus de déta
 
 Toutes les recettes doivent suivre le schéma Zod défini dans `src/content/config.ts`.
 
+#### Schéma Zod complet (Référence)
+
+```typescript
+const cuisine = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    servings: z.object({
+      quantity: z.number(),
+      unit: z.string(),
+    }),
+    freezable: z.boolean().default(false),
+    time: z.object({
+      prep: z.number(),
+      cook: z.number(),
+      wait: z.number().default(0),
+      soak: z.number().default(0),
+    }),
+    cooking_method: z.string(),
+    ingredients: z.array(z.union([
+      z.object({
+        quantity: z.string().nullable(),
+        unit: z.string().nullable(),
+        ingredient: z.string(),
+        note: z.string().nullable(),
+      }),
+      z.object({
+        subsection: z.string(),
+      }),
+    ])),
+    optional_ingredients: z.array(z.string()).optional(),
+    steps: z.array(z.string()),
+    visualSteps: z.array(z.object({
+      instruction: z.string(),
+      actorRole: z.enum(['adulte', 'enfants']),
+      visualElements: z.array(z.object({
+        type: z.enum(['container', 'ingredient', 'action', 'tool']),
+        image: z.string(),
+        label: z.string(),
+        quantity: z.string().optional(),
+      })),
+    })).optional(),
+    serving_suggestions: z.array(z.string()).optional(),
+    mainCategory: z.string().optional(),
+    categories: z.array(z.string()).default(['plat principal']),
+    tags: z.array(z.string()).optional(),
+    difficulty: z.enum(['facile', 'moyen', 'difficile']).default('moyen'),
+    variant: z.enum(['simple', 'avance', 'maternelle']).optional(),
+    relatedRecipe: z.string().optional(),
+    heroImage: z.string().optional(),
+    pubDate: z.coerce.date().default(() => new Date()),
+    draft: z.boolean().default(false),
+    tips: z.string().optional(),
+    ingredientIntro: z.string().optional(),
+    note: z.string().optional(),
+  }),
+});
+```
+
 #### Champs obligatoires
 
 ```json
 {
   "name": "Nom complet de la recette",
   "description": "2-3 phrases descriptives",
-  "servings": 4,
+  "servings": {
+    "quantity": 4,
+    "unit": "portions"
+  },
   "freezable": true,
   "time": {
     "prep": 15,
@@ -377,6 +440,13 @@ Toutes les recettes doivent suivre le schéma Zod défini dans `src/content/conf
 }
 ```
 
+**Note sur `servings`** : Maintenant un objet avec `quantity` (nombre) et `unit` (chaîne). Exemples d'unités :
+- `"portions"` (par défaut)
+- `"personnes"`
+- `"biscuits"`
+- `"muffins"`
+- `"carrés"`
+
 #### Champs optionnels mais recommandés
 
 ```json
@@ -392,7 +462,9 @@ Toutes les recettes doivent suivre le schéma Zod défini dans `src/content/conf
   "optional_ingredients": [
     "Huile de truffe pour garnir",
     "Persil frais ciselé"
-  ]
+  ],
+  "mainCategory": "plat principal",
+  "tags": ["comfort food", "classique"]
 }
 ```
 
@@ -400,11 +472,31 @@ Toutes les recettes doivent suivre le schéma Zod défini dans `src/content/conf
 
 ```json
 {
-  "variant": "simple",
+  "variant": "simple | avance | maternelle",
   "relatedRecipe": "ragout-boulettes-avance",
-  "updatedDate": "2025-10-15"
+  "visualSteps": [
+    {
+      "instruction": "Placer tous les ingrédients dans la mijoteuse",
+      "actorRole": "adulte",
+      "visualElements": [
+        {
+          "type": "container",
+          "image": "/icons/slow-cooker.svg",
+          "label": "Mijoteuse"
+        },
+        {
+          "type": "ingredient",
+          "image": "/icons/beans.svg",
+          "label": "Haricots",
+          "quantity": "500g"
+        }
+      ]
+    }
+  ]
 }
 ```
+
+**Note sur `visualSteps`** : Étapes visuelles pour recettes adaptées aux enfants, montrant qui fait quoi (adulte vs enfants) et avec quels éléments visuels.
 
 ### Structure des ingrédients
 
@@ -453,6 +545,28 @@ Pour organiser les ingrédients en groupes :
   { "quantity": "125", "unit": "ml", "ingredient": "sucre glace", "note": null }
 ]
 ```
+
+### Portions (servings)
+
+```json
+"servings": {
+  "quantity": 4,
+  "unit": "portions"
+}
+```
+
+**Structure** :
+- `quantity` : Nombre (integer)
+- `unit` : Chaîne de caractères décrivant le type de portion
+
+**Exemples d'unités courantes** :
+- `"portions"` - Pour la plupart des plats principaux
+- `"personnes"` - Pour des plats à partager
+- `"biscuits"` - Pour pâtisseries individuelles
+- `"muffins"` - Pour petits gâteaux
+- `"carrés"` - Pour carrés/brownies
+- `"tranches"` - Pour gâteaux, pains
+- `"boules"` - Pour truffes, boules d'énergie
 
 ### Temps de préparation
 
@@ -520,6 +634,47 @@ Liste non exhaustive de catégories possibles :
 - `"sans cuisson"`
 
 Chaque recette devrait avoir **2-5 catégories** pour faciliter la découverte.
+
+### Étapes visuelles (visualSteps)
+
+Le champ `visualSteps` est **optionnel** et permet de créer des recettes adaptées aux enfants avec des instructions visuelles montrant :
+- Qui fait quoi (adulte vs enfants)
+- Quels ingrédients/outils sont utilisés
+- Des icônes/images pour chaque élément
+
+**Structure** :
+
+```json
+"visualSteps": [
+  {
+    "instruction": "Description de l'étape",
+    "actorRole": "adulte | enfants",
+    "visualElements": [
+      {
+        "type": "container | ingredient | action | tool",
+        "image": "/icons/path-to-icon.svg",
+        "label": "Nom de l'élément",
+        "quantity": "500g (optionnel)"
+      }
+    ]
+  }
+]
+```
+
+**Types d'éléments visuels** :
+- `"container"` : Récipient (mijoteuse, bol, casserole)
+- `"ingredient"` : Ingrédient (haricots, oignons, épices)
+- `"action"` : Action à faire (mélanger, cuire, attendre)
+- `"tool"` : Outil (cuillère, couteau, fouet)
+
+**Rôles d'acteur** :
+- `"adulte"` : Étape réservée aux adultes (manipulation chaleur, couteaux)
+- `"enfants"` : Étape que les enfants peuvent faire avec supervision
+
+**Usage recommandé** :
+- Pour recettes avec `variant: "maternelle"`
+- Pour simplifier des recettes complexes pour les jeunes cuisiniers
+- Nécessite création d'icônes correspondantes
 
 ---
 
@@ -707,7 +862,7 @@ Les catégories permettent aux lecteurs de découvrir les recettes selon différ
 - [ ] Tous les champs obligatoires sont présents
 - [ ] `name` : Nom évocateur et complet
 - [ ] `description` : 2-3 phrases qui donnent envie
-- [ ] `servings` : Nombre réaliste de portions
+- [ ] `servings` : Objet avec `quantity` (nombre) et `unit` (chaîne comme "portions")
 - [ ] `freezable` : `true` ou `false` selon le plat
 - [ ] `time` : Tous les temps sont précis (prep, cook, wait, soak)
 - [ ] `cooking_method` : Valeur exacte parmi les options
@@ -715,6 +870,9 @@ Les catégories permettent aux lecteurs de découvrir les recettes selon différ
 - [ ] `categories` : 2-5 catégories pertinentes
 - [ ] `pubDate` : Date au format ISO (YYYY-MM-DD)
 - [ ] `draft` : `false` quand prêt à publier
+- [ ] `mainCategory` : Catégorie principale (optionnel mais recommandé)
+- [ ] `tags` : Mots-clés supplémentaires si pertinents (optionnel)
+- [ ] `visualSteps` : Étapes visuelles pour recettes "maternelle" (optionnel)
 
 ### Ingrédients
 

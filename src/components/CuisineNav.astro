@@ -69,87 +69,97 @@ const mainCategories = Array.from(mainCategoryMap.values()).sort((a, b) => a.nam
 const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0].localeCompare(b[0]));
 ---
 
-<nav class="cuisine-nav" id="cuisineNav">
-  <div class="nav-container">
-    <div class="nav-left">
-      {variant === "detail" && (
-        <a href="/cuisine" class="nav-back-link">
-          ← Retour
+<Fragment>
+  <nav class="cuisine-nav" id="cuisineNav">
+    <div class="nav-container">
+      <div class="nav-left">
+        {variant === "detail" && (
+          <a href="/cuisine" class="nav-back-link">
+            ← Retour
+          </a>
+        )}
+        <a href="/cuisine" class="nav-logo">
+          <span class="logo-icon">🦊</span>
+          <span class="logo-text">Renardo Cuisine</span>
         </a>
-      )}
-      <a href="/cuisine" class="nav-logo">
-        <span class="logo-icon">🦊</span>
-        <span class="logo-text">Renardo Cuisine</span>
-      </a>
-    </div>
+      </div>
 
-    <div class="nav-center">
-      <a
-        href={`/cuisine/main/${slugify("Petite École")}`}
-        class={`nav-link-button ${activeMainCategory === "Petite École" ? 'active' : ''}`}
-      >
-        Petite École
-      </a>
+      <div class="nav-center">
+        <a
+          href={`/cuisine/main/${slugify("Petite École")}`}
+          class={`nav-link-button ${activeMainCategory === "Petite École" ? 'active' : ''}`}
+        >
+          Petite École
+        </a>
 
-      <div class="nav-dropdown" id="categoriesDropdown">
-        <button class="nav-dropdown-toggle" id="categoriesToggle">
-          Catégories
-          <span class="dropdown-arrow">▼</span>
-        </button>
-        <div class="nav-dropdown-menu" id="categoriesMenu">
-          <CategoryMenuItem
-            href="/cuisine"
-            name="Toutes les recettes"
-            count={mainListingRecipes.length}
-            isActive={activeCategory === undefined && activeMainCategory === undefined}
-          />
-
-          {/* Standalone categories first (alphabetically) */}
-          {categories.map(([category, count]) => (
+        <div class="nav-dropdown" id="categoriesDropdown">
+          <button class="nav-dropdown-toggle" id="categoriesToggle">
+            Catégories
+            <span class="dropdown-arrow">▼</span>
+          </button>
+          <div class="nav-dropdown-menu" id="categoriesMenu">
             <CategoryMenuItem
-              href={`/cuisine/categories/${slugify(category)}`}
-              name={category}
-              count={count}
-              isActive={activeCategory === category && !activeMainCategory}
+              href="/cuisine"
+              name="Toutes les recettes"
+              count={mainListingRecipes.length}
+              isActive={activeCategory === undefined && activeMainCategory === undefined}
             />
-          ))}
 
-          {/* Main categories with subcategories last (alphabetically), excluding Petite École */}
-          {mainCategories
-            .filter((mainCat) => mainCat.name !== "Petite École")
-            .map((mainCat) => (
-              <CollapsibleCategoryGroup
-                mainCategoryName={mainCat.name}
-                mainCategoryUrl={`/cuisine/main/${slugify(mainCat.name)}`}
-                mainCategoryCount={mainCat.count}
-                subcategories={Array.from(mainCat.subcategories?.entries() || [])
-                  .sort((a, b) => a[0].localeCompare(b[0]))
-                  .map(([name, count]) => ({
-                    name,
-                    count,
-                    url: `/cuisine/main/${slugify(mainCat.name)}/${slugify(name)}`,
-                  }))}
-                isActive={activeMainCategory === mainCat.name}
-                activeSubcategory={activeCategory}
+            {/* Standalone categories first (alphabetically) */}
+            {categories.map(([category, count]) => (
+              <CategoryMenuItem
+                href={`/cuisine/categories/${slugify(category)}`}
+                name={category}
+                count={count}
+                isActive={activeCategory === category && !activeMainCategory}
               />
             ))}
+
+            {/* Main categories with subcategories last (alphabetically), excluding Petite École */}
+            {mainCategories
+              .filter((mainCat) => mainCat.name !== "Petite École")
+              .map((mainCat) => (
+                <CollapsibleCategoryGroup
+                  mainCategoryName={mainCat.name}
+                  mainCategoryUrl={`/cuisine/main/${slugify(mainCat.name)}`}
+                  mainCategoryCount={mainCat.count}
+                  subcategories={Array.from(mainCat.subcategories?.entries() || [])
+                    .sort((a, b) => a[0].localeCompare(b[0]))
+                    .map(([name, count]) => ({
+                      name,
+                      count,
+                      url: `/cuisine/main/${slugify(mainCat.name)}/${slugify(name)}`,
+                    }))}
+                  isActive={activeMainCategory === mainCat.name}
+                  activeSubcategory={activeCategory}
+                />
+              ))}
+          </div>
         </div>
+      </div>
+
+      <div class="nav-right">
+        <ShoppingListWidget />
+        <MealPlanWidget />
+      </div>
+
+      <button class="nav-mobile-toggle" id="navMobileToggle">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <div class="mobile-widgets-section">
+      <h3 class="mobile-section-title">Mes outils</h3>
+      <div class="mobile-widgets-container">
+        <ShoppingListWidget />
+        <MealPlanWidget />
       </div>
     </div>
 
-    <div class="nav-right">
-      <ShoppingListWidget />
-      <MealPlanWidget />
-    </div>
-
-    <button class="nav-mobile-toggle" id="navMobileToggle">
-      <span class="hamburger"></span>
-    </button>
-  </div>
-
-  <div class="nav-mobile-menu" id="navMobileMenu">
     <div class="mobile-section">
-      <h3 class="mobile-section-title">Menu</h3>
+      <h3 class="mobile-section-title">Navigation</h3>
       <a
         href={`/cuisine/main/${slugify("Petite École")}`}
         class={`mobile-item ${activeMainCategory === "Petite École" ? 'active' : ''}`}
@@ -161,7 +171,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     <div class="mobile-section">
       <h3 class="mobile-section-title">Catégories</h3>
       <a href="/cuisine" class="mobile-item {activeCategory === undefined && activeMainCategory === undefined ? 'active' : ''}">
-        <span class="item-name">Toutes</span>
+        <span class="item-name">Toutes les recettes</span>
         <span class="item-count">{mainListingRecipes.length}</span>
       </a>
 
@@ -218,9 +228,13 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
         })}
     </div>
   </div>
-</nav>
+</Fragment>
 
 <style is:global>
+  :root {
+    --nav-height: 68px;
+  }
+
   .cuisine-nav {
     position: fixed;
     top: 0;
@@ -402,26 +416,38 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 44px;
+    height: 44px;
     background: transparent;
     border: 1px solid rgba(211, 84, 0, 0.2);
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .nav-mobile-toggle:hover {
     background: rgba(211, 84, 0, 0.05);
     border-color: rgba(211, 84, 0, 0.4);
+    transform: scale(1.05);
+  }
+
+  .nav-mobile-toggle:active {
+    transform: scale(0.95);
+  }
+
+  .nav-mobile-toggle.active {
+    background: rgba(211, 84, 0, 0.08);
+    border-color: rgba(211, 84, 0, 0.4);
   }
 
   .hamburger {
     position: relative;
-    width: 1.25rem;
+    width: 20px;
     height: 2px;
     background: #555;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hamburger::before,
@@ -431,7 +457,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     width: 100%;
     height: 2px;
     background: #555;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hamburger::before {
@@ -449,31 +475,54 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
   .nav-mobile-toggle.active .hamburger::before {
     top: 0;
     transform: rotate(45deg);
+    background: #d35400;
   }
 
   .nav-mobile-toggle.active .hamburger::after {
     bottom: 0;
     transform: rotate(-45deg);
+    background: #d35400;
   }
 
   /* Mobile Menu */
   .nav-mobile-menu {
     position: fixed;
-    top: 4.5rem;
+    top: var(--nav-height, 68px);
     left: 0;
     right: 0;
     bottom: 0;
     background: #fff;
     overflow-y: auto;
+    overflow-x: hidden;
     transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 250;
-    visibility: visible;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 190;
+    visibility: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0);
   }
 
   .nav-mobile-menu.active {
     transform: translateX(0);
     visibility: visible;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Mobile menu scrollbar styling */
+  .nav-mobile-menu::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .nav-mobile-menu::-webkit-scrollbar-track {
+    background: rgba(211, 84, 0, 0.05);
+  }
+
+  .nav-mobile-menu::-webkit-scrollbar-thumb {
+    background: rgba(211, 84, 0, 0.25);
+    border-radius: 4px;
+  }
+
+  .nav-mobile-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(211, 84, 0, 0.4);
   }
 
   /* Hide mobile menu on desktop */
@@ -502,28 +551,59 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.875rem 1rem;
-    margin-bottom: 0.5rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.625rem;
     color: #2c2c2c;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 500;
     background: #fff;
     border: 1px solid rgba(211, 84, 0, 0.12);
-    transition: all 0.2s ease;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 48px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-item:active {
+    transform: scale(0.98);
   }
 
   .mobile-item:hover {
     background: rgba(250, 248, 243, 0.8);
     border-color: rgba(211, 84, 0, 0.3);
     color: #d35400;
+    box-shadow: 0 2px 8px rgba(211, 84, 0, 0.08);
   }
 
   .mobile-item.active {
-    background: rgba(211, 84, 0, 0.1);
-    border-color: rgba(211, 84, 0, 0.3);
+    background: rgba(211, 84, 0, 0.08);
+    border-color: rgba(211, 84, 0, 0.35);
     color: #d35400;
     font-weight: 600;
+    box-shadow: 0 0 0 1px rgba(211, 84, 0, 0.15);
+  }
+
+  .item-name {
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .item-count {
+    background: rgba(211, 84, 0, 0.1);
+    color: #d35400;
+    padding: 0.25rem 0.625rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    min-width: 28px;
+    text-align: center;
+  }
+
+  .mobile-item.active .item-count {
+    background: #d35400;
+    color: white;
   }
 
   .mobile-collapsible-group {
@@ -533,11 +613,13 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
   .mobile-category-header {
     display: flex;
     align-items: stretch;
+    gap: 0.5rem;
   }
 
   .mobile-category-header .mobile-item {
     flex: 1;
     margin-bottom: 0;
+    border-radius: 6px 0 0 6px;
   }
 
   .mobile-item.main-category {
@@ -547,27 +629,36 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
   }
 
   .mobile-collapse-toggle {
-    width: 3rem;
+    min-width: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(211, 84, 0, 0.05);
+    background: #fff;
     border: 1px solid rgba(211, 84, 0, 0.12);
-    border-left: none;
+    border-radius: 0 6px 6px 0;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     color: #999;
     font-family: inherit;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .mobile-collapse-toggle:active {
     background: rgba(211, 84, 0, 0.15);
     color: #d35400;
+    transform: scale(0.95);
+  }
+
+  .mobile-collapse-toggle:hover {
+    background: rgba(250, 248, 243, 0.8);
+    border-color: rgba(211, 84, 0, 0.25);
+    color: #d35400;
   }
 
   .mobile-chevron {
-    font-size: 0.7rem;
-    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-block;
   }
 
@@ -575,25 +666,51 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     transform: rotate(90deg);
   }
 
+  .mobile-collapse-toggle[aria-expanded="true"] {
+    background: rgba(211, 84, 0, 0.08);
+    color: #d35400;
+    border-color: rgba(211, 84, 0, 0.25);
+  }
+
   .mobile-subcategories {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0.5rem;
   }
 
   .mobile-subcategories.expanded {
-    max-height: 500px;
+    max-height: 600px;
   }
 
   .mobile-item.subcategory {
-    padding-left: 2rem;
-    font-size: 0.9rem;
-    margin-left: 1rem;
-    background: rgba(250, 248, 243, 0.8);
+    padding: 0.875rem 1rem 0.875rem 2.5rem;
+    font-size: 0.95rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    background: rgba(250, 248, 243, 0.5);
+    border-left: 2px solid rgba(211, 84, 0, 0.2);
+    min-height: 44px;
+  }
+
+  .mobile-item.subcategory:hover {
+    background: rgba(250, 248, 243, 0.9);
+    margin-left: 0.75rem;
+  }
+
+  .mobile-item.subcategory.active {
+    background: rgba(211, 84, 0, 0.06);
+    border-left-color: #d35400;
+    margin-left: 0.75rem;
   }
 
   .mobile-item.subcategory .item-name {
-    color: #555;
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  .mobile-item.subcategory.active .item-name {
+    color: #d35400;
   }
 
   /* Responsive */
@@ -603,6 +720,10 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     }
 
     .nav-link-button {
+      display: none;
+    }
+
+    .nav-right {
       display: none;
     }
 
@@ -623,7 +744,62 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     }
   }
 
+  /* Mobile Widgets Section */
+  @media (max-width: 1024px) {
+    .mobile-widgets-section {
+      padding: 1.5rem 1.25rem;
+      background: linear-gradient(135deg, rgba(211, 84, 0, 0.03) 0%, rgba(250, 248, 243, 0.8) 100%);
+      border-bottom: 2px solid rgba(211, 84, 0, 0.15);
+    }
+
+    .mobile-widgets-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+
+    /* Override widget styles for mobile menu integration */
+    .mobile-widgets-section .shopping-list-widget,
+    .mobile-widgets-section .meal-plan-widget {
+      position: static;
+      width: 100%;
+    }
+
+    .mobile-widgets-section .shopping-list-toggle,
+    .mobile-widgets-section .meal-plan-toggle {
+      width: 100%;
+      justify-content: center;
+      padding: 0.875rem 1.25rem;
+      font-size: 0.95rem;
+      min-height: 52px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    }
+
+    .mobile-widgets-section .toggle-text {
+      display: inline-block !important;
+    }
+
+    .mobile-widgets-section .shopping-list-dropdown,
+    .mobile-widgets-section .meal-plan-dropdown {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-height: 100vh;
+      border: none;
+      border-radius: 0;
+      z-index: 500;
+    }
+  }
+
   @media (max-width: 768px) {
+    :root {
+      --nav-height: 68px;
+    }
+
     .nav-back-link {
       font-size: 0.7rem;
       padding: 0.4rem 0.75rem;
@@ -639,6 +815,10 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
   }
 
   @media (max-width: 480px) {
+    :root {
+      --nav-height: 64px;
+    }
+
     .nav-container {
       padding: 0.625rem 1rem;
       gap: 1rem;

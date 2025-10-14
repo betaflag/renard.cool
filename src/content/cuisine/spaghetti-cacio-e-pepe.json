@@ -1,0 +1,71 @@
+{
+  "name": "Spaghetti Cacio e Pepe",
+  "description": "Trois ingrédients seulement — pecorino romano, poivre noir fraîchement moulu, et l'eau féculente des pâtes — se transforment en une sauce crémeuse et soyeuse qui enrobe chaque brin de spaghetti. C'est la magie de l'émulsion, le secret des grands chefs romains transmis de génération en génération. Une symphonie de simplicité qui exige technique et précision.",
+  "heroImage": "/cuisine/spaghetti-cacio-e-pepe.png",
+  "servings": {
+    "quantity": 2,
+    "unit": "personnes"
+  },
+  "freezable": false,
+  "time": {
+    "prep": 5,
+    "cook": 12,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière",
+  "ingredientIntro": "Trois acteurs sur scène, chacun essentiel à l'alchimie. Le pecorino apporte son caractère salé et piquant, le poivre son feu aromatique, et l'eau de cuisson devient le liant mystérieux qui transforme des ingrédients simples en velours liquide.",
+  "ingredients": [
+    {
+      "quantity": "200",
+      "unit": "g",
+      "ingredient": "spaghetti de qualité",
+      "note": "les pâtes artisanales tiennent mieux la sauce"
+    },
+    {
+      "quantity": "100",
+      "unit": "g",
+      "ingredient": "pecorino romano",
+      "note": "fraîchement râpé, l'âme salée de la recette"
+    },
+    {
+      "quantity": "10",
+      "unit": "ml",
+      "ingredient": "poivre noir en grains",
+      "note": "fraîchement moulu, le feu aromatique"
+    },
+    {
+      "quantity": "15",
+      "unit": "ml",
+      "ingredient": "huile d'olive extra vierge",
+      "note": "optionnelle, pour enrichir"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "sel de mer",
+      "note": "pour l'eau de cuisson"
+    }
+  ],
+  "steps": [
+    "Porter une grande casserole d'eau salée à ébullition (l'eau doit être salée comme la mer). Ajouter les spaghetti et cuire selon les instructions du paquet MOINS 2 minutes — vous terminerez la cuisson dans la sauce.",
+    "Pendant que les pâtes cuisent, moudre grossièrement le poivre noir dans un mortier ou moulin à épices. Dans une grande poêle à feu moyen, faire griller le poivre à sec pendant 1-2 minutes jusqu'à parfumé et fumant. Ajouter l'huile d'olive si désiré et retirer du feu.",
+    "IMPORTANT: 2 minutes avant la fin de cuisson, réserver 375 ml (1½ tasse) d'eau de cuisson dans un récipient à part. Cette eau féculente est l'ingrédient magique de l'émulsion.",
+    "Égoutter les spaghetti (ne pas rincer) et les transférer immédiatement dans la poêle avec le poivre. Remettre à feu moyen-doux.",
+    "Ajouter 125 ml (½ tasse) d'eau de cuisson réservée. Remuer vigoureusement avec des pinces pendant 30 secondes pour créer une émulsion crémeuse.",
+    "Retirer du feu. Ajouter le pecorino râpé en trois fois, en remuant constamment entre chaque ajout. Si la sauce devient trop épaisse ou grumeleuse, ajouter de l'eau de cuisson par petites quantités (30 ml à la fois) et remuer vigoureusement.",
+    "La sauce doit être crémeuse, soyeuse, et enrober chaque brin de spaghetti d'un voile brillant. Si elle est trop liquide, laisser réduire 30 secondes à feu doux en remuant. Si elle est trop épaisse, ajouter encore un peu d'eau de cuisson.",
+    "Servir IMMÉDIATEMENT dans des assiettes préchauffées. Garnir d'un peu de pecorino râpé supplémentaire et de poivre noir fraîchement moulu. Les pâtes continuent d'absorber la sauce en refroidissant — la cacio e pepe n'attend personne."
+  ],
+  "tips": "Le secret de la cacio e pepe parfaite réside dans trois éléments critiques : la température, le timing, et la technique. L'eau de cuisson est votre ingrédient magique — elle contient l'amidon libéré par les pâtes qui crée l'émulsion soyeuse avec le fromage. Ne JAMAIS rincer les pâtes : c'est cet amidon de surface qui permet à la sauce d'adhérer. Le pecorino doit être ajouté HORS du feu : une température trop élevée fait fondre les protéines du fromage qui se séparent et forment des grumeaux au lieu d'une sauce veloutée. Râpez le fromage vous-même avec une microplane — les sachets pré-râpés contiennent des agents anti-agglomérants qui ruinent l'émulsion. Le mouvement est crucial : remuez vigoureusement et constamment avec des pinces, créant une friction qui émulsionne le fromage et l'eau. Si la sauce se brise et devient granuleuse, ajoutez immédiatement 30 ml d'eau de cuisson chaude et fouettez énergiquement — vous pouvez souvent la sauver. Cette recette est une leçon d'humilité : trois ingrédients, mais une technique qui demande pratique et attention. Ratez-la une fois, comprenez pourquoi, et la prochaine sera parfaite.",
+  "note": "Cette recette ne se réchauffe pas et ne se conserve pas — elle doit être servie immédiatement. La sauce continue d'absorber et de durcir en refroidissant.",
+  "serving_suggestions": [
+    "Servir avec du pain croûté grillé frotté à l'ail",
+    "Accompagner d'une simple salade de roquette à l'huile d'olive et citron",
+    "Proposer un vin blanc sec italien (Frascati ou Verdicchio)"
+  ],
+  "categories": ["plat principal", "italien", "romantique", "rapide"],
+  "difficulty": "moyen",
+  "pubDate": "2025-10-14",
+  "draft": false
+}
