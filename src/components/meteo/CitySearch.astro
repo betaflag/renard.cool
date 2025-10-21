@@ -1,0 +1,174 @@
+---
+// City search component for manual location input
+---
+
+<div id="city-search-container" class="city-search-container hidden">
+  <div class="search-header">
+    <p class="search-help">Entrez le nom d'une ville pour obtenir la météo</p>
+  </div>
+  <div class="search-form">
+    <input
+      type="text"
+      id="city-search-input"
+      class="city-input"
+      placeholder="Paris, Lyon, Marseille..."
+      autocomplete="off"
+    />
+    <button id="city-search-btn" class="search-btn">
+      <i data-lucide="search" class="search-icon"></i>
+      <span>Rechercher</span>
+    </button>
+  </div>
+  <div id="city-suggestions" class="suggestions hidden"></div>
+  <p class="search-hint">
+    <i data-lucide="info" class="info-icon"></i>
+    <span>Ou utilisez la géolocalisation pour une position précise</span>
+  </p>
+</div>
+
+<style>
+  .city-search-container {
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid rgba(255, 107, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+  }
+
+  .search-header {
+    margin-bottom: 15px;
+  }
+
+  .search-help {
+    color: #a8a8a8;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .city-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 107, 0, 0.3);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #e8e8e8;
+    font-size: 1rem;
+    font-family: "Raleway", sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .city-input:focus {
+    border-color: rgba(255, 107, 0, 0.6);
+    box-shadow: 0 0 15px rgba(255, 107, 0, 0.2);
+  }
+
+  .city-input::placeholder {
+    color: rgba(168, 168, 168, 0.5);
+  }
+
+  .search-btn {
+    background: linear-gradient(135deg, #ff6b00, #ff8c00);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+  }
+
+  .search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+  }
+
+  .search-btn:active {
+    transform: translateY(0);
+  }
+
+  .search-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .search-icon {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+  }
+
+  .suggestions {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 107, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .suggestion-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 107, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+
+  .suggestion-item:last-child {
+    border-bottom: none;
+  }
+
+  .suggestion-item:hover {
+    background: rgba(255, 107, 0, 0.1);
+  }
+
+  .suggestion-name {
+    color: #e8e8e8;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  .suggestion-details {
+    color: #a8a8a8;
+    font-size: 0.85rem;
+  }
+
+  .search-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    color: rgba(168, 168, 168, 0.7);
+    font-size: 0.85rem;
+  }
+
+  .info-icon {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+  }
+
+  @media (max-width: 768px) {
+    .search-form {
+      flex-direction: column;
+    }
+
+    .search-btn {
+      justify-content: center;
+    }
+  }
+</style>

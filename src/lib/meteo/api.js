@@ -4,6 +4,42 @@
  */
 
 /**
+ * Search for cities by name using Nominatim
+ * @param {string} query - City name to search
+ * @returns {Promise<Array>} Array of city results
+ */
+export async function searchCities(query) {
+  try {
+    if (!query || query.length < 2) {
+      return [];
+    }
+
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=5&accept-language=fr&addressdetails=1`
+    );
+    const data = await response.json();
+
+    // Filter and format results to only include cities/towns
+    return data
+      .filter(item => {
+        const type = item.type || item.addresstype;
+        return ['city', 'town', 'village', 'municipality', 'administrative'].includes(type);
+      })
+      .map(item => ({
+        name: item.name,
+        displayName: item.display_name,
+        lat: parseFloat(item.lat),
+        lon: parseFloat(item.lon),
+        country: item.address?.country || '',
+        state: item.address?.state || '',
+      }));
+  } catch (error) {
+    console.error("Error searching cities:", error);
+    return [];
+  }
+}
+
+/**
  * Get city name from coordinates using Nominatim
  * @param {number} lat - Latitude
  * @param {number} lon - Longitude

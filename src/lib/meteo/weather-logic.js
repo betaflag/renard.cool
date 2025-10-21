@@ -52,12 +52,20 @@ export function getWeatherInfo(code) {
 }
 
 /**
+ * Clothing item with optional icon
+ * @typedef {Object} ClothingItem
+ * @property {string} text - Display text
+ * @property {string} emoji - Emoji fallback
+ * @property {string|null} icon - Path to PNG icon (relative to /meteo/icons/)
+ */
+
+/**
  * Get clothing recommendations based on temperature and weather
  * @param {number} temp - Temperature in Celsius
  * @param {number} weatherCode - Weather code
  * @param {number} precipitation - Precipitation in mm
  * @param {number} windSpeed - Wind speed in km/h
- * @returns {string[]} Array of clothing recommendations
+ * @returns {ClothingItem[]} Array of clothing recommendations
  */
 export function getClothingRecommendations(
   temp,
@@ -67,34 +75,37 @@ export function getClothingRecommendations(
 ) {
   const clothes = [];
 
+  // Helper function to create clothing item
+  const item = (text, emoji, icon = null) => ({ text, emoji, icon });
+
   // Base clothing based on temperature
   if (temp < 5) {
     // Very cold
-    clothes.push("🧥 Manteau d'hiver");
-    clothes.push("🧤 Mitaines");
-    clothes.push("🧣 Foulard");
-    clothes.push("🎩 Tuque");
+    clothes.push(item("Manteau d'hiver", "🧥", "manteau-hiver.png"));
+    clothes.push(item("Mitaines", "🧤", "mitaines.png"));
+    clothes.push(item("Foulard", "🧣", "foulard.png"));
+    clothes.push(item("Tuque", "🎩", "tuque.png"));
   } else if (temp < 10) {
     // Cold
-    clothes.push("🧥 Manteau chaud");
-    clothes.push("🧣 Foulard");
+    clothes.push(item("Manteau chaud", "🧥", "manteau-chaud.png"));
+    clothes.push(item("Foulard", "🧣", "foulard.png"));
   } else if (temp < 15) {
     // Cool
-    clothes.push("🧥 Manteau léger");
-    clothes.push("👕 Chandail");
+    clothes.push(item("Manteau léger", "🧥", "manteau-leger.png"));
+    clothes.push(item("Chandail", "👕", null));
   } else if (temp < 20) {
     // Mild
-    clothes.push("👔 Chandail léger");
-    clothes.push("👕 T-shirt manches longues");
+    clothes.push(item("Chandail léger", "👔", null));
+    clothes.push(item("T-shirt manches longues", "👕", null));
   } else if (temp < 25) {
     // Warm
-    clothes.push("👕 T-shirt ou polo");
-    clothes.push("👖 Pantalon léger");
+    clothes.push(item("T-shirt ou polo", "👕", null));
+    clothes.push(item("Pantalon léger", "👖", null));
   } else {
     // Hot
-    clothes.push("👕 T-shirt léger");
-    clothes.push("🩳 Short (si autorisé)");
-    clothes.push("🧢 Casquette pour la récré");
+    clothes.push(item("T-shirt léger", "👕", null));
+    clothes.push(item("Short (si autorisé)", "🩳", null));
+    clothes.push(item("Casquette pour la récré", "🧢", null));
   }
 
   // Add rain gear if needed
@@ -102,26 +113,26 @@ export function getClothingRecommendations(
     precipitation > 0 ||
     [51, 53, 55, 61, 63, 65, 80, 81, 82].includes(weatherCode)
   ) {
-    clothes.push("🌂 Imperméable");
+    clothes.push(item("Imperméable", "🌂", "imperméable.png"));
     if (precipitation > 2) {
-      clothes.push("👢 Bottes de pluie");
+      clothes.push(item("Bottes de pluie", "👢", "bottes-pluie.png"));
     }
   }
 
   // Add snow gear if needed
   if ([71, 73, 75, 77, 85, 86].includes(weatherCode)) {
-    clothes.push("👢 Bottes d'hiver");
-    clothes.push("🧤 Mitaines imperméables");
+    clothes.push(item("Bottes d'hiver", "👢", null));
+    clothes.push(item("Mitaines imperméables", "🧤", "mitaines.png"));
   }
 
   // Wind protection
   if (windSpeed > 20) {
-    clothes.push("🧥 Coupe-vent");
+    clothes.push(item("Coupe-vent", "🧥", "coupe-vent.png"));
   }
 
   // Sun protection for hot days
   if (temp > 25 && [0, 1].includes(weatherCode)) {
-    clothes.push("🧴 Crème solaire");
+    clothes.push(item("Crème solaire", "🧴", null));
   }
 
   return clothes;
@@ -135,6 +146,9 @@ export function getClothingRecommendations(
  * @param {number} afternoonTemp - Afternoon temperature
  * @param {number} afternoonCode - Afternoon weather code
  * @param {number} afternoonPrecip - Afternoon precipitation
+ * @param {number|null} eveningTemp - Evening temperature (optional)
+ * @param {number|null} eveningCode - Evening weather code (optional)
+ * @param {number|null} eveningPrecip - Evening precipitation (optional)
  * @param {number} windSpeed - Max wind speed
  * @returns {string[]} Array of smart tips (max 4)
  */
@@ -145,6 +159,9 @@ export function generateSmartTips(
   afternoonTemp,
   afternoonCode,
   afternoonPrecip,
+  eveningTemp,
+  eveningCode,
+  eveningPrecip,
   windSpeed
 ) {
   const tips = [];
@@ -246,11 +263,46 @@ export function generateSmartTips(
   const stormCodes = [95, 96, 99];
   if (
     stormCodes.includes(morningCode) ||
-    stormCodes.includes(afternoonCode)
+    stormCodes.includes(afternoonCode) ||
+    (eveningCode && stormCodes.includes(eveningCode))
   ) {
     tips.push(
       "Orages possibles - évitez les activités extérieures et restez à l'abri!"
     );
+  }
+
+  // Evening-specific tips
+  if (eveningTemp !== null && eveningTemp !== undefined) {
+    // Evening cooling
+    if (afternoonTemp > 20 && eveningTemp < 15) {
+      tips.push(
+        "Refroidissement en soirée - prévoyez une veste pour les activités du soir!"
+      );
+    } else if (afternoonTemp - eveningTemp > 8) {
+      tips.push(
+        "Température en baisse notable en soirée - habillez-vous chaudement pour rentrer!"
+      );
+    }
+
+    // Evening rain
+    const eveningRain =
+      eveningPrecip > 0 || (eveningCode && rainCodes.includes(eveningCode));
+    if (!afternoonRain && eveningRain) {
+      tips.push(
+        "Pluie prévue en soirée - gardez l'imperméable pour le retour à la maison!"
+      );
+    } else if (afternoonRain && !eveningRain) {
+      tips.push(
+        "La pluie devrait s'arrêter en soirée - soirée plus agréable en vue!"
+      );
+    }
+
+    // Evening cold
+    if (eveningTemp < 5 && afternoonTemp > 10) {
+      tips.push(
+        "Soirée froide en perspective - manteau chaud indispensable pour les activités du soir!"
+      );
+    }
   }
 
   // Return top 3-4 most relevant tips

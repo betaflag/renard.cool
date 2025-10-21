@@ -34,15 +34,18 @@ npm run preview
 # Run Astro CLI commands
 npm run astro [command]
 
-# Generate recipe images using Google Gemini AI
+# Generate images using Google Gemini AI
 npm run gemini -- [OPTIONS] <prompt> <filename>
 # Example: npm run gemini -- -d ./public/cuisine "un risotto aux champignons steampunk" risotto-champignons
 # Requires: GEMINI_API_KEY environment variable
 ```
 
+Use the documentation in @bin/gemini.ts script to generate images
+
 ## Project Architecture
 
 ### Directory Structure
+
 - `src/pages/` - Astro page components (file-based routing)
   - `index.astro` - Main portfolio landing page
   - `blog/` - Blog system with listing and individual post pages
@@ -70,21 +73,26 @@ npm run gemini -- [OPTIONS] <prompt> <filename>
   - `guide-images-recettes.md` - Recipe image creation guide
 
 ### Routing
+
 Astro uses file-based routing where each `.astro` file in `src/pages/` becomes a route. Files named `index.astro` within folders create routes at that folder's path.
 
 ### Deployment
+
 The site auto-deploys to GitHub Pages on push to main branch via `.github/workflows/deploy.yml`. The workflow:
+
 1. Builds the Astro site
 2. Uploads to GitHub Pages artifact
 3. Deploys to renard.cool
 
 ### Blog System
+
 - **Content Collections**: Blog posts are managed through Astro's content collections
 - **Categories**: Posts can be organized by categories (e.g., "projets", "journal", "technologie")
 - **Dynamic Routing**: Blog posts and category pages are generated dynamically
 - **Metadata**: Each post includes title, description, date, categories, and optional tags
 
 ### Recipe System (Cuisine)
+
 - **Content Collections**: Recipes stored as JSON files with structured data validated by Zod schemas
 - **Structured Ingredients**: Ingredients use objects with `quantity`, `unit`, `ingredient`, `note` fields (or `subsection` for grouping)
 - **Meal Planning**: Client-side feature using localStorage to save recipes for weekly planning
@@ -93,6 +101,7 @@ The site auto-deploys to GitHub Pages on push to main branch via `.github/workfl
 - **Data Flow**: Server-side data passed to client scripts via `data-*` attributes on HTML elements
 
 ### Key Design Patterns
+
 - Each page is a self-contained Astro component with inline styles
 - Heavy use of CSS animations and visual effects (smoke, glow, floating)
 - Responsive design with mobile-first breakpoints
@@ -103,6 +112,7 @@ The site auto-deploys to GitHub Pages on push to main branch via `.github/workfl
 ## Creating Blog Posts
 
 To add a new blog post:
+
 1. Create a new `.md` file in `src/content/blog/`
 2. Add frontmatter with required fields:
    - title, description, pubDate, categories
@@ -112,6 +122,7 @@ To add a new blog post:
 ## Creating Recipes
 
 To add a new recipe:
+
 1. Create a new `.json` file in `src/content/cuisine/`
 2. Follow the Zod schema structure (see `src/content/config.ts`)
 3. Required fields: name, description, servings, time (prep, cook), cooking_method, ingredients, steps
@@ -119,4 +130,5 @@ To add a new recipe:
 5. Generate hero image using: `npm run gemini -- -d ./public/cuisine "<prompt>" <filename>`
 6. See `_docs/guide-images-recettes.md` for image generation guidelines
 7. Set `draft: false` when ready to publish
+
 - Utilise toujours des farenheights au lieu des celsius pour tout ce qui est cuisson

@@ -1,6 +1,7 @@
 ---
 import MeteoLayout from '../../layouts/MeteoLayout.astro';
 import LocationControls from '../../components/meteo/LocationControls.astro';
+import CitySearch from '../../components/meteo/CitySearch.astro';
 import LoadingState from '../../components/meteo/LoadingState.astro';
 import ErrorMessage from '../../components/meteo/ErrorMessage.astro';
 import CurrentWeather from '../../components/meteo/CurrentWeather.astro';
@@ -16,6 +17,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
   </header>
 
   <LocationControls />
+  <CitySearch />
   <LoadingState />
   <ErrorMessage />
   <CurrentWeather />
@@ -60,7 +62,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
 
 <script>
   import { saveLocation, loadLocation, clearStoredLocation } from '../../lib/meteo/storage.js';
-  import { getCityName, fetchWeather } from '../../lib/meteo/api.js';
+  import { getCityName, fetchWeather, searchCities } from '../../lib/meteo/api.js';
   import {
     showLoading,
     hideLoading,
@@ -70,6 +72,78 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
     updateTodayForecast,
     updateFiveDayForecast,
   } from '../../lib/meteo/dom-updates.js';
+
+  /**
+   * Check if we're in a secure context (HTTPS or localhost)
+   */
+  function isSecureContext() {
+    return window.isSecureContext || window.location.protocol === 'https:' || window.location.hostname === 'localhost';
+  }
+
+  /**
+   * Check geolocation permission status
+   */
+  async function checkGeolocationPermission() {
+    if (!navigator.permissions) {
+      return 'unknown'; // Permissions API not supported
+    }
+
+    try {
+      const permission = await navigator.permissions.query({ name: 'geolocation' });
+      return permission.state; // 'granted', 'denied', or 'prompt'
+    } catch (error) {
+      console.log("Permission query not supported:", error);
+      return 'unknown';
+    }
+  }
+
+  /**
+   * Update button text based on permission state
+   */
+  function updateButtonText(permissionState) {
+    const locationBtn = document.getElementById("location-btn");
+    const btnText = locationBtn?.querySelector("span");
+    if (!btnText) return;
+
+    if (permissionState === 'denied') {
+      btnText.textContent = "Permission requise";
+    } else if (permissionState === 'granted') {
+      btnText.textContent = "Obtenir ma position";
+    } else {
+      btnText.textContent = "Obtenir ma position";
+    }
+  }
+
+  /**
+   * Get user's geolocation with optimized settings and fallback
+   */
+  async function getUserPosition() {
+    // Try with optimized settings first (faster, more reliable)
+    try {
+      const position = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject, {
+          enableHighAccuracy: false, // Use network/WiFi positioning (faster)
+          timeout: 15000, // 15 seconds
+          maximumAge: 300000, // Accept cached position up to 5 minutes old
+        });
+      });
+      return position;
+    } catch (error) {
+      // If that fails and it's a timeout, try with high accuracy but longer timeout
+      if (error.code === 3) {
+        console.log("First attempt timed out, retrying with high accuracy...");
+        const position = await new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject, {
+            enableHighAccuracy: true,
+            timeout: 20000, // 20 seconds for GPS
+            maximumAge: 0,
+          });
+        });
+        return position;
+      }
+      throw error;
+    }
+  }
 
   /**
    * Main function to get location and fetch weather
@@ -84,15 +158,13 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
     }
 
     try {
-      // Get user's location
-      const position = await new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, reject, {
-          enableHighAccuracy: true,
-          timeout: 10000,
-          maximumAge: 0,
-        });
-      });
+      // Check if we're in a secure context
+      if (!isSecureContext()) {
+        throw new Error("SECURE_CONTEXT_REQUIRED");
+      }
 
+      // Get user's location with optimized settings
+      const position = await getUserPosition();
       const { latitude, longitude } = position.coords;
 
       // Get city name and update display
@@ -111,6 +183,12 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
         locationBtn.classList.add("hidden");
       }
 
+      // Hide location help text
+      const locationHelp = document.querySelector(".location-help");
+      if (locationHelp) {
+        locationHelp.style.display = "none";
+      }
+
       // Save location to localStorage
       saveLocation(latitude, longitude, cityName);
 
@@ -123,20 +201,31 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
     } catch (error) {
       console.error("Error:", error);
 
-      if (error.code === 1) {
+      // Show city search as fallback
+      const citySearchContainer = document.getElementById("city-search-container");
+      if (citySearchContainer) {
+        citySearchContainer.classList.remove("hidden");
+      }
+
+      if (error.message === "SECURE_CONTEXT_REQUIRED") {
         showError(
-          "Veuillez autoriser l'accès à votre position pour obtenir la météo locale."
+          "La géolocalisation nécessite une connexion sécurisée (HTTPS). Utilisez la recherche de ville ci-dessous."
+        );
+      } else if (error.code === 1) {
+        showError(
+          "Permission refusée. Utilisez la recherche de ville ci-dessous ou autorisez l'accès à votre position dans les paramètres du navigateur."
         );
       } else if (error.code === 2) {
         showError(
-          "Impossible d'obtenir votre position. Vérifiez votre connexion."
+          "Position indisponible. Utilisez la recherche de ville ci-dessous ou vérifiez vos services de localisation."
         );
       } else if (error.code === 3) {
         showError(
-          "La demande de localisation a expiré. Veuillez réessayer."
+          "La localisation prend trop de temps. Utilisez la recherche de ville ci-dessous ou réessayez."
         );
       } else {
-        showError("Une erreur est survenue. Veuillez réessayer plus tard.");
+        showError("Erreur de géolocalisation. Utilisez la recherche de ville ci-dessous.");
+        console.error("Geolocation error details:", error);
       }
     } finally {
       hideLoading();
@@ -168,6 +257,12 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       const locationBtn = document.getElementById("location-btn");
       if (locationBtn) {
         locationBtn.classList.add("hidden");
+      }
+
+      // Hide location help text
+      const locationHelp = document.querySelector(".location-help");
+      if (locationHelp) {
+        locationHelp.style.display = "none";
       }
 
       // Show loading
@@ -209,11 +304,129 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       locationBtn.classList.remove("hidden");
     }
 
+    // Show location help text again
+    const locationHelp = document.querySelector(".location-help");
+    if (locationHelp) {
+      locationHelp.style.display = "flex";
+    }
+
+    // Show city search as fallback
+    const citySearchContainer = document.getElementById("city-search-container");
+    if (citySearchContainer) {
+      citySearchContainer.classList.remove("hidden");
+    }
+
     document.getElementById("current-weather")?.classList.add("hidden");
     document.getElementById("today-forecast")?.classList.add("hidden");
     document.getElementById("smart-tips")?.classList.add("hidden");
     document.getElementById("forecast")?.classList.add("hidden");
     hideError();
+  }
+
+  /**
+   * Search and display city suggestions
+   */
+  async function handleCitySearch(query) {
+    const suggestionsContainer = document.getElementById("city-suggestions");
+    if (!suggestionsContainer) return;
+
+    if (!query || query.length < 2) {
+      suggestionsContainer.classList.add("hidden");
+      return;
+    }
+
+    const cities = await searchCities(query);
+
+    if (cities.length === 0) {
+      suggestionsContainer.innerHTML = '<div class="suggestion-item"><div class="suggestion-name">Aucune ville trouvée</div></div>';
+      suggestionsContainer.classList.remove("hidden");
+      return;
+    }
+
+    suggestionsContainer.innerHTML = cities
+      .map(
+        (city) => `
+        <div class="suggestion-item" data-lat="${city.lat}" data-lon="${city.lon}" data-name="${city.name}">
+          <div class="suggestion-name">${city.name}</div>
+          <div class="suggestion-details">${city.displayName}</div>
+        </div>
+      `
+      )
+      .join("");
+
+    suggestionsContainer.classList.remove("hidden");
+
+    // Add click handlers to suggestions
+    const suggestions = suggestionsContainer.querySelectorAll(".suggestion-item");
+    suggestions.forEach((item) => {
+      item.addEventListener("click", () => {
+        const lat = parseFloat(item.dataset.lat);
+        const lon = parseFloat(item.dataset.lon);
+        const cityName = item.dataset.name;
+        handleCitySelection(lat, lon, cityName);
+      });
+    });
+  }
+
+  /**
+   * Handle city selection from search results
+   */
+  async function handleCitySelection(lat, lon, cityName) {
+    const suggestionsContainer = document.getElementById("city-suggestions");
+    if (suggestionsContainer) {
+      suggestionsContainer.classList.add("hidden");
+    }
+
+    const citySearchContainer = document.getElementById("city-search-container");
+    if (citySearchContainer) {
+      citySearchContainer.classList.add("hidden");
+    }
+
+    const cityInput = document.getElementById("city-search-input");
+    if (cityInput) {
+      cityInput.value = "";
+    }
+
+    hideError();
+    showLoading();
+
+    try {
+      // Update location display
+      const locationNameEl = document.querySelector(".location-name");
+      if (locationNameEl) {
+        locationNameEl.textContent = cityName;
+      }
+
+      const locationDisplay = document.getElementById("location-display");
+      if (locationDisplay) {
+        locationDisplay.classList.remove("hidden");
+      }
+
+      const locationBtn = document.getElementById("location-btn");
+      if (locationBtn) {
+        locationBtn.classList.add("hidden");
+      }
+
+      // Hide location help text
+      const locationHelp = document.querySelector(".location-help");
+      if (locationHelp) {
+        locationHelp.style.display = "none";
+      }
+
+      // Save location to localStorage
+      saveLocation(lat, lon, cityName);
+
+      // Fetch and display weather
+      const weatherData = await fetchWeather(lat, lon);
+      updateCurrentWeather(weatherData);
+      updateTodayForecast(weatherData);
+      updateFiveDayForecast(weatherData);
+    } catch (error) {
+      console.error("Error fetching weather for city:", error);
+      showError("Erreur lors de la récupération de la météo pour cette ville.");
+    } finally {
+      hideLoading();
+    }
   }
 
   /**
@@ -235,15 +448,95 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       clearBtn.addEventListener("click", handleClearLocation);
     }
 
+    // City search event listeners
+    const cityInput = document.getElementById("city-search-input");
+    const citySearchBtn = document.getElementById("city-search-btn");
+    const citySearchContainer = document.getElementById("city-search-container");
+
+    let searchTimeout;
+    if (cityInput) {
+      cityInput.addEventListener("input", (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          handleCitySearch(e.target.value);
+        }, 300); // Debounce search
+      });
+
+      cityInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          const firstSuggestion = document.querySelector(".suggestion-item");
+          if (firstSuggestion) {
+            firstSuggestion.click();
+          }
+        }
+      });
+    }
+
+    if (citySearchBtn) {
+      citySearchBtn.addEventListener("click", () => {
+        if (cityInput) {
+          handleCitySearch(cityInput.value);
+        }
+      });
+    }
+
     // Check if geolocation is supported
     if (!navigator.geolocation) {
       showError(
-        "La géolocalisation n'est pas supportée par votre navigateur."
+        "La géolocalisation n'est pas supportée par votre navigateur. Utilisez la recherche de ville ci-dessous."
       );
       if (locationBtn) {
         locationBtn.disabled = true;
       }
+      // Show city search as alternative
+      if (citySearchContainer) {
+        citySearchContainer.classList.remove("hidden");
+      }
       return;
+    }
+
+    // Check secure context
+    if (!isSecureContext()) {
+      showError(
+        "La géolocalisation nécessite une connexion sécurisée (HTTPS). Utilisez la recherche de ville ci-dessous."
+      );
+      if (locationBtn) {
+        locationBtn.disabled = true;
+      }
+      // Show city search as alternative
+      if (citySearchContainer) {
+        citySearchContainer.classList.remove("hidden");
+      }
+      return;
+    }
+
+    // Check permission state and update UI accordingly
+    const permissionState = await checkGeolocationPermission();
+    updateButtonText(permissionState);
+
+    // If permission is denied, show city search immediately
+    if (permissionState === 'denied') {
+      if (citySearchContainer) {
+        citySearchContainer.classList.remove("hidden");
+      }
+    }
+
+    // Listen for permission changes
+    if (navigator.permissions) {
+      try {
+        const permission = await navigator.permissions.query({ name: 'geolocation' });
+        permission.addEventListener('change', () => {
+          updateButtonText(permission.state);
+          // Show/hide city search based on permission
+          if (permission.state === 'denied' && citySearchContainer) {
+            citySearchContainer.classList.remove("hidden");
+          } else if (permission.state === 'granted' && citySearchContainer) {
+            citySearchContainer.classList.add("hidden");
+          }
+        });
+      } catch (error) {
+        // Permission API not fully supported, ignore
+      }
     }
 
     // Try to load weather from stored location

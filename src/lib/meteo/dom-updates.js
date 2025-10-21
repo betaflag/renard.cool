@@ -6,6 +6,7 @@
 import { getWeatherInfo, getClothingRecommendations, generateSmartTips } from './weather-logic.js';
 import { formatTime } from './utils.js';
 
+
 /**
  * Show loading state
  */
@@ -229,6 +230,13 @@ export function updateTodayForecast(data) {
     return afternoonHours.includes(hour);
   });
 
+  // Evening hours (18-21)
+  const eveningHours = [18, 19, 20];
+  const eveningIndices = todayIndices.filter((i) => {
+    const hour = new Date(data.hourly.time[i]).getHours();
+    return eveningHours.includes(hour);
+  });
+
   // Calculate morning averages and update card
   if (morningIndices.length > 0) {
     const morningTemps = morningIndices.map(
@@ -293,7 +301,16 @@ export function updateTodayForecast(data) {
     );
     if (morningClothingList) {
       morningClothingList.innerHTML = morningClothes
-        .map((item) => `<div class="clothing-item">${item}</div>`)
+        .map((item) => {
+          if (item.icon) {
+            return `<div class="clothing-item">
+              <img src="/meteo/icons/${item.icon}" alt="${item.text}" class="clothing-icon-img" />
+              <span>${item.text}</span>
+            </div>`;
+          } else {
+            return `<div class="clothing-item">${item.emoji} ${item.text}</div>`;
+          }
+        })
         .join("");
     }
   }
@@ -362,7 +379,94 @@ export function updateTodayForecast(data) {
     );
     if (afternoonClothingList) {
       afternoonClothingList.innerHTML = afternoonClothes
-        .map((item) => `<div class="clothing-item">${item}</div>`)
+        .map((item) => {
+          if (item.icon) {
+            return `<div class="clothing-item">
+              <img src="/meteo/icons/${item.icon}" alt="${item.text}" class="clothing-icon-img" />
+              <span>${item.text}</span>
+            </div>`;
+          } else {
+            return `<div class="clothing-item">${item.emoji} ${item.text}</div>`;
+          }
+        })
+        .join("");
+    }
+  }
+
+  // Calculate evening averages and update card
+  if (eveningIndices.length > 0) {
+    const eveningTemps = eveningIndices.map(
+      (i) =>
+        data.hourly.apparent_temperature[i] ||
+        data.hourly.temperature_2m[i]
+    );
+    const eveningAvgTemp =
+      eveningTemps.reduce((a, b) => a + b, 0) / eveningTemps.length;
+    const eveningWeatherCode =
+      data.hourly.weathercode[
+        eveningIndices[Math.floor(eveningIndices.length / 2)]
+      ];
+    const eveningPrecipitation = Math.max(
+      ...eveningIndices.map((i) => data.hourly.precipitation[i] || 0)
+    );
+    const eveningWind = Math.max(
+      ...eveningIndices.map((i) => data.hourly.windspeed_10m[i] || 0)
+    );
+    const eveningWeather = getWeatherInfo(eveningWeatherCode);
+
+    // Update evening card
+    const eveningTempEl = document.querySelector(
+      ".evening-card .period-temp-value"
+    );
+    if (eveningTempEl) {
+      eveningTempEl.textContent = Math.round(eveningAvgTemp);
+    }
+
+    const eveningIconEl = document.querySelector(".evening-card .period-weather-icon");
+    if (eveningIconEl) {
+      eveningIconEl.setAttribute("data-lucide", eveningWeather.icon);
+    }
+
+    const eveningTextEl = document.querySelector(
+      ".evening-card .period-weather-text"
+    );
+    if (eveningTextEl) {
+      eveningTextEl.textContent = eveningWeather.text;
+    }
+
+    // Update evening precipitation and wind
+    const eveningPrecipEl = document.querySelector(".evening-precipitation");
+    if (eveningPrecipEl) {
+      eveningPrecipEl.textContent = `${eveningPrecipitation.toFixed(1)} mm`;
+    }
+
+    const eveningWindEl = document.querySelector(".evening-wind");
+    if (eveningWindEl) {
+      eveningWindEl.textContent = `${Math.round(eveningWind)} km/h`;
+    }
+
+    // Get and display evening clothing recommendations
+    const eveningClothes = getClothingRecommendations(
+      eveningAvgTemp,
+      eveningWeatherCode,
+      eveningPrecipitation,
+      eveningWind
+    );
+    const eveningClothingList = document.querySelector(
+      ".evening-card .clothing-list"
+    );
+    if (eveningClothingList) {
+      eveningClothingList.innerHTML = eveningClothes
+        .map((item) => {
+          if (item.icon) {
+            return `<div class="clothing-item">
+              <img src="/meteo/icons/${item.icon}" alt="${item.text}" class="clothing-icon-img" />
+              <span>${item.text}</span>
+            </div>`;
+          } else {
+            return `<div class="clothing-item">${item.emoji} ${item.text}</div>`;
+          }
+        })
         .join("");
     }
   }
@@ -399,9 +503,33 @@ export function updateTodayForecast(data) {
     const afternoonPrecipitation = Math.max(
       ...afternoonIndices.map((i) => data.hourly.precipitation[i] || 0)
     );
+
+    // Calculate evening data for smart tips
+    let eveningAvgTemp = null;
+    let eveningWeatherCode = null;
+    let eveningPrecipitation = null;
+    if (eveningIndices.length > 0) {
+      eveningAvgTemp =
+        eveningIndices
+          .map(
+            (i) =>
+              data.hourly.apparent_temperature[i] ||
+              data.hourly.temperature_2m[i]
+          )
+          .reduce((a, b) => a + b, 0) / eveningIndices.length;
+      eveningWeatherCode =
+        data.hourly.weathercode[
+          eveningIndices[Math.floor(eveningIndices.length / 2)]
+        ];
+      eveningPrecipitation = Math.max(
+        ...eveningIndices.map((i) => data.hourly.precipitation[i] || 0)
+      );
+    }
+
     const maxWind = Math.max(
       ...morningIndices.map((i) => data.hourly.windspeed_10m[i] || 0),
-      ...afternoonIndices.map((i) => data.hourly.windspeed_10m[i] || 0)
+      ...afternoonIndices.map((i) => data.hourly.windspeed_10m[i] || 0),
+      ...(eveningIndices.length > 0 ? eveningIndices.map((i) => data.hourly.windspeed_10m[i] || 0) : [0])
     );
 
     const smartTips = generateSmartTips(
@@ -411,6 +539,9 @@ export function updateTodayForecast(data) {
       afternoonAvgTemp,
       afternoonWeatherCode,
       afternoonPrecipitation,
+      eveningAvgTemp,
+      eveningWeatherCode,
+      eveningPrecipitation,
       maxWind
     );
 

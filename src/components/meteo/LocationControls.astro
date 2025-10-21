@@ -3,6 +3,12 @@
 ---
 
 <div class="location-container">
+  <div class="location-help">
+    <i data-lucide="info" class="help-icon"></i>
+    <p class="help-text">
+      Autorisez l'accès à votre position pour obtenir des prévisions météo locales précises
+    </p>
+  </div>
   <button id="location-btn" class="location-btn">
     <i data-lucide="map-pin" class="location-icon"></i>
     <span>Obtenir ma position</span>
@@ -24,6 +30,28 @@
   .location-container {
     text-align: center;
     margin-bottom: 40px;
+  }
+
+  .location-help {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    color: rgba(168, 168, 168, 0.9);
+    font-size: 0.95rem;
+  }
+
+  .help-icon {
+    width: 16px;
+    height: 16px;
+    stroke: rgba(255, 107, 0, 0.6);
+    flex-shrink: 0;
+  }
+
+  .help-text {
+    margin: 0;
+    line-height: 1.4;
   }
 
   .location-btn {

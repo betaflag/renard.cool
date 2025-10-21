@@ -3,7 +3,7 @@
 ---
 
 <section id="today-forecast" class="today-forecast hidden">
-  <h2 class="today-title">Aujourd'hui à l'école</h2>
+  <h2 class="today-title">Aujourd'hui</h2>
   <div class="today-grid">
     <!-- Morning Card -->
     <div class="period-card morning-card">
@@ -94,6 +94,51 @@
         </div>
       </div>
     </div>
+
+    <!-- Evening Card -->
+    <div class="period-card evening-card">
+      <div class="period-header">
+        <div class="period-title-group">
+          <i data-lucide="moon" class="period-icon"></i>
+          <span class="period-name">Soirée</span>
+        </div>
+        <span class="period-time">18h - 21h</span>
+      </div>
+
+      <div class="period-main">
+        <div class="period-temp-section">
+          <div class="period-temp">
+            <span class="period-temp-value">--</span>
+            <span class="period-temp-unit">°C</span>
+          </div>
+          <div class="period-weather">
+            <i data-lucide="cloud" class="period-weather-icon"></i>
+            <span class="period-weather-text">--</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="period-details">
+        <div class="detail-mini">
+          <i data-lucide="droplets" class="detail-mini-icon"></i>
+          <span class="evening-precipitation">-- mm</span>
+        </div>
+        <div class="detail-mini">
+          <i data-lucide="wind" class="detail-mini-icon"></i>
+          <span class="evening-wind">-- km/h</span>
+        </div>
+      </div>
+
+      <div class="clothing-section">
+        <div class="clothing-header">
+          <i data-lucide="shirt" class="clothing-icon"></i>
+          <h3 class="clothing-title">Tenue recommandée</h3>
+        </div>
+        <div class="clothing-list">
+          <!-- Clothing items will be inserted here -->
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -114,8 +159,14 @@
 
   .today-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  @media (min-width: 1200px) {
+    .today-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .period-card {
@@ -172,6 +223,15 @@
       rgba(66, 46, 26, 0.6) 100%
     );
     animation-delay: 0.2s;
+  }
+
+  .evening-card {
+    background: linear-gradient(
+      135deg,
+      rgba(20, 20, 40, 0.8) 0%,
+      rgba(30, 25, 45, 0.7) 100%
+    );
+    animation-delay: 0.3s;
   }
 
   .period-card:hover {
@@ -345,11 +405,22 @@
     border-left: 3px solid rgba(255, 107, 0, 0.5);
     transition: all 0.2s ease;
     animation: slideInRight 0.4s ease-out backwards;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   :global(.clothing-item:hover) {
     background: rgba(255, 107, 0, 0.12);
     transform: translateX(3px);
+  }
+
+  :global(.clothing-icon-img) {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: brightness(0) saturate(100%) invert(50%) sepia(98%) saturate(2476%) hue-rotate(2deg) brightness(103%) contrast(101%);
   }
 
   :global(.clothing-item:nth-child(1)) {
