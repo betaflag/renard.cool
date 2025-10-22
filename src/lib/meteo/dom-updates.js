@@ -908,7 +908,7 @@ export function updateHourlyChart(data) {
   const todayDate = now.toISOString().split("T")[0];
   const currentHour = now.getHours();
 
-  // Extract today's hourly data
+  // Extract today's hourly data with enriched information
   const hourlyData = [];
   data.hourly.time.forEach((time, index) => {
     if (time.startsWith(todayDate)) {
@@ -921,6 +921,9 @@ export function updateHourlyChart(data) {
         feelsLike: Math.round(data.hourly.apparent_temperature[index] || data.hourly.temperature_2m[index]),
         precipitation: parseFloat((data.hourly.precipitation[index] || 0).toFixed(1)),
         precipProb: data.hourly.precipitation_probability ? data.hourly.precipitation_probability[index] : undefined,
+        windSpeed: data.hourly.windspeed_10m ? Math.round(data.hourly.windspeed_10m[index]) : undefined,
+        humidity: data.hourly.relative_humidity_2m ? Math.round(data.hourly.relative_humidity_2m[index]) : undefined,
+        weatherCode: data.hourly.weathercode ? data.hourly.weathercode[index] : undefined,
         isNow: hour === currentHour,
       });
     }
@@ -931,12 +934,20 @@ export function updateHourlyChart(data) {
     return;
   }
 
+  // Get sunrise and sunset for today
+  const sunrise = data.daily && data.daily.sunrise ? data.daily.sunrise[0] : undefined;
+  const sunset = data.daily && data.daily.sunset ? data.daily.sunset[0] : undefined;
+
   // Clear previous chart and render new one
   chartWrapper.innerHTML = '';
 
-  // Create React root and render the chart
+  // Create React root and render the chart with all data
   const root = ReactDOM.createRoot(chartWrapper);
-  root.render(React.createElement(HourlyChart, { data: hourlyData }));
+  root.render(React.createElement(HourlyChart, {
+    data: hourlyData,
+    sunrise: sunrise,
+    sunset: sunset,
+  }));
 
   // Show the section
   chartSection.classList.remove('hidden');

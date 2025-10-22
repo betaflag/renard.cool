@@ -35,15 +35,18 @@ import HourlyChart from './HourlyChart.tsx';
       rgba(26, 26, 46, 0.6) 0%,
       rgba(36, 36, 56, 0.5) 100%
     );
-    border: 1px solid rgba(255, 107, 0, 0.2);
+    border: none;
     border-radius: 20px;
     padding: 24px;
     backdrop-filter: blur(12px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     max-width: 1400px;
     margin: 0 auto;
+    box-shadow:
+      0 0 0 1px rgba(255, 107, 0, 0.2),
+      0 4px 15px rgba(0, 0, 0, 0.2);
   }
 
   .chart-container::before {
@@ -55,22 +58,31 @@ import HourlyChart from './HourlyChart.tsx';
     bottom: 0;
     background: radial-gradient(
       circle at top right,
-      rgba(255, 107, 0, 0.06),
+      rgba(255, 107, 0, 0.04),
       transparent 60%
     );
-    opacity: 0.8;
+    opacity: 0.6;
     pointer-events: none;
+    z-index: 0;
   }
 
   .chart-container:hover {
-    border-color: rgba(255, 107, 0, 0.35);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 107, 0, 0.15);
+    box-shadow:
+      0 0 0 1px rgba(255, 107, 0, 0.4),
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 25px rgba(255, 107, 0, 0.15);
   }
 
   #hourly-chart-wrapper {
     position: relative;
     z-index: 1;
     min-height: 400px;
+  }
+
+  /* Remove any SVG borders from Recharts */
+  #hourly-chart-wrapper :global(svg) {
+    border: none !important;
+    outline: none !important;
   }
 
   @keyframes fadeIn {
@@ -106,7 +118,7 @@ import HourlyChart from './HourlyChart.tsx';
     }
 
     #hourly-chart-wrapper {
-      min-height: 300px;
+      min-height: 330px;
     }
   }
 </style>
