@@ -186,6 +186,25 @@ const {
         min-height: 100vh;
       }
 
+      /* Global page gradient for depth */
+      main::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(10, 10, 20, 0.4) 0%,
+          rgba(10, 10, 20, 0.2) 30%,
+          transparent 50%,
+          rgba(20, 20, 30, 0.1) 100%
+        );
+        pointer-events: none;
+        z-index: -1;
+      }
+
       /* Utility classes */
       .hidden {
         display: none !important;

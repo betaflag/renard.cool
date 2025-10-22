@@ -3,7 +3,7 @@
 ---
 
 <section id="today-forecast" class="today-forecast hidden">
-  <h2 class="today-title">Prévisions du jour</h2>
+  <h2 class="today-title">AUJOURD'HUI</h2>
   <div class="today-grid">
     <!-- Morning Card -->
     <div class="period-card morning-card" data-period="morning">
@@ -147,19 +147,20 @@
 
 <style>
   .today-forecast {
-    margin-bottom: 80px;
+    margin-bottom: 64px;
     animation: fadeIn 0.7s ease-out;
   }
 
   .today-title {
     font-family: "Cinzel", serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: #d1d5db;
-    text-shadow: 0 0 15px rgba(255, 107, 0, 0.2);
-    font-weight: 500;
-    letter-spacing: 0.05em;
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.15);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 
   .today-grid {
@@ -178,7 +179,7 @@
   .period-card {
     position: relative;
     background: rgba(26, 26, 46, 0.5);
-    border: 2px solid rgba(255, 107, 0, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 24px;
     backdrop-filter: blur(12px);
@@ -269,7 +270,7 @@
     align-items: flex-start;
     margin-bottom: 18px;
     padding-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .period-title-group {
@@ -281,8 +282,8 @@
   .period-icon {
     width: 28px;
     height: 28px;
-    stroke: #ff6b00;
-    filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.3));
+    stroke: rgba(255, 107, 0, 0.7);
+    filter: drop-shadow(0 0 6px rgba(255, 107, 0, 0.2));
     stroke-width: 2;
   }
 
@@ -383,7 +384,7 @@
   .period-weather-icon {
     width: 26px;
     height: 26px;
-    stroke: #ff6b00;
+    stroke: rgba(255, 107, 0, 0.8);
     opacity: 0.9;
     stroke-width: 2;
   }
@@ -421,7 +422,7 @@
   .detail-mini-icon {
     width: 18px;
     height: 18px;
-    stroke: rgba(255, 107, 0, 0.8);
+    stroke: rgba(209, 213, 219, 0.7);
     flex-shrink: 0;
     stroke-width: 2;
   }
@@ -509,6 +510,11 @@
 
   /* Responsive */
   @media (max-width: 768px) {
+    .today-title {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
     .today-grid {
       grid-template-columns: 1fr;
       gap: 18px;

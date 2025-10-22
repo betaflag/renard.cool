@@ -694,6 +694,7 @@ export function updateTodayForecast(data) {
 
 /**
  * Update 5-day forecast display with enriched data
+ * Shows 5 future days (excludes today)
  * @param {Object} data - Weather API data
  */
 export function updateFiveDayForecast(data) {
@@ -702,7 +703,38 @@ export function updateFiveDayForecast(data) {
 
   forecastGrid.innerHTML = "";
 
-  for (let i = 0; i < 5 && i < data.daily.time.length; i++) {
+  // Start from day 1 (tomorrow) and show 5 future days
+  const startIndex = 1;
+  const daysToShow = 5;
+
+  // Find warmest, coldest, and rainiest days among the 5 future days
+  const futureDays = data.daily.time.slice(startIndex, startIndex + daysToShow);
+  let warmestDay = startIndex;
+  let coldestDay = startIndex;
+  let rainiestDay = startIndex;
+  let maxTemp = data.daily.temperature_2m_max[startIndex];
+  let minTemp = data.daily.temperature_2m_max[startIndex];
+  let maxRain = data.daily.precipitation_sum[startIndex] || 0;
+
+  for (let i = startIndex; i < startIndex + daysToShow && i < data.daily.time.length; i++) {
+    const temp = data.daily.temperature_2m_max[i];
+    const rain = data.daily.precipitation_sum[i] || 0;
+
+    if (temp > maxTemp) {
+      maxTemp = temp;
+      warmestDay = i;
+    }
+    if (temp < minTemp) {
+      minTemp = temp;
+      coldestDay = i;
+    }
+    if (rain > maxRain) {
+      maxRain = rain;
+      rainiestDay = i;
+    }
+  }
+
+  for (let i = startIndex; i < startIndex + daysToShow && i < data.daily.time.length; i++) {
     const weatherInfo = getWeatherInfo(data.daily.weathercode[i]);
     const tempMax = Math.round(data.daily.temperature_2m_max[i]);
     const tempMin = Math.round(data.daily.temperature_2m_min[i]);
@@ -767,9 +799,20 @@ export function updateFiveDayForecast(data) {
       : '';
 
     const card = document.createElement("div");
-    card.className = isToday ? "forecast-card today" : "forecast-card";
+    card.className = "forecast-card";
     card.setAttribute("data-temp", tempMax);
     card.setAttribute("data-temp-range", tempRange);
+
+    // Add special indicators for warmest/coldest/rainiest days
+    if (i === warmestDay && warmestDay !== coldestDay) {
+      card.classList.add("warmest-day");
+    }
+    if (i === coldestDay && coldestDay !== warmestDay) {
+      card.classList.add("coldest-day");
+    }
+    if (i === rainiestDay && maxRain > 1) { // Only highlight if it's actually rainy
+      card.classList.add("rainiest-day");
+    }
 
     card.innerHTML = `
       <div class="forecast-header">

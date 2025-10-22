@@ -12,8 +12,14 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
 
 <MeteoLayout title="Météo Renard">
   <header class="header">
-    <h1 class="title">Météo <span class="cool">Renard</span></h1>
-    <p class="tagline">Les prévisions futées du renard</p>
+    <h1 class="title">
+      <span class="title-main">MÉTÉO <span class="cool">RENARD</span></span>
+      <span class="title-separator">•</span>
+      <span id="header-location" class="header-location hidden">
+        <span class="header-location-name"></span>
+        <i data-lucide="map-pin" class="header-location-icon"></i>
+      </span>
+    </h1>
   </header>
 
   <LocationControls />
@@ -29,33 +35,69 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
 <style>
   .header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 
   .title {
     font-family: "Cinzel", serif;
-    font-size: 3rem;
+    font-size: 2.4rem;
     font-weight: 600;
-    margin-bottom: 10px;
-    text-shadow: 0 0 30px rgba(255, 107, 0, 0.5);
-    animation: titleGlow 3s ease-in-out infinite alternate;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .title-main {
+    letter-spacing: 0.1em;
   }
 
   .cool {
     color: #ff6b00;
-    text-shadow: 0 0 20px rgba(255, 107, 0, 0.8);
+    text-shadow: 0 0 15px rgba(255, 107, 0, 0.6);
   }
 
-  .tagline {
-    color: #a8a8a8;
+  .title-separator {
+    color: rgba(255, 107, 0, 0.5);
     font-weight: 300;
-    font-size: 1.1rem;
-    letter-spacing: 0.1em;
+  }
+
+  .header-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #d1d5db;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  .header-location-name {
+    color: #e5e7eb;
+  }
+
+  .header-location-icon {
+    width: 20px;
+    height: 20px;
+    stroke: #ff6b00;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 0, 0.3));
   }
 
   @media (max-width: 768px) {
     .title {
-      font-size: 2rem;
+      font-size: 1.6rem;
+      gap: 8px;
+    }
+
+    .header-location {
+      font-size: 1.3rem;
+    }
+
+    .header-location-icon {
+      width: 16px;
+      height: 16px;
     }
   }
 </style>
@@ -174,6 +216,18 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
         locationNameEl.textContent = cityName;
       }
 
+      // Update header location
+      const headerLocation = document.getElementById("header-location");
+      const headerLocationName = document.querySelector(".header-location-name");
+      if (headerLocation && headerLocationName) {
+        headerLocationName.textContent = cityName;
+        headerLocation.classList.remove("hidden");
+        // Refresh Lucide icons for header
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }
+
       const locationDisplay = document.getElementById("location-display");
       if (locationDisplay) {
         locationDisplay.classList.remove("hidden");
@@ -249,6 +303,14 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
         locationNameEl.textContent = storedLocation.cityName;
       }
 
+      // Update header location
+      const headerLocation = document.getElementById("header-location");
+      const headerLocationName = document.querySelector(".header-location-name");
+      if (headerLocation && headerLocationName) {
+        headerLocationName.textContent = storedLocation.cityName;
+        headerLocation.classList.remove("hidden");
+      }
+
       const locationDisplay = document.getElementById("location-display");
       if (locationDisplay) {
         locationDisplay.classList.remove("hidden");
@@ -297,6 +359,12 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
     const locationDisplay = document.getElementById("location-display");
     if (locationDisplay) {
       locationDisplay.classList.add("hidden");
+    }
+
+    // Hide header location
+    const headerLocation = document.getElementById("header-location");
+    if (headerLocation) {
+      headerLocation.classList.add("hidden");
     }
 
     const locationBtn = document.getElementById("location-btn");
@@ -395,6 +463,18 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       const locationNameEl = document.querySelector(".location-name");
       if (locationNameEl) {
         locationNameEl.textContent = cityName;
+      }
+
+      // Update header location
+      const headerLocation = document.getElementById("header-location");
+      const headerLocationName = document.querySelector(".header-location-name");
+      if (headerLocation && headerLocationName) {
+        headerLocationName.textContent = cityName;
+        headerLocation.classList.remove("hidden");
+        // Refresh Lucide icons for header
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
       }
 
       const locationDisplay = document.getElementById("location-display");

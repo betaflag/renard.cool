@@ -3,7 +3,7 @@
 ---
 
 <section id="forecast" class="forecast hidden">
-  <h2 class="forecast-title">Prévisions sur 5 jours</h2>
+  <h2 class="forecast-title">PRÉVISIONS SUR 5 JOURS</h2>
   <div class="forecast-grid">
     <!-- Forecast cards will be inserted here by JavaScript -->
   </div>
@@ -12,22 +12,27 @@
 <style>
   .forecast {
     animation: fadeIn 0.8s ease-out;
-    margin-bottom: 80px;
+    margin-bottom: 64px;
   }
 
   .forecast-title {
     font-family: "Cinzel", serif;
-    font-size: 2rem;
+    font-size: 1.3rem;
     text-align: center;
-    margin-bottom: 30px;
-    color: #ff6b00;
-    text-shadow: 0 0 15px rgba(255, 107, 0, 0.3);
+    margin-bottom: 20px;
+    color: #d1d5db;
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.15);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 
   .forecast-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
   /* Dynamic elements created by JavaScript - MUST use :global() */
@@ -117,20 +122,42 @@
       0 0 25px rgba(255, 107, 0, 0.15);
   }
 
-  /* Special styling for "Aujourd'hui" card */
-  :global(.forecast-card.today) {
-    border-color: rgba(255, 107, 0, 0.5);
+  /* Special indicators for warmest/coldest/rainiest days */
+  :global(.forecast-card.warmest-day) {
+    border-color: rgba(239, 68, 68, 0.4);
     box-shadow:
       0 10px 30px rgba(0, 0, 0, 0.25),
-      0 0 30px rgba(255, 107, 0, 0.25);
-    transform: scale(1.03);
+      0 0 20px rgba(239, 68, 68, 0.2);
   }
 
-  :global(.forecast-card.today:hover) {
-    transform: translateY(-8px) scale(1.05);
+  :global(.forecast-card.warmest-day::before) {
+    background: radial-gradient(
+      circle at top right,
+      rgba(239, 68, 68, 0.12),
+      transparent 70%
+    );
+    opacity: 1 !important;
+  }
+
+  :global(.forecast-card.coldest-day) {
+    border-color: rgba(96, 165, 250, 0.4);
     box-shadow:
-      0 15px 35px rgba(0, 0, 0, 0.3),
-      0 0 35px rgba(255, 107, 0, 0.3);
+      0 10px 30px rgba(0, 0, 0, 0.25),
+      0 0 20px rgba(96, 165, 250, 0.2);
+  }
+
+  :global(.forecast-card.coldest-day::before) {
+    background: radial-gradient(
+      circle at top right,
+      rgba(96, 165, 250, 0.12),
+      transparent 70%
+    );
+    opacity: 1 !important;
+  }
+
+  :global(.forecast-card.rainiest-day .forecast-icon-large) {
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
+    stroke: #60a5fa;
   }
 
   /* Staggered animation delays */
@@ -348,41 +375,63 @@
   }
 
   @media (max-width: 768px) {
+    .forecast-title {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
     .forecast-grid {
-      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
 
     :global(.forecast-card) {
-      padding: 16px;
+      padding: 14px;
+    }
+
+    :global(.forecast-day-name) {
+      font-size: 1rem;
+    }
+
+    :global(.forecast-date) {
+      font-size: 0.8rem;
     }
 
     :global(.forecast-icon-large) {
-      width: 64px;
-      height: 64px;
+      width: 60px;
+      height: 60px;
     }
 
     :global(.temp-high) {
       font-size: 1.8rem;
     }
 
-    :global(.temp-low) {
-      font-size: 1.2rem;
+    :global(.temp-separator) {
+      font-size: 1.3rem;
     }
 
-    :global(.forecast-details-grid) {
-      font-size: 0.8rem;
-      padding: 8px;
+    :global(.temp-low) {
+      font-size: 1.2rem;
     }
 
     :global(.forecast-description-text) {
       font-size: 0.9rem;
     }
+
+    :global(.forecast-details-grid) {
+      gap: 6px;
+      padding: 8px;
+      font-size: 0.8rem;
+    }
+
+    :global(.badge) {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+    }
   }
 
   @media (max-width: 480px) {
     .forecast-grid {
-      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
     }
 
@@ -391,8 +440,8 @@
     }
 
     :global(.forecast-icon-large) {
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
     }
 
     :global(.temp-high) {
@@ -408,26 +457,21 @@
     }
 
     :global(.forecast-details-grid) {
-      gap: 6px;
+      gap: 4px;
       padding: 6px;
     }
 
     :global(.detail-mini) {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
     }
 
     :global(.detail-mini-icon) {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
     }
 
     :global(.forecast-description-text) {
-      font-size: 0.85rem;
-    }
-
-    :global(.badge) {
-      font-size: 0.7rem;
-      padding: 3px 8px;
+      font-size: 0.8rem;
     }
   }
 </style>
