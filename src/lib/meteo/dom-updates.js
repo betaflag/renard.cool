@@ -152,23 +152,10 @@ export function updateCurrentWeather(data) {
     feelsLikeEl.textContent = `${Math.round(current.apparent_temperature)}°C`;
   }
 
-  // Update pressure
-  const pressureEl = document.querySelector(".pressure");
-  if (pressureEl && current.pressure_msl !== undefined) {
-    pressureEl.textContent = `${Math.round(current.pressure_msl)} hPa`;
-  }
-
   // Update precipitation
   const precipitationEl = document.querySelector(".precipitation");
   if (precipitationEl) {
     precipitationEl.textContent = `${current.precipitation.toFixed(1)} mm`;
-  }
-
-  // Update visibility
-  const visibilityEl = document.querySelector(".visibility");
-  if (visibilityEl && current.visibility !== undefined) {
-    const visibilityKm = (current.visibility / 1000).toFixed(1);
-    visibilityEl.textContent = `${visibilityKm} km`;
   }
 
   // Update sunrise and sunset
@@ -706,11 +693,11 @@ export function updateFiveDayForecast(data) {
 
   forecastGrid.innerHTML = "";
 
-  // Start from day 1 (tomorrow) and show 5 future days
+  // Start from day 1 (tomorrow) and show 4 future days
   const startIndex = 1;
-  const daysToShow = 5;
+  const daysToShow = 4;
 
-  // Find warmest, coldest, and rainiest days among the 5 future days
+  // Find warmest, coldest, and rainiest days among the 4 future days
   const futureDays = data.daily.time.slice(startIndex, startIndex + daysToShow);
   let warmestDay = startIndex;
   let coldestDay = startIndex;

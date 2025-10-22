@@ -80,7 +80,7 @@ export async function fetchWeather(lat, lon) {
       `https://api.open-meteo.com/v1/forecast?` +
       `latitude=${lat}&` +
       `longitude=${lon}&` +
-      `current=temperature_2m,apparent_temperature,weathercode,windspeed_10m,wind_direction_10m,wind_gusts_10m,precipitation,relative_humidity_2m,pressure_msl,visibility,cloud_cover,uv_index,is_day&` +
+      `current=temperature_2m,apparent_temperature,weathercode,windspeed_10m,wind_direction_10m,wind_gusts_10m,precipitation,relative_humidity_2m,cloud_cover,uv_index,is_day&` +
       `hourly=temperature_2m,apparent_temperature,weathercode,precipitation,precipitation_probability,windspeed_10m,relative_humidity_2m&` +
       `daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,precipitation_probability_max,uv_index_max&` +
       `timezone=auto&` +
