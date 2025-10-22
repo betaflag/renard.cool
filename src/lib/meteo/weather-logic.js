@@ -95,17 +95,17 @@ export function getClothingRecommendations(
     clothes.push(item("Chandail", "👕", "chandail.png"));
   } else if (temp < 20) {
     // Mild
-    clothes.push(item("Chandail léger", "👔", null));
-    clothes.push(item("T-shirt manches longues", "👕", null));
+    clothes.push(item("Chandail léger", "👔", "chandail-leger.png"));
+    clothes.push(item("T-shirt manches longues", "👕", "t-shirt-manches-longues.png"));
   } else if (temp < 25) {
     // Warm
-    clothes.push(item("T-shirt ou polo", "👕", null));
-    clothes.push(item("Pantalon léger", "👖", null));
+    clothes.push(item("T-shirt ou polo", "👕", "polo.png"));
+    clothes.push(item("Pantalon léger", "👖", "pantalon-leger.png"));
   } else {
     // Hot
-    clothes.push(item("T-shirt léger", "👕", null));
-    clothes.push(item("Short (si autorisé)", "🩳", null));
-    clothes.push(item("Casquette pour la récré", "🧢", null));
+    clothes.push(item("T-shirt léger", "👕", "t-shirt-leger.png"));
+    clothes.push(item("Short (si autorisé)", "🩳", "short.png"));
+    clothes.push(item("Casquette pour la récré", "🧢", "casquette.png"));
   }
 
   // Add rain gear if needed
@@ -121,7 +121,7 @@ export function getClothingRecommendations(
 
   // Add snow gear if needed
   if ([71, 73, 75, 77, 85, 86].includes(weatherCode)) {
-    clothes.push(item("Bottes d'hiver", "👢", null));
+    clothes.push(item("Bottes d'hiver", "👢", "bottes-hiver.png"));
     clothes.push(item("Mitaines imperméables", "🧤", "mitaines.png"));
   }
 
@@ -132,7 +132,7 @@ export function getClothingRecommendations(
 
   // Sun protection for hot days
   if (temp > 25 && [0, 1].includes(weatherCode)) {
-    clothes.push(item("Crème solaire", "🧴", null));
+    clothes.push(item("Crème solaire", "🧴", "creme-solaire.png"));
   }
 
   return clothes;

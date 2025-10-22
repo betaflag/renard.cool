@@ -712,9 +712,21 @@ export function updateFiveDayForecast(data) {
     const date = new Date(data.daily.time[i]);
     const shortDate = `${date.getDate()}/${date.getMonth() + 1}`;
 
-    // Format sunrise/sunset
-    const sunrise = data.daily.sunrise[i] ? formatTime(data.daily.sunrise[i]) : "--:--";
-    const sunset = data.daily.sunset[i] ? formatTime(data.daily.sunset[i]) : "--:--";
+    // Determine day name
+    const dayName = getShortDayName(data.daily.time[i]);
+    const isToday = dayName === "Aujourd'hui";
+
+    // Calculate temperature range for subtle color coding
+    let tempRange = "mild"; // default
+    if (tempMax < 5) {
+      tempRange = "very-cold";
+    } else if (tempMax < 10) {
+      tempRange = "cold";
+    } else if (tempMax >= 15 && tempMax < 20) {
+      tempRange = "warm";
+    } else if (tempMax >= 20) {
+      tempRange = "hot";
+    }
 
     // Calculate max wind from hourly data for this day
     let maxWind = 0;
@@ -732,10 +744,10 @@ export function updateFiveDayForecast(data) {
 
     // Generate badges
     const badges = [];
-    if (precipitation > 5) {
+    if (precipitation > 2) {
       badges.push('<span class="badge badge-rain"><i data-lucide="cloud-rain" class="badge-icon"></i>Pluie</span>');
     }
-    if (maxWind > 25) {
+    if (maxWind > 20) {
       badges.push('<span class="badge badge-wind"><i data-lucide="wind" class="badge-icon"></i>Venteux</span>');
     }
     if (tempMax > 28) {
@@ -744,18 +756,24 @@ export function updateFiveDayForecast(data) {
     if (tempMax < 5) {
       badges.push('<span class="badge badge-cold"><i data-lucide="snowflake" class="badge-icon"></i>Froid</span>');
     }
+    // Add BEAU badge for nice sunny days
+    const sunnyCodes = [0, 1]; // Clear or mainly clear
+    if (sunnyCodes.includes(data.daily.weathercode[i]) && tempMax >= 18 && tempMax <= 25 && precipitation < 0.5) {
+      badges.push('<span class="badge badge-sunny"><i data-lucide="sun" class="badge-icon"></i>Beau</span>');
+    }
 
     const badgesHtml = badges.length > 0
       ? `<div class="forecast-badges">${badges.join('')}</div>`
       : '';
 
     const card = document.createElement("div");
-    card.className = "forecast-card";
+    card.className = isToday ? "forecast-card today" : "forecast-card";
     card.setAttribute("data-temp", tempMax);
+    card.setAttribute("data-temp-range", tempRange);
 
     card.innerHTML = `
       <div class="forecast-header">
-        <span class="forecast-day-name">${getShortDayName(data.daily.time[i])}</span>
+        <span class="forecast-day-name">${dayName}</span>
         <span class="forecast-date">${shortDate}</span>
       </div>
 
@@ -768,6 +786,8 @@ export function updateFiveDayForecast(data) {
         </div>
       </div>
 
+      <div class="forecast-description-text">${weatherInfo.text}</div>
+
       ${badgesHtml}
 
       <div class="forecast-details-grid">
@@ -779,17 +799,7 @@ export function updateFiveDayForecast(data) {
           <i data-lucide="wind" class="detail-mini-icon"></i>
           <span>${maxWind} km/h</span>
         </div>
-        <div class="detail-mini">
-          <i data-lucide="sunrise" class="detail-mini-icon"></i>
-          <span>${sunrise}</span>
-        </div>
-        <div class="detail-mini">
-          <i data-lucide="sunset" class="detail-mini-icon"></i>
-          <span>${sunset}</span>
-        </div>
       </div>
-
-      <div class="forecast-description-text">${weatherInfo.text}</div>
     `;
 
     forecastGrid.appendChild(card);
