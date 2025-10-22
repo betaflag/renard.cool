@@ -39,14 +39,6 @@ const {
       <div class="smoke smoke-3"></div>
     </div>
 
-    <!-- Top navigation -->
-    <nav class="top-nav">
-      <a href="/" class="home-link">
-        <img src="/renard.png" alt="Retour" class="nav-icon" />
-        <span>renard.cool</span>
-      </a>
-    </nav>
-
     <!-- Main content -->
     <main>
       <slot />
@@ -143,46 +135,12 @@ const {
         }
       }
 
-      .top-nav {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 100;
-      }
-
-      .home-link {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-        color: #e8e8e8;
-        background: rgba(26, 26, 46, 0.8);
-        padding: 8px 16px;
-        border-radius: 25px;
-        border: 1px solid rgba(255, 107, 0, 0.2);
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-      }
-
-      .home-link:hover {
-        background: rgba(26, 26, 46, 0.95);
-        border-color: rgba(255, 107, 0, 0.4);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.2);
-      }
-
-      .nav-icon {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-      }
-
       main {
         position: relative;
         z-index: 10;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 100px 20px 40px;
+        padding: 30px 20px 40px;
         min-height: 100vh;
       }
 
@@ -275,7 +233,7 @@ const {
 
       @media (max-width: 768px) {
         main {
-          padding: 80px 15px 30px;
+          padding: 25px 15px 30px;
         }
       }
     </style>
