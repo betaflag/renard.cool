@@ -56,8 +56,8 @@ cd ./public/meteo/icons
 
 # Étape 1: Retirer le fond blanc et rendre transparent
 magick [nom-fichier].png \
-  -alpha on \
-  -fuzz 25% \
+  -alpha off -background none -alpha set \
+  -fuzz 35% \
   -transparent white \
   [nom-fichier]-transparent.png
 
@@ -78,19 +78,20 @@ rm [nom-fichier]-transparent.png
 **Ou en une seule commande:**
 ```bash
 magick [nom-fichier].png \
-  -alpha on -fuzz 25% -transparent white \
+  -alpha off -background none -alpha set \
+  -fuzz 35% -transparent white \
   -trim +repage \
   -resize 512x512 \
   -gravity center -extent 512x512 \
-  -background none -alpha set \
+  -background none \
   -sharpen 0x1 \
   [nom-fichier]-final.png && \
   mv [nom-fichier]-final.png [nom-fichier].png
 ```
 
 **Explication des paramètres:**
-- `-alpha on` : Active le canal alpha pour la transparence
-- `-fuzz 25% -transparent white` : Retire le fond blanc et proche du blanc (tolérance 25%)
+- `-alpha off -background none -alpha set` : Réinitialise le canal alpha pour forcer la transparence
+- `-fuzz 35% -transparent white` : Retire le fond blanc et proche du blanc (tolérance 35%)
 - `-trim +repage` : Supprime les marges vides
 - `-resize 512x512` : Redimensionne à 512x512px
 - `-gravity center -extent 512x512` : Centre l'image dans un canvas 512x512
@@ -242,11 +243,12 @@ npm run gemini -- -d ./public/meteo/icons -a 1:1 \
 # 2. Post-traiter avec ImageMagick pour retirer le fond blanc
 cd /Users/nicolas/src/betaflag/renard.cool/public/meteo/icons
 magick imperméable.png \
-  -alpha on -fuzz 25% -transparent white \
+  -alpha off -background none -alpha set \
+  -fuzz 35% -transparent white \
   -trim +repage \
   -resize 512x512 \
   -gravity center -extent 512x512 \
-  -background none -alpha set \
+  -background none \
   -sharpen 0x1 \
   imperméable-final.png
 
@@ -385,16 +387,16 @@ Les pictogrammes PNG sont automatiquement colorisés en orange (#ff6b00) via CSS
 ## Dépannage
 
 ### Le fond n'est pas transparent
-- Augmentez la tolérance: utilisez `-fuzz 30%` au lieu de `-fuzz 25%`
-- Assurez-vous d'utiliser `-alpha on` avant `-transparent white`
+- **Important**: Utilisez `-alpha off -background none -alpha set` avant `-transparent white` pour réinitialiser le canal alpha
+- Augmentez la tolérance si nécessaire: utilisez `-fuzz 40%` ou `-fuzz 50%` au lieu de `-fuzz 35%`
 - Vérifiez que le format de sortie est bien PNG avec alpha channel (RGBA):
   ```bash
   file [nom-fichier].png  # Devrait afficher "RGBA"
   magick [nom-fichier].png -format "%[opaque]" info:  # Devrait afficher "False"
   ```
-- Si le fond reste visible, essayez de traiter en deux étapes:
+- Commande recommandée si le fond reste visible:
   ```bash
-  magick [nom-fichier].png -alpha on -fuzz 30% -transparent white temp.png
+  magick [nom-fichier].png -alpha off -background none -alpha set -fuzz 35% -transparent white temp.png
   magick temp.png -trim +repage -resize 512x512 -gravity center -extent 512x512 -background none [nom-fichier].png
   rm temp.png
   ```

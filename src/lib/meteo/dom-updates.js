@@ -109,9 +109,6 @@ export function updateCurrentWeather(data) {
   if (current.windspeed_10m > 30) {
     badges.push('<span class="weather-badge badge-wind"><i data-lucide="wind" class="badge-icon"></i>Vent fort</span>');
   }
-  if (current.relative_humidity_2m >= 80) {
-    badges.push('<span class="weather-badge badge-humid"><i data-lucide="droplets" class="badge-icon"></i>Humide</span>');
-  }
 
   const badgesContainer = document.querySelector(".current-badges");
   if (badgesContainer) {
@@ -147,7 +144,7 @@ export function updateCurrentWeather(data) {
   }
 
   // Update feels like
-  const feelsLikeEl = document.querySelector(".feels-like");
+  const feelsLikeEl = document.querySelector(".feels-like-value");
   if (feelsLikeEl) {
     feelsLikeEl.textContent = `${Math.round(current.apparent_temperature)}°C`;
   }
@@ -239,13 +236,18 @@ export function updateTodayForecast(data) {
 
   // Calculate morning averages and update card
   if (morningIndices.length > 0) {
-    const morningTemps = morningIndices.map(
+    const morningRealTemps = morningIndices.map(
+      (i) => data.hourly.temperature_2m[i]
+    );
+    const morningFeelsLikeTemps = morningIndices.map(
       (i) =>
         data.hourly.apparent_temperature[i] ||
         data.hourly.temperature_2m[i]
     );
     const morningAvgTemp =
-      morningTemps.reduce((a, b) => a + b, 0) / morningTemps.length;
+      morningRealTemps.reduce((a, b) => a + b, 0) / morningRealTemps.length;
+    const morningAvgFeelsLike =
+      morningFeelsLikeTemps.reduce((a, b) => a + b, 0) / morningFeelsLikeTemps.length;
     const morningWeatherCode =
       data.hourly.weathercode[
         morningIndices[Math.floor(morningIndices.length / 2)]
@@ -266,6 +268,12 @@ export function updateTodayForecast(data) {
       morningTempEl.textContent = Math.round(morningAvgTemp);
     }
 
+    // Update morning feels-like
+    const morningFeelsLikeEl = document.querySelector(".morning-feels-like");
+    if (morningFeelsLikeEl) {
+      morningFeelsLikeEl.textContent = `${Math.round(morningAvgFeelsLike)}°C`;
+    }
+
     const morningIconEl = document.querySelector(".morning-card .period-weather-icon");
     if (morningIconEl) {
       morningIconEl.setAttribute("data-lucide", morningWeather.icon);
@@ -280,8 +288,15 @@ export function updateTodayForecast(data) {
 
     // Update morning precipitation and wind
     const morningPrecipEl = document.querySelector(".morning-precipitation");
+    const morningPrecipBox = document.querySelector(".morning-precipitation-box");
     if (morningPrecipEl) {
       morningPrecipEl.textContent = `${morningPrecipitation.toFixed(1)} mm`;
+      // Hide precipitation if it's 0.0
+      if (morningPrecipBox && morningPrecipitation === 0) {
+        morningPrecipBox.classList.add("hidden");
+      } else if (morningPrecipBox) {
+        morningPrecipBox.classList.remove("hidden");
+      }
     }
 
     const morningWindEl = document.querySelector(".morning-wind");
@@ -317,13 +332,18 @@ export function updateTodayForecast(data) {
 
   // Calculate afternoon averages and update card
   if (afternoonIndices.length > 0) {
-    const afternoonTemps = afternoonIndices.map(
+    const afternoonRealTemps = afternoonIndices.map(
+      (i) => data.hourly.temperature_2m[i]
+    );
+    const afternoonFeelsLikeTemps = afternoonIndices.map(
       (i) =>
         data.hourly.apparent_temperature[i] ||
         data.hourly.temperature_2m[i]
     );
     const afternoonAvgTemp =
-      afternoonTemps.reduce((a, b) => a + b, 0) / afternoonTemps.length;
+      afternoonRealTemps.reduce((a, b) => a + b, 0) / afternoonRealTemps.length;
+    const afternoonAvgFeelsLike =
+      afternoonFeelsLikeTemps.reduce((a, b) => a + b, 0) / afternoonFeelsLikeTemps.length;
     const afternoonWeatherCode =
       data.hourly.weathercode[
         afternoonIndices[Math.floor(afternoonIndices.length / 2)]
@@ -344,6 +364,12 @@ export function updateTodayForecast(data) {
       afternoonTempEl.textContent = Math.round(afternoonAvgTemp);
     }
 
+    // Update afternoon feels-like
+    const afternoonFeelsLikeEl = document.querySelector(".afternoon-feels-like");
+    if (afternoonFeelsLikeEl) {
+      afternoonFeelsLikeEl.textContent = `${Math.round(afternoonAvgFeelsLike)}°C`;
+    }
+
     const afternoonIconEl = document.querySelector(".afternoon-card .period-weather-icon");
     if (afternoonIconEl) {
       afternoonIconEl.setAttribute("data-lucide", afternoonWeather.icon);
@@ -358,8 +384,15 @@ export function updateTodayForecast(data) {
 
     // Update afternoon precipitation and wind
     const afternoonPrecipEl = document.querySelector(".afternoon-precipitation");
+    const afternoonPrecipBox = document.querySelector(".afternoon-precipitation-box");
     if (afternoonPrecipEl) {
       afternoonPrecipEl.textContent = `${afternoonPrecipitation.toFixed(1)} mm`;
+      // Hide precipitation if it's 0.0
+      if (afternoonPrecipBox && afternoonPrecipitation === 0) {
+        afternoonPrecipBox.classList.add("hidden");
+      } else if (afternoonPrecipBox) {
+        afternoonPrecipBox.classList.remove("hidden");
+      }
     }
 
     const afternoonWindEl = document.querySelector(".afternoon-wind");
@@ -395,13 +428,18 @@ export function updateTodayForecast(data) {
 
   // Calculate evening averages and update card
   if (eveningIndices.length > 0) {
-    const eveningTemps = eveningIndices.map(
+    const eveningRealTemps = eveningIndices.map(
+      (i) => data.hourly.temperature_2m[i]
+    );
+    const eveningFeelsLikeTemps = eveningIndices.map(
       (i) =>
         data.hourly.apparent_temperature[i] ||
         data.hourly.temperature_2m[i]
     );
     const eveningAvgTemp =
-      eveningTemps.reduce((a, b) => a + b, 0) / eveningTemps.length;
+      eveningRealTemps.reduce((a, b) => a + b, 0) / eveningRealTemps.length;
+    const eveningAvgFeelsLike =
+      eveningFeelsLikeTemps.reduce((a, b) => a + b, 0) / eveningFeelsLikeTemps.length;
     const eveningWeatherCode =
       data.hourly.weathercode[
         eveningIndices[Math.floor(eveningIndices.length / 2)]
@@ -422,6 +460,12 @@ export function updateTodayForecast(data) {
       eveningTempEl.textContent = Math.round(eveningAvgTemp);
     }
 
+    // Update evening feels-like
+    const eveningFeelsLikeEl = document.querySelector(".evening-feels-like");
+    if (eveningFeelsLikeEl) {
+      eveningFeelsLikeEl.textContent = `${Math.round(eveningAvgFeelsLike)}°C`;
+    }
+
     const eveningIconEl = document.querySelector(".evening-card .period-weather-icon");
     if (eveningIconEl) {
       eveningIconEl.setAttribute("data-lucide", eveningWeather.icon);
@@ -436,8 +480,15 @@ export function updateTodayForecast(data) {
 
     // Update evening precipitation and wind
     const eveningPrecipEl = document.querySelector(".evening-precipitation");
+    const eveningPrecipBox = document.querySelector(".evening-precipitation-box");
     if (eveningPrecipEl) {
       eveningPrecipEl.textContent = `${eveningPrecipitation.toFixed(1)} mm`;
+      // Hide precipitation if it's 0.0
+      if (eveningPrecipBox && eveningPrecipitation === 0) {
+        eveningPrecipBox.classList.add("hidden");
+      } else if (eveningPrecipBox) {
+        eveningPrecipBox.classList.remove("hidden");
+      }
     }
 
     const eveningWindEl = document.querySelector(".evening-wind");
@@ -558,6 +609,74 @@ export function updateTodayForecast(data) {
           smartTipsEl.classList.remove("hidden");
         }
       }
+    }
+  }
+
+  // Add temperature trends and period status
+  const currentHour = now.getHours();
+
+  // Helper function to get time difference in hours
+  function getHoursUntil(targetHour) {
+    let diff = targetHour - currentHour;
+    if (diff < 0) diff += 24;
+    return diff;
+  }
+
+  // Helper function to get period status text
+  function getPeriodStatus(startHour, endHour) {
+    if (currentHour >= startHour && currentHour < endHour) {
+      return ""; // Don't show "Maintenant", just highlight the card
+    } else if (currentHour < startHour) {
+      const hoursUntil = getHoursUntil(startHour);
+      if (hoursUntil === 1) {
+        return "Dans 1h";
+      } else if (hoursUntil < 8) {
+        return `Dans ${hoursUntil}h`;
+      }
+    } else {
+      return "";
+    }
+    return "";
+  }
+
+  // Update period statuses and highlight active period
+  const morningCard = document.querySelector(".morning-card");
+  const morningStatusEl = document.querySelector(".morning-status");
+  const afternoonCard = document.querySelector(".afternoon-card");
+  const afternoonStatusEl = document.querySelector(".afternoon-status");
+  const eveningCard = document.querySelector(".evening-card");
+  const eveningStatusEl = document.querySelector(".evening-status");
+
+  if (morningCard && morningStatusEl) {
+    const status = getPeriodStatus(8, 12);
+    morningStatusEl.textContent = status;
+    // Check if current hour is within this period
+    if (currentHour >= 8 && currentHour < 12) {
+      morningCard.classList.add("active");
+    } else {
+      morningCard.classList.remove("active");
+    }
+  }
+
+  if (afternoonCard && afternoonStatusEl) {
+    const status = getPeriodStatus(12, 18);
+    afternoonStatusEl.textContent = status;
+    // Check if current hour is within this period
+    if (currentHour >= 12 && currentHour < 18) {
+      afternoonCard.classList.add("active");
+    } else {
+      afternoonCard.classList.remove("active");
+    }
+  }
+
+  if (eveningCard && eveningStatusEl) {
+    const status = getPeriodStatus(18, 21);
+    eveningStatusEl.textContent = status;
+    // Check if current hour is within this period
+    if (currentHour >= 18 && currentHour < 21) {
+      eveningCard.classList.add("active");
+    } else {
+      eveningCard.classList.remove("active");
     }
   }
 

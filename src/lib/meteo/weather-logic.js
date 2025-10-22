@@ -92,7 +92,7 @@ export function getClothingRecommendations(
   } else if (temp < 15) {
     // Cool
     clothes.push(item("Manteau léger", "🧥", "manteau-leger.png"));
-    clothes.push(item("Chandail", "👕", null));
+    clothes.push(item("Chandail", "👕", "chandail.png"));
   } else if (temp < 20) {
     // Mild
     clothes.push(item("Chandail léger", "👔", null));
@@ -184,8 +184,7 @@ export function generateSmartTips(
 
   // Precipitation timing tips
   const rainCodes = [51, 53, 55, 61, 63, 65, 80, 81, 82];
-  const morningRain =
-    rainCodes.includes(morningCode) || morningPrecip > 0;
+  const morningRain = rainCodes.includes(morningCode) || morningPrecip > 0;
   const afternoonRain =
     rainCodes.includes(afternoonCode) || afternoonPrecip > 0;
 
@@ -205,10 +204,7 @@ export function generateSmartTips(
 
   // Snow conditions
   const snowCodes = [71, 73, 75, 77, 85, 86];
-  if (
-    snowCodes.includes(morningCode) ||
-    snowCodes.includes(afternoonCode)
-  ) {
+  if (snowCodes.includes(morningCode) || snowCodes.includes(afternoonCode)) {
     tips.push(
       "Neige au programme - bottes imperméables et vêtements chauds indispensables! Prévoyez du temps supplémentaire."
     );
