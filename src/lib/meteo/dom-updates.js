@@ -5,6 +5,9 @@
 
 import { getWeatherInfo, getClothingRecommendations, generateSmartTips } from './weather-logic.js';
 import { formatTime } from './utils.js';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import HourlyChart from '../../components/meteo/HourlyChart.tsx';
 
 
 /**
@@ -884,4 +887,57 @@ function getShortDayName(dateStr) {
     "Samedi",
   ];
   return days[date.getDay()];
+}
+
+/**
+ * Update hourly chart display with today's hourly data
+ * @param {Object} data - Weather API data
+ */
+export function updateHourlyChart(data) {
+  const chartWrapper = document.getElementById('hourly-chart-wrapper');
+  const chartSection = document.getElementById('hourly-chart-section');
+
+  if (!chartWrapper || !chartSection) return;
+
+  if (!data.hourly || !data.hourly.time) {
+    chartSection.classList.add('hidden');
+    return;
+  }
+
+  const now = new Date();
+  const todayDate = now.toISOString().split("T")[0];
+  const currentHour = now.getHours();
+
+  // Extract today's hourly data
+  const hourlyData = [];
+  data.hourly.time.forEach((time, index) => {
+    if (time.startsWith(todayDate)) {
+      const timeObj = new Date(time);
+      const hour = timeObj.getHours();
+
+      hourlyData.push({
+        hour: `${hour}h`,
+        temp: Math.round(data.hourly.temperature_2m[index]),
+        feelsLike: Math.round(data.hourly.apparent_temperature[index] || data.hourly.temperature_2m[index]),
+        precipitation: parseFloat((data.hourly.precipitation[index] || 0).toFixed(1)),
+        precipProb: data.hourly.precipitation_probability ? data.hourly.precipitation_probability[index] : undefined,
+        isNow: hour === currentHour,
+      });
+    }
+  });
+
+  if (hourlyData.length === 0) {
+    chartSection.classList.add('hidden');
+    return;
+  }
+
+  // Clear previous chart and render new one
+  chartWrapper.innerHTML = '';
+
+  // Create React root and render the chart
+  const root = ReactDOM.createRoot(chartWrapper);
+  root.render(React.createElement(HourlyChart, { data: hourlyData }));
+
+  // Show the section
+  chartSection.classList.remove('hidden');
 }

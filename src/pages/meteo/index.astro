@@ -6,6 +6,7 @@ import LoadingState from '../../components/meteo/LoadingState.astro';
 import ErrorMessage from '../../components/meteo/ErrorMessage.astro';
 import CurrentWeather from '../../components/meteo/CurrentWeather.astro';
 import TodayForecast from '../../components/meteo/TodayForecast.astro';
+import HourlyChartSection from '../../components/meteo/HourlyChartSection.astro';
 import SmartTips from '../../components/meteo/SmartTips.astro';
 import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
 ---
@@ -21,6 +22,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
   <ErrorMessage />
   <CurrentWeather />
   <TodayForecast />
+  <HourlyChartSection />
   <SmartTips />
   <FiveDayForecast />
 </MeteoLayout>
@@ -62,6 +64,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
     hideError,
     updateCurrentWeather,
     updateTodayForecast,
+    updateHourlyChart,
     updateFiveDayForecast,
   } from '../../lib/meteo/dom-updates.js';
 
@@ -188,6 +191,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       const weatherData = await fetchWeather(latitude, longitude);
       updateCurrentWeather(weatherData);
       updateTodayForecast(weatherData);
+      updateHourlyChart(weatherData);
       updateFiveDayForecast(weatherData);
 
     } catch (error) {
@@ -275,6 +279,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       );
       updateCurrentWeather(weatherData);
       updateTodayForecast(weatherData);
+      updateHourlyChart(weatherData);
       updateFiveDayForecast(weatherData);
 
       hideLoading();
@@ -421,6 +426,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       const weatherData = await fetchWeather(lat, lon);
       updateCurrentWeather(weatherData);
       updateTodayForecast(weatherData);
+      updateHourlyChart(weatherData);
       updateFiveDayForecast(weatherData);
     } catch (error) {
       console.error("Error fetching weather for city:", error);

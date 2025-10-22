@@ -1,0 +1,112 @@
+---
+import HourlyChart from './HourlyChart.tsx';
+---
+
+<section id="hourly-chart-section" class="hourly-chart-section hidden">
+  <h2 class="hourly-title">ÉVOLUTION HORAIRE</h2>
+  <div class="chart-container">
+    <div id="hourly-chart-wrapper">
+      <!-- Chart will be populated by JavaScript with data -->
+    </div>
+  </div>
+</section>
+
+<style>
+  .hourly-chart-section {
+    margin-bottom: 64px;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .hourly-title {
+    font-family: "Cinzel", serif;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #d1d5db;
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.15);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .chart-container {
+    background: linear-gradient(
+      135deg,
+      rgba(26, 26, 46, 0.6) 0%,
+      rgba(36, 36, 56, 0.5) 100%
+    );
+    border: 1px solid rgba(255, 107, 0, 0.2);
+    border-radius: 20px;
+    padding: 24px;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .chart-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at top right,
+      rgba(255, 107, 0, 0.06),
+      transparent 60%
+    );
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .chart-container:hover {
+    border-color: rgba(255, 107, 0, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 107, 0, 0.15);
+  }
+
+  #hourly-chart-wrapper {
+    position: relative;
+    z-index: 1;
+    min-height: 400px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .hourly-title {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .chart-container {
+      padding: 16px;
+    }
+
+    #hourly-chart-wrapper {
+      min-height: 350px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .chart-container {
+      padding: 12px;
+    }
+
+    #hourly-chart-wrapper {
+      min-height: 300px;
+    }
+  }
+</style>
