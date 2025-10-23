@@ -9,6 +9,7 @@ import TodayForecast from '../../components/meteo/TodayForecast.astro';
 import HourlyChartSection from '../../components/meteo/HourlyChartSection.astro';
 import SmartTips from '../../components/meteo/SmartTips.astro';
 import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
+import TenDayForecast from '../../components/meteo/TenDayForecast.astro';
 ---
 
 <MeteoLayout title="Météo Renard">
@@ -25,6 +26,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
   <HourlyChartSection />
   <SmartTips />
   <FiveDayForecast />
+  <TenDayForecast />
 </MeteoLayout>
 
 <style>
@@ -66,6 +68,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
     updateTodayForecast,
     updateHourlyChart,
     updateFiveDayForecast,
+    updateTenDayForecast,
   } from '../../lib/meteo/dom-updates.js';
 
   /**
@@ -193,6 +196,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       updateTodayForecast(weatherData);
       updateHourlyChart(weatherData);
       updateFiveDayForecast(weatherData);
+      updateTenDayForecast(weatherData);
 
     } catch (error) {
       console.error("Error:", error);
@@ -281,6 +285,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       updateTodayForecast(weatherData);
       updateHourlyChart(weatherData);
       updateFiveDayForecast(weatherData);
+      updateTenDayForecast(weatherData);
 
       hideLoading();
       return true;
@@ -326,6 +331,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
     document.getElementById("today-forecast")?.classList.add("hidden");
     document.getElementById("smart-tips")?.classList.add("hidden");
     document.getElementById("forecast")?.classList.add("hidden");
+    document.getElementById("ten-day-forecast")?.classList.add("hidden");
     hideError();
   }
 
@@ -428,6 +434,7 @@ import FiveDayForecast from '../../components/meteo/FiveDayForecast.astro';
       updateTodayForecast(weatherData);
       updateHourlyChart(weatherData);
       updateFiveDayForecast(weatherData);
+      updateTenDayForecast(weatherData);
     } catch (error) {
       console.error("Error fetching weather for city:", error);
       showError("Erreur lors de la récupération de la météo pour cette ville.");

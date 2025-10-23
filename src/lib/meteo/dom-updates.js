@@ -699,21 +699,16 @@ export function updateFiveDayForecast(data) {
   const month = String(today.getMonth() + 1).padStart(2, '0');
   const day = String(today.getDate()).padStart(2, '0');
   const todayDate = `${year}-${month}-${day}`;
-  console.log('DEBUG: Looking for todayDate:', todayDate);
-  console.log('DEBUG: API daily.time array:', data.daily.time);
   let todayIndex = data.daily.time.findIndex(date => date === todayDate);
-  console.log('DEBUG: todayIndex found:', todayIndex);
 
   // If today is not found, default to index 0
   if (todayIndex === -1) {
     todayIndex = 0;
-    console.log('DEBUG: Today not found, defaulting to index 0');
   }
 
   // Start from tomorrow (day after today's index) and show 4 future days
   const startIndex = todayIndex + 1;
   const daysToShow = 4;
-  console.log('DEBUG: startIndex (tomorrow):', startIndex);
 
   // Find warmest, coldest, and rainiest days among the 4 future days
   const futureDays = data.daily.time.slice(startIndex, startIndex + daysToShow);
@@ -742,11 +737,7 @@ export function updateFiveDayForecast(data) {
     }
   }
 
-  console.log('DEBUG LOOP: About to loop from', startIndex, 'to', startIndex + daysToShow);
-
   for (let i = startIndex; i < startIndex + daysToShow && i < data.daily.time.length; i++) {
-    console.log(`DEBUG LOOP: Processing i=${i}, date=${data.daily.time[i]}`);
-
     const weatherInfo = getWeatherInfo(data.daily.weathercode[i]);
     const tempMax = Math.round(data.daily.temperature_2m_max[i]);
     const tempMin = Math.round(data.daily.temperature_2m_min[i]);
@@ -756,7 +747,6 @@ export function updateFiveDayForecast(data) {
     // Parse date string manually to avoid timezone issues
     const [year, month, day] = data.daily.time[i].split('-').map(Number);
     const shortDate = `${day}/${month}`;
-    console.log(`DEBUG LOOP: shortDate calculation for ${data.daily.time[i]}: day=${day}, month=${month}, result=${shortDate}`);
 
     // Determine day name
     const dayName = getShortDayName(data.daily.time[i]);
@@ -901,7 +891,6 @@ function getShortDayName(dateStr) {
   // Parse the date string manually to avoid timezone issues
   const [dateYear, dateMonth, dateDay] = dateStr.split('-').map(Number);
   const date = new Date(dateYear, dateMonth - 1, dateDay); // month is 0-indexed in Date constructor
-  console.log(`DEBUG getShortDayName: dateStr=${dateStr}, parsed date=${date}, getDay()=${date.getDay()}`);
   const days = [
     "Dimanche",
     "Lundi",
@@ -976,4 +965,87 @@ export function updateHourlyChart(data) {
 
   // Show the section
   chartSection.classList.remove('hidden');
+}
+
+/**
+ * Update 10-day compact forecast display
+ * Shows 10 future days (excludes today)
+ * @param {Object} data - Weather API data
+ */
+export function updateTenDayForecast(data) {
+  const tenDayList = document.querySelector(".ten-day-list");
+  if (!tenDayList) return;
+
+  tenDayList.innerHTML = "";
+
+  // Find today's date index (use local date, not UTC)
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const todayDate = `${year}-${month}-${day}`;
+
+  let todayIndex = data.daily.time.findIndex(date => date === todayDate);
+
+  // If today is not found, default to index 0
+  if (todayIndex === -1) {
+    todayIndex = 0;
+  }
+
+  // Start from tomorrow (day after today's index) and show 10 future days
+  const startIndex = todayIndex + 1;
+  const daysToShow = 10;
+
+  for (let i = startIndex; i < startIndex + daysToShow && i < data.daily.time.length; i++) {
+    const weatherInfo = getWeatherInfo(data.daily.weathercode[i]);
+    const tempMax = Math.round(data.daily.temperature_2m_max[i]);
+    const tempMin = Math.round(data.daily.temperature_2m_min[i]);
+    const precipitation = data.daily.precipitation_sum[i] || 0;
+
+    // Format date - parse manually to avoid timezone issues
+    const [dateYear, dateMonth, dateDay] = data.daily.time[i].split('-').map(Number);
+    const shortDate = `${dateDay}/${dateMonth}`;
+
+    // Determine day name
+    const dayName = getShortDayName(data.daily.time[i]);
+
+    const row = document.createElement("div");
+    row.className = "ten-day-row";
+
+    row.innerHTML = `
+      <div class="ten-day-left">
+        <span class="ten-day-day-name">${dayName}</span>
+        <span class="ten-day-date">${shortDate}</span>
+      </div>
+
+      <div class="ten-day-middle">
+        <i data-lucide="${weatherInfo.icon}" class="ten-day-icon"></i>
+        <span class="ten-day-description">${weatherInfo.text}</span>
+      </div>
+
+      <div class="ten-day-right">
+        <div class="ten-day-temps">
+          <span class="ten-day-temp-high">${tempMax}°</span>
+          <span class="ten-day-temp-separator">/</span>
+          <span class="ten-day-temp-low">${tempMin}°</span>
+        </div>
+        <div class="ten-day-precip">
+          <i data-lucide="droplets" class="ten-day-precip-icon"></i>
+          <span>${precipitation.toFixed(1)}mm</span>
+        </div>
+      </div>
+    `;
+
+    tenDayList.appendChild(row);
+  }
+
+  const tenDayEl = document.getElementById("ten-day-forecast");
+  if (tenDayEl) {
+    tenDayEl.classList.remove("hidden");
+  }
+
+  // Refresh Lucide icons
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 }
