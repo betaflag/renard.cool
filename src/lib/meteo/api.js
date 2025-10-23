@@ -84,7 +84,7 @@ export async function fetchWeather(lat, lon) {
       `hourly=temperature_2m,apparent_temperature,weathercode,precipitation,precipitation_probability,windspeed_10m,relative_humidity_2m&` +
       `daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,precipitation_probability_max,uv_index_max&` +
       `timezone=auto&` +
-      `forecast_days=5`;
+      `forecast_days=6`;
 
     const response = await fetch(apiUrl);
 

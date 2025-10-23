@@ -693,9 +693,27 @@ export function updateFiveDayForecast(data) {
 
   forecastGrid.innerHTML = "";
 
-  // Start from day 1 (tomorrow) and show 4 future days
-  const startIndex = 1;
+  // Find today's date index (use local date, not UTC)
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const todayDate = `${year}-${month}-${day}`;
+  console.log('DEBUG: Looking for todayDate:', todayDate);
+  console.log('DEBUG: API daily.time array:', data.daily.time);
+  let todayIndex = data.daily.time.findIndex(date => date === todayDate);
+  console.log('DEBUG: todayIndex found:', todayIndex);
+
+  // If today is not found, default to index 0
+  if (todayIndex === -1) {
+    todayIndex = 0;
+    console.log('DEBUG: Today not found, defaulting to index 0');
+  }
+
+  // Start from tomorrow (day after today's index) and show 4 future days
+  const startIndex = todayIndex + 1;
   const daysToShow = 4;
+  console.log('DEBUG: startIndex (tomorrow):', startIndex);
 
   // Find warmest, coldest, and rainiest days among the 4 future days
   const futureDays = data.daily.time.slice(startIndex, startIndex + daysToShow);
@@ -724,15 +742,21 @@ export function updateFiveDayForecast(data) {
     }
   }
 
+  console.log('DEBUG LOOP: About to loop from', startIndex, 'to', startIndex + daysToShow);
+
   for (let i = startIndex; i < startIndex + daysToShow && i < data.daily.time.length; i++) {
+    console.log(`DEBUG LOOP: Processing i=${i}, date=${data.daily.time[i]}`);
+
     const weatherInfo = getWeatherInfo(data.daily.weathercode[i]);
     const tempMax = Math.round(data.daily.temperature_2m_max[i]);
     const tempMin = Math.round(data.daily.temperature_2m_min[i]);
     const precipitation = data.daily.precipitation_sum[i] || 0;
 
     // Format date (ex: "Lun 14/10")
-    const date = new Date(data.daily.time[i]);
-    const shortDate = `${date.getDate()}/${date.getMonth() + 1}`;
+    // Parse date string manually to avoid timezone issues
+    const [year, month, day] = data.daily.time[i].split('-').map(Number);
+    const shortDate = `${day}/${month}`;
+    console.log(`DEBUG LOOP: shortDate calculation for ${data.daily.time[i]}: day=${day}, month=${month}, result=${shortDate}`);
 
     // Determine day name
     const dayName = getShortDayName(data.daily.time[i]);
@@ -851,19 +875,33 @@ export function updateFiveDayForecast(data) {
 
 // Helper function for getShortDayName (duplicated from utils for standalone use)
 function getShortDayName(dateStr) {
-  const date = new Date(dateStr);
+  // Compare date strings directly to avoid timezone issues (use local date, not UTC)
   const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const todayStr = `${year}-${month}-${day}`;
 
-  if (date.toDateString() === today.toDateString()) {
+  if (dateStr === todayStr) {
     return "Aujourd'hui";
   }
 
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
-  if (date.toDateString() === tomorrow.toDateString()) {
+  const tomorrowYear = tomorrow.getFullYear();
+  const tomorrowMonth = String(tomorrow.getMonth() + 1).padStart(2, '0');
+  const tomorrowDay = String(tomorrow.getDate()).padStart(2, '0');
+  const tomorrowStr = `${tomorrowYear}-${tomorrowMonth}-${tomorrowDay}`;
+
+  if (dateStr === tomorrowStr) {
     return "Demain";
   }
 
+  // For other days, return the day name
+  // Parse the date string manually to avoid timezone issues
+  const [dateYear, dateMonth, dateDay] = dateStr.split('-').map(Number);
+  const date = new Date(dateYear, dateMonth - 1, dateDay); // month is 0-indexed in Date constructor
+  console.log(`DEBUG getShortDayName: dateStr=${dateStr}, parsed date=${date}, getDay()=${date.getDay()}`);
   const days = [
     "Dimanche",
     "Lundi",
