@@ -968,7 +968,7 @@ export function updateHourlyChart(data) {
 }
 
 /**
- * Update 10-day compact forecast display
+ * Update 10-day compact forecast display with temperature range visualization
  * Shows 10 future days (excludes today)
  * @param {Object} data - Weather API data
  */
@@ -996,43 +996,61 @@ export function updateTenDayForecast(data) {
   const startIndex = todayIndex + 1;
   const daysToShow = 10;
 
+  // Calculate global min/max temperatures for the 10-day range
+  let globalMin = Infinity;
+  let globalMax = -Infinity;
+
+  for (let i = startIndex; i < startIndex + daysToShow && i < data.daily.time.length; i++) {
+    const tempMin = data.daily.temperature_2m_min[i];
+    const tempMax = data.daily.temperature_2m_max[i];
+    if (tempMin < globalMin) globalMin = tempMin;
+    if (tempMax > globalMax) globalMax = tempMax;
+  }
+
+  // Add some padding to the range for better visualization
+  const tempRange = globalMax - globalMin;
+  const padding = tempRange * 0.1;
+  globalMin = globalMin - padding;
+  globalMax = globalMax + padding;
+  const totalRange = globalMax - globalMin;
+
   for (let i = startIndex; i < startIndex + daysToShow && i < data.daily.time.length; i++) {
     const weatherInfo = getWeatherInfo(data.daily.weathercode[i]);
     const tempMax = Math.round(data.daily.temperature_2m_max[i]);
     const tempMin = Math.round(data.daily.temperature_2m_min[i]);
     const precipitation = data.daily.precipitation_sum[i] || 0;
 
-    // Format date - parse manually to avoid timezone issues
-    const [dateYear, dateMonth, dateDay] = data.daily.time[i].split('-').map(Number);
-    const shortDate = `${dateDay}/${dateMonth}`;
+    // Get precipitation probability if available
+    const precipProb = data.daily.precipitation_probability_max ?
+      data.daily.precipitation_probability_max[i] : null;
 
     // Determine day name
     const dayName = getShortDayName(data.daily.time[i]);
 
+    // Calculate temperature bar position and width
+    const minPos = ((data.daily.temperature_2m_min[i] - globalMin) / totalRange) * 100;
+    const maxPos = ((data.daily.temperature_2m_max[i] - globalMin) / totalRange) * 100;
+    const barWidth = maxPos - minPos;
+
     const row = document.createElement("div");
     row.className = "ten-day-row";
 
+    // Only show precipitation if probability is significant (> 20%) or if there's precipitation
+    const showPrecip = (precipProb !== null && precipProb > 20) || precipitation > 0.5;
+    const precipDisplay = precipProb !== null && precipProb > 0
+      ? `<i data-lucide="cloud-rain" class="ten-day-precip-icon"></i><span>${precipProb}%</span>`
+      : '';
+
     row.innerHTML = `
-      <div class="ten-day-left">
-        <span class="ten-day-day-name">${dayName}</span>
-        <span class="ten-day-date">${shortDate}</span>
+      <span class="ten-day-day-name">${dayName}</span>
+      <i data-lucide="${weatherInfo.icon}" class="ten-day-icon"></i>
+      <span class="ten-day-temp-low">${tempMin}°</span>
+      <div class="ten-day-temp-bar-container">
+        <div class="ten-day-temp-bar" style="left: ${minPos}%; width: ${barWidth}%;"></div>
       </div>
-
-      <div class="ten-day-middle">
-        <i data-lucide="${weatherInfo.icon}" class="ten-day-icon"></i>
-        <span class="ten-day-description">${weatherInfo.text}</span>
-      </div>
-
-      <div class="ten-day-right">
-        <div class="ten-day-temps">
-          <span class="ten-day-temp-high">${tempMax}°</span>
-          <span class="ten-day-temp-separator">/</span>
-          <span class="ten-day-temp-low">${tempMin}°</span>
-        </div>
-        <div class="ten-day-precip">
-          <i data-lucide="droplets" class="ten-day-precip-icon"></i>
-          <span>${precipitation.toFixed(1)}mm</span>
-        </div>
+      <span class="ten-day-temp-high">${tempMax}°</span>
+      <div class="ten-day-precip">
+        ${showPrecip ? precipDisplay : ''}
       </div>
     `;
 

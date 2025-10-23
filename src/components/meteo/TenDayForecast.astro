@@ -1,5 +1,5 @@
 ---
-// 10-day forecast component with compact row layout for mobile
+// 10-day forecast component with temperature range visualization
 ---
 
 <section id="ten-day-forecast" class="ten-day-forecast hidden">
@@ -30,11 +30,11 @@
   .ten-day-list {
     background: linear-gradient(
       135deg,
-      rgba(26, 26, 46, 0.5) 0%,
-      rgba(36, 36, 56, 0.5) 100%
+      rgba(26, 26, 46, 0.4) 0%,
+      rgba(36, 36, 56, 0.4) 100%
     );
-    border: 1px solid rgba(255, 107, 0, 0.2);
-    border-radius: 16px;
+    border: 1px solid rgba(255, 107, 0, 0.15);
+    border-radius: 20px;
     backdrop-filter: blur(10px);
     overflow: hidden;
     max-width: 1400px;
@@ -44,11 +44,12 @@
   /* Dynamic elements created by JavaScript - MUST use :global() */
 
   :global(.ten-day-row) {
-    display: flex;
+    display: grid;
+    grid-template-columns: 70px 40px 40px 1fr 50px 60px;
     align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    border-bottom: 1px solid rgba(255, 107, 0, 0.1);
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 107, 0, 0.08);
     transition: all 0.3s ease;
     animation: fadeInUp 0.4s ease-out backwards;
   }
@@ -58,8 +59,7 @@
   }
 
   :global(.ten-day-row:hover) {
-    background: rgba(255, 107, 0, 0.08);
-    border-bottom-color: rgba(255, 107, 0, 0.2);
+    background: rgba(255, 107, 0, 0.05);
   }
 
   /* Staggered animation delays */
@@ -74,100 +74,80 @@
   :global(.ten-day-row:nth-child(9)) { animation-delay: 0.45s; }
   :global(.ten-day-row:nth-child(10)) { animation-delay: 0.5s; }
 
-  /* Left section: Day name and date */
-  :global(.ten-day-left) {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    min-width: 80px;
-  }
-
+  /* Day name */
   :global(.ten-day-day-name) {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #ff6b00;
-    text-shadow: 0 0 8px rgba(255, 107, 0, 0.2);
-  }
-
-  :global(.ten-day-date) {
-    font-size: 0.75rem;
-    color: #a8a8a8;
-    font-weight: 400;
-  }
-
-  /* Middle section: Icon and weather description */
-  :global(.ten-day-middle) {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-    min-width: 0;
-    padding: 0 12px;
-  }
-
-  :global(.ten-day-icon) {
-    width: 32px;
-    height: 32px;
-    stroke: #ff6b00;
-    opacity: 0.9;
-    flex-shrink: 0;
-    filter: drop-shadow(0 0 6px rgba(255, 107, 0, 0.3));
-  }
-
-  :global(.ten-day-description) {
-    font-size: 0.85rem;
-    color: #d1d5db;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #e5e7eb;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
-  /* Right section: Temps and precipitation */
-  :global(.ten-day-right) {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  /* Weather icon */
+  :global(.ten-day-icon) {
+    width: 36px;
+    height: 36px;
+    stroke: #ff6b00;
+    opacity: 0.85;
     flex-shrink: 0;
+    filter: drop-shadow(0 0 6px rgba(255, 107, 0, 0.2));
   }
 
-  :global(.ten-day-temps) {
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
+  /* Low temperature */
+  :global(.ten-day-temp-low) {
+    font-size: 1.1rem;
+    color: #9ca3af;
+    font-weight: 500;
+    text-align: right;
   }
 
+  /* Temperature range bar container */
+  :global(.ten-day-temp-bar-container) {
+    position: relative;
+    height: 6px;
+    background: rgba(100, 116, 139, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  /* Temperature range bar fill */
+  :global(.ten-day-temp-bar) {
+    position: absolute;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 107, 0, 0.4) 0%,
+      rgba(255, 107, 0, 0.6) 50%,
+      rgba(255, 107, 0, 0.8) 100%
+    );
+    border-radius: 3px;
+    transition: all 0.5s ease-out;
+    box-shadow: 0 0 8px rgba(255, 107, 0, 0.3);
+  }
+
+  /* High temperature */
   :global(.ten-day-temp-high) {
     font-size: 1.1rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #ff6b00;
     text-shadow: 0 0 8px rgba(255, 107, 0, 0.3);
+    text-align: left;
   }
 
-  :global(.ten-day-temp-separator) {
-    font-size: 0.9rem;
-    color: rgba(255, 107, 0, 0.4);
-    font-weight: 300;
-  }
-
-  :global(.ten-day-temp-low) {
-    font-size: 0.9rem;
-    color: #a8a8a8;
-    font-weight: 500;
-  }
-
+  /* Precipitation percentage */
   :global(.ten-day-precip) {
+    font-size: 0.9rem;
+    color: #60a5fa;
+    font-weight: 500;
+    text-align: right;
     display: flex;
     align-items: center;
     gap: 4px;
-    font-size: 0.8rem;
-    color: #60a5fa;
-    min-width: 50px;
+    justify-content: flex-end;
   }
 
   :global(.ten-day-precip-icon) {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     stroke: #60a5fa;
     flex-shrink: 0;
   }
@@ -180,24 +160,39 @@
     }
 
     :global(.ten-day-row) {
-      padding: 10px 12px;
+      grid-template-columns: 60px 32px 35px 1fr 40px 55px;
+      gap: 10px;
+      padding: 14px 16px;
     }
 
-    :global(.ten-day-left) {
-      min-width: 70px;
+    :global(.ten-day-day-name) {
+      font-size: 0.9rem;
+    }
+
+    :global(.ten-day-icon) {
+      width: 32px;
+      height: 32px;
+    }
+
+    :global(.ten-day-temp-low),
+    :global(.ten-day-temp-high) {
+      font-size: 1rem;
+    }
+
+    :global(.ten-day-precip) {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    :global(.ten-day-row) {
+      grid-template-columns: 55px 28px 32px 1fr 35px 50px;
+      gap: 8px;
+      padding: 12px 14px;
     }
 
     :global(.ten-day-day-name) {
       font-size: 0.85rem;
-    }
-
-    :global(.ten-day-date) {
-      font-size: 0.7rem;
-    }
-
-    :global(.ten-day-middle) {
-      padding: 0 8px;
-      gap: 8px;
     }
 
     :global(.ten-day-icon) {
@@ -205,70 +200,22 @@
       height: 28px;
     }
 
-    :global(.ten-day-description) {
-      font-size: 0.8rem;
-    }
-
-    :global(.ten-day-right) {
-      gap: 8px;
-    }
-
-    :global(.ten-day-temp-high) {
-      font-size: 1rem;
-    }
-
-    :global(.ten-day-temp-low) {
-      font-size: 0.85rem;
-    }
-
-    :global(.ten-day-precip) {
-      font-size: 0.75rem;
-      min-width: 45px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    :global(.ten-day-row) {
-      padding: 8px 10px;
-    }
-
-    :global(.ten-day-left) {
-      min-width: 60px;
-    }
-
-    :global(.ten-day-day-name) {
-      font-size: 0.8rem;
-    }
-
-    :global(.ten-day-middle) {
-      padding: 0 6px;
-      gap: 6px;
-    }
-
-    :global(.ten-day-icon) {
-      width: 24px;
-      height: 24px;
-    }
-
-    :global(.ten-day-description) {
-      font-size: 0.75rem;
-    }
-
+    :global(.ten-day-temp-low),
     :global(.ten-day-temp-high) {
       font-size: 0.95rem;
     }
 
-    :global(.ten-day-temp-separator) {
-      font-size: 0.8rem;
-    }
-
-    :global(.ten-day-temp-low) {
-      font-size: 0.8rem;
+    :global(.ten-day-temp-bar-container) {
+      height: 5px;
     }
 
     :global(.ten-day-precip) {
-      font-size: 0.7rem;
-      min-width: 40px;
+      font-size: 0.8rem;
+    }
+
+    :global(.ten-day-precip-icon) {
+      width: 14px;
+      height: 14px;
     }
   }
 </style>
