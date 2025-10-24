@@ -448,7 +448,7 @@ import TenDayForecast from '../../components/meteo/TenDayForecast.astro';
    */
   document.addEventListener("DOMContentLoaded", async () => {
     // Initialize Lucide icons
-    if (window.lucide) {
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
       window.lucide.createIcons();
     }
 
@@ -557,7 +557,7 @@ import TenDayForecast from '../../components/meteo/TenDayForecast.astro';
     const loaded = await loadWeatherFromStorage();
     if (loaded) {
       // Refresh Lucide icons after loading stored location
-      if (window.lucide) {
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
         window.lucide.createIcons();
       }
     }

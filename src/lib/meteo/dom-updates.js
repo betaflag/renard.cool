@@ -778,29 +778,7 @@ export function updateFiveDayForecast(data) {
     }
     maxWind = Math.round(maxWind);
 
-    // Generate badges
-    const badges = [];
-    if (precipitation > 2) {
-      badges.push('<span class="badge badge-rain"><i data-lucide="cloud-rain" class="badge-icon"></i>Pluie</span>');
-    }
-    if (maxWind > 20) {
-      badges.push('<span class="badge badge-wind"><i data-lucide="wind" class="badge-icon"></i>Venteux</span>');
-    }
-    if (tempMax > 28) {
-      badges.push('<span class="badge badge-hot"><i data-lucide="thermometer-sun" class="badge-icon"></i>Chaud</span>');
-    }
-    if (tempMax < 5) {
-      badges.push('<span class="badge badge-cold"><i data-lucide="snowflake" class="badge-icon"></i>Froid</span>');
-    }
-    // Add BEAU badge for nice sunny days
-    const sunnyCodes = [0, 1]; // Clear or mainly clear
-    if (sunnyCodes.includes(data.daily.weathercode[i]) && tempMax >= 18 && tempMax <= 25 && precipitation < 0.5) {
-      badges.push('<span class="badge badge-sunny"><i data-lucide="sun" class="badge-icon"></i>Beau</span>');
-    }
-
-    const badgesHtml = badges.length > 0
-      ? `<div class="forecast-badges">${badges.join('')}</div>`
-      : '';
+    // Badges removed per user request
 
     const card = document.createElement("div");
     card.className = "forecast-card";
@@ -834,8 +812,6 @@ export function updateFiveDayForecast(data) {
       </div>
 
       <div class="forecast-description-text">${weatherInfo.text}</div>
-
-      ${badgesHtml}
 
       <div class="forecast-details-grid">
         <div class="detail-mini">
