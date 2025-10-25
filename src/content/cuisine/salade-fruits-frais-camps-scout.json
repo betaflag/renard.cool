@@ -1,0 +1,70 @@
+{
+  "name": "Salade de Fruits Frais Arc-en-ciel",
+  "description": "Le dessert ou collation rafraîchissant parfait pour journées chaudes au camp! Une explosion de couleurs et de saveurs avec fruits frais de saison, légèrement sucrés avec sirop au miel et citron. Se prépare en 20 minutes, se sert frais, et plaît à TOUS les castors. Idéale pour utiliser les fruits qui commencent à être trop mûrs avant qu'ils se gâtent!",
+  "servings": {
+    "quantity": 22,
+    "unit": "portions"
+  },
+  "freezable": false,
+  "time": {
+    "prep": 20,
+    "cook": 0,
+    "wait": 30,
+    "soak": 0
+  },
+  "cooking_method": "Aucune cuisson",
+  "ingredients": [
+    { "subsection": "Fruits frais (mélange suggéré)" },
+    { "quantity": "1", "unit": null, "ingredient": "melon d'eau", "note": "en cubes de 2 cm" },
+    { "quantity": "1", "unit": null, "ingredient": "cantaloup", "note": "en cubes de 2 cm" },
+    { "quantity": "1", "unit": null, "ingredient": "melon miel", "note": "en cubes de 2 cm" },
+    { "quantity": "2", "unit": "tasses", "ingredient": "raisins rouges", "note": "coupés en deux" },
+    { "quantity": "2", "unit": "tasses", "ingredient": "raisins verts", "note": "coupés en deux" },
+    { "quantity": "3", "unit": "tasses", "ingredient": "fraises", "note": "équeutées et coupées en quartiers" },
+    { "quantity": "2", "unit": "tasses", "ingredient": "bleuets", "note": null },
+    { "quantity": "2", "unit": null, "ingredient": "oranges", "note": "pelées et en quartiers" },
+    { "quantity": "2", "unit": null, "ingredient": "pommes", "note": "en cubes, non pelées" },
+    { "quantity": "3", "unit": null, "ingredient": "kiwis", "note": "pelés et en rondelles" },
+    { "quantity": "2", "unit": "tasses", "ingredient": "ananas frais", "note": "en cubes" },
+    { "quantity": "2", "unit": null, "ingredient": "bananes", "note": "en rondelles, ajouter au dernier moment" },
+    { "subsection": "Sirop au miel et citron" },
+    { "quantity": "125", "unit": "ml", "ingredient": "miel liquide", "note": null },
+    { "quantity": "60", "unit": "ml", "ingredient": "jus de citron frais", "note": "environ 2 citrons" },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "zeste de citron", "note": "optionnel" },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "vanille", "note": "optionnel" },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "menthe fraîche hachée", "note": "optionnel mais délicieux" }
+  ],
+  "steps": [
+    "CHOIX DES FRUITS: Utiliser des fruits de saison pour meilleur goût et prix. Été = melons, fraises, bleuets, pêches. Automne = pommes, poires, raisins. Hiver = oranges, pamplemousses, kiwis. Printemps = fraises, ananas. Mélanger au moins 5-6 variétés différentes pour diversité de couleurs et saveurs.",
+    "PRÉPARATION DES FRUITS: Laver TOUS les fruits à l'eau froide, même ceux qu'on va peler. Égoutter et sécher avec linge propre. Commencer par les fruits qui ne brunissent pas (melons, raisins, baies).",
+    "Découpe des melons: Couper les melons (melon d'eau, cantaloup, miel) en deux, retirer les graines avec cuillère. Couper en tranches de 2 cm, puis en cubes uniformes. Les cubes doivent être assez gros pour rester intacts mais assez petits pour être mangés facilement à la cuillère.",
+    "Préparation des baies: Laver les fraises et retirer les queues vertes. Couper les grosses fraises en quartiers, les moyennes en moitiés. Laisser les petites entières. Rincer délicatement les bleuets. Couper les raisins en deux (enlève risque d'étouffement pour jeunes castors et libère jus savoureux).",
+    "Fruits à chair ferme: Laver les pommes mais NE PAS peler (peau = couleur et nutriments!). Couper en cubes de 2 cm, retirer le cœur. Les pommes Honeycrisp, Gala ou Fuji gardent bien leur texture. Peler et trancher les kiwis en rondelles de 1 cm.",
+    "Agrumes: Peler les oranges à vif (enlever toute la partie blanche amère). Séparer en quartiers et retirer membranes si possible. Presser 2 citrons pour obtenir 60 ml de jus frais (garde les fruits de brunir!).",
+    "SIROP AU MIEL-CITRON: Dans un petit bol, fouetter ensemble le miel liquide et le jus de citron jusqu'à bien mélangé. Le miel doit se dissoudre complètement. Ajouter le zeste de citron, la vanille et la menthe hachée si désiré. Ce sirop sucre légèrement ET empêche brunissement!",
+    "ASSEMBLAGE: Dans un TRÈS grand bol de service (le plus gros que vous avez - minimum 6L), combiner TOUS les fruits préparés SAUF les bananes (elles brunissent vite). Mélanger délicatement avec grande cuillère pour distribuer les couleurs uniformément.",
+    "Verser le sirop au miel-citron sur les fruits. Avec deux grandes cuillères, mélanger TRÈS délicatement en soulevant les fruits du fond vers le haut. Objectif = enrober tous les fruits de sirop sans les écraser. Mouvement doux et lent!",
+    "REPOS CRUCIAL: Couvrir le bol avec pellicule plastique et réfrigérer 30 minutes à 2 heures. Ce repos permet aux saveurs de se mélanger et aux fruits de libérer leurs jus naturels qui se combinent avec le sirop. La salade devient encore meilleure!",
+    "AJOUT DES BANANES: Juste avant de servir (maximum 15 minutes avant), trancher les bananes en rondelles de 1 cm. Les ajouter à la salade et mélanger délicatement. Les bananes ajoutées trop tôt = brunissement pas appétissant.",
+    "SERVICE: Mélanger une dernière fois délicatement. Servir la salade dans le grand bol avec grande cuillère de service, ou pré-portionner dans petits bols individuels (environ 1 tasse par castor). Décorer avec quelques feuilles de menthe fraîche si désiré.",
+    "CONSERVATION: Au camp, garder la salade au frais dans glacière jusqu'au service. Se conserve 6-8 heures au froid. Si elle devient liquide (jus au fond), c'est normal - soit égoutter légèrement, soit servir avec le jus (c'est délicieux!)."
+  ],
+  "serving_suggestions": [
+    "Parfaite comme dessert léger après repas copieux",
+    "Excellente collation rafraîchissante l'après-midi",
+    "Peut servir de petit-déjeuner sain avec yogourt grec",
+    "Idéale pour journées très chaudes (30°C+) - ultra rafraîchissante"
+  ],
+  "mainCategory": "Camps Scout",
+  "categories": ["dessert", "collation", "petit-déjeuner"],
+  "tags": ["castors", "camp", "santé", "végétarien", "sans cuisson", "rafraîchissant"],
+  "difficulty": "facile",
+  "scoutCount": 22,
+  "scoutContext": ["préparation rapide", "grandes portions"],
+  "heroImage": "/cuisine/salade-fruits-frais-camps-scout.png",
+  "pubDate": "2025-01-25",
+  "draft": false,
+  "ingredientIntro": "La beauté de cette recette? TOTALE flexibilité! Utilisez les fruits de saison qui sont en vente, ceux que vous avez déjà, ou ceux que les castors préfèrent. La combinaison suggérée donne un arc-en-ciel de couleurs (rouge, orange, jaune, vert, bleu, violet, blanc) qui impressionne visuellement. Le sirop au miel-citron est LE secret - il sucre légèrement, empêche le brunissement, et fait briller les fruits. Miel liquide (pas cristallisé) se mélange mieux.",
+  "tips": "ASTUCE #1: Couper TOUS les fruits en morceaux de taille similaire (environ 2 cm). Ça assure que chaque cuillérée a un bon mélange et que tout se mange facilement. Gros morceaux = difficile à manger, petits = salade devient bouillie. ASTUCE #2: Le jus de citron dans le sirop = agent anti-brunissement naturel! Il garde les pommes, bananes et poires bien blanches. Plus efficace que de l'eau! ASTUCE #3: Mélanger DÉLICATEMENT! Fruits sont fragiles - trop brasser = purée de fruits au lieu de belle salade. Soulever doucement du fond vers le haut. ASTUCE #4: Pour sauver du temps, acheter melon d'eau et ananas PRÉ-COUPÉS. Ça coûte un peu plus cher mais économise 15 minutes de prep. ASTUCE #5: Bananes TOUJOURS au dernier moment! 30 minutes après coupe = brunissement commence. 2 heures = bananes brunes pas appétissantes. PARTICIPATION CASTORS: Tâches parfaites pour enfants - laver les baies dans passoire, couper fraises avec couteaux butter sécuritaires, couper raisins en deux (avec ciseaux de cuisine!), mélanger la salade délicatement, presser les citrons avec presse-agrumes manuel. Les adultes gèrent la découpe des melons (gros couteaux). ÉCONOMIQUE: Acheter fruits de saison = beaucoup moins cher. Melon d'eau en été = 3-4$, en hiver = 12-15$. Adapter selon ce qui est en rabais cette semaine-là. FRUITS À ÉVITER: Fruits trop mous qui deviennent bouillie - mangues très mûres, pêches molles, framboises délicates (sauf si ajoutées au dernier moment). Fruits qui brunissent rapidement sans protection - poires, avocats. QUANTITÉ FLEXIBLE: Cette recette fait environ 16-18 tasses de salade. Pour moins de monde, diviser toutes les quantités par 2. Pour plus, doubler! Très facile à scaler. PRÉSENTATION WOW: Arranger les fruits en couches de couleur dans un grand bol transparent (si disponible) = effet arc-en-ciel spectaculaire que les castors adorent photographier! Budget: environ 2-3$ par portion selon fruits choisis.",
+  "note": "LE DESSERT SANTÉ que les castors mangent SANS RECHIGNER! Contrairement aux légumes qui peuvent être une bataille, les fruits frais colorés sont universellement aimés. Même les mangeurs difficiles trouvent au moins 3-4 fruits qu'ils aiment dans la salade. ZÉRO CULPABILITÉ: Parents et animateurs adorent ce dessert - c'est SAIN, plein de vitamines, zéro gras, et hydratant par journées chaudes. Mais les castors pensent juste que c'est délicieux et sucré! ANTI-GASPILLAGE CHAMPION: Cette recette sauve les fruits qui commencent à être trop mûrs. Pomme avec petite tache? Coupez autour, utilisez le reste. Melon un peu mou? Parfait pour salade! Fraises du lendemain? Coupées et mélangées, elles sont délicieuses. Ça évite de jeter des fruits chers. HYDRATATION DÉGUISÉE: Les melons sont 90% eau! Par journées chaudes où les castors courent partout et oublient de boire, cette salade les hydrate en plus de les nourrir. Préférable à des chips ou cookies secs. RAFRAÎCHISSEMENT INSTANTANÉ: Par canicule de 35°C, cette salade froide sortie de la glacière est comme une oasis. Les castors qui rentrent épuisés d'une randonnée ou d'un jeu actif sont REVIGORÉS. POLYVALENCE INCROYABLE: Petit-déjeuner (avec granola), collation (nature), dessert (après BBQ), ou même lunch (avec fromage cottage). Fonctionne à tous les repas! APPRENTISSAGE: Les castors apprennent reconnaissance des fruits, découpe sécuritaire, concept d'oxydation (pourquoi fruits brunissent), et découverte de nouveaux fruits (certains n'ont jamais goûté kiwi ou cantaloup!). ALLERGIES: Pratiquement zéro risques - fruits sont rarement allergènes (sauf fraises pour certains). Facile d'omettre 1-2 fruits problématiques. COMPARAISON: Version maison coûte 40-50$ pour 22 personnes. Salade de fruits du traiteur = 15-20$ par KILO. Économies massives! CONSERVATION MAISON: Si préparée à la maison la veille, NE PAS ajouter le sirop - fruits libèrent trop de jus et deviennent détrempés. Couper fruits, réfrigérer séparément, ajouter sirop le matin du camp. GESTION RESTANTS: S'il reste de la salade, utiliser pour faire smoothies (mixer avec yogourt et glace), popsicles maison (verser dans moules et congeler), ou topping pour crêpes/pancakes du lendemain."
+}

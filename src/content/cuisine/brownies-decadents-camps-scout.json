@@ -1,0 +1,70 @@
+{
+  "name": "Brownies Décadents au Chocolat",
+  "description": "Le dessert ultime qui fait fondre les castors! Des brownies au chocolat ultra riches, fudgy et décadents avec une croûte craquante sur le dessus et un centre moelleux et fondant. Se préparent à la maison, se congèlent parfaitement, et se transportent comme des champions. Chaque bouchée est une explosion de chocolat pur - le dessert réconfortant par excellence!",
+  "servings": {
+    "quantity": 24,
+    "unit": "carrés"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 20,
+    "cook": 35,
+    "wait": 120,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    { "subsection": "Brownies" },
+    { "quantity": "375", "unit": "ml", "ingredient": "beurre", "note": null },
+    { "quantity": "600", "unit": "g", "ingredient": "chocolat mi-sucré", "note": "en morceaux ou pépites" },
+    { "quantity": "500", "unit": "ml", "ingredient": "sucre blanc", "note": null },
+    { "quantity": "250", "unit": "ml", "ingredient": "cassonade", "note": null },
+    { "quantity": "6", "unit": null, "ingredient": "œufs", "note": "à température pièce" },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "vanille", "note": null },
+    { "quantity": "375", "unit": "ml", "ingredient": "farine tout usage", "note": null },
+    { "quantity": "125", "unit": "ml", "ingredient": "poudre de cacao", "note": "non sucrée" },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "sel", "note": null },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "poudre à pâte", "note": null },
+    { "subsection": "Extras optionnels" },
+    { "quantity": "250", "unit": "ml", "ingredient": "pépites de chocolat", "note": "pour extra chocolat" },
+    { "quantity": "250", "unit": "ml", "ingredient": "noix hachées", "note": "pacanes ou noix de Grenoble" },
+    { "quantity": "125", "unit": "ml", "ingredient": "pépites de chocolat blanc", "note": "pour effet marbré" }
+  ],
+  "steps": [
+    "À LA MAISON - Préparation: Préchauffer le four à 350°F (175°C). Graisser généreusement un grand moule 13x9 pouces avec beurre ou vaporisateur. Tapisser de papier parchemin en laissant dépasser sur les côtés (pour démoulage facile plus tard).",
+    "FONTE DU CHOCOLAT: Dans une grande casserole à fond épais, faire fondre le beurre à feu doux. Retirer du feu et ajouter 450g de chocolat en morceaux (garder 150g pour plus tard). Laisser reposer 2 minutes, puis brasser doucement jusqu'à complètement fondu et lisse.",
+    "ASTUCE CRITIQUE: Ne pas surchauffer le chocolat! Feu doux seulement. Si le chocolat devient granuleux, c'est qu'il a brûlé - recommencer. Le mélange doit être soyeux et brillant.",
+    "Ajouter le sucre blanc et la cassonade au mélange de chocolat fondu. Brasser vigoureusement avec cuillère en bois jusqu'à bien combiné. Le mélange sera épais et légèrement granuleux - c'est normal.",
+    "Incorporation des œufs: Ajouter les œufs UN À LA FOIS en battant bien après chaque addition. Cette étape est CRUCIALE - chaque œuf doit être complètement incorporé avant d'ajouter le suivant. Le mélange deviendra brillant et lisse. Ajouter la vanille avec le dernier œuf.",
+    "POURQUOI UN À LA FOIS: Ajouter tous les œufs d'un coup = brownies denses et lourds. Un par un = texture parfaite fudgy avec cette croûte brillante caractéristique sur le dessus.",
+    "Mélange sec: Dans un bol séparé, tamiser ensemble la farine, la poudre de cacao, le sel et la poudre à pâte. Le tamisage élimine les grumeaux de cacao et aère le mélange.",
+    "Combinaison finale: Verser les ingrédients secs dans le mélange de chocolat. Mélanger DÉLICATEMENT avec spatule en caoutchouc juste jusqu'à disparition de la farine - environ 15-20 mouvements de pliage. NE PAS TROP MÉLANGER! Quelques petites stries de farine sont OK.",
+    "Ajout des extras: Incorporer délicatement les 150g de chocolat restants (hachés grossièrement), les pépites de chocolat et/ou noix si désiré. Garder quelques pépites pour saupoudrer sur le dessus.",
+    "Cuisson: Verser la pâte dans le moule préparé. Étaler uniformément avec spatule. Tapoter le moule sur le comptoir 2-3 fois pour éliminer bulles d'air. Saupoudrer les pépites/noix réservées sur le dessus.",
+    "Enfourner sur grille du milieu pendant 30-35 minutes. LES BROWNIES PARFAITS = légèrement sous-cuits! Un cure-dent inséré au centre doit ressortir avec quelques miettes HUMIDES (pas de pâte liquide, mais pas propre non plus).",
+    "ASTUCE CUISSON: À 30 minutes, faire le test du cure-dent. Si encore trop liquide, cuire 3-5 minutes de plus et retester. Mieux vaut sous-cuire que sur-cuire! Brownies sur-cuits = secs et cakey, pas fudgy.",
+    "Refroidissement CRUCIAL: Laisser refroidir COMPLÈTEMENT dans le moule sur grille pendant minimum 2 heures, idéalement 4 heures ou toute la nuit. Les brownies chauds sont impossibles à couper proprement - ils s'effritent. La patience = belles portions nettes!",
+    "Découpe: Soulever les brownies du moule en tirant sur le papier parchemin. Sur planche à découper, utiliser un grand couteau aiguisé. ASTUCE: Nettoyer le couteau avec linge humide entre chaque coupe = bords nets et professionnels. Couper en 24 carrés (4 rangées x 6 rangées).",
+    "CONGÉLATION POUR CAMP: Emballer les carrés individuellement dans pellicule plastique, puis placer dans grands sacs Ziploc ou contenants hermétiques. Congèle parfaitement 3 mois. Ou congeler le bloc entier enveloppé serré.",
+    "TRANSPORT AU CAMP: Les brownies congelés servent d'ice packs! Placer au fond de la glacière. Ils décongèlent lentement pendant le trajet (6-8 heures). Au camp, se conservent 4-5 jours à température pièce dans contenant hermétique.",
+    "SERVICE: Servir à température pièce pour texture fudgy optimale. Les brownies froids du frigo sont plus fermes (certains préfèrent!). Les brownies légèrement réchauffés (10 sec au micro-ondes ou 5 min près du feu) = chocolat qui fond = PARADIS."
+  ],
+  "serving_suggestions": [
+    "Délicieux nature ou avec boule de crème glacée à la vanille",
+    "Saupoudrer de sucre en poudre pour présentation fancy",
+    "Servir avec verre de lait froid - combinaison classique",
+    "Parfait comme dessert ou collation sucrée d'après-midi"
+  ],
+  "mainCategory": "Camps Scout",
+  "categories": ["dessert", "collation"],
+  "tags": ["castors", "camp", "make-ahead", "congélation", "chocolat"],
+  "difficulty": "facile",
+  "scoutCount": 24,
+  "scoutContext": ["préparation rapide", "grandes portions"],
+  "heroImage": "/cuisine/brownies-decadents-camps-scout.png",
+  "pubDate": "2025-01-25",
+  "draft": false,
+  "ingredientIntro": "Le secret de brownies INCROYABLES? Trois choses: 1) Utiliser du VRAI chocolat de qualité (pas juste du cacao), 2) Ne PAS trop mélanger la pâte, et 3) Légèrement SOUS-CUIRE pour texture fudgy parfaite. La combinaison sucre blanc + cassonade donne profondeur de saveur. Les œufs à température pièce s'incorporent mieux (sortir du frigo 30 minutes avant). Et la poudre de cacao NON sucrée intensifie le goût chocolaté.",
+  "tips": "ASTUCE #1: LÉGÈREMENT SOUS-CUIRE est le secret absolu! Cure-dent avec miettes humides = parfait. Cure-dent propre = brownies trop cuits et secs. Vaut mieux 2 minutes de moins que 2 minutes de plus. ASTUCE #2: Refroidissement complet OBLIGATOIRE! Couper quand chaud = désastre qui s'effrite. Patience de 2-4 heures = carrés parfaits avec bords nets. Pour accélérer, mettre au frigo après 30 min. ASTUCE #3: Ajouter œufs UN PAR UN et bien battre = cette croûte brillante et craquelée caractéristique sur le dessus. Tous d'un coup = brownies denses sans belle croûte. ASTUCE #4: Papier parchemin qui dépasse = démoulage super facile. Soulever le bloc entier, placer sur planche, couper. Sinon, vous devez couper dans le moule = galère. ASTUCE #5: Nettoyer couteau entre chaque coupe avec linge humide = bords nets de pâtisserie professionnelle. Couteau sale = brownies qui s'accrochent et s'effritent. QUALITÉ CHOCOLAT: Utiliser chocolat de bonne qualité! Pas besoin de Valrhona à 40$, mais éviter chocolat à 1$ du magasin à 1$. Chocolat Lindt, Ghirardelli, ou Baker's fonctionne bien. Le chocolat = 60% de la recette, ça vaut la peine! TEMPÉRATURE ŒUFS: Œufs froids du frigo = se mélangent mal et créent grumeaux. Œufs température pièce = émulsion parfaite et texture soyeuse. Sortir 30 min avant OU placer dans bol d'eau tiède 5 minutes. PARTICIPATION CASTORS: À la maison avant le camp, les castors peuvent aider à - casser œufs dans bol (tamiser coquilles!), mélanger ingrédients secs, brasser la pâte (avec supervision), étaler pépites sur le dessus, nettoyer le bol avec spatule (récompense chocolatée!). Adultes gèrent fonte chocolat et four. VARIANTES CRÉATIVES: 1) Brownies menthe - ajouter 1 c. à thé extrait de menthe + pépites chocolat menthe, 2) Brownies beurre d'arachide - swirler 125 ml beurre d'arachide sur pâte avant cuisson, 3) Brownies expresso - ajouter 2 c. à soupe café instantané au chocolat fondu (intensifie goût chocolat!), 4) Brownies s'mores - parsemer mini guimauves + brisures graham sur pâte avant cuisson. Budget: environ 1,50-2$ par carré.",
+  "note": "LE DESSERT RÉCONFORT qui guérit tous les bobos! Après une journée intense de randonnée, de jeux, ou d'activités physiques, un brownie au chocolat décadent = instant bonheur. Les castors fatigués et affamés deviennent instantanément souriants. ZÉRO STRESS AU CAMP: Préparés entièrement à la maison dans votre cuisine familière. Au camp, vous ouvrez juste le contenant et servez. Même pas besoin de réfrigération! Parfait pour animateurs qui veulent un dessert WOW sans effort. VALEUR NOSTALGIQUE: L'odeur et le goût des brownies maison rappellent la cuisine de maman/grand-maman. Ça crée moment réconfortant et familier même loin de la maison. Certains castors deviennent émotifs (dans le bon sens!). ÉCONOMIQUE: Batch de 24 brownies = environ 35-40$ en ingrédients de qualité. Soit 1,50-1,75$ par portion. Brownies de boulangerie = 4-6$ chacun. Économies massives + meilleur goût! CONGÉLATION CHAMPION: Se congèle parfaitement sans perte de texture ou saveur. Préparer 2-3 semaines d'avance, congeler, oublier. Le jour du camp, sortir de congélateur et go! TRANSPORTABILITÉ: Les carrés emballés individuellement = distribution facile, portions contrôlées, et pas de bataille pour 'qui a le plus gros morceau'. Chacun a son brownie personnel. POLYVALENCE: Dessert après souper BBQ, collation sucrée d'après-midi, récompense après randonnée difficile, snack de soirée autour du feu. Fonctionne à TOUS les moments. GESTION ALLERGIES: Remplacer beurre par huile de coco (végane), utiliser œufs de lin (1 c. à soupe lin moulu + 3 c. à soupe eau = 1 œuf), choisir chocolat sans produits laitiers. Omettre noix si allergies. TEXTURE FUDGY vs CAKEY: Cette recette = FUDGY (dense, humide, fondant). Pour version cakey (plus aérée, comme gâteau), ajouter 1 c. à thé poudre à pâte extra et cuire 5 min de plus. Mais honnêtement, fudgy est supérieur! COMPARAISON: Ces brownies rivalisent avec ceux de pâtisseries fancy à 6$ le carré. Les castors (et animateurs) sont IMPRESSIONNÉS. Certains demandent 'c'est fait maison?!' - oui, et c'est facile! APPRENTISSAGE: Les castors apprennent fonte du chocolat (chimie!), technique d'émulsion (œufs un par un), importance du timing (sous-cuisson intentionnelle), et patience (refroidissement complet). Compétences transférables! MOMENT COMMUNAUTAIRE: Servir les brownies crée moment de rassemblement. Tout le monde s'assoit ensemble, déguste, partage. C'est pas juste un dessert, c'est un événement social qui renforce cohésion du groupe. CONSERVATION LONGUE: À température pièce dans contenant hermétique = 5 jours. Au frigo = 10 jours (texture plus ferme). Au congélateur = 3 mois. Très versatile pour planification! RESTANTS CRÉATIFS (rare!): Brownies émiettés → topping pour sundae crème glacée, milkshake brownie (mixer avec glace vanille + lait), brownie trifle (alterner couches brownies émiettés + pudding + crème fouettée). Mais soyons honnêtes, il n'y a JAMAIS de restants!"
+}

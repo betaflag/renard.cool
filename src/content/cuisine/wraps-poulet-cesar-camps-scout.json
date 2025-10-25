@@ -1,0 +1,73 @@
+{
+  "name": "Wraps au Poulet César",
+  "description": "Le lunch parfait pour journées actives au camp! Des wraps frais et copieux garnis de poulet grillé, laitue croquante, parmesan et sauce César crémeuse. Se préparent à l'avance le matin, se transportent facilement, et se mangent avec les mains - zéro vaisselle! Les castors adorent ce classique qui goûte comme au restaurant mais adapté pour le camp.",
+  "servings": {
+    "quantity": 22,
+    "unit": "wraps"
+  },
+  "freezable": false,
+  "time": {
+    "prep": 30,
+    "cook": 20,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière",
+  "ingredients": [
+    { "subsection": "Poulet grillé" },
+    { "quantity": "2", "unit": "kg", "ingredient": "poitrines de poulet", "note": null },
+    { "quantity": "3", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": null },
+    { "quantity": "2", "unit": "c. à thé", "ingredient": "poudre d'ail", "note": null },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "paprika", "note": null },
+    { "quantity": "2", "unit": "c. à thé", "ingredient": "sel", "note": null },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "poivre noir", "note": null },
+    { "subsection": "Sauce César (simplifiée pour camp)" },
+    { "quantity": "500", "unit": "ml", "ingredient": "mayonnaise", "note": null },
+    { "quantity": "125", "unit": "ml", "ingredient": "parmesan râpé", "note": null },
+    { "quantity": "60", "unit": "ml", "ingredient": "jus de citron", "note": "environ 2 citrons" },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "sauce Worcestershire", "note": null },
+    { "quantity": "3", "unit": "gousses", "ingredient": "ail haché finement", "note": null },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "moutarde de Dijon", "note": null },
+    { "quantity": "½", "unit": "c. à thé", "ingredient": "poivre noir", "note": null },
+    { "subsection": "Assemblage" },
+    { "quantity": "24", "unit": null, "ingredient": "grandes tortillas", "note": "12 pouces / 30 cm" },
+    { "quantity": "2", "unit": null, "ingredient": "laitues romaines", "note": "lavées et hachées" },
+    { "quantity": "300", "unit": "g", "ingredient": "parmesan en copeaux", "note": "pour garniture" },
+    { "quantity": "250", "unit": "ml", "ingredient": "croûtons", "note": "optionnel pour crunch" },
+    { "quantity": "2", "unit": null, "ingredient": "tomates", "note": "en dés, optionnel" },
+    { "quantity": "1", "unit": null, "ingredient": "oignon rouge tranché mince", "note": "optionnel" }
+  ],
+  "steps": [
+    "PRÉPARATION DU POULET (peut se faire la veille): Couper les poitrines de poulet en lanières de 2 cm d'épaisseur. Dans un grand bol, mélanger l'huile d'olive, la poudre d'ail, le paprika, le sel et le poivre. Enrober le poulet uniformément.",
+    "Cuisson du poulet: Chauffer une grande poêle ou plancha à feu moyen-vif. Cuire les lanières de poulet 4-5 minutes par côté jusqu'à dorées et cuites à cœur (165°F/74°C au thermomètre). Ne pas surcharger la poêle - cuire par batches si nécessaire.",
+    "Laisser refroidir complètement, puis trancher en morceaux de la taille d'une bouchée. Réfrigérer jusqu'au moment de l'assemblage. Le poulet froid se conserve 2 jours au frigo dans contenant hermétique.",
+    "SAUCE CÉSAR MAISON: Dans un bol moyen, fouetter ensemble la mayonnaise, le parmesan râpé, le jus de citron, la sauce Worcestershire, l'ail haché, la moutarde de Dijon et le poivre. Goûter et ajuster assaisonnement. La sauce doit être crémeuse et savoureuse.",
+    "Transférer dans un contenant hermétique et réfrigérer. La sauce se garde 3-4 jours au frigo et développe même plus de saveur après quelques heures de repos!",
+    "PRÉPARATION DE LA LAITUE: Laver soigneusement la laitue romaine à l'eau froide. Essorer dans essoreuse à salade ou éponger avec linge propre. Hacher grossièrement. Conserver au frais dans sac Ziploc avec papier absorbant pour garder croquante.",
+    "ASSEMBLAGE DES WRAPS (le matin du lunch): Installer une station d'assemblage propre. Disposer les ingrédients dans l'ordre: tortillas, sauce, poulet, laitue, parmesan, extras.",
+    "Pour chaque wrap: Placer une tortilla à plat. Étaler 2-3 c. à soupe de sauce César au centre en bande horizontale (ne pas aller jusqu'aux bords). Disposer environ ⅓ tasse de poulet sur la sauce.",
+    "Ajouter une grosse poignée de laitue hachée (environ 1 tasse), saupoudrer généreusement de copeaux de parmesan. Ajouter croûtons, tomates ou oignons si désiré (attention: trop de garnitures = wrap impossible à rouler!).",
+    "TECHNIQUE DE ROULAGE: Plier les côtés gauche et droit de la tortilla vers le centre (environ 3 cm). En tenant les plis fermés, rouler fermement du bas vers le haut. Le wrap doit être bien serré pour ne pas se défaire.",
+    "Enrouler chaque wrap complété dans papier parchemin ou papier d'aluminium. Couper en deux en diagonale (facilite la manipulation). Identifier avec nom du castor au marqueur si préparé d'avance.",
+    "CONSERVATION: Placer tous les wraps emballés dans une grande glacière avec ice packs. Se conservent 4-5 heures au frais. Servir froids - c'est délicieux et rafraîchissant par journée chaude!",
+    "SERVICE: Distribuer les wraps avec chips, fruits frais (raisins, pommes), et petits légumes (carottes, concombres). Les castors mangent debout, assis, en marchant - ultra versatile!"
+  ],
+  "serving_suggestions": [
+    "Prévoir 1 wrap par castor, certains affamés en voudront 1½",
+    "Servir avec chips BBQ ou sel et vinaigre",
+    "Accompagner de fruits frais coupés (pastèque, raisins, fraises)",
+    "Parfait pour pique-nique ou lunch lors d'excursion"
+  ],
+  "mainCategory": "Camps Scout",
+  "categories": ["lunch", "repas froid"],
+  "tags": ["castors", "camp", "make-ahead", "transportable", "sans cuisson"],
+  "difficulty": "facile",
+  "scoutCount": 22,
+  "scoutContext": ["matériel minimal", "préparation rapide", "grandes portions"],
+  "heroImage": "/cuisine/wraps-poulet-cesar-camps-scout.png",
+  "pubDate": "2025-01-25",
+  "draft": false,
+  "ingredientIntro": "La clé d'un wrap César réussi? TROIS choses: poulet bien assaisonné (pas fade!), sauce César généreuse et crémeuse (pas chiches!), et laitue romaine ultra croquante (pas détrempée!). La sauce maison est 10x meilleure que commerciale et se fait en 5 minutes. Le poulet grillé peut se préparer la veille pour sauver du temps le matin du camp.",
+  "tips": "ASTUCE #1: Poulet FROID = essentiel! Poulet chaud fait ramollir la tortilla et flétrir la laitue. Toujours refroidir complètement avant assemblage. ASTUCE #2: Ne pas trop garnir! Maximum ⅓ tasse poulet + 1 tasse laitue par wrap. Trop = impossible à rouler et ça déborde partout. ASTUCE #3: Essorer la laitue VRAIMENT bien. Eau résiduelle = wraps détrempés en 30 minutes. Essoreuse à salade est votre amie! ASTUCE #4: Emballer serré dans papier parchemin maintient la forme et facilite le transport. Aluminium fonctionne aussi mais moins écologique. ASTUCE #5: Couper en diagonale crée deux moitiés plus faciles à manipuler pour petites mains. Plus joli aussi! PRÉPARATION AVANCÉE: Poulet peut se cuire 2 jours d'avance. Sauce se fait 3-4 jours d'avance (meilleure après repos!). Laitue se lave et coupe la veille. Assemblage DOIT se faire le matin même (4-6 heures max avant service). VARIANTES: 1) Version végé - remplacer poulet par pois chiches rôtis épicés, 2) Allergies - mayonnaise peut être remplacée par yogourt grec pour sauce plus légère, 3) Sans gluten - utiliser tortillas sans gluten. PARTICIPATION CASTORS: Les plus vieux (7-8 ans) peuvent aider à assembler leurs propres wraps sous supervision. Station style Subway où ils choisissent leurs extras. Les plus jeunes peuvent râper parmesan, laver laitue (dans passoire), disposer ingrédients en bols. TRANSPORT: Wraps voyagent PARFAITEMENT! Idéal pour randonnée, excursion en autobus, activité loin du camp. Glacière avec ice packs = garde frais 5-6 heures facile. Budget: environ 5-6$ par wrap.",
+  "note": "LE LUNCH CHAMPION des camps par journées chaudes! Quand il fait 30°C et que personne ne veut manger chaud et lourd, les wraps César froids sont LA solution. Rafraîchissants, copieux, et délicieux. ZÉRO CUISSON le jour même = zéro stress. Tout se prépare d'avance, s'assemble le matin, et voyage comme un champion. ZÉRO VAISSELLE = les castors mangent avec leurs mains, jettent l'emballage, et c'est fini. Plus de temps pour jouer! TRANSPORTABILITÉ MAXIMALE: Contrairement aux sandwichs qui deviennent détrempés ou s'écrasent, les wraps bien roulés maintiennent leur forme pendant des heures. Parfait pour excursions, randonnées, ou journées d'activités loin du camp de base. GESTION ALLERGIES: Facile à adapter - faire wraps végé séparés, utiliser tortillas sans gluten, omettre parmesan pour intolérance lactose. Chaque wrap peut être customisé et identifié. APPRENTISSAGE: Les castors apprennent technique de roulage (dextérité fine), proportions (pas trop garnir!), et hygiène (mains propres pour manipuler nourriture). COMPARAISON RESTO: Les castors sont IMPRESSIONNÉS que ça goûte comme les wraps de restaurant à 12-15$, mais version camp! Certains demandent la recette pour leurs parents. TIMING: Pour lunch 12h30, commencer assemblage 11h00 (22 wraps prennent 45 min avec 2 adultes). Wraps finis à 11h45, dans glacière jusqu'au service. TEMPÉRATURE CRITIQUE: Par journées très chaudes (30°C+), ajouter extra ice packs dans glacière. Vérifier que poulet reste froid. Si doute sur température après 5h, mieux jeter que risquer intoxication alimentaire."
+}

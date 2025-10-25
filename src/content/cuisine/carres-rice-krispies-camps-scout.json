@@ -1,0 +1,65 @@
+{
+  "name": "Carrés aux Rice Krispies Classiques",
+  "description": "Le dessert ULTRA FACILE qui ne peut pas rater! Des carrés de céréales Rice Krispies collées avec guimauves fondues et beurre - croustillants, sucrés, et absolument irrésistibles. Se préparent en 15 minutes, zéro cuisson au four, et se transportent parfaitement au camp. Les castors peuvent même aider à les faire - c'est TELLEMENT simple!",
+  "servings": {
+    "quantity": 24,
+    "unit": "carrés"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 15,
+    "cook": 5,
+    "wait": 30,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière",
+  "ingredients": [
+    { "subsection": "Carrés classiques" },
+    { "quantity": "90", "unit": "g", "ingredient": "beurre", "note": "environ 6 c. à soupe" },
+    { "quantity": "2", "unit": "sacs (250g chacun)", "ingredient": "guimauves miniatures", "note": "ou 40 grosses guimauves" },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "vanille", "note": null },
+    { "quantity": "¼", "unit": "c. à thé", "ingredient": "sel", "note": "optionnel mais rehausse saveur" },
+    { "quantity": "420", "unit": "g", "ingredient": "céréales Rice Krispies", "note": "environ 10 tasses" },
+    { "subsection": "Extras optionnels (pour 4 variations)" },
+    { "quantity": "250", "unit": "ml", "ingredient": "pépites de chocolat", "note": "mélangées ou fondues sur le dessus" },
+    { "quantity": "125", "unit": "ml", "ingredient": "beurre d'arachide", "note": "ajouté avec les guimauves" },
+    { "quantity": "60", "unit": "ml", "ingredient": "poudre de cacao", "note": "pour version chocolat" },
+    { "quantity": "125", "unit": "ml", "ingredient": "bonbons M&M's", "note": "pressés sur le dessus" },
+    { "quantity": "125", "unit": "ml", "ingredient": "mini pépites de chocolat", "note": "mélangées dans la préparation" }
+  ],
+  "steps": [
+    "À LA MAISON OU AU CAMP - Préparation: Graisser généreusement un grand moule 13x9 pouces avec beurre ou vaporisateur à cuisson. Tapisser de papier parchemin en laissant dépasser sur les côtés pour démoulage facile. Mesurer les céréales Rice Krispies dans un très grand bol et réserver.",
+    "FONTE DES GUIMAUVES: Dans une TRÈS grande casserole ou marmite (important - le mélange va tripler de volume!), faire fondre le beurre à feu doux. Ajouter TOUTES les guimauves miniatures.",
+    "Brasser CONSTAMMENT avec cuillère en bois ou spatule en caoutchouc. Les guimauves vont lentement fondre et devenir un mélange lisse et collant. Cela prend 3-5 minutes. NE PAS monter le feu pour accélérer - ça brûle les guimauves!",
+    "ASTUCE CRITIQUE: Dès que les guimauves sont complètement fondues et le mélange est lisse (pas de morceaux), retirer IMMÉDIATEMENT du feu. Sur-cuire = carrés durs comme de la roche. Sous-cuire légèrement = carrés moelleux parfaits.",
+    "Ajouter la vanille et le sel au mélange de guimauves fondues. Brasser pour incorporer. La vanille ajoute profondeur de saveur (les gens se demandent 'quel est ce petit quelque chose?').",
+    "AJOUT DES CÉRÉALES: Verser les céréales Rice Krispies dans la casserole avec le mélange de guimauves. OU verser le mélange de guimauves sur les céréales dans le grand bol. Choisir la méthode la plus facile selon vos contenants.",
+    "TECHNIQUE DE MÉLANGE: Mélanger rapidement mais délicatement avec spatule en caoutchouc beurrée (pour éviter que ça colle!). Mouvement de pliage pour enrober toutes les céréales sans les écraser. Travailler vite - le mélange durcit en refroidissant!",
+    "ASTUCE: Si le mélange devient trop dur avant d'être complètement incorporé, remettre sur feu très doux 10-15 secondes en brassant. Juste assez pour ramollir.",
+    "Transfert dans le moule: Verser le mélange dans le moule préparé. Avec spatule beurrée ou mains légèrement humides (pour pas que ça colle), presser uniformément dans le moule. NE PAS trop presser fort - ça crée carrés durs et compacts. Pression légère et uniforme = texture parfaite.",
+    "VARIANTES (optionnel): 1) CHOCOLAT - mélanger 250 ml pépites de chocolat aux céréales chaudes, elles fondront légèrement. OU faire fondre 200g chocolat et verser sur les carrés pressés, étaler uniformément. 2) BEURRE D'ARACHIDE - ajouter 125 ml beurre d'arachide aux guimauves fondues avant les céréales. 3) M&M'S - presser bonbons colorés sur le dessus des carrés encore chauds. 4) DOUBLE CHOCOLAT - ajouter 60 ml cacao à la fonte des guimauves + mini pépites chocolat aux céréales.",
+    "Refroidissement: Laisser refroidir à température pièce 30 minutes minimum, idéalement 1 heure. Les carrés doivent être complètement figés avant de couper. Pour accélérer, mettre au frigo 20 minutes (pas plus - trop froid = trop durs).",
+    "Découpe: Soulever le bloc de carrés en tirant sur le papier parchemin. Sur planche à découper, utiliser grand couteau aiguisé légèrement graissé. Couper en 24 carrés (4 rangées x 6 rangées). Essuyer et re-graisser le couteau entre chaque coupe pour bords nets.",
+    "CONSERVATION: Placer dans contenants hermétiques en séparant les couches avec papier parchemin (sinon elles collent ensemble). À température pièce = 5-7 jours. Au frigo = 10 jours (plus fermes). Congélateur = 2 mois.",
+    "TRANSPORT AU CAMP: Emballer dans contenants hermétiques ou envelopper individuellement dans pellicule plastique. Se transportent à température pièce sans problème. Ne fondent pas, ne s'écrasent pas - dessert parfait pour le camp!",
+    "SERVICE: Servir à température pièce pour texture optimale (croustillant-moelleux). Les carrés froids du frigo sont plus croquants. Parfait avec verre de lait ou comme collation sucrée rapide."
+  ],
+  "serving_suggestions": [
+    "Parfait comme dessert rapide ou collation sucrée",
+    "Excellent avec verre de lait froid",
+    "Idéal pour lunch box ou snack de randonnée",
+    "Peut être coupé en formes amusantes avec emporte-pièces"
+  ],
+  "mainCategory": "Camps Scout",
+  "categories": ["dessert", "collation"],
+  "tags": ["castors", "camp", "facile", "rapide", "sans four", "participation enfants"],
+  "difficulty": "facile",
+  "scoutCount": 24,
+  "scoutContext": ["matériel minimal", "préparation rapide", "grandes portions"],
+  "heroImage": "/cuisine/carres-rice-krispies-camps-scout.png",
+  "pubDate": "2025-01-25",
+  "draft": false,
+  "ingredientIntro": "C'est littéralement la recette la PLUS SIMPLE de tout le cookbook - 3 ingrédients de base! Beurre + guimauves + Rice Krispies = magie. La clé? NE PAS sur-cuire les guimauves (feu doux, retirer dès que fondu). Les guimauves miniatures fondent plus uniformément que les grosses, mais les deux fonctionnent. La vanille et le sel sont optionnels mais font TOUTE la différence - ça transforme de 'ok' à 'wow pourquoi c'est si bon?'",
+  "tips": "ASTUCE #1: FEU DOUX obligatoire! Feu vif = guimauves brûlées qui donnent carrés durs et impossibles à mâcher. Patience = carrés moelleux parfaits. Prendre 5 minutes à feu doux vaut mieux que rusher à feu vif. ASTUCE #2: Ne PAS trop presser dans le moule! Pression légère avec spatule beurrée ou mains humides = carrés tendres. Presser fort comme si vous faisiez du ciment = carrés durs qui cassent les dents. ASTUCE #3: Beurrer/huiler la spatule ET vos mains = rien ne colle! Mélange de guimauves est SUPER collant. Réappliquer beurre/eau au besoin. ASTUCE #4: Travailler VITE une fois les céréales ajoutées! Le mélange fige en refroidissant. Avoir tout prêt avant de commencer - moule graissé, spatule beurrée, céréales mesurées. ASTUCE #5: Si carrés trop durs (sur-cuits), micro-ondes 5-10 secondes = ramollit. Ou placer près d'une source de chaleur douce quelques minutes. PARTICIPATION CASTORS MAXIMALE: Cette recette = PARFAITE pour les enfants aider! Ils peuvent: mesurer céréales (supervision pour pas renverser), brasser guimauves qui fondent (supervision chaleur), mélanger céréales dans bol (loin du poêle), presser dans moule avec mains (super amusant!), décorer avec M&M's ou pépites. Adultes gèrent fonte sur poêle. VARIANTES CRÉATIVES: 1) ARC-EN-CIEL - diviser mélange guimauves en 3-4 portions, colorer chaque portion différemment (colorant alimentaire), ajouter céréales séparément, créer couches colorées dans moule. 2) S'MORES - ajouter mini pépites chocolat + mini guimauves + brisures graham aux céréales. 3) CONFETTI - ajouter vermicelles colorés (sprinkles) au mélange. 4) BIRTHDAY CAKE - ajouter 2 c. à soupe de mélange à gâteau sec (funfetti) aux guimauves. ASTUCE DÉMOULAGE: Papier parchemin qui dépasse = soulever bloc entier facilement. Sinon, passer couteau sur bords et renverser moule sur planche (risqué!). Papier = vie facile. TEMPÉRATURE CÉRÉALES: Céréales à température pièce = idéal. Céréales froides du garde-manger = OK. Céréales chaudes = deviennent molles (pas bon). RATIO PARFAIT: 1 sac guimauves (250g) pour 5 tasses céréales. Cette recette double = 2 sacs pour 10 tasses. Respecter ratio pour texture optimale! Budget: environ 0,75-1$ par carré - ultra économique!",
+  "note": "LA RECETTE D'INITIATION parfaite pour jeunes castors qui veulent apprendre à cuisiner! C'est pratiquement IMPOSSIBLE à rater, ça prend 15 minutes, et le résultat impressionne toujours. Les castors de 6-7 ans peuvent faire cette recette presque seuls (avec supervision pour la fonte). CONFIANCE CULINAIRE: Faire ces carrés avec succès donne aux enfants fierté et confiance en leurs capacités. 'J'ai FAIT ça moi-même!' C'est souvent leur première recette solo, et ça crée amour de la cuisine. ACTIVITÉ DE GROUPE: Parfait pour faire ENSEMBLE au camp. Diviser tâches - un castor mesure, un autre brasse, un autre presse dans moule. Travail d'équipe + résultat délicieux = moment mémorable. ÉCONOMIQUE CHAMPION: Probablement le dessert le MOINS CHER du cookbook. Un batch pour 24 personnes = environ 15-20$ total. Soit moins de 1$ par portion. Impossible de battre ce prix! NOSTALGIE UNIVERSELLE: TOUT LE MONDE connaît les carrés Rice Krispies! C'est un classique nord-américain depuis 1940. Les animateurs se rappellent en avoir fait enfants, les castors créent nouveaux souvenirs. Tradition intergénérationnelle. ZÉRO ÉQUIPEMENT SPÉCIAL: Juste besoin d'une casserole, cuillère, moule. Pas de mixeur, thermomètre, ou gadgets compliqués. Faisable même au camp avec équipement minimal. SANS FOUR: Parfait pour journées chaudes quand personne ne veut allumer le four. Ou au camp où accès four = limité. Cuisinière ou réchaud suffisent! TRANSPORTABILITÉ MAXIMALE: Ne fondent pas au soleil (contrairement au chocolat), ne s'écrasent pas (contrairement aux muffins), ne coulent pas (contrairement aux poudings). Champion du transport! CUSTOMISATION INFINIE: Base simple accepte TONNES de variations. Chaque batch peut être différent selon ce que vous avez sous la main - restants de bonbons d'Halloween, pépites de chocolat oubliées, beurre d'arachide qui traîne. ALLERGIES: Version sans produits laitiers = utiliser margarine végane. Sans gluten = Rice Krispies sont naturellement sans gluten (vérifier étiquette). Allergies noix = omettre beurre d'arachide. Facile à adapter! APPRENTISSAGE SCIENTIFIQUE: Les castors apprennent fusion (solide→liquide), température (chaleur change texture), et cristallisation (refroidissement fige le mélange). Science déguisée en dessert! COMPARAISON: Carrés commerciaux emballés = 1,50-2$ chacun et remplis de conservateurs. Version maison = fraîche, moins chère, meilleur goût, et vous savez EXACTEMENT ce qu'il y a dedans. CONSERVATION PRATIQUE: Contrairement à gâteau ou tarte qui sèchent rapidement, les carrés Rice Krispies restent bons LONGTEMPS (7 jours!). Préparer d'avance = zéro stress. MOMENT RÉCONFORTANT: Le croustillant caractéristique 'snap, crackle, pop' quand on croque dedans = son nostalgique et satisfaisant. Expérience sensorielle complète! SUCCÈS GARANTI: J'ai dit 'presque impossible à rater' mais honnêtement, si vous suivez les instructions (feu doux, retirer du feu au bon moment, ne pas trop presser), c'est 100% réussite garantie. Parfait pour débutants!"
+}
