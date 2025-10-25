@@ -1,0 +1,72 @@
+{
+  "name": "Carré d'Agneau en Croûte d'Herbes, Réduction au Porto",
+  "description": "Le sommet de l'élégance culinaire pour un tête-à-tête inoubliable. Un carré d'agneau français rosé à la perfection, enrobé d'une croûte d'herbes fraîches dorées et parfumées, nappé d'une réduction au porto d'une profondeur envoûtante. Chaque côtelette se découpe avec une facilité déconcertante, révélant cette chair rosée tendre comme un secret bien gardé. La présentation à table — trancher le carré devant votre convive — crée un moment théâtral qui annonce la grandeur du repas. C'est le plat des grandes occasions, celui qui dit sans mot 'ce soir est spécial'.",
+  "servings": {
+    "quantity": 2,
+    "unit": "portions"
+  },
+  "freezable": false,
+  "time": {
+    "prep": 20,
+    "cook": 25,
+    "wait": 10,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière et four",
+  "ingredients": [
+    { "subsection": "Carré d'agneau" },
+    { "quantity": "1", "unit": null, "ingredient": "carré d'agneau français", "note": "8 côtelettes (environ 600-700g), paré par le boucher" },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": null },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "moutarde de Dijon", "note": "pour adhérence et saveur" },
+    { "quantity": null, "unit": null, "ingredient": "Sel de mer et poivre noir fraîchement moulu", "note": "généreux" },
+    { "subsection": "Croûte d'herbes" },
+    { "quantity": "60", "unit": "ml", "ingredient": "chapelure panko", "note": "ou chapelure fine" },
+    { "quantity": "60", "unit": "ml", "ingredient": "persil frais", "note": "haché très finement" },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "thym frais", "note": "feuilles seulement" },
+    { "quantity": "1", "unit": "c. à soupe", "ingredient": "romarin frais", "note": "haché finement" },
+    { "quantity": "2", "unit": "gousses", "ingredient": "ail", "note": "hachées en purée fine" },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "parmesan fraîchement râpé", "note": null },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "beurre fondu", "note": "pour lier" },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "zeste de citron", "note": "fraîchement râpé" },
+    { "subsection": "Réduction au porto" },
+    { "quantity": "180", "unit": "ml", "ingredient": "porto rouge", "note": "de qualité, pas de cuisine" },
+    { "quantity": "125", "unit": "ml", "ingredient": "fond de veau", "note": "ou bouillon de bœuf concentré" },
+    { "quantity": "1", "unit": null, "ingredient": "échalote française", "note": "hachée finement" },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "miel", "note": null },
+    { "quantity": "1", "unit": null, "ingredient": "brin de thym frais", "note": null },
+    { "quantity": "15", "unit": "g", "ingredient": "beurre froid", "note": "pour finir la sauce" },
+    { "quantity": null, "unit": null, "ingredient": "Sel", "note": "au goût" }
+  ],
+  "steps": [
+    "PRÉPARATION DE L'AGNEAU: Sortir le carré d'agneau du réfrigérateur 30 minutes avant la cuisson pour qu'il atteigne température pièce — crucial pour cuisson uniforme. Préchauffer le four à 450°F (230°C). Éponger l'agneau avec papier absorbant pour retirer toute humidité. Assaisonner généreusement tous les côtés avec sel de mer et poivre noir fraîchement moulu.",
+    "PRÉPARATION DE LA CROÛTE: Dans un bol moyen, combiner la chapelure panko, le persil haché, les feuilles de thym, le romarin haché, l'ail en purée, le parmesan râpé, le zeste de citron, et une pincée de sel. Verser le beurre fondu et mélanger avec fourchette jusqu'à consistance de sable mouillé qui tient ensemble quand on le presse. Réserver.",
+    "ASTUCE HERBES FRAÎCHES: Les herbes DOIVENT être fraîches, jamais séchées — c'est la différence entre une croûte sublime et ordinaire. Le persil apporte verdeur, le thym la note aromatique, le romarin la touche résineuse signature de l'agneau. Le zeste de citron ajoute cette brillance qui équilibre le gras.",
+    "SAISIE INITIALE: Dans une poêle en fonte ou poêle à fond épais allant au four, chauffer l'huile d'olive à feu vif jusqu'à ce qu'elle scintille (presque fumante). Saisir le carré d'agneau côté gras (dos arrondi) pendant 2-3 minutes jusqu'à bien doré. Retourner et saisir le côté viande 2 minutes. Saisir également les extrémités 1 minute chacune. Cette étape crée la croûte de Maillard — pure saveur concentrée.",
+    "POURQUOI SAISIR AVANT LE FOUR: La saisie haute température caramélise les protéines et sucres à la surface, créant des centaines de composés de saveur complexes impossibles à obtenir autrement. Ne sautez JAMAIS cette étape.",
+    "APPLICATION DE LA CROÛTE: Retirer la poêle du feu. Badigeonner généreusement le dessus (côté gras arrondi) et les côtés du carré avec la moutarde de Dijon — ne pas mettre sur le côté des os exposés. Presser fermement le mélange de croûte d'herbes sur toute la surface moutardée en créant couche épaisse et uniforme (environ 1 cm). Tasser avec les mains pour bien adhérer.",
+    "CUISSON AU FOUR — ÉTAPE CRITIQUE: Placer immédiatement la poêle au four préchauffé à 450°F (230°C). Cuire 5 minutes pour fixer la croûte. RÉDUIRE la température à 375°F (190°C) et continuer la cuisson 12-15 minutes pour rosé parfait (température interne 130-135°F / 54-57°C au thermomètre à viande inséré au centre sans toucher l'os).",
+    "TIMING PAR PRÉFÉRENCE DE CUISSON: Saignant = 125°F (52°C) / 10-12 min, Rosé = 130-135°F (54-57°C) / 12-15 min, À point = 140°F (60°C) / 16-18 min. Pour l'agneau, rosé est IDÉAL — chair tendre et juteuse avec légère résistance. Trop cuit = sec et dur.",
+    "PENDANT LA CUISSON — RÉDUCTION AU PORTO: Dans une petite casserole, combiner le porto rouge, le fond de veau, l'échalote hachée, le miel et le brin de thym. Porter à ébullition à feu moyen-vif, puis réduire à feu moyen et laisser mijoter 15-20 minutes jusqu'à réduction de 75% (environ 80 ml de liquide restant). La sauce doit napper le dos d'une cuillère — sirupeuse et brillante.",
+    "REPOS OBLIGATOIRE: Sortir le carré du four dès que la température cible est atteinte. Transférer sur une planche à découper et tenter délicatement de papier aluminium (pas serré — la croûte doit respirer). Laisser reposer 10 minutes MINIMUM. Durant ce repos, les jus se redistribuent uniformément dans la viande et la température grimpe encore de 5°F par carryover cooking.",
+    "POURQUOI LE REPOS EST SACRÉ: Trancher immédiatement = tous les jus s'écoulent sur la planche, viande sèche. Repos 10 min = jus restent dans la viande, chaque bouchée est juteuse. Patience récompensée.",
+    "FINITION DE LA SAUCE: Retirer le brin de thym de la réduction au porto. Hors du feu, incorporer le beurre froid en fouettant jusqu'à émulsion brillante et onctueuse. Goûter et ajuster sel. La sauce doit être riche, légèrement sucrée, avec profondeur complexe du porto.",
+    "PRÉSENTATION THÉÂTRALE: Apporter le carré entier à table sur une belle planche en bois. Avec un couteau aiguisé, trancher entre les os pour créer des côtelettes individuelles (4 par personne). Disposer artistiquement 4 côtelettes par assiette en éventail, os entrecroisés pour hauteur. Napper généreusement de réduction au porto. Garnir de brins de thym frais.",
+    "ACCOMPAGNEMENTS DIGNES: Servir avec purée de pommes de terre au beurre (classique), légumes racines rôtis au miel (carottes, panais, betteraves), ou haricots verts fins à l'échalote. Un vin rouge corsé (Bordeaux, Côtes-du-Rhône) est obligatoire."
+  ],
+  "serving_suggestions": [
+    "Purée de pommes de terre crémeuse au beurre et à l'ail rôti",
+    "Légumes racines rôtis au miel et thym (carottes, panais, betteraves)",
+    "Haricots verts fins sautés à l'échalote et amandes grillées",
+    "Gratin dauphinois pour décadence ultime"
+  ],
+  "mainCategory": "plat principal",
+  "categories": ["plat principal", "romantique", "spécial", "français"],
+  "tags": ["agneau", "croûte d'herbes", "porto", "élégant", "occasion spéciale", "tête-à-tête"],
+  "difficulty": "difficile",
+  "heroImage": "/cuisine/carre-agneau-croute-herbes-porto.png",
+  "pubDate": "2025-01-25",
+  "draft": false,
+  "ingredientIntro": "Le carré d'agneau français est considéré comme l'un des morceaux les plus nobles et tendres — 8 côtelettes attachées formant un arc élégant, la viande rosée entourée d'une fine couche de gras qui baste naturellement pendant la cuisson. Demandez à votre boucher un carré 'french trimmed' où les os sont nettoyés et exposés pour présentation spectaculaire. L'agneau du Québec est disponible chez les bons bouchers, sinon l'agneau de Nouvelle-Zélande est une excellente alternative. Le porto DOIT être de qualité — un ruby ou tawny porto, jamais le 'cooking port' qui est amer. Le fond de veau est trouvable en épicerie fine (More Than Gourmet), sinon utilisez bouillon de bœuf concentré de qualité.",
+  "tips": "Le secret absolu d'un carré d'agneau parfait réside dans trois commandements: température pièce avant cuisson (30 min hors frigo), saisie violente pour croûte de Maillard, et repos sacré de 10 minutes. La technique du four deux températures (450°F puis 375°F) permet de fixer la croûte sans la brûler tout en cuisant l'agneau uniformément. Le thermomètre à viande est NON NÉGOCIABLE pour ce plat — deviner la cuisson d'un carré à 40$ qui rate est un crime culinaire. Insérez au centre de la viande entre deux os sans toucher l'os. Pour la croûte d'herbes, hachez les herbes TRÈS finement — gros morceaux tombent et brûlent. L'ail doit être en purée presque liquide (presser avec le plat du couteau + sel). La réduction au porto peut se préparer 1-2 jours d'avance et se réchauffe parfaitement. Si elle épaissit trop, allongez avec une cuillère de bouillon. ERREUR FATALE À ÉVITER: ne jamais couvrir hermétiquement pendant le repos — la vapeur ramollit la croûte précieuse. Tenter lâchement seulement. Le carryover cooking est réel — la viande continue de cuire après sortie du four (+5°F), donc sortez à 130°F pour rosé parfait à 135°F après repos. Budget: environ 20-25$ par portion pour agneau de qualité — c'est un plat d'occasion spéciale qui justifie l'investissement.",
+  "note": "LE PLAT ULTIME pour anniversaire, St-Valentin, demande en mariage, ou toute soirée qui mérite d'être gravée dans la mémoire. La présentation du carré entier à table avant de trancher = moment théâtral qui impressionne toujours. Le parfum des herbes rôties et de l'agneau qui emplit la cuisine pendant la cuisson crée anticipation et désir. Quand vous tranchez et révélez cette chair rosée parfaite sous la croûte dorée, c'est un triomphe culinaire visible. NIVEAU DE DIFFICULTÉ HONNÊTE: Oui, c'est 'difficile', mais suivre les instructions précisément garantit succès. La vraie difficulté n'est pas technique (pas de gestes compliqués), c'est le timing et la précision. Avec un thermomètre et minuteur, même un cuisinier intermédiaire réussit. APPRENTISSAGE: Cette recette enseigne techniques transférables — saisie haute température, cuisson résiduelle, réduction de sauce, importance du repos. Maîtriser ce plat = débloquer une douzaine d'autres recettes similaires. VALEUR ÉMOTIONNELLE: Cuisiner ce plat pour quelqu'un dit 'tu vaux l'effort, le temps, l'attention aux détails'. C'est un acte d'amour culinaire. La personne qui reçoit ce repas se sent véritablement spéciale, célébrée. CONSERVATION: L'agneau ne se réchauffe pas bien — il devient gris et sec. Calculez précisément vos portions (4 côtelettes par personne = affamé, 3 côtelettes = raisonnable). S'il reste une côtelette, mangez-la froide le lendemain dans une salade — délicieux! COMPARAISON RESTAURANT: Ce plat se vend 45-60$ par portion dans les restaurants gastronomiques. Version maison = 20-25$ par portion et meilleure qualité car fraîchement préparée avec amour. Économies + fierté = sans prix."
+}

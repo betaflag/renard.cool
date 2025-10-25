@@ -1,0 +1,54 @@
+{
+  "name": "Gratin Dauphinois Traditionnel",
+  "description": "Le sommet de la décadence française — des tranches fines de pommes de terre nappées de crème à l'ail, cuites lentement jusqu'à ce que les couches fondent ensemble en une harmonie crémeuse. Le dessus forme une croûte dorée et gratinée, l'intérieur devient tendre comme du beurre. Chaque bouchée offre ce contraste magique: croquant doré cédant place à la crémosité absolue. C'est le plat d'accompagnement des grandes occasions — celui qui transforme un simple repas en festin mémorable. Patient, riche, inoubliable.",
+  "servings": {
+    "quantity": 2,
+    "unit": "portions généreuses"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 20,
+    "cook": 60,
+    "wait": 10,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    { "quantity": "600", "unit": "g", "ingredient": "pommes de terre Yukon Gold", "note": "environ 3-4 moyennes" },
+    { "quantity": "250", "unit": "ml", "ingredient": "crème 35%", "note": null },
+    { "quantity": "125", "unit": "ml", "ingredient": "lait entier", "note": "3,25%" },
+    { "quantity": "2", "unit": "gousses", "ingredient": "ail", "note": "hachées finement" },
+    { "quantity": "1", "unit": "pincée", "ingredient": "noix de muscade", "note": "fraîchement râpée" },
+    { "quantity": null, "unit": null, "ingredient": "Sel et poivre blanc", "note": "au goût" },
+    { "quantity": "1", "unit": "c. à soupe", "ingredient": "beurre", "note": "pour le plat" },
+    { "quantity": "30", "unit": "ml", "ingredient": "parmesan râpé", "note": "optionnel pour gratiner" }
+  ],
+  "steps": [
+    "PRÉPARATION: Préchauffer le four à 350°F (175°C). Frotter généreusement l'intérieur d'un petit plat à gratin (20x15 cm environ) avec la gousse d'ail coupée, puis beurrer abondamment. Cette étape parfume subtilement le plat entier.",
+    "TRANCHER LES PATATES: Peler les pommes de terre. Avec une mandoline (idéal) ou un couteau bien aiguisé, trancher en rondelles TRÈS fines (2-3 mm d'épaisseur). L'uniformité est critique — tranches égales cuisent en même temps. NE PAS rincer les tranches — l'amidon aide à lier le gratin.",
+    "ASTUCE SÉCURITÉ: La mandoline est dangereuse! Utiliser le garde-main fourni ou un gant anti-coupure. Si trancher au couteau, prendre son temps.",
+    "INFUSION CRÉMEUSE: Dans une casserole moyenne, combiner crème, lait, ail haché, muscade râpée, sel (1 c. à thé), et poivre blanc. Chauffer à feu moyen jusqu'à frémissement léger (petites bulles sur bords). Retirer du feu immédiatement — ébullition ferait cailler la crème.",
+    "ASSEMBLAGE PREMIÈRE COUCHE: Disposer environ 1/3 des tranches de patates en couche uniforme au fond du plat beurré, légèrement chevauchantes comme des tuiles. Assaisonner légèrement de sel et poivre. Verser environ 1/3 du mélange crème-lait chaud sur cette couche.",
+    "COUCHES SUIVANTES: Répéter avec deuxième couche de patates (1/3) + assaisonnement + crème (1/3). Puis troisième et dernière couche identique. Presser doucement avec spatule pour compacter et submerger toutes les patates dans le liquide. Le liquide doit presque couvrir la dernière couche.",
+    "CUISSON LENTE: Couvrir le plat de papier aluminium et enfourner 45 minutes. Les patates doivent devenir tendres et absorber la crème. Vérifier à mi-cuisson — si liquide semble trop épais, ajouter 60 ml lait chaud.",
+    "GRATINAGE: Retirer le papier aluminium. Si désiré, saupoudrer de parmesan râpé. Augmenter température à 400°F (200°C) et cuire encore 15-20 minutes jusqu'à ce que le dessus soit doré et croustillant avec bulles de crème dorées.",
+    "REPOS OBLIGATOIRE: Sortir du four et laisser reposer 10 minutes minimum. Durant ce repos, le gratin se solidifie et les couches se marient. Trancher un gratin chaud = désastre liquide qui s'effondre. Patience = portions nettes.",
+    "SERVICE: Servir dans le plat de cuisson ou découper en portions rectangulaires avec spatule. Chaque portion doit montrer les couches distinctes. Garnir de thym frais si désiré."
+  ],
+  "serving_suggestions": [
+    "Accompagnement OBLIGATOIRE pour carré d'agneau, gigot, ou côte de bœuf",
+    "Sublime avec volailles rôties aux herbes",
+    "Peut être repas complet avec salade verte et jambon",
+    "Se réchauffe parfaitement - certains disent meilleur le lendemain"
+  ],
+  "mainCategory": "accompagnement",
+  "categories": ["accompagnement", "français", "spécial", "réconfortant"],
+  "tags": ["gratin", "pommes de terre", "crème", "ail", "gratinée"],
+  "difficulty": "moyen",
+  "heroImage": "/cuisine/gratin-dauphinois-traditionnel.png",
+  "pubDate": "2025-01-25",
+  "draft": false,
+  "ingredientIntro": "Le VRAI gratin dauphinois ne contient PAS de fromage (sauf parmesan optionnel pour gratiner) — la richesse vient de la crème pure. Les Yukon Gold sont parfaites — leur texture crémeuse naturelle fond dans la crème. La crème 35% est NON NÉGOCIABLE — 15% sera aqueuse. Le lait dilue légèrement pour éviter richesse écrasante. La muscade fraîchement râpée = touche magique qui élève tout. Ne jamais utiliser muscade pré-moulue (goût poussiéreux).",
+  "tips": "Le secret absolu d'un gratin dauphinois parfait = tranches ULTRA fines et uniformes, ne PAS rincer (l'amidon lie), crème CHAUDE versée (pénètre mieux), cuisson LENTE couverte (tendreté), puis gratinage découvert (croûte). La mandoline est investissement qui change la vie pour ce plat. Tranches épaisses = cuisson inégale et texture granuleuse. Le frottage à l'ail du plat parfume subtilement sans morceaux d'ail visibles. Pour version extra riche, remplacer tout le lait par crème (décadence totale!). Pour version allégée, moitié crème + moitié lait (toujours délicieux). Le gratin se prépare ENTIÈREMENT d'avance: assembler le matin, réfrigérer couvert, cuire le soir (ajouter 10 min au temps). Se congèle après cuisson complète: portion, emballer hermétiquement, congeler 2 mois, décongeler au frigo, réchauffer à 325°F couvert. Budget: environ 3$ par portion.",
+  "note": "LE GRATIN ULTIME de la région du Dauphiné en France, où il est né il y a des siècles. Traditionnellement servi lors des festins royaux et occasions spéciales. La recette authentique ne contient QUE patates + crème + ail — pas de fromage (sauf parmesan léger pour croûte). L'ajout de fromage = 'gratin savoyard', plat différent. PATIENCE RÉCOMPENSÉE: Ce gratin demande temps (90 min total) mais 95% est cuisson passive. Vous assemblez en 20 minutes, le four fait le reste. Le résultat? Décadence qui rivalise avec restaurants 4 étoiles. REPAS D'AVANCE: Ce plat est CHAMPION du make-ahead. Préparer entièrement la veille, cuire le jour même = stress zéro. Ou cuire d'avance, réchauffer = encore meilleur car saveurs intensifiées. OCCASIONS SPÉCIALES: Servir ce gratin dit 'ce repas est important, vous êtes important'. C'est l'accompagnement de Noël, Pâques, anniversaires, ou tout événement méritant célébration. CONTRASTE TEXTURAL: Croûte gratinée croustillante vs intérieur crémeux fondant = expérience sensorielle complète. Chaque bouchée offre surprise. VALEUR CALORIQUE: Oui, c'est riche. C'est CENSÉ être riche! C'est un plat de célébration, pas quotidien. Une ou deux fois par an, cette décadence est méritée et mémorable."
+}

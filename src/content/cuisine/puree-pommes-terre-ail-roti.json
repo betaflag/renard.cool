@@ -1,0 +1,52 @@
+{
+  "name": "Purée de Pommes de Terre Crémeuse à l'Ail Rôti",
+  "description": "La reine des purées — nuageuse, onctueuse, d'une crémosité qui défie la gravité. Des pommes de terre Yukon Gold parfaitement cuites, pilées avec beurre généreux et crème chaude, parfumées d'ail rôti doux et caramélisé qui transforme l'amer en sucré. Chaque bouchée fond sur la langue sans laisser aucun grumeau. C'est l'accompagnement obligatoire pour agneau, bœuf braisé, ou tout plat avec sauce riche — la purée devient le véhicule parfait pour ces jus précieux. Les Français ont passé des siècles à perfectionner cette purée, et maintenant vous maîtrisez leur secret.",
+  "servings": {
+    "quantity": 2,
+    "unit": "portions généreuses"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 10,
+    "cook": 30,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière et four",
+  "ingredients": [
+    { "quantity": "600", "unit": "g", "ingredient": "pommes de terre Yukon Gold", "note": "environ 3-4 moyennes" },
+    { "quantity": "1", "unit": "tête", "ingredient": "ail entière", "note": "pour rôtir" },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "huile d'olive", "note": "pour l'ail" },
+    { "quantity": "80", "unit": "ml", "ingredient": "crème 35%", "note": "chauffée" },
+    { "quantity": "60", "unit": "g", "ingredient": "beurre", "note": "température pièce" },
+    { "quantity": "1", "unit": "c. à soupe", "ingredient": "sel", "note": "pour eau de cuisson" },
+    { "quantity": null, "unit": null, "ingredient": "Sel et poivre blanc", "note": "au goût pour finition" }
+  ],
+  "steps": [
+    "RÔTIR L'AIL: Préchauffer le four à 400°F (200°C). Couper le dessus de la tête d'ail (exposer les gousses), arroser d'huile d'olive, envelopper dans papier aluminium. Rôtir 30 minutes jusqu'à tendre et caramélisé. Laisser refroidir, presser les gousses molles hors de leur peau. Réserver.",
+    "CUISSON DES PATATES: Peler les pommes de terre et les couper en cubes de 3-4 cm (cuisson uniforme). Placer dans casserole, couvrir d'eau froide de 3 cm, ajouter 1 c. à soupe de sel. Porter à ébullition, réduire à feu moyen, mijoter 15-18 minutes jusqu'à très tendres.",
+    "TEST: Un couteau doit glisser sans résistance. Patates sur-cuites = mieux que sous-cuites pour purée crémeuse.",
+    "ÉGOUTTAGE CRUCIAL: Égoutter complètement et retourner dans la casserole vide sur feu doux 1-2 minutes pour évaporer toute humidité résiduelle. Patates mouillées = purée aqueuse. Agiter la casserole pour évaporer vapeur.",
+    "CHAUFFER LA CRÈME: Pendant ce temps, chauffer la crème 35% au micro-ondes 30-45 secondes jusqu'à tiède-chaude. Crème froide refroidit les patates et crée grumeaux.",
+    "PILAGE PARFAIT: Avec un pilon à patates, piler les pommes de terre chaudes jusqu'à complètement lisses sans grumeaux. NE JAMAIS utiliser mélangeur ou robot — l'amidon devient gluant et la texture caoutchouteuse. Pilon manuel = texture nuageuse.",
+    "ENRICHISSEMENT: Ajouter le beurre en morceaux et piler jusqu'à incorporé. Ajouter la crème chaude graduellement en pilant et remuant. Ajouter l'ail rôti écrasé en purée. Piler vigoureusement jusqu'à texture nuageuse et crémeuse.",
+    "ASSAISONNEMENT: Goûter et ajuster sel généreusement. Ajouter poivre blanc (invisible dans purée blanche — esthétique). Pour texture extra soyeuse, passer au tamis fin en pressant avec spatule (étape optionnelle de restaurant).",
+    "SERVICE: Servir immédiatement dans bol réchauffé. Créer un puits au centre avec le dos d'une cuillère pour recevoir sauces. Garnir d'une noix de beurre qui fond et d'herbes fraîches si désiré."
+  ],
+  "serving_suggestions": [
+    "Accompagnement PARFAIT pour carré d'agneau, côte de bœuf, ou bœuf bourguignon",
+    "Sublime avec volailles rôties et leur jus",
+    "Base idéale pour shepherd's pie ou hachis Parmentier",
+    "Se réchauffe bien avec ajout de crème et beurre"
+  ],
+  "mainCategory": "accompagnement",
+  "categories": ["accompagnement", "réconfortant", "français"],
+  "tags": ["purée", "pommes de terre", "ail rôti", "crémeux", "classique"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/puree-pommes-terre-ail-roti.png",
+  "pubDate": "2025-01-25",
+  "draft": false,
+  "ingredientIntro": "Les Yukon Gold sont LES patates pour purée — chair jaune dorée naturellement crémeuse et beurrée, texture parfaite entre farineuse et cireuse. Les Russet sont trop farineuses (texture sèche), les rouges trop cireuses (texture gluante). Yukon Gold = équilibre parfait. La crème 35% (pas 15%!) crée richesse incomparable. Beurre non salé permet contrôle de l'assaisonnement. L'ail rôti perd son agressivité et devient doux, sucré, presque confituré.",
+  "tips": "Le secret d'une purée restaurant = pommes de terre très cuites + égouttées sèches + crème CHAUDE + pilon manuel. Jamais de mélangeur électrique — il développe le gluten dans l'amidon et crée texture gluante cauchemardesque impossible à corriger. Le ratio magique: 3 parts patates, 1 part liquide/gras (crème + beurre). L'ail rôti peut se préparer d'avance et se garde 5 jours au frigo. Pour préparer purée d'avance, faire jusqu'à l'étape finale, couvrir hermétiquement surface avec pellicule plastique touchant la purée (évite croûte), réfrigérer. Réchauffer au micro-ondes en ajoutant 2-3 c. à soupe crème chaude et remuant. Le poivre blanc est utilisé par chefs pour purée visuellement immaculée — poivre noir crée petits points noirs. Pour version ultra luxe, remplacer la moitié du beurre par crème sure ou fromage mascarpone. Congélation possible: portion individuelle, couvrir hermétiquement, congeler 2 mois. Décongeler au frigo, réchauffer avec crème. Budget: environ 2$ par portion.",
+  "note": "LA PURÉE ULTIME qui définit tous les standards. La différence entre purée maison parfaite et purée ordinaire est abyssale — texture nuageuse vs granuleuse, saveur riche vs fade, présentation soyeuse vs grumeleuse. L'ail rôti ajoute profondeur sophistiquée sans dominer. Son goût caramélisé sucré complète l'onctuosité des patates. TECHNIQUE FRANÇAISE: En France, cette purée s'appelle 'purée de pommes de terre' vs 'pommes purée' (plus rustique). La version restaurant utilise jusqu'à 50% de beurre/crème vs patates = décadence totale. Notre version est équilibrée mais toujours luxueuse. ABSORPTION DE SAUCE: Une grande purée n'est pas juste un accompagnement — c'est le VÉHICULE pour sauces précieuses. La réduction au porto du carré d'agneau? Le jus de rôti? La sauce demi-glace? Tous culminent dans cette purée crémeuse. RÉCONFORT UNIVERSEL: Tous les humains de toutes cultures adorent purée de patates. C'est la nourriture réconfort par excellence — chaleur, crémosité, saveur familière rassurante. Servir cette purée = offrir un câlin culinaire."
+}

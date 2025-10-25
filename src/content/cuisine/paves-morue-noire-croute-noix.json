@@ -1,0 +1,65 @@
+{
+  "name": "Pavés de Morue Noire, Croûte de Noix et Panko",
+  "description": "Un poisson noble qui fond sous une croûte dorée et croustillante. La morue noire, aussi appelée charbonnier, cache sous sa robe sombre une chair nacrée d'une tendresse rare. La croûte de noix de Grenoble et panko crée un contraste de texture fascinant — le croquant rencontrant le fondant. Nappée d'un beurre blanc citronné simplifié, cette recette transforme un souper en tête-à-tête en moment inoubliable.",
+  "servings": {
+    "quantity": 2,
+    "unit": "portions"
+  },
+  "freezable": false,
+  "time": {
+    "prep": 15,
+    "cook": 15,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    { "subsection": "Pavés de morue" },
+    { "quantity": "2", "unit": null, "ingredient": "pavés de morue noire", "note": "environ 150-180g chacun, peau retirée" },
+    { "quantity": "60", "unit": "ml", "ingredient": "noix de Grenoble", "note": "hachées finement" },
+    { "quantity": "80", "unit": "ml", "ingredient": "chapelure panko", "note": "pour texture aérienne" },
+    { "quantity": "30", "unit": "ml", "ingredient": "parmesan fraîchement râpé", "note": null },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "persil frais ciselé", "note": null },
+    { "quantity": "1", "unit": "gousse", "ingredient": "ail", "note": "hachée très finement" },
+    { "quantity": "2", "unit": "c. à soupe", "ingredient": "beurre fondu", "note": "pour lier la croûte" },
+    { "quantity": "15", "unit": "ml", "ingredient": "moutarde de Dijon", "note": "pour adhérence" },
+    { "quantity": null, "unit": null, "ingredient": "Sel et poivre", "note": "au goût" },
+    { "quantity": "1", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": "pour la plaque" },
+    { "subsection": "Beurre blanc simplifié" },
+    { "quantity": "60", "unit": "ml", "ingredient": "vin blanc sec", "note": "ou vermouth blanc" },
+    { "quantity": "1", "unit": null, "ingredient": "échalote française", "note": "hachée finement" },
+    { "quantity": "60", "unit": "g", "ingredient": "beurre froid", "note": "coupé en cubes" },
+    { "quantity": "1", "unit": "c. à soupe", "ingredient": "jus de citron frais", "note": null },
+    { "quantity": "1", "unit": "pincée", "ingredient": "sel", "note": null }
+  ],
+  "steps": [
+    "PRÉPARATION: Préchauffer le four à 400°F (200°C). Sortir les pavés de morue du réfrigérateur 10 minutes avant la cuisson pour qu'ils atteignent température pièce. Éponger délicatement avec du papier absorbant pour retirer l'excès d'humidité — un poisson sec assure une croûte bien adhérente.",
+    "CROÛTE AUX NOIX: Dans un bol moyen, combiner les noix de Grenoble hachées, le panko, le parmesan râpé, le persil ciselé, l'ail haché et une pincée de sel et poivre. Verser le beurre fondu et mélanger avec une fourchette jusqu'à ce que le mélange soit uniformément humide et légèrement collant — comme du sable mouillé.",
+    "ASTUCE TEXTURE: Les noix apportent richesse et saveur terreuse, le panko crée cette légèreté aérienne qui croustille sans être lourde, et le parmesan lie le tout en ajoutant umami. Cette trinité crée une croûte inoubliable.",
+    "PRÉPARATION DES PAVÉS: Huiler légèrement une plaque de cuisson tapissée de papier parchemin. Déposer les pavés de morue et assaisonner chaque côté de sel et poivre. Badigeonner généreusement le dessus de chaque pavé avec la moutarde de Dijon — cette fine couche agit comme colle pour la croûte.",
+    "APPLICATION DE LA CROÛTE: Presser fermement le mélange de noix et panko sur le dessus de chaque pavé en créant une couche uniforme d'environ 1 cm d'épaisseur. Tasser doucement avec les mains pour que ça tienne bien. Ne pas couvrir les côtés — seulement le dessus.",
+    "CUISSON AU FOUR: Enfourner la plaque sur la grille du milieu et cuire 12-15 minutes. La morue noire est cuite lorsqu'elle se défait facilement à la fourchette et que la chair est opaque. La croûte doit être dorée et croustillante. NE PAS surcuire — la morue noire est à son meilleur légèrement nacrée au centre.",
+    "TEST DE CUISSON: Insérer délicatement un couteau au centre du pavé — il doit glisser sans résistance dans la chair tendre. Si vous rencontrez de la fermeté, cuire 2-3 minutes de plus. La température interne idéale est 135-140°F (57-60°C).",
+    "PENDANT CE TEMPS - BEURRE BLANC: Dans une petite casserole, combiner le vin blanc et l'échalote hachée. Porter à ébullition à feu moyen-vif, puis réduire à feu doux et laisser mijoter 3-4 minutes jusqu'à ce qu'il ne reste qu'environ 2 c. à soupe de liquide (réduction de 75%).",
+    "MONTAGE DU BEURRE: Retirer du feu. Ajouter les cubes de beurre froid un à la fois en fouettant constamment jusqu'à émulsion crémeuse et onctueuse. Le beurre doit fondre lentement et créer une sauce veloutée, pas se séparer en huile. Ajouter le jus de citron, goûter et ajuster sel.",
+    "ASTUCE BEURRE BLANC SANS ÉCHEC: La clé est le beurre FROID ajouté hors du feu en fouettant. Trop chaud = sauce qui se sépare. Pas assez fouetté = grumeaux de beurre. Patience et douceur créent cette sauce légendaire.",
+    "SERVICE ROMANTIQUE: Déposer chaque pavé de morue sur une assiette préchauffée. Napper délicatement de beurre blanc citronné autour du poisson (pas sur la croûte — elle perdrait son croustillant!). Garnir d'une branche de persil frais et d'une tranche de citron. Servir immédiatement accompagné d'asperges vapeur ou haricots verts fins.",
+    "ACCORD PARFAIT: Un Chardonnay légèrement boisé du Québec ou un Chablis français. La minéralité du vin épouse la délicatesse de la morue, et sa fraîcheur équilibre la richesse du beurre blanc."
+  ],
+  "serving_suggestions": [
+    "Accompagner d'asperges rôties au citron et parmesan",
+    "Servir avec pommes de terre grelots à l'aneth et beurre",
+    "Haricots verts fins sautés à l'ail font un accompagnement élégant",
+    "Riz sauvage aux champignons pour plus de substance"
+  ],
+  "mainCategory": "plat principal",
+  "categories": ["plat principal", "romantique", "spécial", "rapide"],
+  "tags": ["poisson", "croûte croustillante", "beurre blanc", "élégant", "tête-à-tête"],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/paves-morue-noire-croute-noix.png",
+  "pubDate": "2025-01-25",
+  "draft": false,
+  "ingredientIntro": "La morue noire est un trésor des eaux froides — chair blanche nacrée, texture fondante, saveur douce et légèrement beurrée. Contrairement à la morue ordinaire, elle est naturellement plus grasse et ne sèche jamais. Disponible chez les bons poissonniers québécois (parfois sous le nom 'sablefish' ou 'charbonnier noir'). Si introuvable, le flétan ou la morue charbonnière sont d'excellentes alternatives. La fraîcheur est capitale — le poisson doit sentir l'océan, pas le poisson.",
+  "tips": "Le secret d'une croûte parfaitement croustillante réside dans trois éléments: poisson bien sec (éponger généreusement), moutarde comme adhésif (jamais mayo!), et four à 400°F pile — plus bas et ça ramollit, plus chaud et ça brûle avant que le poisson soit cuit. Pour le beurre blanc, la réduction initiale du vin est CRITIQUE — elle concentre les saveurs et élimine l'acidité alcoolique. Fouetter le beurre froid hors du feu crée l'émulsion magique qui transforme beurre + vin en sauce veloutée. Si la sauce se sépare, ajoutez 1 c. à soupe d'eau froide et fouettez vigoureusement. Cette recette impressionne mais est étonnamment simple — parfaite pour cuisiner ensemble en tête-à-tête. L'un prépare le poisson, l'autre la sauce. Timing parfait: commencer le beurre blanc quand le poisson entre au four. Les deux seront prêts ensemble. Conservation: le poisson cuit avec croûte ne se réchauffe pas bien (croûte ramollit), donc préparez juste ce qu'il faut. Budget: environ 15-18$ par portion pour la morue noire de qualité — c'est un plat spécial qui le mérite.",
+  "note": "LE PLAT ROMANTIQUE qui dit 'je me suis donné la peine sans stresser'. La présentation fait restaurant gastronomique, mais la technique est accessible même aux débutants attentifs. La morue noire est un poisson noble qui pardonne — difficile à surcuire grâce à sa teneur en gras naturel. Contrairement au saumon qui peut devenir sec ou à la sole qui se défait, la morue noire reste tendre et juteuse. Le contraste de textures est ce qui rend ce plat mémorable: le croustillant satisfaisant de la croûte cède place à la chair fondante, le tout enrobé du beurre blanc soyeux. Chaque bouchée est une expérience sensorielle complète. MOMENT ENSEMBLE: Cette recette encourage la collaboration — l'un s'occupe du poisson pendant que l'autre maîtrise le beurre blanc. Vous apprenez ensemble, vous créez ensemble, vous célébrez ensemble. VALEUR NUTRITIONNELLE: Riche en oméga-3, protéines de haute qualité, et relativement faible en calories (avant le beurre blanc, évidemment!). Les noix ajoutent minéraux et bons gras. Un repas équilibré qui nourrit corps et âme. IMPRESSION GARANTIE: Servir ce plat dit 'je sais cuisiner' même si c'est votre première fois. La croûte dorée, le poisson nacré, la sauce onctueuse — c'est de la poésie comestible sur assiette. Vos convives (ou votre amour) seront éblouis."
+}
