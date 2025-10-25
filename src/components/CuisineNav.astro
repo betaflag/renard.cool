@@ -18,9 +18,9 @@ const { variant = "index", activeCategory, activeMainCategory, activeTag } = Ast
 // Get all recipes to extract categories and tags
 const allRecipes = await getCollection("cuisine");
 
-// Count recipes excluding "Petite École" for main listing
+// Count recipes excluding "Petite École" and "Camps Scout" for main listing
 const mainListingRecipes = allRecipes.filter(
-  (recipe) => recipe.data.mainCategory !== "Petite École"
+  (recipe) => recipe.data.mainCategory !== "Petite École" && recipe.data.mainCategory !== "Camps Scout"
 );
 
 // Build hierarchical category structure
@@ -92,6 +92,13 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
           Petite École
         </a>
 
+        <a
+          href="/cuisine/main/camps-scout"
+          class={`nav-link-button scout-button ${activeMainCategory === "Camps Scout" ? 'active' : ''}`}
+        >
+          🏕️ Camps Scout
+        </a>
+
         <div class="nav-dropdown" id="categoriesDropdown">
           <button class="nav-dropdown-toggle" id="categoriesToggle">
             Catégories
@@ -115,9 +122,9 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
               />
             ))}
 
-            {/* Main categories with subcategories last (alphabetically), excluding Petite École */}
+            {/* Main categories with subcategories last (alphabetically), excluding Petite École and Camps Scout */}
             {mainCategories
-              .filter((mainCat) => mainCat.name !== "Petite École")
+              .filter((mainCat) => mainCat.name !== "Petite École" && mainCat.name !== "Camps Scout")
               .map((mainCat) => (
                 <CollapsibleCategoryGroup
                   mainCategoryName={mainCat.name}
@@ -166,6 +173,12 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
       >
         <span class="item-name">Petite École</span>
       </a>
+      <a
+        href="/cuisine/main/camps-scout"
+        class={`mobile-item scout-mobile-item ${activeMainCategory === "Camps Scout" ? 'active' : ''}`}
+      >
+        <span class="item-name">🏕️ Camps Scout</span>
+      </a>
     </div>
 
     <div class="mobile-section">
@@ -186,9 +199,9 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
         </a>
       ))}
 
-      {/* Main categories with subcategories last (alphabetically), excluding Petite École */}
+      {/* Main categories with subcategories last (alphabetically), excluding Petite École and Camps Scout */}
       {mainCategories
-        .filter((mainCat) => mainCat.name !== "Petite École")
+        .filter((mainCat) => mainCat.name !== "Petite École" && mainCat.name !== "Camps Scout")
         .map((mainCat) => {
           const mobileGroupId = `mobile-category-group-${slugify(mainCat.name)}`;
           return (
@@ -831,6 +844,19 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     .nav-back-link {
       display: none;
     }
+  }
+
+  /* Scout button styling */
+  .nav-link-button.scout-button {
+    background: linear-gradient(135deg, rgba(45, 80, 22, 0.04) 0%, rgba(74, 124, 37, 0.06) 100%);
+    border-color: rgba(74, 124, 37, 0.25);
+  }
+
+  .nav-link-button.scout-button:hover,
+  .nav-link-button.scout-button.active {
+    background: linear-gradient(135deg, rgba(45, 80, 22, 0.08) 0%, rgba(74, 124, 37, 0.12) 100%);
+    border-color: rgba(74, 124, 37, 0.5);
+    color: #2d5016;
   }
 
   @media print {

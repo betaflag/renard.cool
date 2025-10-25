@@ -67,6 +67,8 @@ const cuisine = defineCollection({
     tips: z.string().optional(),
     ingredientIntro: z.string().optional(),
     note: z.string().optional(),
+    scoutCount: z.number().optional(),
+    scoutContext: z.array(z.enum(['feu de camp', 'bivouac', 'cuisine extérieure', 'matériel minimal', 'grandes portions', 'préparation rapide'])).optional(),
   }),
 });
 

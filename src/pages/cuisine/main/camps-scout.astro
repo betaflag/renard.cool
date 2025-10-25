@@ -1,0 +1,198 @@
+---
+import { getCollection } from "astro:content";
+import CuisineLayout from "../../../layouts/CuisineLayout.astro";
+import CuisineNav from "../../../components/CuisineNav.astro";
+import RecipesListing from "../../../components/RecipesListing.astro";
+
+// Get all Camps Scout recipes
+const allRecipes = (await getCollection("cuisine"))
+  .filter((recipe) => recipe.data.mainCategory === "Camps Scout")
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  );
+
+// Ensure first recipe (featured) is not a draft
+const nonDraftRecipes = allRecipes.filter((recipe) => !recipe.data.draft);
+const draftRecipes = allRecipes.filter((recipe) => recipe.data.draft);
+const recipes = [...nonDraftRecipes, ...draftRecipes];
+---
+
+<CuisineLayout
+  title="Camps Scout | Renardo Cuisine"
+  description="Recettes pour les camps de scouts et sorties en nature"
+>
+  <CuisineNav variant="index" activeMainCategory="Camps Scout" />
+
+  <main class="scout-main">
+    <div class="header-section">
+      <div class="breadcrumb">
+        <a href="/">Accueil</a>
+        <span class="separator">›</span>
+        <a href="/cuisine">Cuisine</a>
+        <span class="separator">›</span>
+        <span class="current">Camps Scout</span>
+      </div>
+
+      <h1 class="page-title">
+        <span class="scout-icon">🏕️</span>
+        <span class="accent">Camps Scout</span>
+      </h1>
+      <p class="subtitle">Recettes pour aventures en plein air</p>
+      <p class="scout-description">
+        Des recettes robustes et savoureuses, pensées pour les camps de scouts et les sorties en nature. Parfaites pour cuisiner en grand groupe avec du matériel minimal.
+      </p>
+    </div>
+
+    <RecipesListing recipes={recipes} />
+  </main>
+
+  <style>
+    .scout-main {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(to bottom, rgba(20, 30, 20, 0.02) 0%, transparent 400px);
+    }
+
+    .header-section {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 2px solid rgba(139, 69, 19, 0.25);
+      animation: fadeInUp 0.8s ease-out;
+      position: relative;
+    }
+
+    .header-section::after {
+      content: "🔥";
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      background: #faf8f3;
+      padding: 0 1rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .breadcrumb a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: #d35400;
+    }
+
+    .breadcrumb .separator {
+      color: #999;
+    }
+
+    .breadcrumb .current {
+      color: #5a4a3a;
+      font-weight: 600;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #2c2c2c;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .scout-icon {
+      font-size: 0.8em;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .accent {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c25 50%, #2d5016 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: italic;
+      display: inline-block;
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: #5a4a3a;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.02em;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .scout-description {
+      font-size: 1rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .scout-main {
+        padding: 5.5rem 1.25rem 3rem;
+      }
+
+      .header-section {
+        margin-bottom: 3rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .breadcrumb {
+        font-size: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .page-title {
+        font-size: clamp(2.25rem, 10vw, 3rem);
+        margin-bottom: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .scout-description {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</CuisineLayout>

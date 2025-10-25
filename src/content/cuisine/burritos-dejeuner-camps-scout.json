@@ -1,0 +1,63 @@
+{
+  "name": "Burritos Déjeuner Préparés d'Avance",
+  "description": "Le secret des matins sans stress au camp! Ces burritos se préparent entièrement à la maison, se congèlent, et se réchauffent au four pendant que les castors s'habillent. Œufs, saucisses, fromage et pommes de terre dans une tortilla moelleuse. Testé avec succès pour 28 enfants!",
+  "servings": {
+    "quantity": 22,
+    "unit": "burritos"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 90,
+    "cook": 25,
+    "wait": 0,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    { "subsection": "Garniture (à préparer à la maison)" },
+    { "quantity": "36", "unit": null, "ingredient": "gros œufs", "note": "3 douzaines" },
+    { "quantity": "900", "unit": "g", "ingredient": "saucisses déjeuner", "note": "ou bacon" },
+    { "quantity": "1,5", "unit": "kg", "ingredient": "pommes de terre rissolées surgelées", "note": null },
+    { "quantity": "700", "unit": "g", "ingredient": "fromage cheddar fort râpé", "note": null },
+    { "quantity": "2", "unit": null, "ingredient": "poivrons (rouge et vert) en dés", "note": null },
+    { "quantity": "1", "unit": null, "ingredient": "gros oignon haché", "note": null },
+    { "quantity": "250", "unit": "ml", "ingredient": "lait ou crème 15%", "note": null },
+    { "quantity": "2", "unit": "c. à thé", "ingredient": "sel", "note": null },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "poivre noir", "note": null },
+    { "quantity": "1", "unit": "c. à thé", "ingredient": "poudre d'ail", "note": null },
+    { "subsection": "Assemblage" },
+    { "quantity": "22", "unit": null, "ingredient": "grandes tortillas", "note": "12 pouces / 30 cm" },
+    { "quantity": "22", "unit": "feuilles", "ingredient": "papier parchemin", "note": "30 cm x 30 cm" },
+    { "quantity": "2", "unit": "rouleaux", "ingredient": "papier d'aluminium résistant", "note": null }
+  ],
+  "steps": [
+    "À LA MAISON - Cuire les saucisses: Préchauffer le four à 400°F. Disposer les saucisses sur 2 plaques et cuire 20 minutes en retournant à mi-cuisson. Éponger le gras, couper en rondelles de 1 cm. Laisser refroidir complètement.",
+    "Cuire les pommes de terre: Dans une très grande poêle avec 3 c. à soupe d'huile, faire dorer les pommes de terre rissolées 12-15 minutes. Saler, poivrer. Transférer dans un bol et laisser refroidir complètement.",
+    "Cuire les légumes: Dans la même poêle avec 2 c. à soupe d'huile, faire revenir les oignons 3 minutes, puis ajouter les poivrons et cuire 5 minutes. Laisser refroidir complètement.",
+    "Œufs brouillés: Cuire par batches de 12 œufs. Fouetter 12 œufs avec 85 ml de lait, sel et poivre. Dans une poêle avec 2 c. à soupe de beurre à feu moyen-doux, cuire en brassant constamment jusqu'à LÉGÈREMENT baveux (pas complètement cuits - ils finiront au réchauffage). Répéter 2 fois pour les 24 œufs restants.",
+    "Refroidissement rapide: Étendre les œufs sur une grande plaque et réfrigérer 30 minutes. CRUCIAL pour éviter les burritos détrempés!",
+    "Assemblage: Réchauffer chaque tortilla 10 secondes au micro-ondes. Au centre, disposer en couches: 3 c. à soupe pommes de terre, 2 c. à soupe légumes, ½ tasse œufs, 4-5 rondelles saucisse, ¼ tasse fromage.",
+    "Roulage: Plier les côtés gauche et droit vers le centre (2-3 cm), puis rouler fermement du bas vers le haut. Enrouler serré dans papier parchemin, puis DOUBLE épaisseur d'aluminium. Identifier avec marqueur.",
+    "Congélation: Disposer sur plaque (pas superposés) et pré-congeler 1-2 heures. Transférer dans grands sacs Ziploc, chasser l'air, étiqueter. Se conservent 1 mois au congélateur.",
+    "AU CAMP - Matin du repas: Préchauffer le four à 350°F. Disposer les burritos emballés sur 3-4 plaques.",
+    "Cuisson au four: CONGELÉS: 35-40 minutes. DÉGELÉS: 20-25 minutes. Retourner à mi-cuisson. Le centre doit être très chaud (165°F/74°C).",
+    "Laisser reposer 5 minutes après cuisson pour redistribuer la chaleur, puis servir! Garnitures optionnelles: salsa, crème sure, sauce piquante."
+  ],
+  "serving_suggestions": [
+    "Servir avec bar de garnitures: salsa, crème sure, sauce piquante, coriandre, avocat",
+    "1 burrito par castor, prévoir 2-3 extras pour les affamés",
+    "Timeline pour déjeuner 8h00: allumer four 7h15, enfourner 7h20, servir 8h00"
+  ],
+  "mainCategory": "Camps Scout",
+  "categories": ["déjeuner", "repas préparé"],
+  "tags": ["castors", "camp", "make-ahead", "congélation", "déjeuner"],
+  "difficulty": "facile",
+  "scoutCount": 22,
+  "scoutContext": ["préparation rapide", "matériel minimal", "grandes portions"],
+  "heroImage": "/cuisine/burritos-dejeuner-camps-scout.png",
+  "pubDate": "2025-01-25",
+  "draft": false,
+  "ingredientIntro": "Tout se prépare à la maison dans le confort de votre cuisine! Au camp, vous n'avez qu'à réchauffer - aucune préparation de nourriture le matin. C'est le rêve de tout animateur: un déjeuner chaud, nutritif et copieux qui se fait tout seul pendant que vous vous occupez des castors.",
+  "tips": "SECRETS DE SUCCÈS: La clé absolue est de SOUS-CUIRE légèrement les œufs à la maison - ils finiront de cuire au réchauffage et resteront moelleux. Si vous les cuisez complètement, ils deviendront secs et caoutchouteux après congélation. Le refroidissement rapide (étendre sur plaque) est ESSENTIEL - ça évacue l'humidité et empêche les burritos détrempés. L'emballage double (parchemin + double alu) protège contre les brûlures de congélation et garde les burritos parfaits pendant 1 mois. Au camp, sortez-les du congélateur le matin du départ - ils serviront d'ice packs dans la glacière! Variantes: pour les végétariens, doublez les légumes et ajoutez des haricots noirs. Pour économiser la glacière, utilisez du lait en poudre reconstitué au camp. Les pommes de terre rissolées surgelées sont 10x plus rapides que fraîches et donnent le même résultat. Astuce pro: faites-en 30 au lieu de 22 et congelez les extras pour un prochain camp ou des déjeuners pressés à la maison. Les castors adorent pouvoir manger leur burrito en marchant si vous êtes en retard sur l'horaire. Budget: environ 4-5$ par burrito.",
+  "note": "TESTÉ AVEC 28 ENFANTS avec succès total! Cette recette a sauvé d'innombrables matins de camp. Le secret des animateurs zen: pendant que les burritos cuisent, vous pouvez superviser les castors qui se préparent. Zéro stress, zéro rush. Les burritos voyagent parfaitement bien - utilisez-les même pour les camps sans four en les réchauffant sur une grille au-dessus des braises (45-50 min, tourner souvent)."
+}
