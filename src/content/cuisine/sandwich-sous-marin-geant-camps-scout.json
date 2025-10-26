@@ -14,35 +14,162 @@
   },
   "cooking_method": "Aucune cuisson",
   "ingredients": [
-    { "subsection": "Pains" },
-    { "quantity": "3", "unit": null, "ingredient": "pains sous-marins de 24 pouces", "note": "ou 6 baguettes françaises" },
-    { "subsection": "Viandes froides (variété)" },
-    { "quantity": "600", "unit": "g", "ingredient": "jambon tranché mince", "note": null },
-    { "quantity": "600", "unit": "g", "ingredient": "dinde fumée tranchée", "note": null },
-    { "quantity": "400", "unit": "g", "ingredient": "salami ou pepperoni tranché", "note": null },
-    { "quantity": "300", "unit": "g", "ingredient": "rôti de bœuf tranché", "note": "optionnel" },
-    { "subsection": "Fromages" },
-    { "quantity": "500", "unit": "g", "ingredient": "fromage cheddar tranché", "note": null },
-    { "quantity": "400", "unit": "g", "ingredient": "fromage suisse ou provolone tranché", "note": null },
-    { "subsection": "Légumes frais" },
-    { "quantity": "1", "unit": null, "ingredient": "laitue iceberg", "note": "lavée et égouttée" },
-    { "quantity": "4", "unit": null, "ingredient": "tomates tranchées", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "oignons rouges tranchés minces", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "poivrons (rouge et vert) tranchés", "note": null },
-    { "quantity": "1", "unit": null, "ingredient": "concombre anglais tranché", "note": null },
-    { "quantity": "250", "unit": "ml", "ingredient": "cornichons à l'aneth tranchés", "note": null },
-    { "quantity": "250", "unit": "ml", "ingredient": "piments bananes marinés", "note": "optionnel" },
-    { "subsection": "Condiments et tartinades" },
-    { "quantity": "375", "unit": "ml", "ingredient": "mayonnaise", "note": null },
-    { "quantity": "250", "unit": "ml", "ingredient": "moutarde jaune", "note": null },
-    { "quantity": "250", "unit": "ml", "ingredient": "moutarde de Dijon", "note": null },
-    { "quantity": "180", "unit": "ml", "ingredient": "vinaigrette italienne", "note": null },
-    { "quantity": "125", "unit": "ml", "ingredient": "huile d'olive", "note": null },
-    { "quantity": "60", "unit": "ml", "ingredient": "vinaigre de vin rouge", "note": null },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "origan séché", "note": null },
-    { "subsection": "Accompagnements" },
-    { "quantity": "3", "unit": "grands sacs", "ingredient": "chips", "note": "variétés assorties" },
-    { "quantity": "6", "unit": null, "ingredient": "pommes", "note": "ou fruits de saison" }
+    {
+      "subsection": "Pains"
+    },
+    {
+      "quantity": "3",
+      "unit": null,
+      "ingredient": "pains sous-marins de 24 pouces",
+      "note": "ou 6 baguettes françaises"
+    },
+    {
+      "subsection": "Viandes froides (variété)"
+    },
+    {
+      "quantity": "600",
+      "unit": "g",
+      "ingredient": "jambon tranché mince",
+      "note": null
+    },
+    {
+      "quantity": "600",
+      "unit": "g",
+      "ingredient": "dinde fumée tranchée",
+      "note": null
+    },
+    {
+      "quantity": "400",
+      "unit": "g",
+      "ingredient": "salami ou pepperoni tranché",
+      "note": null
+    },
+    {
+      "quantity": "300",
+      "unit": "g",
+      "ingredient": "rôti de bœuf tranché",
+      "note": "optionnel"
+    },
+    {
+      "subsection": "Fromages"
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "fromage cheddar tranché",
+      "note": null
+    },
+    {
+      "quantity": "400",
+      "unit": "g",
+      "ingredient": "fromage suisse ou provolone tranché",
+      "note": null
+    },
+    {
+      "subsection": "Légumes frais"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "laitue iceberg",
+      "note": "lavée et égouttée"
+    },
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "tomates tranchées",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "oignons rouges tranchés minces",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "poivrons (rouge et vert) tranchés",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "concombre anglais tranché",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "cornichons à l'aneth tranchés",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "piments bananes marinés",
+      "note": "optionnel"
+    },
+    {
+      "subsection": "Condiments et tartinades"
+    },
+    {
+      "quantity": "375",
+      "unit": "ml",
+      "ingredient": "mayonnaise",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "moutarde jaune",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "moutarde de Dijon",
+      "note": null
+    },
+    {
+      "quantity": "180",
+      "unit": "ml",
+      "ingredient": "vinaigrette italienne",
+      "note": null
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "huile d'olive",
+      "note": null
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "vinaigre de vin rouge",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "origan séché",
+      "note": null
+    },
+    {
+      "subsection": "Accompagnements"
+    },
+    {
+      "quantity": "3",
+      "unit": "grands sacs",
+      "ingredient": "chips",
+      "note": "variétés assorties"
+    },
+    {
+      "quantity": "6",
+      "unit": null,
+      "ingredient": "pommes",
+      "note": "ou fruits de saison"
+    }
   ],
   "steps": [
     "PRÉPARATION 1 HEURE AVANT (ou le matin): Laver et trancher TOUS les légumes. Disposer dans des contenants séparés hermétiques et réfrigérer. Cette étape peut être faite par les animateurs pendant que les castors font une activité.",
@@ -65,16 +192,30 @@
     "Servir avec limonade ou jus pour compléter le repas pique-nique",
     "Option: couper en mini-sandwichs de 2 pouces pour collation après-midi"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["lunch", "repas participatif"],
-  "tags": ["castors", "camp", "sans cuisson", "interactif", "rapide"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "sans cuisson",
+    "interactif",
+    "rapide",
+    "lunch",
+    "repas participatif"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["matériel minimal", "préparation rapide", "grandes portions"],
+  "scoutContext": [
+    "matériel minimal",
+    "préparation rapide",
+    "grandes portions"
+  ],
   "heroImage": "/cuisine/sandwich-sous-marin-geant-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "La beauté du bar à sous-marin? Chaque castor crée SA section selon SES goûts! Les difficiles font jambon-fromage simple, les aventureux empilent 4 viandes et tous les légumes. Zéro chicane, zéro gaspillage, 100% satisfaction. Et comme c'est servi froid, aucun stress de timing de cuisson!",
   "tips": "ASTUCE #1: Préparer les légumes LE MATIN pendant que les castors déjeunent = gain de temps énorme à midi. ASTUCE #2: Ouvrir les pains SANS les couper complètement en deux - laisser une charnière d'un côté évite que le sandwich tombe en morceaux. ASTUCE #3: Les viandes et fromages tranchés minces chez le charcutier sont 10x plus faciles à empiler que les tranches épaisses pré-emballées. ASTUCE #4: Mettre la vinaigrette EN DERNIER (pas au début) évite que le pain devienne détrempé. ASTUCE #5: Les cure-dents décoratifs (avec petits drapeaux) maintiennent le sandwich fermé ET indiquent où couper! PARTICIPATION TOTALE: Chaque castor touche à SA section du sous-marin. C'est une activité de construction autant qu'un repas. Les équipes se consultent ('On met des oignons?') et développent esprit d'équipe. TIMING: Pour lunch 12h30, commencer assemblage 12h00. Photo de groupe 12h20, découpe 12h25, service 12h30. VARIANTES: Version végé facile - une section avec houmous + légumes grillés au lieu de viandes. Les castors avec allergies lait peuvent faire leur section sans fromage. ÉCONOMIE: Acheter viandes et fromages au comptoir charcuterie (trancher frais) coûte MOINS CHER que les paquets pré-emballés et c'est meilleur. Budget: environ 6-7$ par castor. PHOTO SOUVENIR: Le sous-marin géant de 6 pieds fait une PHOTO INCROYABLE pour les parents. Les castors sont super fiers!",
-  "note": "ACTIVITÉ-REPAS 2-EN-1! Ce n'est pas juste un lunch, c'est une ACTIVITÉ où les castors collaborent, créent, et mangent leur œuvre. Le concept de 'construire ensemble un sandwich géant' résonne parfaitement avec l'âge 6-8 ans qui adore les projets collectifs visuellement impressionnants. AUCUNE CUISSON = AUCUN STRESS. Idéal pour journées chaudes d'été ou quand la cuisine est occupée. FLEXIBILITÉ TOTALE: Fonctionne autant en camp avec cuisine qu'en bivouac avec glacière. Transport facile (tout se garde au frais). GESTION ALLERGIES: Les castors voient EXACTEMENT ce qui entre dans leur section. Pas de mystère, pas de stress. Un castor allergique aux produits laitiers? Sa section = sans fromage. Simple. RESTANTS: S'il reste des sections entières, elles se gardent au frigo et font un excellent souper froid. Ou couper en petits cubes pour apéro le soir! APPRENTISSAGE: Les castors apprennent assemblage méthodique, hygiène alimentaire (se laver les mains!), et travail d'équipe. Bonus pédagogique!"
+  "note": "ACTIVITÉ-REPAS 2-EN-1! Ce n'est pas juste un lunch, c'est une ACTIVITÉ où les castors collaborent, créent, et mangent leur œuvre. Le concept de 'construire ensemble un sandwich géant' résonne parfaitement avec l'âge 6-8 ans qui adore les projets collectifs visuellement impressionnants. AUCUNE CUISSON = AUCUN STRESS. Idéal pour journées chaudes d'été ou quand la cuisine est occupée. FLEXIBILITÉ TOTALE: Fonctionne autant en camp avec cuisine qu'en bivouac avec glacière. Transport facile (tout se garde au frais). GESTION ALLERGIES: Les castors voient EXACTEMENT ce qui entre dans leur section. Pas de mystère, pas de stress. Un castor allergique aux produits laitiers? Sa section = sans fromage. Simple. RESTANTS: S'il reste des sections entières, elles se gardent au frigo et font un excellent souper froid. Ou couper en petits cubes pour apéro le soir! APPRENTISSAGE: Les castors apprennent assemblage méthodique, hygiène alimentaire (se laver les mains!), et travail d'équipe. Bonus pédagogique!",
+  "cookbook": "Camps Scout"
 }

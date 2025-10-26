@@ -88,8 +88,15 @@
     "Cuire à basse température (Low) 6 à 8 heures ou à haute température (High) 3 à 4 heures.",
     "Goûter et ajuster l'assaisonnement durant la dernière heure de cuisson."
   ],
-  "categories": ["plat principal"],
-  "tags": ["américain", "réconfortant", "mijoteuse", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "américain",
+    "réconfortant",
+    "mijoteuse",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/chili-mijoteuse.png",
   "pubDate": "2025-09-28",

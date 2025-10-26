@@ -8,11 +8,11 @@ import { slugify } from "../../../lib/slugify";
 export async function getStaticPaths() {
   const allRecipes = await getCollection("cuisine");
 
-  // Extract unique categories ONLY from recipes without a mainCategory
+  // Extract unique categories ONLY from recipes without a cookbook
   // (standalone categories should not include recipes from main category groups)
   const categorySet = new Set<string>();
   allRecipes.forEach((recipe) => {
-    if (!recipe.data.mainCategory) {
+    if (!recipe.data.cookbook) {
       recipe.data.categories?.forEach((cat) => categorySet.add(cat));
     }
   });
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
       recipes: allRecipes
         .filter(
           (recipe) =>
-            !recipe.data.mainCategory &&
+            !recipe.data.cookbook &&
             recipe.data.categories?.includes(category)
         )
         .sort(

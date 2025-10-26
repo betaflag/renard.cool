@@ -14,28 +14,132 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "subsection": "Pour la pâte" },
-    { "quantity": "500", "unit": "ml", "ingredient": "farine tout-usage", "note": "pour la structure" },
-    { "quantity": "10", "unit": "ml", "ingredient": "poudre à pâte", "note": "pour la légèreté" },
-    { "quantity": "5", "unit": "ml", "ingredient": "sel", "note": null },
-    { "quantity": "125", "unit": "ml", "ingredient": "graisse végétale ou saindoux", "note": "froid, en dés" },
-    { "quantity": "175", "unit": "ml", "ingredient": "eau froide", "note": "environ" },
-    { "subsection": "Pour le ragoût" },
-    { "quantity": "500", "unit": "g", "ingredient": "bœuf à ragoût", "note": "en cubes de 2 cm" },
-    { "quantity": "500", "unit": "g", "ingredient": "porc à ragoût", "note": "en cubes de 2 cm" },
-    { "quantity": "2", "unit": null, "ingredient": "cuisses de poulet", "note": "désossées, en cubes" },
-    { "quantity": "3", "unit": null, "ingredient": "pommes de terre moyennes", "note": "en cubes de 2 cm" },
-    { "quantity": "2", "unit": null, "ingredient": "carottes", "note": "en rondelles épaisses" },
-    { "quantity": "2", "unit": null, "ingredient": "oignons moyens", "note": "hachés grossièrement" },
-    { "quantity": "2", "unit": "gousses", "ingredient": "ail", "note": "hachées" },
-    { "quantity": "750", "unit": "ml", "ingredient": "bouillon de poulet", "note": "chaud" },
-    { "quantity": "5", "unit": "ml", "ingredient": "sel", "note": null },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "poivre noir", "note": null },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "cannelle moulue", "note": "l'âme québécoise" },
-    { "quantity": "1", "unit": "ml", "ingredient": "clou de girofle moulu", "note": "la signature traditionnelle" },
-    { "quantity": "2", "unit": "feuilles", "ingredient": "laurier", "note": null },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "sarriette séchée", "note": "l'herbe des chantiers" },
-    { "quantity": "45", "unit": "ml", "ingredient": "farine", "note": "pour épaissir le bouillon" }
+    {
+      "subsection": "Pour la pâte"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "farine tout-usage",
+      "note": "pour la structure"
+    },
+    {
+      "quantity": "10",
+      "unit": "ml",
+      "ingredient": "poudre à pâte",
+      "note": "pour la légèreté"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": null
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "graisse végétale ou saindoux",
+      "note": "froid, en dés"
+    },
+    {
+      "quantity": "175",
+      "unit": "ml",
+      "ingredient": "eau froide",
+      "note": "environ"
+    },
+    {
+      "subsection": "Pour le ragoût"
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "bœuf à ragoût",
+      "note": "en cubes de 2 cm"
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "porc à ragoût",
+      "note": "en cubes de 2 cm"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "cuisses de poulet",
+      "note": "désossées, en cubes"
+    },
+    {
+      "quantity": "3",
+      "unit": null,
+      "ingredient": "pommes de terre moyennes",
+      "note": "en cubes de 2 cm"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "carottes",
+      "note": "en rondelles épaisses"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "oignons moyens",
+      "note": "hachés grossièrement"
+    },
+    {
+      "quantity": "2",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées"
+    },
+    {
+      "quantity": "750",
+      "unit": "ml",
+      "ingredient": "bouillon de poulet",
+      "note": "chaud"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": null
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "poivre noir",
+      "note": null
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "cannelle moulue",
+      "note": "l'âme québécoise"
+    },
+    {
+      "quantity": "1",
+      "unit": "ml",
+      "ingredient": "clou de girofle moulu",
+      "note": "la signature traditionnelle"
+    },
+    {
+      "quantity": "2",
+      "unit": "feuilles",
+      "ingredient": "laurier",
+      "note": null
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "sarriette séchée",
+      "note": "l'herbe des chantiers"
+    },
+    {
+      "quantity": "45",
+      "unit": "ml",
+      "ingredient": "farine",
+      "note": "pour épaissir le bouillon"
+    }
   ],
   "steps": [
     "Préparer la pâte : Dans un grand bol, mélanger la farine, la poudre à pâte et le sel. Ajouter la graisse froide en dés et travailler avec les doigts jusqu'à obtenir une texture de chapelure grossière.",
@@ -55,8 +159,20 @@
     "Un verre de vin rouge corsé sublime l'expérience",
     "Les restes sont encore meilleurs le lendemain"
   ],
-  "categories": ["plat principal", "traditionnel", "québécois", "réconfortant", "hiver"],
-  "tags": ["chantier forestier", "ragoût en étages", "pâte maison", "viandes mélangées", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "chantier forestier",
+    "ragoût en étages",
+    "pâte maison",
+    "viandes mélangées",
+    "congélation",
+    "traditionnel",
+    "québécois",
+    "réconfortant",
+    "hiver"
+  ],
   "difficulty": "moyen",
   "heroImage": "/cuisine/cipate-famille.png",
   "pubDate": "2025-10-13",

@@ -14,14 +14,54 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "quantity": "400", "unit": "g", "ingredient": "épinards frais", "note": "ou 300g surgelés décongelés" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "beurre", "note": null },
-    { "quantity": "1", "unit": null, "ingredient": "échalote française", "note": "hachée finement" },
-    { "quantity": "1", "unit": "gousse", "ingredient": "ail", "note": "hachée finement" },
-    { "quantity": "125", "unit": "ml", "ingredient": "crème 35%", "note": null },
-    { "quantity": "1", "unit": "pincée généreuse", "ingredient": "muscade", "note": "fraîchement râpée" },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre blanc", "note": "au goût" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "parmesan râpé", "note": "optionnel" }
+    {
+      "quantity": "400",
+      "unit": "g",
+      "ingredient": "épinards frais",
+      "note": "ou 300g surgelés décongelés"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "beurre",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "échalote française",
+      "note": "hachée finement"
+    },
+    {
+      "quantity": "1",
+      "unit": "gousse",
+      "ingredient": "ail",
+      "note": "hachée finement"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "crème 35%",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "pincée généreuse",
+      "ingredient": "muscade",
+      "note": "fraîchement râpée"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre blanc",
+      "note": "au goût"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "parmesan râpé",
+      "note": "optionnel"
+    }
   ],
   "steps": [
     "PRÉPARATION ÉPINARDS FRAIS: Si utilisant épinards frais, retirer les grosses tiges dures. Laver dans plusieurs eaux froides pour éliminer sable/terre. Essorer dans essoreuse à salade ou éponger — pas besoin d'être complètement secs. Si utilisant surgelés, décongeler et presser FORTEMENT pour extraire TOUTE l'eau (sinon sauce aqueuse).",
@@ -40,14 +80,24 @@
     "Excellent comme lit pour œufs pochés (brunch élégant)",
     "Base idéale pour lasagne ou cannelloni"
   ],
-  "mainCategory": "accompagnement",
-  "categories": ["accompagnement", "rapide", "français"],
-  "tags": ["épinards", "crème", "muscade", "vert", "bistro"],
+  "categories": [
+    "accompagnement"
+  ],
+  "tags": [
+    "épinards",
+    "crème",
+    "muscade",
+    "vert",
+    "bistro",
+    "rapide",
+    "français"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/epinards-cremeux-muscade.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Les épinards frais sont TOUJOURS meilleurs — saveur plus douce, couleur plus vibrante. Mais épinards surgelés fonctionnent parfaitement si bien égouttés (pressez FORT!). Les 'baby spinach' tendres sont idéaux — pas besoin de retirer tiges. Éviter épinards en conserve (texture pâteuse, goût métallique). La muscade DOIT être fraîchement râpée d'une noix entière — la pré-moulue n'a aucune de cette chaleur aromatique magique. Crème 35% crée richesse; 15% sera aqueuse.",
   "tips": "Le secret d'épinards crémeux restaurant = flétrissage rapide (préserve couleur verte), égouttage complet (sauce pas aqueuse), crème ajoutée à la fin (enrobe sans diluer), et muscade généreuse. Les épinards frais réduisent de 90% — ce qui semble montagne devient bouchée. Pour 2 personnes, 400g frais = quantité parfaite finale. Si épinards surgelés, l'égouttage est CRITIQUE — placer dans linge propre et tordre comme essoreuse jusqu'à sec. Eau restante = sauce qui ne épaissira jamais. La muscade a affinité naturelle avec épinards (et tous légumes verts crémeux) — elle révèle leur douceur cachée. Trop de muscade = goût savonneux, juste assez = magie. Pour version allégée, remplacer moitié crème par lait (toujours bon). Ces épinards se préparent MAX 1h d'avance et se réchauffent doucement (ajouter 1 c. à soupe crème). Congélation possible: portions hermétiques, 2 mois, décongeler au frigo, réchauffer doucement. Budget: environ 2$ par portion (épinards frais) ou 1$ (surgelés).",
-  "note": "L'ACCOMPAGNEMENT BISTRO qui prouve que simple = sophistiqué. Cette recette vient de la cuisine française classique où épinards à la crème apparaissent dans TOUS les menus. La version restaurant peut contenir jusqu'à 1 tasse de crème pour 2 portions — pure décadence. Notre version est équilibrée mais toujours luxueuse. TRANSFORMATION VISUELLE: Épinards crus = feuilles vertes ordinaires. Épinards flétris crémeux = émeraude soyeux qui fait saliver. La couleur vibrante contre sauce ivoire = présentation de magazine. POLYVALENCE TOTALE: Ces épinards accompagnent TOUT. Poissons délicats bénéficient du contraste terrestre, viandes rouges de la verdure équilibrante. Œufs pochés sur lit d'épinards crémeux = brunch de rêve. NUTRITION CACHÉE: Malgré la crème, c'est nutritif! Épinards = fer, vitamines A/C/K, antioxydants, fibres. Un des légumes les plus denses nutritionnellement. La crème aide même absorber vitamines liposolubles. FACILITÉ EXTRÊME: 10 minutes top chrono. Parfait pour soirs de semaine quand vous voulez accompagnement élégant sans stress. Mise en place simple, cuisson rapide, résultat impressionnant. COMPARAISON: Épinards crémeux de restaurant = 8-12$ comme accompagnement. Version maison = 2$ et meilleure car fraîche. Vous économisez ET mangez mieux."
+  "note": "L'ACCOMPAGNEMENT BISTRO qui prouve que simple = sophistiqué. Cette recette vient de la cuisine française classique où épinards à la crème apparaissent dans TOUS les menus. La version restaurant peut contenir jusqu'à 1 tasse de crème pour 2 portions — pure décadence. Notre version est équilibrée mais toujours luxueuse. TRANSFORMATION VISUELLE: Épinards crus = feuilles vertes ordinaires. Épinards flétris crémeux = émeraude soyeux qui fait saliver. La couleur vibrante contre sauce ivoire = présentation de magazine. POLYVALENCE TOTALE: Ces épinards accompagnent TOUT. Poissons délicats bénéficient du contraste terrestre, viandes rouges de la verdure équilibrante. Œufs pochés sur lit d'épinards crémeux = brunch de rêve. NUTRITION CACHÉE: Malgré la crème, c'est nutritif! Épinards = fer, vitamines A/C/K, antioxydants, fibres. Un des légumes les plus denses nutritionnellement. La crème aide même absorber vitamines liposolubles. FACILITÉ EXTRÊME: 10 minutes top chrono. Parfait pour soirs de semaine quand vous voulez accompagnement élégant sans stress. Mise en place simple, cuisson rapide, résultat impressionnant. COMPARAISON: Épinards crémeux de restaurant = 8-12$ comme accompagnement. Version maison = 2$ et meilleure car fraîche. Vous économisez ET mangez mieux.",
+  "cookbook": "accompagnement"
 }

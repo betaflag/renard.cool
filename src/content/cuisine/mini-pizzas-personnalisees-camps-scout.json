@@ -14,29 +14,132 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "subsection": "Base des pizzas" },
-    { "quantity": "24", "unit": null, "ingredient": "pains pitas de 6-7 pouces", "note": "ou pitas grecs" },
-    { "quantity": "750", "unit": "ml", "ingredient": "sauce pizza", "note": "ou sauce tomate assaisonnée" },
-    { "quantity": "800", "unit": "g", "ingredient": "fromage mozzarella râpé", "note": null },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": "pour badigeonner" },
-    { "subsection": "Garnitures viandes" },
-    { "quantity": "400", "unit": "g", "ingredient": "pepperoni tranché", "note": null },
-    { "quantity": "300", "unit": "g", "ingredient": "jambon en dés", "note": null },
-    { "quantity": "250", "unit": "g", "ingredient": "saucisse italienne cuite", "note": "émiettée" },
-    { "quantity": "200", "unit": "g", "ingredient": "bacon cuit", "note": "émietté" },
-    { "subsection": "Garnitures légumes" },
-    { "quantity": "2", "unit": null, "ingredient": "poivrons (rouge et vert) en dés", "note": null },
-    { "quantity": "250", "unit": "g", "ingredient": "champignons tranchés", "note": null },
-    { "quantity": "1", "unit": null, "ingredient": "oignon rouge haché finement", "note": null },
-    { "quantity": "250", "unit": "ml", "ingredient": "olives noires tranchées", "note": null },
-    { "quantity": "250", "unit": "ml", "ingredient": "ananas en morceaux", "note": "égoutté, pour Hawaïenne" },
-    { "quantity": "2", "unit": null, "ingredient": "tomates en dés", "note": null },
-    { "quantity": "125", "unit": "ml", "ingredient": "maïs en grains", "note": "égoutté" },
-    { "subsection": "Extras et assaisonnements" },
-    { "quantity": "125", "unit": "ml", "ingredient": "parmesan râpé", "note": "pour saupoudrer" },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "origan séché", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "flocons de piment rouge", "note": "optionnel" },
-    { "quantity": "60", "unit": "ml", "ingredient": "basilic frais", "note": "pour garnir après cuisson" }
+    {
+      "subsection": "Base des pizzas"
+    },
+    {
+      "quantity": "24",
+      "unit": null,
+      "ingredient": "pains pitas de 6-7 pouces",
+      "note": "ou pitas grecs"
+    },
+    {
+      "quantity": "750",
+      "unit": "ml",
+      "ingredient": "sauce pizza",
+      "note": "ou sauce tomate assaisonnée"
+    },
+    {
+      "quantity": "800",
+      "unit": "g",
+      "ingredient": "fromage mozzarella râpé",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "huile d'olive",
+      "note": "pour badigeonner"
+    },
+    {
+      "subsection": "Garnitures viandes"
+    },
+    {
+      "quantity": "400",
+      "unit": "g",
+      "ingredient": "pepperoni tranché",
+      "note": null
+    },
+    {
+      "quantity": "300",
+      "unit": "g",
+      "ingredient": "jambon en dés",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "g",
+      "ingredient": "saucisse italienne cuite",
+      "note": "émiettée"
+    },
+    {
+      "quantity": "200",
+      "unit": "g",
+      "ingredient": "bacon cuit",
+      "note": "émietté"
+    },
+    {
+      "subsection": "Garnitures légumes"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "poivrons (rouge et vert) en dés",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "g",
+      "ingredient": "champignons tranchés",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "oignon rouge haché finement",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "olives noires tranchées",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "ananas en morceaux",
+      "note": "égoutté, pour Hawaïenne"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "tomates en dés",
+      "note": null
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "maïs en grains",
+      "note": "égoutté"
+    },
+    {
+      "subsection": "Extras et assaisonnements"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "parmesan râpé",
+      "note": "pour saupoudrer"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "origan séché",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "flocons de piment rouge",
+      "note": "optionnel"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "basilic frais",
+      "note": "pour garnir après cuisson"
+    }
   ],
   "steps": [
     "PRÉPARATION DES VIANDES (1 heure avant ou le matin): Si vous utilisez saucisse italienne crue, la cuire dans une poêle à feu moyen en l'émiettant, 8-10 minutes. Égoutter le gras. Laisser refroidir. Cuire le bacon jusqu'à croustillant, éponger sur papier absorbant, émietter.",
@@ -58,16 +161,29 @@
     "Accompagner de jus ou limonade",
     "Les pizzas refroidies font d'excellentes collations le lendemain"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["plat principal", "repas participatif"],
-  "tags": ["castors", "camp", "interactif", "rapide", "favori enfants"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "interactif",
+    "rapide",
+    "favori enfants",
+    "repas participatif"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["cuisine extérieure", "préparation rapide", "grandes portions"],
+  "scoutContext": [
+    "cuisine extérieure",
+    "préparation rapide",
+    "grandes portions"
+  ],
   "heroImage": "/cuisine/mini-pizzas-personnalisees-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Les pains pitas sont LA base parfaite pour mini pizzas - ils sont déjà ronds, pré-cuits, et deviennent ultra croustillants au four (meilleur que pâte fraîche pour enfants!). La mozzarella râpée fond uniformément et crée ce cheese pull magique que les castors adorent. Et la variété de garnitures? C'est ce qui transforme ça d'un simple souper en ACTIVITÉ créative où chaque castor devient pizzaiolo!",
   "tips": "ASTUCE #1: PITAS, pas tortillas! Les tortillas sont trop minces et deviennent molles. Les pitas de 6-7 pouces sont l'épaisseur parfaite pour base croustillante. ASTUCE #2: La sauce c'est comme la colle - trop = pizza détrempée qui ne cuit jamais. 2-3 c. à soupe MAX. Les castors veulent toujours en mettre trop, supervisez! ASTUCE #3: Fromage-garnitures-ENCORE fromage. Cette couche de fromage finale sur le top fait fondre et colle toutes les garnitures ensemble. ASTUCE #4: Couper les légumes PETITS (½ cm max) - gros morceaux tombent et cuisent inégalement. ASTUCE #5: Papier parchemin est NON-NÉGOCIABLE. Sans ça, les pizzas collent et c'est l'enfer à nettoyer. PARTICIPATION CASTORS: C'est L'ACTIVITÉ parfaite pour castors 6-8 ans. Ils peuvent tout faire eux-mêmes (sous supervision): étaler sauce, saupoudrer fromage, choisir garnitures. Seule partie pour animateurs = manipuler four chaud. COMBOS GAGNANTS découverts: 1) 'Pepperoni Classique' = sauce + mozza + pepperoni, 2) 'Hawaïenne' = jambon + ananas + mozza (controversée mais adorée!), 3) 'Végé Arc-en-ciel' = poivrons + champignons + olives + tomates, 4) 'Carnivore' = pepperoni + saucisse + bacon + jambon (pour affamés). GESTION DIFFICILES: Les castors difficiles peuvent faire pizza fromage SEULEMENT - parfaitement acceptable! Pas de pression. CUISSON PARFAITE: 425°F est la température magique - assez chaud pour croûte croustillante, mais pas trop pour brûler fromage. TIMING: Pour souper 18h00, commencer assemblage 17h15 (premiers groupes), première batch au four 17h30, service échelonné 17h40-18h15. Budget: environ 4-5$ par pizza.",
-  "note": "ACTIVITÉ-REPAS #1 demandée par les castors! Les enfants parlent des 'soirées pizza au camp' pendant des SEMAINES après. C'est fun, c'est créatif, c'est délicieux, et ça sent incroyablement bon dans tout le camp pendant la cuisson. L'odeur de pizza qui cuit = bonheur universel. APPRENTISSAGE MULTIPLE: Les castors apprennent proportions (pas trop de sauce!), choix équilibrés (viandes + légumes), créativité culinaire, patience (attendre son tour), et fierté ('J'ai fait MA pizza!'). PHOTO MOMENTS: Prenez des photos des castors tenant leurs créations avant de manger - visages concentrés pendant l'assemblage, sourires énormes en tenant la pizza finie, cheese pull épique à la première bouchée. GESTION ALLERGIES: Gluten = utiliser bases sans gluten. Lactose = fromage végétal existe (ou sauce + garnitures sans fromage). Viandes = plein d'options végé. Très adaptable! VARIANTES CRÉATIVES: 'Pizza déjeuner' = œufs brouillés + bacon + fromage, 'Pizza dessert' = Nutella + bananes + mini marshmallows (cuire 5 min seulement). RESTANTS: Les mini pizzas froides sont EXCELLENTES dans les lunchs le lendemain. Ou réchauffer 3-4 min au four = comme fraîches! COMPARAISON BUDGET: Mini pizzas maison coûtent 4-5$ chacune vs 12-15$ pour livraison. Pour 22 personnes, économie de 150-200$! SYSTÈME EFFICACE: Avec bon système de rotation (assembler-cuire-manger en parallèle), vous pouvez servir 22 pizzas chaudes en 45 minutes total. C'est rapide et efficace!"
+  "note": "ACTIVITÉ-REPAS #1 demandée par les castors! Les enfants parlent des 'soirées pizza au camp' pendant des SEMAINES après. C'est fun, c'est créatif, c'est délicieux, et ça sent incroyablement bon dans tout le camp pendant la cuisson. L'odeur de pizza qui cuit = bonheur universel. APPRENTISSAGE MULTIPLE: Les castors apprennent proportions (pas trop de sauce!), choix équilibrés (viandes + légumes), créativité culinaire, patience (attendre son tour), et fierté ('J'ai fait MA pizza!'). PHOTO MOMENTS: Prenez des photos des castors tenant leurs créations avant de manger - visages concentrés pendant l'assemblage, sourires énormes en tenant la pizza finie, cheese pull épique à la première bouchée. GESTION ALLERGIES: Gluten = utiliser bases sans gluten. Lactose = fromage végétal existe (ou sauce + garnitures sans fromage). Viandes = plein d'options végé. Très adaptable! VARIANTES CRÉATIVES: 'Pizza déjeuner' = œufs brouillés + bacon + fromage, 'Pizza dessert' = Nutella + bananes + mini marshmallows (cuire 5 min seulement). RESTANTS: Les mini pizzas froides sont EXCELLENTES dans les lunchs le lendemain. Ou réchauffer 3-4 min au four = comme fraîches! COMPARAISON BUDGET: Mini pizzas maison coûtent 4-5$ chacune vs 12-15$ pour livraison. Pour 22 personnes, économie de 150-200$! SYSTÈME EFFICACE: Avec bon système de rotation (assembler-cuire-manger en parallèle), vous pouvez servir 22 pizzas chaudes en 45 minutes total. C'est rapide et efficace!",
+  "cookbook": "Camps Scout"
 }

@@ -167,9 +167,18 @@
     "Se conserve 2 jours au réfrigérateur dans contenant hermétique",
     "Servir froid ou à température pièce"
   ],
-  "mainCategory": "Petite École",
-  "categories": ["accompagnement", "dîner", "salade"],
-  "tags": ["maternelle", "sans-cuisson", "coloré", "été", "froid"],
+  "categories": [
+    "accompagnement",
+    "salade"
+  ],
+  "tags": [
+    "maternelle",
+    "sans-cuisson",
+    "coloré",
+    "été",
+    "froid",
+    "dîner"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/salade-pates-maternelle.png",
   "pubDate": "2025-10-12",
@@ -177,5 +186,6 @@
   "variant": "maternelle",
   "ingredientIntro": "Des pâtes tricolores colorées (vert, orange, blanc) mélangées avec des légumes arc-en-ciel et du fromage! L'adulte fait TOUTE la cuisson à l'avance — les enfants font l'assemblage amusant et sécuritaire. Observer les couleurs se mélanger et créer un plat magnifique enseigne les couleurs, les textures, et le plaisir de cuisiner ensemble. Économique et nutritif!",
   "tips": "POUR LES ENSEIGNANTS ET PARENTS: Cette recette est PARFAITE pour les journées chaudes ou quand vous voulez éviter le four. Toute la cuisson est faite par l'adulte À L'AVANCE (1-2 heures avant, ou même la veille). Les enfants font l'assemblage seulement — aucun danger de brûlure! Les pâtes tricolores (naturellement colorées aux épinards et tomates) rendent le plat visuellement attrayant pour les enfants. Utilisez des pâtes COURTES faciles à mélanger: fusilli (spirales), rotini, penne, farfalle (papillons). Les légumes surgelés mélangés sont économiques, disponibles toute l'année, et pré-coupés — énorme gain de temps! Typiquement: carottes, maïs, petits pois, haricots. REFROIDIR COMPLÈTEMENT les pâtes et légumes avant l'activité — sinon la vinaigrette ne se mélange pas bien et ça colle. Rincer à l'eau froide accélère le refroidissement. Coupez les tomates cerises en 2 pour éviter risque d'étouffement. Les enfants de 5-6 ans peuvent aider à couper avec couteaux en plastique sécuritaires (supervision). Variante VÉGÉTARIENNE: ajouter pois chiches en conserve (rincés) pour protéines au lieu de fromage. Vocabulaire à enseigner: tricolore, refroidir, égoutter, vinaigrette, mélanger délicatement, salade froide. Mélanger avec DEUX grandes cuillères (une dans chaque main) est plus efficace et les enfants adorent la coordination! Cette recette enseigne: couleurs (tricolore), température (chaud → froid), transformation, et assemblage créatif. Budget: Environ 15-20$ pour 20 portions (très économique!). PERSONNALISATION: Ajoutez d'autres ingrédients selon préférences: olives, concombres, poivrons, pepperoni, thon. Chaque enfant peut personnaliser sa portion. La salade se conserve 2 jours au réfrigérateur — parfaite pour préparer la veille d'un événement scolaire. Ne se congèle PAS bien (les pâtes deviennent molles).",
-  "note": "SÉCURITÉ: Aucune cuisson par les enfants — activité 100% sécuritaire. Toute la cuisson est faite par l'adulte à l'avance. Vérifier allergies: gluten (pâtes), lactose (fromage). Tomates cerises coupées en 2 pour éviter risque d'étouffement. Supervision lors du mélange pour éviter renversements. Les pâtes et légumes doivent être COMPLÈTEMENT FROIDS avant que les enfants manipulent."
+  "note": "SÉCURITÉ: Aucune cuisson par les enfants — activité 100% sécuritaire. Toute la cuisson est faite par l'adulte à l'avance. Vérifier allergies: gluten (pâtes), lactose (fromage). Tomates cerises coupées en 2 pour éviter risque d'étouffement. Supervision lors du mélange pour éviter renversements. Les pâtes et légumes doivent être COMPLÈTEMENT FROIDS avant que les enfants manipulent.",
+  "cookbook": "Petite École"
 }

@@ -14,24 +14,111 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "quantity": "1", "unit": "kg", "ingredient": "bœuf à braiser", "note": "cubes de 4 cm (palette ou macreuse)" },
-    { "quantity": "400", "unit": "g", "ingredient": "champignons mélangés", "note": "shiitake, cremini, pleurotes" },
-    { "quantity": "3", "unit": null, "ingredient": "carottes", "note": "coupées en rondelles épaisses" },
-    { "quantity": "2", "unit": null, "ingredient": "oignons jaunes", "note": "coupés en quartiers" },
-    { "quantity": "4", "unit": "gousses", "ingredient": "ail", "note": "écrasées" },
-    { "quantity": "45", "unit": "ml", "ingredient": "farine tout usage", "note": "pour enrober" },
-    { "quantity": "500", "unit": "ml", "ingredient": "vin rouge corsé", "note": "Côtes-du-Rhône ou Cabernet" },
-    { "quantity": "250", "unit": "ml", "ingredient": "bouillon de bœuf", "note": "de qualité" },
-    { "quantity": "30", "unit": "ml", "ingredient": "pâte de tomate", "note": "concentrée" },
-    { "quantity": "3", "unit": "branches", "ingredient": "thym frais", "note": "l'âme de l'automne" },
-    { "quantity": "2", "unit": "feuilles", "ingredient": "laurier", "note": "pour la profondeur" },
-    { "quantity": "1", "unit": "branche", "ingredient": "romarin frais", "note": "parfum des bois" },
-    { "quantity": "45", "unit": "ml", "ingredient": "huile d'olive", "note": "divisée" },
-    { "quantity": "15", "unit": "ml", "ingredient": "beurre", "note": "pour les champignons" },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre noir", "note": "fraîchement moulu" },
-    { "subsection": "Pour garnir" },
-    { "quantity": null, "unit": null, "ingredient": "Persil frais", "note": "ciselé généreusement" },
-    { "quantity": null, "unit": null, "ingredient": "Croûtons de pain", "note": "frottés à l'ail (facultatif)" }
+    {
+      "quantity": "1",
+      "unit": "kg",
+      "ingredient": "bœuf à braiser",
+      "note": "cubes de 4 cm (palette ou macreuse)"
+    },
+    {
+      "quantity": "400",
+      "unit": "g",
+      "ingredient": "champignons mélangés",
+      "note": "shiitake, cremini, pleurotes"
+    },
+    {
+      "quantity": "3",
+      "unit": null,
+      "ingredient": "carottes",
+      "note": "coupées en rondelles épaisses"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "oignons jaunes",
+      "note": "coupés en quartiers"
+    },
+    {
+      "quantity": "4",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "écrasées"
+    },
+    {
+      "quantity": "45",
+      "unit": "ml",
+      "ingredient": "farine tout usage",
+      "note": "pour enrober"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "vin rouge corsé",
+      "note": "Côtes-du-Rhône ou Cabernet"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "bouillon de bœuf",
+      "note": "de qualité"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "pâte de tomate",
+      "note": "concentrée"
+    },
+    {
+      "quantity": "3",
+      "unit": "branches",
+      "ingredient": "thym frais",
+      "note": "l'âme de l'automne"
+    },
+    {
+      "quantity": "2",
+      "unit": "feuilles",
+      "ingredient": "laurier",
+      "note": "pour la profondeur"
+    },
+    {
+      "quantity": "1",
+      "unit": "branche",
+      "ingredient": "romarin frais",
+      "note": "parfum des bois"
+    },
+    {
+      "quantity": "45",
+      "unit": "ml",
+      "ingredient": "huile d'olive",
+      "note": "divisée"
+    },
+    {
+      "quantity": "15",
+      "unit": "ml",
+      "ingredient": "beurre",
+      "note": "pour les champignons"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre noir",
+      "note": "fraîchement moulu"
+    },
+    {
+      "subsection": "Pour garnir"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Persil frais",
+      "note": "ciselé généreusement"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Croûtons de pain",
+      "note": "frottés à l'ail (facultatif)"
+    }
   ],
   "steps": [
     "Préchauffer le four à 325°F (165°C). Éponger les cubes de bœuf avec du papier absorbant, puis assaisonner généreusement de sel et poivre.",
@@ -45,8 +132,16 @@
     "Retirer du four. Goûter et rectifier l'assaisonnement. Si la sauce est trop liquide, retirer la viande et les légumes, puis réduire la sauce à feu vif 5-10 minutes.",
     "Servir dans des bols creux, parsemé de persil frais. Accompagner de purée de pommes de terre crémeuse, de pâtes larges ou de pain croûté pour saucer."
   ],
-  "categories": ["plat principal"],
-  "tags": ["français", "réconfortant", "automne", "four", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "français",
+    "réconfortant",
+    "automne",
+    "four",
+    "congélation"
+  ],
   "difficulty": "moyen",
   "heroImage": "/cuisine/mijote-boeuf-champignons.png",
   "pubDate": "2025-10-11",

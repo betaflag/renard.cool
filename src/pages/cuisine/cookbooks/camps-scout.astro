@@ -2,27 +2,46 @@
 import { getCollection } from "astro:content";
 import CuisineLayout from "../../../layouts/CuisineLayout.astro";
 import CuisineNav from "../../../components/CuisineNav.astro";
-import RecipesListing from "../../../components/RecipesListing.astro";
+import RecipeCard from "../../../components/RecipeCard.astro";
+import CategoryCard from "../../../components/CategoryCard.astro";
 
 // Get all Camps Scout recipes
-const allRecipes = (await getCollection("cuisine"))
-  .filter((recipe) => recipe.data.mainCategory === "Camps Scout")
+const recipes = (await getCollection("cuisine"))
+  .filter((recipe) => recipe.data.cookbook === "Camps Scout" && !recipe.data.draft)
   .sort(
     (a, b) =>
       new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
 
-// Ensure first recipe (featured) is not a draft
-const nonDraftRecipes = allRecipes.filter((recipe) => !recipe.data.draft);
-const draftRecipes = allRecipes.filter((recipe) => recipe.data.draft);
-const recipes = [...nonDraftRecipes, ...draftRecipes];
+// Split recipes into featured and recent
+const featuredRecipe = recipes[0];
+const recentRecipes = recipes.slice(1, 5);
+
+// All categories for the cards
+const allCategories = [
+  'entrée',
+  'plat principal',
+  'accompagnement',
+  'salade',
+  'dessert',
+  'collation',
+  'boisson'
+];
+
+// Calculate category counts
+const categoryCounts: Record<string, number> = {};
+allCategories.forEach((category) => {
+  categoryCounts[category] = recipes.filter((recipe) =>
+    recipe.data.categories.includes(category)
+  ).length;
+});
 ---
 
 <CuisineLayout
   title="Camps Scout | Renardo Cuisine"
   description="Recettes pour les camps de scouts et sorties en nature"
 >
-  <CuisineNav variant="index" activeMainCategory="Camps Scout" />
+  <CuisineNav variant="index" activeCookbook="Camps Scout" />
 
   <main class="scout-main">
     <div class="header-section">
@@ -44,7 +63,43 @@ const recipes = [...nonDraftRecipes, ...draftRecipes];
       </p>
     </div>
 
-    <RecipesListing recipes={recipes} />
+    {featuredRecipe && (
+      <section class="featured-section">
+        <h2 class="section-title">À la Une</h2>
+        <RecipeCard recipe={featuredRecipe} variant="featured" index={0} />
+      </section>
+    )}
+
+    {recentRecipes.length > 0 && (
+      <section class="recent-section">
+        <h2 class="section-title">Recettes Récentes</h2>
+        <div class="recent-grid">
+          {recentRecipes.map((recipe, index) => (
+            <RecipeCard recipe={recipe} variant="standard" index={index + 1} />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="categories-section">
+      <h2 class="section-title">Explorer par Catégorie</h2>
+      <div class="categories-grid">
+        {allCategories
+          .filter(category => categoryCounts[category] > 0)
+          .map((category) => (
+            <CategoryCard
+              category={category}
+              count={categoryCounts[category]}
+              cookbook="Camps Scout"
+              image={`/cuisine/categories/${
+                category === 'plat principal' ? 'plat-principal' :
+                category === 'entrée' ? 'entree' :
+                category
+              }.png`}
+            />
+          ))}
+      </div>
+    </section>
   </main>
 
   <style>
@@ -192,6 +247,95 @@ const recipes = [...nonDraftRecipes, ...draftRecipes];
 
       .scout-description {
         font-size: 0.95rem;
+      }
+    }
+
+    /* Section styles */
+    section {
+      margin-bottom: 4rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #4a7c25, transparent);
+    }
+
+    /* Featured section */
+    .featured-section {
+      margin-bottom: 5rem;
+    }
+
+    /* Recent recipes section */
+    .recent-section {
+      margin-bottom: 5rem;
+    }
+
+    .recent-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+      .recent-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .recent-grid {
+        gap: 1.5rem;
+      }
+
+      section {
+        margin-bottom: 3rem;
+      }
+
+      .featured-section,
+      .recent-section {
+        margin-bottom: 3.5rem;
+      }
+
+      .section-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    /* Categories section */
+    .categories-section {
+      margin-bottom: 3rem;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
     }
   </style>

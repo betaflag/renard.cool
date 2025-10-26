@@ -76,8 +76,15 @@
     "Une heure avant la fin de cuisson, bien remuer et rectifier l'assaisonnement.",
     "Laisser reposer 10 minutes pour que les saveurs se marient parfaitement."
   ],
-  "categories": ["plat principal"],
-  "tags": ["québécois", "traditionnel", "mijoteuse", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "québécois",
+    "traditionnel",
+    "mijoteuse",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/feves-au-lard.png",
   "pubDate": "2025-09-25",

@@ -12,10 +12,10 @@ export async function getStaticPaths() {
   const paths: any[] = [];
 
   allRecipes.forEach((recipe) => {
-    if (recipe.data.mainCategory && recipe.data.categories) {
+    if (recipe.data.cookbook && recipe.data.categories) {
       recipe.data.categories.forEach((subcategory) => {
         paths.push({
-          mainCategory: recipe.data.mainCategory,
+          cookbook: recipe.data.cookbook,
           subcategory,
         });
       });
@@ -24,27 +24,27 @@ export async function getStaticPaths() {
 
   // Deduplicate by creating a unique key
   const uniquePaths = Array.from(
-    new Set(paths.map((p) => `${p.mainCategory}|||${p.subcategory}`))
+    new Set(paths.map((p) => `${p.cookbook}|||${p.subcategory}`))
   ).map((key) => {
-    const [mainCategory, subcategory] = key.split("|||");
-    return { mainCategory, subcategory };
+    const [cookbook, subcategory] = key.split("|||");
+    return { cookbook, subcategory };
   });
 
   // Generate pages using slugified URLs
-  return uniquePaths.map(({ mainCategory, subcategory }) => ({
+  return uniquePaths.map(({ cookbook, subcategory }) => ({
     params: {
-      mainCategory: slugify(mainCategory),
+      cookbook: slugify(cookbook),
       subcategory: slugify(subcategory)
     },
     props: {
-      mainCategory,
+      cookbook,
       subcategory,
-      mainCategorySlug: slugify(mainCategory),
+      cookbookSlug: slugify(cookbook),
       subcategorySlug: slugify(subcategory),
       recipes: allRecipes
         .filter(
           (recipe) =>
-            recipe.data.mainCategory === mainCategory &&
+            recipe.data.cookbook === cookbook &&
             recipe.data.categories?.includes(subcategory)
         )
         .sort(
@@ -56,7 +56,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { mainCategory, subcategory, mainCategorySlug, subcategorySlug, recipes } = Astro.props;
+const { cookbook, subcategory, cookbookSlug, subcategorySlug, recipes } = Astro.props;
 
 // Capitalize for display
 const subcategoryDisplay =
@@ -64,12 +64,12 @@ const subcategoryDisplay =
 ---
 
 <CuisineLayout
-  title={`${mainCategory} - ${subcategoryDisplay} | Renardo Cuisine`}
-  description={`Recettes de ${subcategory} pour ${mainCategory}`}
+  title={`${cookbook} - ${subcategoryDisplay} | Renardo Cuisine`}
+  description={`Recettes de ${subcategory} pour ${cookbook}`}
 >
   <CuisineNav
     variant="index"
-    activeMainCategory={mainCategory}
+    activeCookbook={cookbook}
     activeCategory={subcategory}
   />
 
@@ -80,15 +80,15 @@ const subcategoryDisplay =
         <span class="separator">›</span>
         <a href="/cuisine">Cuisine</a>
         <span class="separator">›</span>
-        <a href={`/cuisine/main/${mainCategorySlug}`}
-          >{mainCategory}</a
+        <a href={`/cuisine/cookbooks/${cookbookSlug}`}
+          >{cookbook}</a
         >
         <span class="separator">›</span>
         <span class="current">{subcategoryDisplay}</span>
       </div>
 
       <h1 class="page-title">
-        <span class="main-cat">{mainCategory}</span>
+        <span class="main-cat">{cookbook}</span>
         <span class="separator-icon">›</span>
         <span class="accent">{subcategoryDisplay}</span>
       </h1>

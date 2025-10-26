@@ -14,14 +14,54 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "quantity": "600", "unit": "g", "ingredient": "pommes de terre Yukon Gold", "note": "environ 3-4 moyennes" },
-    { "quantity": "250", "unit": "ml", "ingredient": "crème 35%", "note": null },
-    { "quantity": "125", "unit": "ml", "ingredient": "lait entier", "note": "3,25%" },
-    { "quantity": "2", "unit": "gousses", "ingredient": "ail", "note": "hachées finement" },
-    { "quantity": "1", "unit": "pincée", "ingredient": "noix de muscade", "note": "fraîchement râpée" },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre blanc", "note": "au goût" },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "beurre", "note": "pour le plat" },
-    { "quantity": "30", "unit": "ml", "ingredient": "parmesan râpé", "note": "optionnel pour gratiner" }
+    {
+      "quantity": "600",
+      "unit": "g",
+      "ingredient": "pommes de terre Yukon Gold",
+      "note": "environ 3-4 moyennes"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "crème 35%",
+      "note": null
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "lait entier",
+      "note": "3,25%"
+    },
+    {
+      "quantity": "2",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées finement"
+    },
+    {
+      "quantity": "1",
+      "unit": "pincée",
+      "ingredient": "noix de muscade",
+      "note": "fraîchement râpée"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre blanc",
+      "note": "au goût"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "beurre",
+      "note": "pour le plat"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "parmesan râpé",
+      "note": "optionnel pour gratiner"
+    }
   ],
   "steps": [
     "PRÉPARATION: Préchauffer le four à 350°F (175°C). Frotter généreusement l'intérieur d'un petit plat à gratin (20x15 cm environ) avec la gousse d'ail coupée, puis beurrer abondamment. Cette étape parfume subtilement le plat entier.",
@@ -41,14 +81,25 @@
     "Peut être repas complet avec salade verte et jambon",
     "Se réchauffe parfaitement - certains disent meilleur le lendemain"
   ],
-  "mainCategory": "accompagnement",
-  "categories": ["accompagnement", "français", "spécial", "réconfortant"],
-  "tags": ["gratin", "pommes de terre", "crème", "ail", "gratinée"],
+  "categories": [
+    "accompagnement"
+  ],
+  "tags": [
+    "gratin",
+    "pommes de terre",
+    "crème",
+    "ail",
+    "gratinée",
+    "français",
+    "spécial",
+    "réconfortant"
+  ],
   "difficulty": "moyen",
   "heroImage": "/cuisine/gratin-dauphinois-traditionnel.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Le VRAI gratin dauphinois ne contient PAS de fromage (sauf parmesan optionnel pour gratiner) — la richesse vient de la crème pure. Les Yukon Gold sont parfaites — leur texture crémeuse naturelle fond dans la crème. La crème 35% est NON NÉGOCIABLE — 15% sera aqueuse. Le lait dilue légèrement pour éviter richesse écrasante. La muscade fraîchement râpée = touche magique qui élève tout. Ne jamais utiliser muscade pré-moulue (goût poussiéreux).",
   "tips": "Le secret absolu d'un gratin dauphinois parfait = tranches ULTRA fines et uniformes, ne PAS rincer (l'amidon lie), crème CHAUDE versée (pénètre mieux), cuisson LENTE couverte (tendreté), puis gratinage découvert (croûte). La mandoline est investissement qui change la vie pour ce plat. Tranches épaisses = cuisson inégale et texture granuleuse. Le frottage à l'ail du plat parfume subtilement sans morceaux d'ail visibles. Pour version extra riche, remplacer tout le lait par crème (décadence totale!). Pour version allégée, moitié crème + moitié lait (toujours délicieux). Le gratin se prépare ENTIÈREMENT d'avance: assembler le matin, réfrigérer couvert, cuire le soir (ajouter 10 min au temps). Se congèle après cuisson complète: portion, emballer hermétiquement, congeler 2 mois, décongeler au frigo, réchauffer à 325°F couvert. Budget: environ 3$ par portion.",
-  "note": "LE GRATIN ULTIME de la région du Dauphiné en France, où il est né il y a des siècles. Traditionnellement servi lors des festins royaux et occasions spéciales. La recette authentique ne contient QUE patates + crème + ail — pas de fromage (sauf parmesan léger pour croûte). L'ajout de fromage = 'gratin savoyard', plat différent. PATIENCE RÉCOMPENSÉE: Ce gratin demande temps (90 min total) mais 95% est cuisson passive. Vous assemblez en 20 minutes, le four fait le reste. Le résultat? Décadence qui rivalise avec restaurants 4 étoiles. REPAS D'AVANCE: Ce plat est CHAMPION du make-ahead. Préparer entièrement la veille, cuire le jour même = stress zéro. Ou cuire d'avance, réchauffer = encore meilleur car saveurs intensifiées. OCCASIONS SPÉCIALES: Servir ce gratin dit 'ce repas est important, vous êtes important'. C'est l'accompagnement de Noël, Pâques, anniversaires, ou tout événement méritant célébration. CONTRASTE TEXTURAL: Croûte gratinée croustillante vs intérieur crémeux fondant = expérience sensorielle complète. Chaque bouchée offre surprise. VALEUR CALORIQUE: Oui, c'est riche. C'est CENSÉ être riche! C'est un plat de célébration, pas quotidien. Une ou deux fois par an, cette décadence est méritée et mémorable."
+  "note": "LE GRATIN ULTIME de la région du Dauphiné en France, où il est né il y a des siècles. Traditionnellement servi lors des festins royaux et occasions spéciales. La recette authentique ne contient QUE patates + crème + ail — pas de fromage (sauf parmesan léger pour croûte). L'ajout de fromage = 'gratin savoyard', plat différent. PATIENCE RÉCOMPENSÉE: Ce gratin demande temps (90 min total) mais 95% est cuisson passive. Vous assemblez en 20 minutes, le four fait le reste. Le résultat? Décadence qui rivalise avec restaurants 4 étoiles. REPAS D'AVANCE: Ce plat est CHAMPION du make-ahead. Préparer entièrement la veille, cuire le jour même = stress zéro. Ou cuire d'avance, réchauffer = encore meilleur car saveurs intensifiées. OCCASIONS SPÉCIALES: Servir ce gratin dit 'ce repas est important, vous êtes important'. C'est l'accompagnement de Noël, Pâques, anniversaires, ou tout événement méritant célébration. CONTRASTE TEXTURAL: Croûte gratinée croustillante vs intérieur crémeux fondant = expérience sensorielle complète. Chaque bouchée offre surprise. VALEUR CALORIQUE: Oui, c'est riche. C'est CENSÉ être riche! C'est un plat de célébration, pas quotidien. Une ou deux fois par an, cette décadence est méritée et mémorable.",
+  "cookbook": "accompagnement"
 }

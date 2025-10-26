@@ -14,33 +14,150 @@
   },
   "cooking_method": "Aucune cuisson",
   "ingredients": [
-    { "subsection": "Yogourt (base crémeuse)" },
-    { "quantity": "4", "unit": "kg", "ingredient": "yogourt grec nature", "note": "2-3% gras" },
-    { "quantity": "2", "unit": "kg", "ingredient": "yogourt vanille", "note": "pour ceux qui aiment plus sucré" },
-    { "subsection": "Granola (croustillant essentiel)" },
-    { "quantity": "1,5", "unit": "kg", "ingredient": "granola miel et avoine", "note": null },
-    { "quantity": "500", "unit": "g", "ingredient": "granola chocolat", "note": "optionnel, pour variété" },
-    { "subsection": "Fruits frais (couleurs et vitamines)" },
-    { "quantity": "1", "unit": "kg", "ingredient": "fraises fraîches", "note": "équeutées et tranchées" },
-    { "quantity": "500", "unit": "g", "ingredient": "bleuets frais", "note": null },
-    { "quantity": "4", "unit": null, "ingredient": "bananes", "note": "trancher le matin même" },
-    { "quantity": "500", "unit": "g", "ingredient": "raisins sans pépins", "note": "coupés en deux" },
-    { "quantity": "2", "unit": null, "ingredient": "mangues", "note": "en cubes, optionnel" },
-    { "quantity": "3", "unit": null, "ingredient": "kiwis", "note": "pelés et tranchés, optionnel" },
-    { "subsection": "Fruits séchés (backup ou variété)" },
-    { "quantity": "250", "unit": "g", "ingredient": "canneberges séchées", "note": null },
-    { "quantity": "250", "unit": "g", "ingredient": "raisins secs", "note": null },
-    { "subsection": "Extras et garnitures" },
-    { "quantity": "500", "unit": "ml", "ingredient": "miel liquide", "note": "dans bouteille squeezable" },
-    { "quantity": "250", "unit": "ml", "ingredient": "sirop d'érable", "note": "optionnel" },
-    { "quantity": "250", "unit": "g", "ingredient": "noix hachées", "note": "amandes, noix de Grenoble" },
-    { "quantity": "180", "unit": "ml", "ingredient": "pépites de chocolat noir", "note": "pour les gourmands" },
-    { "quantity": "125", "unit": "ml", "ingredient": "graines de chia", "note": "super aliment" },
-    { "quantity": "125", "unit": "ml", "ingredient": "noix de coco râpée", "note": null },
-    { "subsection": "Service" },
-    { "quantity": "24", "unit": null, "ingredient": "verres ou bols transparents", "note": "pour voir les couches" },
-    { "quantity": "24", "unit": null, "ingredient": "cuillères", "note": null },
-    { "quantity": "1", "unit": "paquet", "ingredient": "serviettes de papier", "note": null }
+    {
+      "subsection": "Yogourt (base crémeuse)"
+    },
+    {
+      "quantity": "4",
+      "unit": "kg",
+      "ingredient": "yogourt grec nature",
+      "note": "2-3% gras"
+    },
+    {
+      "quantity": "2",
+      "unit": "kg",
+      "ingredient": "yogourt vanille",
+      "note": "pour ceux qui aiment plus sucré"
+    },
+    {
+      "subsection": "Granola (croustillant essentiel)"
+    },
+    {
+      "quantity": "1,5",
+      "unit": "kg",
+      "ingredient": "granola miel et avoine",
+      "note": null
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "granola chocolat",
+      "note": "optionnel, pour variété"
+    },
+    {
+      "subsection": "Fruits frais (couleurs et vitamines)"
+    },
+    {
+      "quantity": "1",
+      "unit": "kg",
+      "ingredient": "fraises fraîches",
+      "note": "équeutées et tranchées"
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "bleuets frais",
+      "note": null
+    },
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "bananes",
+      "note": "trancher le matin même"
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "raisins sans pépins",
+      "note": "coupés en deux"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "mangues",
+      "note": "en cubes, optionnel"
+    },
+    {
+      "quantity": "3",
+      "unit": null,
+      "ingredient": "kiwis",
+      "note": "pelés et tranchés, optionnel"
+    },
+    {
+      "subsection": "Fruits séchés (backup ou variété)"
+    },
+    {
+      "quantity": "250",
+      "unit": "g",
+      "ingredient": "canneberges séchées",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "g",
+      "ingredient": "raisins secs",
+      "note": null
+    },
+    {
+      "subsection": "Extras et garnitures"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "miel liquide",
+      "note": "dans bouteille squeezable"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "sirop d'érable",
+      "note": "optionnel"
+    },
+    {
+      "quantity": "250",
+      "unit": "g",
+      "ingredient": "noix hachées",
+      "note": "amandes, noix de Grenoble"
+    },
+    {
+      "quantity": "180",
+      "unit": "ml",
+      "ingredient": "pépites de chocolat noir",
+      "note": "pour les gourmands"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "graines de chia",
+      "note": "super aliment"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "noix de coco râpée",
+      "note": null
+    },
+    {
+      "subsection": "Service"
+    },
+    {
+      "quantity": "24",
+      "unit": null,
+      "ingredient": "verres ou bols transparents",
+      "note": "pour voir les couches"
+    },
+    {
+      "quantity": "24",
+      "unit": null,
+      "ingredient": "cuillères",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "paquet",
+      "ingredient": "serviettes de papier",
+      "note": null
+    }
   ],
   "steps": [
     "PRÉPARATION DES FRUITS (le matin, 20 min avant service): Laver tous les fruits frais à l'eau froide. Bien égoutter. Équeutez et trancher les fraises en quartiers. Couper les bananes en rondelles (faire à la dernière minute pour éviter brunissement).",
@@ -62,16 +179,30 @@
     "Parfait pour matins de départ de camp (rapide, pas de vaisselle)",
     "Option: ajouter beurre d'arachide en drizzle pour protéines extra"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["déjeuner", "repas participatif"],
-  "tags": ["castors", "camp", "santé", "sans cuisson", "rapide"],
+  "categories": [
+    "collation"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "santé",
+    "sans cuisson",
+    "rapide",
+    "déjeuner",
+    "repas participatif"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["matériel minimal", "préparation rapide", "grandes portions"],
+  "scoutContext": [
+    "matériel minimal",
+    "préparation rapide",
+    "grandes portions"
+  ],
   "heroImage": "/cuisine/yogourt-parfait-bar-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Le yogourt grec apporte protéines et calcium pour énergiser les castors toute la matinée. Le granola donne fibres et croustillant satisfaisant. Les fruits frais = vitamines et couleurs. Et le miel? C'est la touche de douceur naturelle qui fait que même les castors difficiles mangent tout. Un déjeuner équilibré déguisé en activité fun!",
   "tips": "ASTUCE #1: Verres transparents sont ESSENTIELS - voir les belles couches colorées fait partie de l'expérience! Verres en plastique réutilisables (type Solo cups transparents) fonctionnent parfaitement. ASTUCE #2: Couper bananes À LA DERNIÈRE MINUTE sinon elles brunissent et deviennent peu appétissantes. 5 minutes avant service max. ASTUCE #3: Yogourt grec nature + un peu de miel mélangé = meilleur que yogourt vanille commercial (moins de sucre ajouté). Mais avoir les 2 options plaît à tous. ASTUCE #4: Le granola DOIT être ajouté juste avant de manger - si assemblé 10+ minutes d'avance, il ramollit et perd son crunch magique. C'est pourquoi on ne peut pas pré-assembler. ASTUCE #5: Bouteilles squeezable de miel sont 100x plus pratiques que pots avec cuillère - pas de sticky mess partout! ALLERGIES: Les noix dans section SÉPARÉE avec panneau clair. Castors allergiques utilisent cuillères dédiées. Options sans noix: graines de citrouille, graines de tournesol. Le granola sans noix existe aussi. ÉCONOMIE: Acheter yogourt en formats 750g-1kg coûte 40% moins cher que petits pots individuels. Les fruits de saison sont plus abordables - adapter selon disponibilité (pêches en été, pommes en automne). Budget: environ 3-4$ par parfait. PARTICIPATION CASTORS: Chaque castor construit SON parfait selon SES goûts. Les difficiles? Yogourt + granola seulement. Les aventureux? 8 sortes de fruits + tous les extras! Zéro chicane. VARIANTES: Version dessert le soir - même concept mais avec yogourt glacé si vous avez congélateur!",
-  "note": "L'OPTION SANTÉ que les castors adorent sans réaliser que c'est santé! Les parents sont ravis que leurs enfants mangent yogourt-fruits-granola au lieu de céréales sucrées. Les animateurs sont ravis qu'il n'y a RIEN à cuire et que le nettoyage est minimal (juste rincer les bols). Tout le monde gagne! RAPIDITÉ INCROYABLE: De l'installation au service complet = 20 minutes max. Pour déjeuner 8h00, commencer setup 7h40, service 7h50, fini de manger 8h15, nettoyage 8h25. Vous êtes prêts pour les activités de la journée! ACTIVITÉ CRÉATIVE: Les castors de 6-8 ans ADORENT assembler leurs parfaits en couches. C'est comme construire une tour colorée qu'ils peuvent ensuite manger. Certains passent 10 minutes à créer des patterns arc-en-ciel parfaits - c'est mignon! APPRENTISSAGE NUTRITION: Opportunité d'enseigner les groupes alimentaires: protéines (yogourt), grains (granola), fruits (vitamines). Les castors apprennent en faisant. MÉTÉO-PROOF: Fonctionne par tous les temps - pas besoin de four, cuisinière, ou feu. Parfait pour matins de pluie ou quand la cuisine est occupée pour une autre activité. TRANSPORT FACILE: Tous les ingrédients se gardent bien au frais dans glacière. Le yogourt non-ouvert se conserve 2-3 semaines. PHOTO GORGEOUS: Les parfaits en couches font de MAGNIFIQUES photos pour les parents - encouragez les castors à photographier leurs créations avant de manger! GESTION TEMPS: Version express si super pressés - pré-portionner yogourt et granola dans verres, les castors ajoutent juste fruits et miel (5 min total)."
+  "note": "L'OPTION SANTÉ que les castors adorent sans réaliser que c'est santé! Les parents sont ravis que leurs enfants mangent yogourt-fruits-granola au lieu de céréales sucrées. Les animateurs sont ravis qu'il n'y a RIEN à cuire et que le nettoyage est minimal (juste rincer les bols). Tout le monde gagne! RAPIDITÉ INCROYABLE: De l'installation au service complet = 20 minutes max. Pour déjeuner 8h00, commencer setup 7h40, service 7h50, fini de manger 8h15, nettoyage 8h25. Vous êtes prêts pour les activités de la journée! ACTIVITÉ CRÉATIVE: Les castors de 6-8 ans ADORENT assembler leurs parfaits en couches. C'est comme construire une tour colorée qu'ils peuvent ensuite manger. Certains passent 10 minutes à créer des patterns arc-en-ciel parfaits - c'est mignon! APPRENTISSAGE NUTRITION: Opportunité d'enseigner les groupes alimentaires: protéines (yogourt), grains (granola), fruits (vitamines). Les castors apprennent en faisant. MÉTÉO-PROOF: Fonctionne par tous les temps - pas besoin de four, cuisinière, ou feu. Parfait pour matins de pluie ou quand la cuisine est occupée pour une autre activité. TRANSPORT FACILE: Tous les ingrédients se gardent bien au frais dans glacière. Le yogourt non-ouvert se conserve 2-3 semaines. PHOTO GORGEOUS: Les parfaits en couches font de MAGNIFIQUES photos pour les parents - encouragez les castors à photographier leurs créations avant de manger! GESTION TEMPS: Version express si super pressés - pré-portionner yogourt et granola dans verres, les castors ajoutent juste fruits et miel (5 min total).",
+  "cookbook": "Camps Scout"
 }

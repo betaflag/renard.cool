@@ -14,36 +14,174 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "subsection": "Base du chili (préparer à la maison)" },
-    { "quantity": "2", "unit": "kg", "ingredient": "bœuf haché mi-maigre", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "gros oignons hachés", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "poivrons (rouge et vert) en dés", "note": null },
-    { "quantity": "6", "unit": "gousses", "ingredient": "ail haché", "note": null },
-    { "quantity": "3", "unit": "boîtes (796 ml)", "ingredient": "tomates en dés", "note": null },
-    { "quantity": "2", "unit": "boîtes (156 ml)", "ingredient": "pâte de tomates", "note": null },
-    { "subsection": "Haricots (triple variété)" },
-    { "quantity": "2", "unit": "boîtes (540 ml)", "ingredient": "haricots rouges", "note": "égouttés et rincés" },
-    { "quantity": "2", "unit": "boîtes (540 ml)", "ingredient": "haricots noirs", "note": "égouttés et rincés" },
-    { "quantity": "2", "unit": "boîtes (540 ml)", "ingredient": "haricots pinto", "note": "égouttés et rincés" },
-    { "subsection": "Épices et assaisonnements" },
-    { "quantity": "4", "unit": "c. à soupe", "ingredient": "poudre de chili", "note": null },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "cumin moulu", "note": null },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "paprika", "note": null },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "origan séché", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "poudre d'ail", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "flocons de piment rouge", "note": "optionnel, pour piquant" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "sucre brun", "note": "équilibre l'acidité" },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "sel", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "poivre noir", "note": null },
-    { "quantity": "500", "unit": "ml", "ingredient": "bouillon de bœuf", "note": "ou eau" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "huile végétale", "note": "pour cuisson" },
-    { "subsection": "Garnitures au camp" },
-    { "quantity": "600", "unit": "g", "ingredient": "fromage cheddar fort râpé", "note": null },
-    { "quantity": "500", "unit": "ml", "ingredient": "crème sure", "note": null },
-    { "quantity": "1", "unit": "botte", "ingredient": "oignons verts tranchés", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "limes coupées en quartiers", "note": "optionnel" },
-    { "quantity": "1", "unit": "sac", "ingredient": "chips tortillas", "note": "pour accompagnement" },
-    { "quantity": "2", "unit": "pains", "ingredient": "pain croûté ou baguettes", "note": "pour saucer" }
+    {
+      "subsection": "Base du chili (préparer à la maison)"
+    },
+    {
+      "quantity": "2",
+      "unit": "kg",
+      "ingredient": "bœuf haché mi-maigre",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "gros oignons hachés",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "poivrons (rouge et vert) en dés",
+      "note": null
+    },
+    {
+      "quantity": "6",
+      "unit": "gousses",
+      "ingredient": "ail haché",
+      "note": null
+    },
+    {
+      "quantity": "3",
+      "unit": "boîtes (796 ml)",
+      "ingredient": "tomates en dés",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes (156 ml)",
+      "ingredient": "pâte de tomates",
+      "note": null
+    },
+    {
+      "subsection": "Haricots (triple variété)"
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes (540 ml)",
+      "ingredient": "haricots rouges",
+      "note": "égouttés et rincés"
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes (540 ml)",
+      "ingredient": "haricots noirs",
+      "note": "égouttés et rincés"
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes (540 ml)",
+      "ingredient": "haricots pinto",
+      "note": "égouttés et rincés"
+    },
+    {
+      "subsection": "Épices et assaisonnements"
+    },
+    {
+      "quantity": "4",
+      "unit": "c. à soupe",
+      "ingredient": "poudre de chili",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "cumin moulu",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "paprika",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "origan séché",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "poudre d'ail",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "flocons de piment rouge",
+      "note": "optionnel, pour piquant"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "sucre brun",
+      "note": "équilibre l'acidité"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "sel",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "poivre noir",
+      "note": null
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "bouillon de bœuf",
+      "note": "ou eau"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "huile végétale",
+      "note": "pour cuisson"
+    },
+    {
+      "subsection": "Garnitures au camp"
+    },
+    {
+      "quantity": "600",
+      "unit": "g",
+      "ingredient": "fromage cheddar fort râpé",
+      "note": null
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "crème sure",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "botte",
+      "ingredient": "oignons verts tranchés",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "limes coupées en quartiers",
+      "note": "optionnel"
+    },
+    {
+      "quantity": "1",
+      "unit": "sac",
+      "ingredient": "chips tortillas",
+      "note": "pour accompagnement"
+    },
+    {
+      "quantity": "2",
+      "unit": "pains",
+      "ingredient": "pain croûté ou baguettes",
+      "note": "pour saucer"
+    }
   ],
   "steps": [
     "À LA MAISON - Cuisson de la viande: Dans une TRÈS grande marmite (10-12L) ou diviser en 2 marmites, faire chauffer 2 c. à soupe d'huile à feu moyen-vif. Faire revenir le bœuf haché par batches, en défaisant bien les morceaux, 8-10 minutes jusqu'à bien doré. Égoutter le gras excessif.",
@@ -67,16 +205,29 @@
     "Accompagner de salade verte simple pour équilibrer le repas",
     "Parfait pour souper après journée froide ou pluvieuse"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["plat principal", "repas réconfortant"],
-  "tags": ["castors", "camp", "make-ahead", "congélation", "réconfortant"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "make-ahead",
+    "congélation",
+    "réconfortant",
+    "repas réconfortant"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["cuisine extérieure", "grandes portions", "préparation rapide"],
+  "scoutContext": [
+    "cuisine extérieure",
+    "grandes portions",
+    "préparation rapide"
+  ],
   "heroImage": "/cuisine/chili-con-carne-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Le secret d'un chili mémorable? TROIS sortes de haricots (pas juste des rouges!), beaucoup de bœuf, et un mijotage patient qui développe les saveurs. Les haricots noirs ajoutent de la richesse, les pintos une texture crémeuse, et les rouges la tradition. Et cette poudre de chili? Elle fait toute la différence entre un chili ordinaire et un chili légendaire!",
   "tips": "ASTUCE #1: Mijoter LONG (90 min) développe les saveurs - ne pas rusher cette étape à la maison! Le chili fait rapidement sera fade. ASTUCE #2: Le sucre brun équilibre l'acidité des tomates et arrondit toutes les saveurs - ne pas sauter! ASTUCE #3: Congeler en sacs plats = dégel plus rapide au camp ET économie d'espace dans glacière. ASTUCE #4: Pour version moins épicée pour enfants, réduire poudre de chili à 2 c. à soupe et omettre flocons de piment. Les castors peuvent ajouter sauce piquante individuellement. ASTUCE #5: Le chili est MEILLEUR le lendemain - les saveurs continuent de se développer. Si possible, le faire 2 jours avant le camp (pas la veille)! NIVEAU DE PIQUANT: Cette recette est DOUCE-MOYENNE, parfaite pour castors 6-8 ans. Pour adultes qui aiment le piquant, ajouter jalapeños frais hachés ou sauce piquante à leur bol. ÉCONOMIE BUDGET: Le chili est une des recettes les plus économiques - les haricots en boîte coûtent presque rien et 'stretch' la viande. Environ 4-5$ par portion! VARIANTE VÉGÉ: Remplacer le bœuf par 3 boîtes supplémentaires de haricots mélangés + 500g de champignons hachés sautés. Même texture, même satisfaction. ACCOMPAGNEMENTS: Le pain croûté pour saucer est ESSENTIEL - les castors adorent tremper! Les chips tortillas émiettées sur le dessus ajoutent du crunch. RÉCHAUFFAGE ALTERNATIF: Pas de cuisinière? Le chili peut réchauffer dans une marmite suspendue au-dessus du feu de camp (brasser constamment, 40-45 min).",
-  "note": "RÉCONFORT ULTIME après une journée active au grand air! Quand les castors reviennent d'une randonnée ou d'activités extérieures fatigués et affamés, l'odeur du chili qui réchauffe crée une atmosphère magique de retour au camp. C'est chaleureux, nourrissant, et exactement ce dont leurs petits corps actifs ont besoin. TIMELINE pour souper 18h00: Sortir chili du congélateur 15h00 si encore très gelé. Commencer réchauffage 17h20. Préparer garnitures 17h40. Service buffet 18h00. DOUBLE BATCH: Considérez faire DOUBLE quantité et congeler l'extra - vous aurez un souper prêt pour le prochain camp ou pour la maison pendant l'année! Le chili se réchauffe parfaitement. GESTION RESTANTS: S'il reste du chili (rare!), il fait un EXCELLENT lunch le lendemain. Ou servir sur hot-dogs (chili dogs!), sur frites (poutine au chili!), ou avec œufs brouillés le matin (breakfast burritos au chili!). APPRENTISSAGE: Les castors peuvent aider à préparer les garnitures - râper fromage (sous supervision), trancher oignons verts avec ciseaux de cuisine, disposer la station buffet. Responsabilisation! TESTÉ PAR DES MILLIERS de troupes scouts à travers le monde. Le chili est un classique pour une raison: économique, délicieux, facile à faire en grosse quantité, et TOUT LE MONDE aime ça!"
+  "note": "RÉCONFORT ULTIME après une journée active au grand air! Quand les castors reviennent d'une randonnée ou d'activités extérieures fatigués et affamés, l'odeur du chili qui réchauffe crée une atmosphère magique de retour au camp. C'est chaleureux, nourrissant, et exactement ce dont leurs petits corps actifs ont besoin. TIMELINE pour souper 18h00: Sortir chili du congélateur 15h00 si encore très gelé. Commencer réchauffage 17h20. Préparer garnitures 17h40. Service buffet 18h00. DOUBLE BATCH: Considérez faire DOUBLE quantité et congeler l'extra - vous aurez un souper prêt pour le prochain camp ou pour la maison pendant l'année! Le chili se réchauffe parfaitement. GESTION RESTANTS: S'il reste du chili (rare!), il fait un EXCELLENT lunch le lendemain. Ou servir sur hot-dogs (chili dogs!), sur frites (poutine au chili!), ou avec œufs brouillés le matin (breakfast burritos au chili!). APPRENTISSAGE: Les castors peuvent aider à préparer les garnitures - râper fromage (sous supervision), trancher oignons verts avec ciseaux de cuisine, disposer la station buffet. Responsabilisation! TESTÉ PAR DES MILLIERS de troupes scouts à travers le monde. Le chili est un classique pour une raison: économique, délicieux, facile à faire en grosse quantité, et TOUT LE MONDE aime ça!",
+  "cookbook": "Camps Scout"
 }

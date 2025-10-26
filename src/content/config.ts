@@ -55,8 +55,17 @@ const cuisine = defineCollection({
       })),
     })).optional(),
     serving_suggestions: z.array(z.string()).optional(),
-    mainCategory: z.string().optional(),
-    categories: z.array(z.string()).default(['plat principal']),
+    cookbook: z.string().optional(),
+    // Catégories de type de plat strictes (7 catégories officielles)
+    categories: z.array(z.enum([
+      'entrée',
+      'plat principal',
+      'accompagnement',
+      'salade',
+      'dessert',
+      'collation',
+      'boisson'
+    ])).default(['plat principal']),
     tags: z.array(z.string()).optional(),
     difficulty: z.enum(['facile', 'moyen', 'difficile']).default('moyen'),
     variant: z.enum(['simple', 'avance', 'maternelle']).optional(),

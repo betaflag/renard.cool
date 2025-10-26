@@ -38,7 +38,9 @@
       "ingredient": "extrait de vanille",
       "note": "½ c. à thé - pour le goût"
     },
-    { "subsection": "Décoration facultative" },
+    {
+      "subsection": "Décoration facultative"
+    },
     {
       "quantity": "au goût",
       "unit": null,
@@ -198,9 +200,17 @@
     "Emballés dans des sachets pour rapporter à la maison",
     "Empilés sur une assiette pour partager en classe"
   ],
-  "mainCategory": "Petite École",
-  "categories": ["dessert", "collation"],
-  "tags": ["maternelle", "classique", "four", "formes", "congélation"],
+  "categories": [
+    "dessert",
+    "collation"
+  ],
+  "tags": [
+    "maternelle",
+    "classique",
+    "four",
+    "formes",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/biscuits-sables-maternelle.png",
   "pubDate": "2025-10-12",
@@ -208,5 +218,6 @@
   "variant": "maternelle",
   "ingredientIntro": "Seulement 3 ingrédients de base! Cette recette ultra-simple donne des biscuits sablés classiques, croustillants et délicats. Le beurre donne le goût riche, le sucre la douceur, la farine la structure. Pas d'œufs, pas de poudre à pâte, pas de complications. Rouler la pâte et découper des formes sont des activités motrices fantastiques pour les 5-6 ans!",
   "tips": "POUR LES ENSEIGNANTS ET PARENTS: Le beurre DOIT être ramolli (température pièce) — sortez-le du réfrigérateur 30-60 minutes avant l'activité. Si oublié, coupez en petits cubes pour ramollir plus vite. Cette recette développe la motricité fine ET globale: mélanger vigoureusement (bras), rouler la pâte (coordination), découper (précision). Fournissez des emporte-pièces de DIFFÉRENTES TAILLES et formes pour stimuler la créativité: étoiles, cœurs, cercles, animaux, saisons (feuilles d'automne, sapins Noël). Farinez légèrement la table ET le rouleau à pâtisserie pour éviter que la pâte colle. Si la pâte est trop collante, ajoutez un peu de farine. Si trop sèche et s'effrite, ajoutez 15 ml de lait. Les enfants ADORENT rassembler les restes de pâte et re-rouler — laissez-les faire plusieurs fois! La pâte peut être roulée/découpée 3-4 fois sans problème. Ne cuisez PAS trop longtemps — les biscuits doivent être PÂLES avec juste les bords qui commencent à dorer. Ils durcissent beaucoup en refroidissant. Vocabulaire à enseigner: rouler, aplatir, découper, emporte-pièce, épaisseur, crémeux, sablé, texture. VARIANTES THÉMATIQUES: Noël (sapin, étoile, bonhomme pain d'épices), Saint-Valentin (cœurs), Halloween (citrouille, fantôme), Pâques (lapin, œuf). Ajoutez 2,5 ml de cannelle ou de zeste de citron râpé pour variation de saveur. Ces biscuits se conservent 7 jours dans contenant hermétique et se congèlent 3 mois. Budget: Environ 5-8$ pour 30 biscuits (ingrédients de base très économiques). ORGANISATION: Divisez la classe en stations — une station roule, une autre découpe, rotation toutes les 5 minutes. La pâte peut être préparée À L'AVANCE et réfrigérée jusqu'à 2 jours (ramollir 10 min avant de rouler).",
-  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les plaques chaudes. Les emporte-pièces en métal peuvent avoir des bords tranchants — supervision lors de la découpe. Vérifier allergies: gluten, lactose (beurre). Version sans lactose: remplacer beurre par margarine végétale."
+  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les plaques chaudes. Les emporte-pièces en métal peuvent avoir des bords tranchants — supervision lors de la découpe. Vérifier allergies: gluten, lactose (beurre). Version sans lactose: remplacer beurre par margarine végétale.",
+  "cookbook": "Petite École"
 }

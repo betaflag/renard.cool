@@ -9,18 +9,18 @@ import { slugify } from "../lib/slugify";
 export interface Props {
   variant?: "index" | "detail";
   activeCategory?: string;
-  activeMainCategory?: string;
+  activeCookbook?: string;
   activeTag?: string;
 }
 
-const { variant = "index", activeCategory, activeMainCategory, activeTag } = Astro.props;
+const { variant = "index", activeCategory, activeCookbook, activeTag } = Astro.props;
 
 // Get all recipes to extract categories and tags
 const allRecipes = await getCollection("cuisine");
 
 // Count recipes excluding "Petite École" and "Camps Scout" for main listing
 const mainListingRecipes = allRecipes.filter(
-  (recipe) => recipe.data.mainCategory !== "Petite École" && recipe.data.mainCategory !== "Camps Scout"
+  (recipe) => recipe.data.cookbook !== "Petite École" && recipe.data.cookbook !== "Camps Scout"
 );
 
 // Build hierarchical category structure
@@ -30,23 +30,23 @@ interface CategoryNode {
   subcategories?: Map<string, number>;
 }
 
-const mainCategoryMap = new Map<string, CategoryNode>();
+const cookbookMap = new Map<string, CategoryNode>();
 const standaloneCategories = new Map<string, number>();
 
 allRecipes.forEach((recipe) => {
-  const mainCat = recipe.data.mainCategory;
+  const mainCat = recipe.data.cookbook;
 
   if (mainCat) {
     // This recipe belongs to a main category (e.g., "Petite École")
     // Its categories array becomes subcategories under the main category
-    if (!mainCategoryMap.has(mainCat)) {
-      mainCategoryMap.set(mainCat, {
+    if (!cookbookMap.has(mainCat)) {
+      cookbookMap.set(mainCat, {
         name: mainCat,
         count: 0,
         subcategories: new Map(),
       });
     }
-    const node = mainCategoryMap.get(mainCat)!;
+    const node = cookbookMap.get(mainCat)!;
     node.count++;
 
     // Add subcategories (e.g., "dessert", "collation" under "Petite École")
@@ -63,7 +63,7 @@ allRecipes.forEach((recipe) => {
 });
 
 // Sort main categories alphabetically
-const mainCategories = Array.from(mainCategoryMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+const mainCategories = Array.from(cookbookMap.values()).sort((a, b) => a.name.localeCompare(b.name));
 
 // Sort standalone categories alphabetically
 const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0].localeCompare(b[0]));
@@ -86,15 +86,15 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
 
       <div class="nav-center">
         <a
-          href={`/cuisine/main/${slugify("Petite École")}`}
-          class={`nav-link-button ${activeMainCategory === "Petite École" ? 'active' : ''}`}
+          href={`/cuisine/cookbooks/${slugify("Petite École")}`}
+          class={`nav-link-button ${activeCookbook === "Petite École" ? 'active' : ''}`}
         >
           Petite École
         </a>
 
         <a
-          href="/cuisine/main/camps-scout"
-          class={`nav-link-button scout-button ${activeMainCategory === "Camps Scout" ? 'active' : ''}`}
+          href="/cuisine/cookbooks/camps-scout"
+          class={`nav-link-button scout-button ${activeCookbook === "Camps Scout" ? 'active' : ''}`}
         >
           🏕️ Camps Scout
         </a>
@@ -109,7 +109,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
               href="/cuisine"
               name="Toutes les recettes"
               count={mainListingRecipes.length}
-              isActive={activeCategory === undefined && activeMainCategory === undefined}
+              isActive={activeCategory === undefined && activeCookbook === undefined}
             />
 
             {/* Standalone categories first (alphabetically) */}
@@ -118,7 +118,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
                 href={`/cuisine/categories/${slugify(category)}`}
                 name={category}
                 count={count}
-                isActive={activeCategory === category && !activeMainCategory}
+                isActive={activeCategory === category && !activeCookbook}
               />
             ))}
 
@@ -127,17 +127,17 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
               .filter((mainCat) => mainCat.name !== "Petite École" && mainCat.name !== "Camps Scout")
               .map((mainCat) => (
                 <CollapsibleCategoryGroup
-                  mainCategoryName={mainCat.name}
-                  mainCategoryUrl={`/cuisine/main/${slugify(mainCat.name)}`}
-                  mainCategoryCount={mainCat.count}
+                  cookbookName={mainCat.name}
+                  cookbookUrl={`/cuisine/cookbooks/${slugify(mainCat.name)}`}
+                  cookbookCount={mainCat.count}
                   subcategories={Array.from(mainCat.subcategories?.entries() || [])
                     .sort((a, b) => a[0].localeCompare(b[0]))
                     .map(([name, count]) => ({
                       name,
                       count,
-                      url: `/cuisine/main/${slugify(mainCat.name)}/${slugify(name)}`,
+                      url: `/cuisine/cookbooks/${slugify(mainCat.name)}/${slugify(name)}`,
                     }))}
-                  isActive={activeMainCategory === mainCat.name}
+                  isActive={activeCookbook === mainCat.name}
                   activeSubcategory={activeCategory}
                 />
               ))}
@@ -168,14 +168,14 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     <div class="mobile-section">
       <h3 class="mobile-section-title">Navigation</h3>
       <a
-        href={`/cuisine/main/${slugify("Petite École")}`}
-        class={`mobile-item ${activeMainCategory === "Petite École" ? 'active' : ''}`}
+        href={`/cuisine/cookbooks/${slugify("Petite École")}`}
+        class={`mobile-item ${activeCookbook === "Petite École" ? 'active' : ''}`}
       >
         <span class="item-name">Petite École</span>
       </a>
       <a
-        href="/cuisine/main/camps-scout"
-        class={`mobile-item scout-mobile-item ${activeMainCategory === "Camps Scout" ? 'active' : ''}`}
+        href="/cuisine/cookbooks/camps-scout"
+        class={`mobile-item scout-mobile-item ${activeCookbook === "Camps Scout" ? 'active' : ''}`}
       >
         <span class="item-name">🏕️ Camps Scout</span>
       </a>
@@ -183,7 +183,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
 
     <div class="mobile-section">
       <h3 class="mobile-section-title">Catégories</h3>
-      <a href="/cuisine" class="mobile-item {activeCategory === undefined && activeMainCategory === undefined ? 'active' : ''}">
+      <a href="/cuisine" class="mobile-item {activeCategory === undefined && activeCookbook === undefined ? 'active' : ''}">
         <span class="item-name">Toutes les recettes</span>
         <span class="item-count">{mainListingRecipes.length}</span>
       </a>
@@ -192,7 +192,7 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
       {categories.map(([category, count]) => (
         <a
           href={`/cuisine/categories/${slugify(category)}`}
-          class={`mobile-item ${activeCategory === category && !activeMainCategory ? 'active' : ''}`}
+          class={`mobile-item ${activeCategory === category && !activeCookbook ? 'active' : ''}`}
         >
           <span class="item-name">{category}</span>
           <span class="item-count">{count}</span>
@@ -208,8 +208,8 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
             <div class="mobile-collapsible-group" data-group-id={mobileGroupId}>
               <div class="mobile-category-header">
                 <a
-                  href={`/cuisine/main/${slugify(mainCat.name)}`}
-                  class={`mobile-item main-category ${activeMainCategory === mainCat.name ? 'active' : ''}`}
+                  href={`/cuisine/cookbooks/${slugify(mainCat.name)}`}
+                  class={`mobile-item main-category ${activeCookbook === mainCat.name ? 'active' : ''}`}
                 >
                   <span class="item-name">{mainCat.name}</span>
                   <span class="item-count">{mainCat.count}</span>
@@ -228,8 +228,8 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
                   .sort((a, b) => a[0].localeCompare(b[0]))
                   .map(([subcat, subcount]) => (
                     <a
-                      href={`/cuisine/main/${slugify(mainCat.name)}/${slugify(subcat)}`}
-                      class={`mobile-item subcategory ${activeMainCategory === mainCat.name && activeCategory === subcat ? 'active' : ''}`}
+                      href={`/cuisine/cookbooks/${slugify(mainCat.name)}/${slugify(subcat)}`}
+                      class={`mobile-item subcategory ${activeCookbook === mainCat.name && activeCategory === subcat ? 'active' : ''}`}
                     >
                       <span class="item-name">→ {subcat}</span>
                       <span class="item-count">{subcount}</span>

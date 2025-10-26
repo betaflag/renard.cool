@@ -14,15 +14,60 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "quantity": "2", "unit": null, "ingredient": "carottes moyennes", "note": "multicolores si possible" },
-    { "quantity": "2", "unit": null, "ingredient": "panais moyens", "note": null },
-    { "quantity": "2", "unit": "petites", "ingredient": "betteraves dorées", "note": null },
-    { "quantity": "1", "unit": "petite", "ingredient": "betterave chioggia", "note": "optionnelle, pour couleur" },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": null },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "miel", "note": "du Québec" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "thym frais", "note": "effeuillé" },
-    { "quantity": null, "unit": null, "ingredient": "Sel de mer et poivre", "note": "au goût" },
-    { "quantity": "2", "unit": "gousses", "ingredient": "ail", "note": "écrasées avec peau" }
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "carottes moyennes",
+      "note": "multicolores si possible"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "panais moyens",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "petites",
+      "ingredient": "betteraves dorées",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "petite",
+      "ingredient": "betterave chioggia",
+      "note": "optionnelle, pour couleur"
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "huile d'olive",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "miel",
+      "note": "du Québec"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "thym frais",
+      "note": "effeuillé"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel de mer et poivre",
+      "note": "au goût"
+    },
+    {
+      "quantity": "2",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "écrasées avec peau"
+    }
   ],
   "steps": [
     "PRÉPARATION: Préchauffer le four à 425°F (220°C). Tapisser une grande plaque de cuisson de papier parchemin. Laver tous les légumes et les éponger — ils doivent être parfaitement secs.",
@@ -40,14 +85,24 @@
     "Peut être servi froid en salade avec vinaigrette balsamique",
     "Parfait pour buffets - se tient bien à température pièce"
   ],
-  "mainCategory": "accompagnement",
-  "categories": ["accompagnement", "automne", "québécois"],
-  "tags": ["légumes racines", "rôti", "miel", "thym", "coloré"],
+  "categories": [
+    "accompagnement"
+  ],
+  "tags": [
+    "légumes racines",
+    "rôti",
+    "miel",
+    "thym",
+    "coloré",
+    "automne",
+    "québécois"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/legumes-racines-rotis-miel-thym.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Les légumes racines sont les trésors de l'automne et l'hiver québécois — disponibles localement, se conservent longtemps, et développent douceur en cuisson. Les carottes multicolores (orange, jaune, pourpre, blanche) créent arc-en-ciel sur l'assiette. Les panais ressemblent aux carottes blanches mais ont goût plus doux et noisette. Les betteraves dorées ont saveur plus douce que rouges et ne tachent pas. Le miel québécois = fierté locale qui intensifie caramélisation naturelle.",
   "tips": "Le secret de légumes rôtis restaurant = température HAUTE (425°F minimum), légumes SECS et en SEULE couche, et patience pour caramélisation. Les légumes mouillés créent vapeur au lieu de rôtir. L'huile doit bien enrober chaque surface pour brunissement uniforme. Le miel caramélise et crée glaçage brillant — mais attention, trop de miel = brûlage. Notre ratio 2 c. à soupe pour 4-5 légumes est équilibré. Pour accélérer cuisson, couper légumes plus fins (1 cm). Pour texture plus croquante, retirer plus tôt. Pour texture ultra tendre/confite, rôtir 10 min de plus à 375°F. Le thym frais est ESSENTIEL — séché n'a pas cette note résineuse qui complète légumes terreux. Les gousses d'ail entières avec peau rôtissent sans brûler et parfument subtilement. Ces légumes se préparent 2 heures d'avance et se réchauffent 10 min à 350°F. Ou servir température pièce comme antipasto. Budget: environ 2-3$ par portion selon saison.",
-  "note": "L'ACCOMPAGNEMENT AUTOMNE qui capture l'essence du Québec. Les légumes racines sont cultivés ici depuis des générations — résistants au froid, stockables tout l'hiver, nutritifs. Nos ancêtres survivaient l'hiver grâce à ces trésors enterrés. CARAMÉLISATION MAGIQUE: Le rôtissage haute température transforme amidon en sucres, créant cette douceur caramélisée addictive. C'est pourquoi enfants qui 'détestent les légumes' adorent ceux-ci — le sucré naturel plaît à tous. ARC-EN-CIEL NUTRITIONNEL: Chaque couleur représente différents phytonutriments. Orange (bêta-carotène), pourpre (anthocyanes), blanc (fibres), doré (bétalaïnes). Manger l'arc-en-ciel = nutrition optimale. PRÉSENTATION SPECTACULAIRE: Les légumes multicolores disposés artistiquement créent assiette digne d'un magazine culinaire. Instagram-ready sans effort! POLYVALENCE: Accompagnement chaud pour plats principaux, ou servi froid comme salade. Ajoutez fromage de chèvre émietté + noix grillées = salade-repas complète. Ces légumes prouvent que végétarien ne signifie pas ennuyeux."
+  "note": "L'ACCOMPAGNEMENT AUTOMNE qui capture l'essence du Québec. Les légumes racines sont cultivés ici depuis des générations — résistants au froid, stockables tout l'hiver, nutritifs. Nos ancêtres survivaient l'hiver grâce à ces trésors enterrés. CARAMÉLISATION MAGIQUE: Le rôtissage haute température transforme amidon en sucres, créant cette douceur caramélisée addictive. C'est pourquoi enfants qui 'détestent les légumes' adorent ceux-ci — le sucré naturel plaît à tous. ARC-EN-CIEL NUTRITIONNEL: Chaque couleur représente différents phytonutriments. Orange (bêta-carotène), pourpre (anthocyanes), blanc (fibres), doré (bétalaïnes). Manger l'arc-en-ciel = nutrition optimale. PRÉSENTATION SPECTACULAIRE: Les légumes multicolores disposés artistiquement créent assiette digne d'un magazine culinaire. Instagram-ready sans effort! POLYVALENCE: Accompagnement chaud pour plats principaux, ou servi froid comme salade. Ajoutez fromage de chèvre émietté + noix grillées = salade-repas complète. Ces légumes prouvent que végétarien ne signifie pas ennuyeux.",
+  "cookbook": "accompagnement"
 }

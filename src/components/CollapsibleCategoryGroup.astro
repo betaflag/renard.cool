@@ -9,40 +9,40 @@ interface Subcategory {
 }
 
 export interface Props {
-  mainCategoryName: string;
-  mainCategoryUrl: string;
-  mainCategoryCount: number;
+  cookbookName: string;
+  cookbookUrl: string;
+  cookbookCount: number;
   subcategories: Subcategory[];
   isActive?: boolean;
   activeSubcategory?: string;
 }
 
 const {
-  mainCategoryName,
-  mainCategoryUrl,
-  mainCategoryCount,
+  cookbookName,
+  cookbookUrl,
+  cookbookCount,
   subcategories,
   isActive = false,
   activeSubcategory,
 } = Astro.props;
 
 // Generate unique ID for this category group using slug
-const groupId = `category-group-${slugify(mainCategoryName)}`;
+const groupId = `category-group-${slugify(cookbookName)}`;
 ---
 
 <div class="collapsible-category-group" data-group-id={groupId}>
   <div class="main-category-header">
     <a
-      href={mainCategoryUrl}
+      href={cookbookUrl}
       class={`main-category-link ${isActive ? 'active' : ''}`}
     >
-      <span class="item-name">{mainCategoryName}</span>
-      <span class="item-count">{mainCategoryCount}</span>
+      <span class="item-name">{cookbookName}</span>
+      <span class="item-count">{cookbookCount}</span>
     </a>
     <button
       class="collapse-toggle"
       data-group-id={groupId}
-      aria-label={`Toggle ${mainCategoryName} subcategories`}
+      aria-label={`Toggle ${cookbookName} subcategories`}
       aria-expanded="false"
     >
       <span class="chevron">▶</span>

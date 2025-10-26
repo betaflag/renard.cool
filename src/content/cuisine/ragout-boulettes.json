@@ -14,23 +14,105 @@
   },
   "cooking_method": "Mijoteuse",
   "ingredients": [
-    { "quantity": "750", "unit": "g", "ingredient": "porc haché", "note": "mi-maigre idéalement" },
-    { "quantity": "250", "unit": "g", "ingredient": "bœuf haché", "note": "pour la profondeur" },
-    { "quantity": "1", "unit": null, "ingredient": "œuf", "note": "pour lier" },
-    { "quantity": "125", "unit": "ml", "ingredient": "chapelure", "note": "ou mie de pain" },
-    { "quantity": "1", "unit": null, "ingredient": "oignon", "note": "haché très finement" },
-    { "quantity": "2", "unit": "gousses", "ingredient": "ail", "note": "hachées" },
-    { "quantity": "5", "unit": "ml", "ingredient": "sel", "note": "pour les boulettes" },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "poivre", "note": "fraîchement moulu" },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "cannelle moulue", "note": "le secret québécois" },
-    { "quantity": "1,25", "unit": "ml", "ingredient": "clou de girofle moulu", "note": "la touche traditionnelle" },
-    { "quantity": "30", "unit": "ml", "ingredient": "farine", "note": "pour enrober" },
-    { "subsection": "Pour la sauce" },
-    { "quantity": "2", "unit": "sachets", "ingredient": "mélange à sauce ragoût St-Hubert", "note": "ou autre marque similaire" },
-    { "quantity": "1,5", "unit": "litre", "ingredient": "eau", "note": "pour produire une sauce onctueuse" },
-    { "quantity": "1", "unit": null, "ingredient": "oignon", "note": "en quartiers (facultatif)" },
-    { "quantity": "2", "unit": "feuilles", "ingredient": "laurier", "note": "pour plus d'arôme (facultatif)" },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre", "note": "au goût" }
+    {
+      "quantity": "750",
+      "unit": "g",
+      "ingredient": "porc haché",
+      "note": "mi-maigre idéalement"
+    },
+    {
+      "quantity": "250",
+      "unit": "g",
+      "ingredient": "bœuf haché",
+      "note": "pour la profondeur"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "œuf",
+      "note": "pour lier"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "chapelure",
+      "note": "ou mie de pain"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "oignon",
+      "note": "haché très finement"
+    },
+    {
+      "quantity": "2",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": "pour les boulettes"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "poivre",
+      "note": "fraîchement moulu"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "cannelle moulue",
+      "note": "le secret québécois"
+    },
+    {
+      "quantity": "1,25",
+      "unit": "ml",
+      "ingredient": "clou de girofle moulu",
+      "note": "la touche traditionnelle"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "farine",
+      "note": "pour enrober"
+    },
+    {
+      "subsection": "Pour la sauce"
+    },
+    {
+      "quantity": "2",
+      "unit": "sachets",
+      "ingredient": "mélange à sauce ragoût St-Hubert",
+      "note": "ou autre marque similaire"
+    },
+    {
+      "quantity": "1,5",
+      "unit": "litre",
+      "ingredient": "eau",
+      "note": "pour produire une sauce onctueuse"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "oignon",
+      "note": "en quartiers (facultatif)"
+    },
+    {
+      "quantity": "2",
+      "unit": "feuilles",
+      "ingredient": "laurier",
+      "note": "pour plus d'arôme (facultatif)"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre",
+      "note": "au goût"
+    }
   ],
   "steps": [
     "Dans un grand bol, mélanger les viandes hachées, l'œuf, la chapelure, l'oignon haché, l'ail, le sel, le poivre, la cannelle et le clou de girofle. Bien mélanger sans trop travailler la viande.",
@@ -41,8 +123,16 @@
     "Couvrir et cuire à basse température (Low) 5-6 heures ou à haute température (High) 3-4 heures. La sauce épaissira pendant la cuisson.",
     "Goûter et rectifier l'assaisonnement au besoin. Si la sauce est trop épaisse, ajouter un peu d'eau. Si trop liquide, laisser mijoter à découvert 30 minutes."
   ],
-  "categories": ["plat principal"],
-  "tags": ["québécois", "traditionnel", "réconfortant", "mijoteuse", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "québécois",
+    "traditionnel",
+    "réconfortant",
+    "mijoteuse",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/ragout-boulettes.png",
   "pubDate": "2025-10-03",

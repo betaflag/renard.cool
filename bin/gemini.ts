@@ -99,7 +99,7 @@
 
 import { GoogleGenAI } from "@google/genai";
 import mime from "mime";
-import { writeFile, mkdirSync, existsSync } from "fs";
+import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { resolve } from "path";
 import "dotenv/config";
 
@@ -301,13 +301,12 @@ function parseArgs(): CliOptions {
 }
 
 function saveBinaryFile(fileName: string, content: Buffer) {
-  writeFile(fileName, content, "utf8", (err) => {
-    if (err) {
-      console.error(`Error writing file ${fileName}:`, err);
-      return;
-    }
+  try {
+    writeFileSync(fileName, content);
     console.log(`File ${fileName} saved to file system.`);
-  });
+  } catch (err) {
+    console.error(`Error writing file ${fileName}:`, err);
+  }
 }
 
 async function main() {

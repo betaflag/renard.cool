@@ -38,7 +38,9 @@
       "ingredient": "pepperoni tranché",
       "note": "facultatif - la garniture classique"
     },
-    { "subsection": "Garnitures facultatives au choix" },
+    {
+      "subsection": "Garnitures facultatives au choix"
+    },
     {
       "quantity": "au goût",
       "unit": null,
@@ -172,9 +174,17 @@
     "Parfait pour un dîner spécial à l'école",
     "Les restes se réchauffent bien au four grille-pain"
   ],
-  "mainCategory": "Petite École",
-  "categories": ["plat principal", "dîner"],
-  "tags": ["maternelle", "familial", "four", "personnalisable", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "maternelle",
+    "familial",
+    "four",
+    "personnalisable",
+    "congélation",
+    "dîner"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/mini-pizzas-pita-maternelle.png",
   "pubDate": "2025-10-12",
@@ -182,5 +192,6 @@
   "variant": "maternelle",
   "ingredientIntro": "Les pains pita remplacent la pâte à pizza — aucun pétrissage, aucune levée, aucune complication! Chaque enfant crée SES pizzas exactement comme il les aime. Station de garnitures = créativité et autonomie maximales. Les enfants apprennent les choix alimentaires, les quantités, et la séquence (sauce → fromage → garnitures). Budget économique pour nourrir 20 enfants!",
   "tips": "POUR LES ENSEIGNANTS ET PARENTS: Organisez une STATION DE GARNITURES avec des bols séparés pour chaque ingrédient. Les enfants passent devant la station avec leur pita et choisissent ce qu'ils veulent — comme un buffet! Utilisez des pitas de taille moyenne (15-18 cm de diamètre). Trop grands sont difficiles à manipuler pour les petites mains. Préparez les garnitures À L'AVANCE: ouvrir les conserves, égoutter, couper les légumes frais en petits dés. Mettez des petites cuillères dans chaque bol de garnitures pour faciliter le service. La sauce tomate ordinaire fonctionne si vous n'avez pas de sauce à pizza — ajoutez juste un peu d'origan séché. Les enfants ont tendance à mettre BEAUCOUP de garnitures — c'est correct! Le fromage tient tout ensemble. Si certains enfants veulent juste fromage (sans garnitures), c'est parfait aussi — respectez leurs préférences. Vocabulaire à enseigner: étaler, saupoudrer, garnitures, fondre, personnaliser, créer. Cuisson en LOTS: faites cuire 12-15 pizzas à la fois selon la taille de vos plaques et de votre four. Les pizzas cuisent vite (10-12 min) donc 3 lots = 30-40 minutes total. Ces mini-pizzas se CONGÈLENT excellemment: après cuisson et refroidissement, emballez individuellement et congelez jusqu'à 2 mois. Réchauffer au four 350°F pendant 8-10 minutes. Budget: Environ 25-30$ pour 40 mini-pizzas (20 enfants = 2 pizzas chacun). Achetez pains pita, fromage et sauce en format économique. ASTUCE D'ORGANISATION: Étiquetez chaque plaque avec les prénoms des enfants (papier sous le parchemin) pour savoir à qui appartient quelle pizza! Cette activité enseigne la séquence, les choix, la créativité, ET les mathématiques (2 moitiés = 1 entier, portions, partage).",
-  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les plaques chaudes. Le fromage fondu reste TRÈS chaud longtemps — attendre 2 minutes avant de manger. Vérifier allergies: gluten (pita), lactose (fromage), viandes transformées (pepperoni). Version végétarienne facile: omettre pepperoni, ajouter plus de légumes."
+  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les plaques chaudes. Le fromage fondu reste TRÈS chaud longtemps — attendre 2 minutes avant de manger. Vérifier allergies: gluten (pita), lactose (fromage), viandes transformées (pepperoni). Version végétarienne facile: omettre pepperoni, ajouter plus de légumes.",
+  "cookbook": "Petite École"
 }

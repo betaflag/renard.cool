@@ -1,18 +1,64 @@
 ---
 import { getCollection } from "astro:content";
-import CuisineLayout from "../../layouts/CuisineLayout.astro";
-import RecipeCard from "../../components/RecipeCard.astro";
-import CategoryCard from "../../components/CategoryCard.astro";
-import CuisineNav from "../../components/CuisineNav.astro";
+import CuisineLayout from "../../../layouts/CuisineLayout.astro";
+import CuisineNav from "../../../components/CuisineNav.astro";
+import RecipeCard from "../../../components/RecipeCard.astro";
+import CategoryCard from "../../../components/CategoryCard.astro";
+import { slugify } from "../../../lib/slugify";
 
-// For static site, we need to include all recipes and filter client-side
-// Exclude "Petite École" and "Camps Scout" recipes from main listing
-const recipes = (await getCollection("cuisine"))
-  .filter((recipe) => recipe.data.cookbook !== "Petite École" && recipe.data.cookbook !== "Camps Scout" && !recipe.data.draft)
-  .sort(
-    (a, b) =>
-      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
-  );
+export async function getStaticPaths() {
+  const allRecipes = await getCollection("cuisine");
+
+  // Extract unique cookbooks
+  const cookbookSet = new Set<string>();
+  allRecipes.forEach((recipe) => {
+    if (recipe.data.cookbook) {
+      cookbookSet.add(recipe.data.cookbook);
+    }
+  });
+
+  // All possible categories
+  const allCategories = [
+    'entrée',
+    'plat principal',
+    'accompagnement',
+    'salade',
+    'dessert',
+    'collation',
+    'boisson'
+  ];
+
+  // Generate a page for each cookbook using slugified URLs
+  return Array.from(cookbookSet).map((cookbook) => {
+    const cookbookRecipes = allRecipes
+      .filter((recipe) => recipe.data.cookbook === cookbook && !recipe.data.draft)
+      .sort(
+        (a, b) =>
+          new Date(b.data.pubDate).valueOf() -
+          new Date(a.data.pubDate).valueOf()
+      );
+
+    // Calculate category counts for this cookbook
+    const categoryCounts: Record<string, number> = {};
+    allCategories.forEach((category) => {
+      categoryCounts[category] = cookbookRecipes.filter((recipe) =>
+        recipe.data.categories.includes(category)
+      ).length;
+    });
+
+    return {
+      params: { cookbook: slugify(cookbook) },
+      props: {
+        cookbook,
+        cookbookSlug: slugify(cookbook),
+        recipes: cookbookRecipes,
+        categoryCounts,
+      },
+    };
+  });
+}
+
+const { cookbook, cookbookSlug, recipes, categoryCounts } = Astro.props;
 
 // Split recipes into featured and recent
 const featuredRecipe = recipes[0];
@@ -28,28 +74,28 @@ const allCategories = [
   'collation',
   'boisson'
 ];
-
-// Calculate category counts
-const categoryCounts: Record<string, number> = {};
-allCategories.forEach((category) => {
-  categoryCounts[category] = recipes.filter((recipe) =>
-    recipe.data.categories.includes(category)
-  ).length;
-});
 ---
 
 <CuisineLayout
-  title="Renardo Cuisine | Recettes futées"
-  description="Découvrez les recettes secrètes du renard cuisinier"
+  title={`${cookbook} | Renardo Cuisine`}
+  description={`Découvrez toutes les recettes de ${cookbook}`}
 >
-  <CuisineNav variant="index" />
+  <CuisineNav variant="index" activeCookbook={cookbook} />
 
   <main>
     <div class="header-section">
+      <div class="breadcrumb">
+        <a href="/">Accueil</a>
+        <span class="separator">›</span>
+        <a href="/cuisine">Cuisine</a>
+        <span class="separator">›</span>
+        <span class="current">{cookbook}</span>
+      </div>
+
       <h1 class="page-title">
-        <span class="accent">Renardo</span> Cuisine
+        <span class="accent">{cookbook}</span>
       </h1>
-      <p class="subtitle">Recettes futées mijotées avec passion</p>
+      <p class="subtitle">{recipes.length} recette{recipes.length > 1 ? "s" : ""} dans ce livre</p>
     </div>
 
     {featuredRecipe && (
@@ -79,7 +125,7 @@ allCategories.forEach((category) => {
             <CategoryCard
               category={category}
               count={categoryCounts[category]}
-              cookbook="Cuisine"
+              cookbook={cookbook}
               image={`/cuisine/categories/${
                 category === 'plat principal' ? 'plat-principal' :
                 category === 'entrée' ? 'entree' :
@@ -119,6 +165,35 @@ allCategories.forEach((category) => {
       color: #d35400;
       background: #faf8f3;
       padding: 0 1rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .breadcrumb a {
+      color: #999;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: #d35400;
+    }
+
+    .breadcrumb .separator {
+      color: #ccc;
+    }
+
+    .breadcrumb .current {
+      color: #d35400;
+      font-weight: 600;
     }
 
     @keyframes fadeInUp {
@@ -166,6 +241,11 @@ allCategories.forEach((category) => {
       .header-section {
         margin-bottom: 3rem;
         padding-bottom: 2.5rem;
+      }
+
+      .breadcrumb {
+        font-size: 0.75rem;
+        margin-bottom: 1.5rem;
       }
 
       .page-title {

@@ -14,13 +14,48 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "quantity": "300", "unit": "g", "ingredient": "haricots verts fins", "note": "équeutés" },
-    { "quantity": "2", "unit": null, "ingredient": "échalotes françaises", "note": "hachées finement" },
-    { "quantity": "45", "unit": "ml", "ingredient": "amandes effilées", "note": "ou tranchées" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "beurre", "note": "divisé" },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": null },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre", "note": "au goût" },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "jus de citron", "note": "optionnel pour finition" }
+    {
+      "quantity": "300",
+      "unit": "g",
+      "ingredient": "haricots verts fins",
+      "note": "équeutés"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "échalotes françaises",
+      "note": "hachées finement"
+    },
+    {
+      "quantity": "45",
+      "unit": "ml",
+      "ingredient": "amandes effilées",
+      "note": "ou tranchées"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "beurre",
+      "note": "divisé"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "huile d'olive",
+      "note": null
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre",
+      "note": "au goût"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "jus de citron",
+      "note": "optionnel pour finition"
+    }
   ],
   "steps": [
     "PRÉPARATION DES HARICOTS: Laver les haricots verts et équeuter les deux extrémités avec un couteau ou les mains. Si les haricots sont très longs (plus de 10 cm), les couper en deux. Les haricots fins cuisent plus rapidement et uniformément que les gros.",
@@ -38,14 +73,25 @@
     "Excellent dans un menu de Thanksgiving à la française",
     "Peut être préparé à l'avance jusqu'à l'étape du blanchiment"
   ],
-  "mainCategory": "accompagnement",
-  "categories": ["accompagnement", "français", "romantique", "rapide"],
-  "tags": ["haricots verts", "amandes", "échalotes", "élégant", "bistro"],
+  "categories": [
+    "accompagnement"
+  ],
+  "tags": [
+    "haricots verts",
+    "amandes",
+    "échalotes",
+    "élégant",
+    "bistro",
+    "français",
+    "romantique",
+    "rapide"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/haricots-verts-echalote-amandes.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Les haricots verts fins (haricots princesse ou filets) sont plus tendres et cuisent plus vite que les gros haricots. Disponibles frais ou surgelés — les surgelés de qualité fonctionnent bien et sont déjà équeutés. Les échalotes françaises (petites, allongées, cuivrées) ont saveur plus douce et complexe que les oignons. Les amandes DOIVENT être grillées — crues, elles sont fades et molles. Le beurre crée richesse tandis que l'huile empêche brûlage.",
   "tips": "La technique du blanchiment suivi de choc glacé est LA clé d'haricots verts de restaurant — couleur éclatante, texture parfaite, et possibilité de préparer d'avance. L'eau doit être TRÈS salée et bouillir à gros bouillons. Le bain glacé doit être vraiment froid avec plusieurs glaçons. Pour service différé, blanchir les haricots le matin, égoutter, réfrigérer, puis sauté 5 minutes avant de servir. Les amandes grillent en un éclair — ne pas quitter la poêle des yeux! Une seconde de trop = brûlées et amères. Pour variation, remplacer amandes par noix de Grenoble ou pacanes grillées. L'échalote peut être remplacée par 2 gousses d'ail tranchées finement (ajouter à la dernière minute pour qu'il ne brûle pas). Cette recette se double facilement pour 4-6 personnes — utiliser deux poêles ou cuire en deux lots pour éviter surpopulation (haricots doivent sautés, pas cuire à vapeur). Les haricots verts ne se réchauffent pas bien au micro-ondes (deviennent gris et mous), mais se réchauffent parfaitement en les sautant rapidement. Budget: environ 2$ par portion.",
-  "note": "L'ACCOMPAGNEMENT BISTRO qui impressionne toujours. Les restaurants français servent cette préparation exacte depuis des décennies — preuve que simplicité bien exécutée triomphe toujours. Le contraste de textures est addictif: haricots tendres-croquants, échalotes fondantes, amandes croustillantes. Chaque bouchée offre surprise tactile. TECHNIQUE TRANSFÉRABLE: Maîtriser le blanchiment + choc glacé débloque des dizaines d'autres recettes — brocoli, asperges, choux de Bruxelles, épinards. C'est une technique fondamentale de la cuisine française que tout cuisinier devrait connaître. PRÉPARATION D'AVANCE: Cette recette est PARFAITE pour soupers élégants car 80% du travail se fait d'avance. Blanchir le matin, sauté 5 minutes avant de servir = stress zéro, résultat parfait. PRÉSENTATION: Le vert éclatant des haricots avec dorure des amandes crée contraste visuel magnifique sur l'assiette. Disposer en petit fagot attaché avec une échalote (si vous voulez vraiment impressionner). VALEUR NUTRITIONNELLE: Haricots verts = vitamines A, C, K, fibres, antioxidants. Amandes = protéines, bons gras, vitamine E. Un accompagnement qui nourrit autant qu'il ravit."
+  "note": "L'ACCOMPAGNEMENT BISTRO qui impressionne toujours. Les restaurants français servent cette préparation exacte depuis des décennies — preuve que simplicité bien exécutée triomphe toujours. Le contraste de textures est addictif: haricots tendres-croquants, échalotes fondantes, amandes croustillantes. Chaque bouchée offre surprise tactile. TECHNIQUE TRANSFÉRABLE: Maîtriser le blanchiment + choc glacé débloque des dizaines d'autres recettes — brocoli, asperges, choux de Bruxelles, épinards. C'est une technique fondamentale de la cuisine française que tout cuisinier devrait connaître. PRÉPARATION D'AVANCE: Cette recette est PARFAITE pour soupers élégants car 80% du travail se fait d'avance. Blanchir le matin, sauté 5 minutes avant de servir = stress zéro, résultat parfait. PRÉSENTATION: Le vert éclatant des haricots avec dorure des amandes crée contraste visuel magnifique sur l'assiette. Disposer en petit fagot attaché avec une échalote (si vous voulez vraiment impressionner). VALEUR NUTRITIONNELLE: Haricots verts = vitamines A, C, K, fibres, antioxidants. Amandes = protéines, bons gras, vitamine E. Un accompagnement qui nourrit autant qu'il ravit.",
+  "cookbook": "accompagnement"
 }

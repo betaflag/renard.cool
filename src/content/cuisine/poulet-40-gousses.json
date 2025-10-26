@@ -14,15 +14,60 @@
   },
   "cooking_method": "Mijoteuse",
   "ingredients": [
-    { "quantity": "8 à 10", "unit": "morceaux", "ingredient": "poulet", "note": "cuisses et pilons avec os" },
-    { "quantity": "40", "unit": "gousses", "ingredient": "ail", "note": "environ 4 têtes, non pelées" },
-    { "quantity": "250", "unit": "ml", "ingredient": "vin blanc sec", "note": "ou bouillon de poulet" },
-    { "quantity": "60", "unit": "ml", "ingredient": "huile d'olive", "note": "pour dorer et parfumer" },
-    { "quantity": "3", "unit": "branches", "ingredient": "thym frais", "note": "l'herbe provençale classique" },
-    { "quantity": "2", "unit": "branches", "ingredient": "romarin frais", "note": "pour la profondeur aromatique" },
-    { "quantity": "10", "unit": "ml", "ingredient": "sel de mer", "note": "pour rehausser" },
-    { "quantity": "5", "unit": "ml", "ingredient": "poivre noir moulu", "note": "la touche épicée" },
-    { "quantity": "1", "unit": "citron", "ingredient": "jus de citron", "note": "pour l'acidité équilibrante" }
+    {
+      "quantity": "8 à 10",
+      "unit": "morceaux",
+      "ingredient": "poulet",
+      "note": "cuisses et pilons avec os"
+    },
+    {
+      "quantity": "40",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "environ 4 têtes, non pelées"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "vin blanc sec",
+      "note": "ou bouillon de poulet"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "huile d'olive",
+      "note": "pour dorer et parfumer"
+    },
+    {
+      "quantity": "3",
+      "unit": "branches",
+      "ingredient": "thym frais",
+      "note": "l'herbe provençale classique"
+    },
+    {
+      "quantity": "2",
+      "unit": "branches",
+      "ingredient": "romarin frais",
+      "note": "pour la profondeur aromatique"
+    },
+    {
+      "quantity": "10",
+      "unit": "ml",
+      "ingredient": "sel de mer",
+      "note": "pour rehausser"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "poivre noir moulu",
+      "note": "la touche épicée"
+    },
+    {
+      "quantity": "1",
+      "unit": "citron",
+      "ingredient": "jus de citron",
+      "note": "pour l'acidité équilibrante"
+    }
   ],
   "steps": [
     "Dans une grande poêle, faire dorer les morceaux de poulet dans l'huile d'olive, 3-4 minutes par côté. Transférer dans la mijoteuse.",
@@ -38,8 +83,15 @@
     "Avec des haricots verts sautés au beurre",
     "Sur un lit de riz pilaf aux herbes fraîches"
   ],
-  "categories": ["plat principal"],
-  "tags": ["français", "traditionnel", "mijoteuse", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "français",
+    "traditionnel",
+    "mijoteuse",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/poulet-40-gousses.png",
   "pubDate": "2025-10-03",

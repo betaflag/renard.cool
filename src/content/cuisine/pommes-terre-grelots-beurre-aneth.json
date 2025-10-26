@@ -14,12 +14,42 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "quantity": "500", "unit": "g", "ingredient": "pommes de terre grelots", "note": "rouges ou blanches, de taille uniforme" },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "beurre", "note": "non salé de préférence" },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "aneth frais", "note": "haché grossièrement" },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "sel", "note": "pour l'eau de cuisson" },
-    { "quantity": null, "unit": null, "ingredient": "Sel de mer et poivre noir", "note": "au goût pour finition" },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "jus de citron", "note": "optionnel pour brillance" }
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "pommes de terre grelots",
+      "note": "rouges ou blanches, de taille uniforme"
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "beurre",
+      "note": "non salé de préférence"
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "aneth frais",
+      "note": "haché grossièrement"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "sel",
+      "note": "pour l'eau de cuisson"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel de mer et poivre noir",
+      "note": "au goût pour finition"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "jus de citron",
+      "note": "optionnel pour brillance"
+    }
   ],
   "steps": [
     "PRÉPARATION: Laver soigneusement les pommes de terre grelots sous l'eau froide en brossant pour retirer toute terre. NE PAS peler — la peau fine est tendre et contient saveur et nutriments. Si certaines patates sont significativement plus grosses, les couper en deux pour uniformité de cuisson.",
@@ -37,14 +67,24 @@
     "Excellent dans un brunch avec œufs pochés et saumon fumé",
     "Peut être rôti au four après écrasement pour texture croustillante"
   ],
-  "mainCategory": "accompagnement",
-  "categories": ["accompagnement", "réconfortant", "rapide"],
-  "tags": ["pommes de terre", "aneth", "beurre", "scandinave", "poisson"],
+  "categories": [
+    "accompagnement"
+  ],
+  "tags": [
+    "pommes de terre",
+    "aneth",
+    "beurre",
+    "scandinave",
+    "poisson",
+    "réconfortant",
+    "rapide"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/pommes-terre-grelots-beurre-aneth.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Les pommes de terre grelots (aussi appelées 'pommes de terre nouvelles' en saison) sont des variétés à chair ferme et crémeuse — les rouges (comme Chieftain) ou blanches fonctionnent parfaitement. Leur petite taille (2-4 cm de diamètre) les rend naturellement tendres et sucrées. Disponibles à l'année en épicerie. L'aneth DOIT être frais — séché n'a aucune de cette fraîcheur herbacée caractéristique. Le beurre non salé permet de contrôler parfaitement l'assaisonnement.",
   "tips": "Le secret de pommes de terre grelots parfaites: uniformité de taille (cuisson égale), partir à l'eau froide (centre et surface cuisent ensemble), égouttage complet (évapore humidité), et écrasement léger (crée canaux pour beurre). Ne PAS peler les grelots — la peau fine est comestible, jolie, et contient saveur terreuse délicate. Pour version rôtie APRÈS cuisson: écraser les patates bouillies, les disposer sur plaque huilée, rôtir à 425°F pendant 15 minutes = extérieur croustillant, intérieur crémeux (technique de restaurants!). L'aneth peut être remplacé par persil frais + ciboulette pour variation. Pour richesse extra, remplacer la moitié du beurre par crème sure (ajouter à la fin, pas sur feu). Ces patates sont meilleures servies immédiatement mais se réchauffent correctement au micro-ondes (45-60 sec) ou poêlées 2-3 minutes. Conservation: jusqu'à 2 jours au frigo dans contenant hermétique. Budget: environ 1,50$ par portion — économique et satisfaisant!",
-  "note": "L'ACCOMPAGNEMENT SCANDINAVE classique adopté partout dans le monde pour bonne raison — il complète TOUT. Le duo aneth-pomme de terre est ancestral dans les cuisines nordiques, particulièrement avec poisson. La texture crémeuse naturelle des grelots (contrairement aux pommes de terre Russet farineuses) crée expérience en bouche veloutée. POLYVALENCE TOTALE: Poisson, viande, volaille, œufs — ces patates accompagnent tout avec grâce. Leur neutralité crémeuse absorbe sauces, leur douceur équilibre plats épicés, leur simplicité laisse protéine briller. PRÉPARATION D'AVANCE: Cuire les patates jusqu'à 2 heures d'avance, laisser à température pièce. Réchauffer 2 minutes à la vapeur ou micro-ondes, puis ajouter beurre et aneth frais. Fraîcheur intacte, stress réduit. VARIANTES RÉGIONALES: Suède = aneth + beurre + sucre, Danemark = aneth + crème fraîche, Québec = aneth + beurre salé. Chaque culture a sa version, toutes sont sublimes. VALEUR NUTRITIONNELLE: Pommes de terre = vitamine C, potassium, fibres (avec peau). Contrairement à la réputation, elles sont nutritives quand pas frites. Aneth = antioxydants et digestion. Un accompagnement qui nourrit vraiment."
+  "note": "L'ACCOMPAGNEMENT SCANDINAVE classique adopté partout dans le monde pour bonne raison — il complète TOUT. Le duo aneth-pomme de terre est ancestral dans les cuisines nordiques, particulièrement avec poisson. La texture crémeuse naturelle des grelots (contrairement aux pommes de terre Russet farineuses) crée expérience en bouche veloutée. POLYVALENCE TOTALE: Poisson, viande, volaille, œufs — ces patates accompagnent tout avec grâce. Leur neutralité crémeuse absorbe sauces, leur douceur équilibre plats épicés, leur simplicité laisse protéine briller. PRÉPARATION D'AVANCE: Cuire les patates jusqu'à 2 heures d'avance, laisser à température pièce. Réchauffer 2 minutes à la vapeur ou micro-ondes, puis ajouter beurre et aneth frais. Fraîcheur intacte, stress réduit. VARIANTES RÉGIONALES: Suède = aneth + beurre + sucre, Danemark = aneth + crème fraîche, Québec = aneth + beurre salé. Chaque culture a sa version, toutes sont sublimes. VALEUR NUTRITIONNELLE: Pommes de terre = vitamine C, potassium, fibres (avec peau). Contrairement à la réputation, elles sont nutritives quand pas frites. Aneth = antioxydants et digestion. Un accompagnement qui nourrit vraiment.",
+  "cookbook": "accompagnement"
 }

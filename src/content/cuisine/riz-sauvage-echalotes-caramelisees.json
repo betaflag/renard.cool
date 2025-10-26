@@ -14,14 +14,54 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "quantity": "180", "unit": "ml", "ingredient": "riz sauvage", "note": "du Québec si possible" },
-    { "quantity": "500", "unit": "ml", "ingredient": "bouillon de poulet ou légumes", "note": null },
-    { "quantity": "3", "unit": null, "ingredient": "échalotes françaises", "note": "tranchées finement" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "beurre", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "sucre", "note": "aide caramélisation" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "persil frais", "note": "haché" },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre", "note": "au goût" },
-    { "quantity": "30", "unit": "ml", "ingredient": "pacanes grillées", "note": "hachées, optionnel" }
+    {
+      "quantity": "180",
+      "unit": "ml",
+      "ingredient": "riz sauvage",
+      "note": "du Québec si possible"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "bouillon de poulet ou légumes",
+      "note": null
+    },
+    {
+      "quantity": "3",
+      "unit": null,
+      "ingredient": "échalotes françaises",
+      "note": "tranchées finement"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "beurre",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "sucre",
+      "note": "aide caramélisation"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "persil frais",
+      "note": "haché"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre",
+      "note": "au goût"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "pacanes grillées",
+      "note": "hachées, optionnel"
+    }
   ],
   "steps": [
     "RINÇAGE: Rincer le riz sauvage sous l'eau froide dans passoire fine pendant 1 minute. Égoutter complètement. Le rinçage retire tout résidu et prépare les grains.",
@@ -39,14 +79,24 @@
     "Excellent avec poulet ou dinde rôtis pour Thanksgiving",
     "Peut être servi froid en salade avec vinaigrette"
   ],
-  "mainCategory": "accompagnement",
-  "categories": ["accompagnement", "québécois", "élégant"],
-  "tags": ["riz sauvage", "échalotes", "noix", "Québec", "automne"],
+  "categories": [
+    "accompagnement"
+  ],
+  "tags": [
+    "riz sauvage",
+    "échalotes",
+    "noix",
+    "Québec",
+    "automne",
+    "québécois",
+    "élégant"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/riz-sauvage-echalotes-caramelisees.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Le riz sauvage n'est PAS du riz mais la graine d'une plante aquatique (Zizania) qui pousse naturellement dans les lacs du Québec et Ontario. Les Premières Nations le récoltaient traditionnellement en canot. Aujourd'hui cultivé commercialement mais reste cher (grain noble). Saveur unique de noisette/fumée impossible à reproduire. Disponible en épiceries dans section riz. Les échalotes françaises ont goût plus doux que oignons — essentielles pour cette recette.",
   "tips": "Le riz sauvage prend LONGTEMPS à cuire (45 min) — c'est normal! Il ne deviendra jamais aussi mou que riz blanc. La texture croquante-tendre est caractéristique, pas un défaut. Les grains qui éclatent montrent intérieur blanc = signe de cuisson. Si après 45 min encore trop durs, ajouter 125 ml eau chaude et cuire 10 min de plus. Le ratio riz:liquide est 1:3 (plus que riz blanc car absorption lente). Pour accélérer, faire tremper le riz 8h dans eau froide, réduire temps cuisson à 25-30 min. Le bouillon ajoute saveur — eau fonctionne mais résultat plus fade. Les échalotes DOIVENT être caramélisées lentement — cuisson rapide = amères. Le sucre aide mais n'est pas obligatoire si patient. Pour version festive, ajouter canneberges séchées + pacanes grillées = explosion automne. Ce riz se prépare d'avance et se réchauffe parfaitement (ajouter 2 c. à soupe eau, réchauffer couvert). Congélation excellente: portions, hermétique, 3 mois. Budget: environ 2,50$ par portion (riz sauvage coûte plus cher).",
-  "note": "L'ACCOMPAGNEMENT QUÉBÉCOIS AUTHENTIQUE qui raconte notre histoire. Le riz sauvage était aliment de base des Premières Nations bien avant arrivée Européens. C'est un des rares grains vraiment indigènes d'Amérique du Nord. Le servir = honorer ce patrimoine. SAVEUR UNIQUE: Impossible de confondre riz sauvage avec n'importe quel autre grain. Son goût de noisette fumée, sa texture croquante, sa couleur sombre — tout est distinct. Les invités reconnaissent immédiatement quelque chose de spécial. NUTRITION SUPÉRIEURE: Deux fois plus de protéines que riz blanc, riche en fibres, zinc, folate, et antioxydants. Faible index glycémique. Un des grains les plus nutritifs au monde. VERSATILITÉ: Chaud comme accompagnement, froid en salade, ou farce pour volailles (Thanksgiving!). Absorbe sauces comme éponge. Le voir noir contre assiette blanche = contraste visuel spectaculaire. FIERTÉ LOCALE: Quand vous servez riz sauvage du Québec, vous supportez agriculture locale et tradition ancestrale. C'est plus qu'un ingrédient — c'est un acte de préservation culturelle. Les grains éclatés qui révèlent leur cœur blanc = métaphore parfaite pour découvrir richesses cachées du Québec."
+  "note": "L'ACCOMPAGNEMENT QUÉBÉCOIS AUTHENTIQUE qui raconte notre histoire. Le riz sauvage était aliment de base des Premières Nations bien avant arrivée Européens. C'est un des rares grains vraiment indigènes d'Amérique du Nord. Le servir = honorer ce patrimoine. SAVEUR UNIQUE: Impossible de confondre riz sauvage avec n'importe quel autre grain. Son goût de noisette fumée, sa texture croquante, sa couleur sombre — tout est distinct. Les invités reconnaissent immédiatement quelque chose de spécial. NUTRITION SUPÉRIEURE: Deux fois plus de protéines que riz blanc, riche en fibres, zinc, folate, et antioxydants. Faible index glycémique. Un des grains les plus nutritifs au monde. VERSATILITÉ: Chaud comme accompagnement, froid en salade, ou farce pour volailles (Thanksgiving!). Absorbe sauces comme éponge. Le voir noir contre assiette blanche = contraste visuel spectaculaire. FIERTÉ LOCALE: Quand vous servez riz sauvage du Québec, vous supportez agriculture locale et tradition ancestrale. C'est plus qu'un ingrédient — c'est un acte de préservation culturelle. Les grains éclatés qui révèlent leur cœur blanc = métaphore parfaite pour découvrir richesses cachées du Québec.",
+  "cookbook": "accompagnement"
 }

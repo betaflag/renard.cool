@@ -14,21 +14,90 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "subsection": "Pâte à pain" },
-    { "quantity": "6", "unit": null, "ingredient": "bananes très mûres", "note": "presque noires, écrasées" },
-    { "quantity": "500", "unit": "ml", "ingredient": "sucre", "note": null },
-    { "quantity": "250", "unit": "ml", "ingredient": "beurre fondu", "note": "ou huile végétale" },
-    { "quantity": "4", "unit": null, "ingredient": "œufs", "note": "battus" },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "vanille", "note": null },
-    { "quantity": "750", "unit": "ml", "ingredient": "farine tout usage", "note": null },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "poudre à pâte", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "bicarbonate de soude", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "sel", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "cannelle moulue", "note": "optionnel" },
-    { "subsection": "Extras optionnels" },
-    { "quantity": "250", "unit": "ml", "ingredient": "pépites de chocolat", "note": "les castors adorent!" },
-    { "quantity": "250", "unit": "ml", "ingredient": "noix hachées", "note": "pacanes ou noix de Grenoble" },
-    { "quantity": "125", "unit": "ml", "ingredient": "yogourt nature", "note": "pour extra moelleux" }
+    {
+      "subsection": "Pâte à pain"
+    },
+    {
+      "quantity": "6",
+      "unit": null,
+      "ingredient": "bananes très mûres",
+      "note": "presque noires, écrasées"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "sucre",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "beurre fondu",
+      "note": "ou huile végétale"
+    },
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "œufs",
+      "note": "battus"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "vanille",
+      "note": null
+    },
+    {
+      "quantity": "750",
+      "unit": "ml",
+      "ingredient": "farine tout usage",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "poudre à pâte",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "bicarbonate de soude",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "sel",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "cannelle moulue",
+      "note": "optionnel"
+    },
+    {
+      "subsection": "Extras optionnels"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "pépites de chocolat",
+      "note": "les castors adorent!"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "noix hachées",
+      "note": "pacanes ou noix de Grenoble"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "yogourt nature",
+      "note": "pour extra moelleux"
+    }
   ],
   "steps": [
     "À LA MAISON - Préparation: Préchauffer le four à 350°F (175°C). Graisser généreusement 2 grands moules à pain (9x5 pouces) avec beurre ou vaporisateur à cuisson. Tapisser le fond de papier parchemin pour démoulage facile.",
@@ -52,16 +121,29 @@
     "Délicieux réchauffé avec un peu de beurre qui fond",
     "Se conserve 3-4 jours à température pièce dans contenant hermétique"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["collation", "dessert", "petit-déjeuner"],
-  "tags": ["castors", "camp", "make-ahead", "congélation", "sucré"],
+  "categories": [
+    "collation",
+    "dessert"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "make-ahead",
+    "congélation",
+    "sucré",
+    "petit-déjeuner"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["préparation rapide", "grandes portions"],
+  "scoutContext": [
+    "préparation rapide",
+    "grandes portions"
+  ],
   "heroImage": "/cuisine/pain-aux-bananes-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Le secret d'un pain aux bananes INCROYABLE? Des bananes TRÈS mûres (presque noires!), ne pas trop mélanger la pâte, et être patient pendant le refroidissement. Plus les bananes sont mûres, plus le pain sera sucré et savoureux. Ce n'est PAS le moment d'utiliser des bananes jaunes parfaites - on veut celles qui sont au bord d'être jetées! Et les pépites de chocolat? Complètement optionnelles mais les castors les ADORENT.",
   "tips": "ASTUCE #1: Bananes trop mûres = pain MEILLEUR! Peau noire avec taches = niveau de mûrissement PARFAIT. Les bananes libèrent plus de sucres et donnent saveur intense. ASTUCE #2: NE PAS trop mélanger la pâte! Mélanger juste jusqu'à disparition de la farine. Trop mélanger développe le gluten = pain dense et caoutchouteux. Pâte grumeleuse = pain moelleux. ASTUCE #3: Le pain DOIT refroidir complètement avant de trancher! Couper quand chaud = tranches qui s'effritent et texture pâteuse. Patience = belles tranches nettes. ASTUCE #4: Congeler en tranches individuelles (enveloppées séparément) permet aux castors de prendre juste ce qu'ils veulent. Plus pratique que pain entier. ASTUCE #5: Pour savoir si bananes assez mûres: peau doit être 50% brune/noire. Quand vous pressez, elles doivent être super molles. MAKE-AHEAD CHAMPION: Cette recette est CONÇUE pour être faite d'avance. Préparer 1-2 semaines avant le camp, congeler, et c'est tout! Au camp, zéro effort - juste sortir, trancher, servir. VARIANTES: 1) Version chocolat - ajouter 60 ml de poudre de cacao au mélange sec, 2) Version tropicale - remplacer 1 banane par 125 ml d'ananas broyé égoutté, 3) Version santé - remplacer la moitié de la farine par farine de blé entier, réduire sucre à 375 ml, 4) Version déjeuner - ajouter 250 ml de gruau et 125 ml de graines de tournesol. TEST CURE-DENT: Insérer au CENTRE du pain (pas sur les côtés). Doit ressortir propre ou avec miettes sèches. Si pâte liquide colle = cuire 5 min de plus et retester. PRÉVENTION DESSUS TROP DORÉ: Si après 40 min le dessus est déjà brun foncé mais centre pas cuit, couvrir lâchement de papier alu. Ça ralentit brunissement du dessus pendant que centre finit de cuire. UTILISATION RESTANTS: S'il reste du pain après le camp, fait d'excellentes 'French toast' - tremper tranches dans mélange œuf-lait-cannelle, cuire dans poêle beurrée. Les castors ADORENT! Budget: environ 1-2$ par portion.",
-  "note": "LE DESSERT NOSTALGIQUE qui rappelle la maison! L'odeur du pain aux bananes qui cuit crée une ambiance chaleureuse et réconfortante - même au camp. Les castors reconnaissent cette odeur familière et ça les rassure. ZÉRO STRESS AU CAMP: Tout se fait à la maison dans votre propre cuisine avec votre four fiable. Au camp, vous n'avez qu'à sortir le pain, trancher, et servir. Même pas besoin de réfrigération si consommé en 2-3 jours! SOLUTION ANTI-GASPILLAGE: Les bananes trop mûres qu'on aurait jetées? Transformées en trésor! Apprend aux castors qu'on peut créer quelque chose de délicieux avec des aliments 'imparfaits'. TRANSPORTABILITÉ PARFAITE: Pain congelé = ice pack gratuit dans glacière. Dégèle lentement pendant trajet. Pas de dégât, pas de renversement, pas de réfrigération nécessaire après dégel. ALLERGIE-FRIENDLY: Facile à adapter - utiliser huile au lieu de beurre (sans lactose), remplacer œufs par 'flax eggs' (végane), omettre noix si allergies. Chaque castor peut avoir sa version! APPRENTISSAGE: Les castors apprennent concept de 'make-ahead cooking', importance du mûrissement des fruits, technique de mélange délicat, et patience (attendre refroidissement). Certains peuvent même aider à préparer à la maison avant le camp. POLYVALENCE: Petit-déjeuner avec café des animateurs, collation d'après-midi avec jus, dessert après souper, ou snack de soirée autour du feu. Fonctionne à TOUS les moments de la journée. ÉCONOMIQUE: Une des recettes les moins chères! Bananes sur-mûres sont souvent en rabais (ou données par épicerie). Fait 2 gros pains pour environ 10-12$ total = moins de 50¢ par portion. COMPARAISON RESTO: Taste like pain aux bananes de café fancy à 5-6$ la tranche, mais version maison pour fraction du prix. Version chocolat rivalise avec Starbucks! CONSERVATION LONGUE: Pain se garde 3 jours à température pièce (dans contenant hermétique), 1 semaine au frigo, 3 mois au congélateur. Très versatile pour planification de camp."
+  "note": "LE DESSERT NOSTALGIQUE qui rappelle la maison! L'odeur du pain aux bananes qui cuit crée une ambiance chaleureuse et réconfortante - même au camp. Les castors reconnaissent cette odeur familière et ça les rassure. ZÉRO STRESS AU CAMP: Tout se fait à la maison dans votre propre cuisine avec votre four fiable. Au camp, vous n'avez qu'à sortir le pain, trancher, et servir. Même pas besoin de réfrigération si consommé en 2-3 jours! SOLUTION ANTI-GASPILLAGE: Les bananes trop mûres qu'on aurait jetées? Transformées en trésor! Apprend aux castors qu'on peut créer quelque chose de délicieux avec des aliments 'imparfaits'. TRANSPORTABILITÉ PARFAITE: Pain congelé = ice pack gratuit dans glacière. Dégèle lentement pendant trajet. Pas de dégât, pas de renversement, pas de réfrigération nécessaire après dégel. ALLERGIE-FRIENDLY: Facile à adapter - utiliser huile au lieu de beurre (sans lactose), remplacer œufs par 'flax eggs' (végane), omettre noix si allergies. Chaque castor peut avoir sa version! APPRENTISSAGE: Les castors apprennent concept de 'make-ahead cooking', importance du mûrissement des fruits, technique de mélange délicat, et patience (attendre refroidissement). Certains peuvent même aider à préparer à la maison avant le camp. POLYVALENCE: Petit-déjeuner avec café des animateurs, collation d'après-midi avec jus, dessert après souper, ou snack de soirée autour du feu. Fonctionne à TOUS les moments de la journée. ÉCONOMIQUE: Une des recettes les moins chères! Bananes sur-mûres sont souvent en rabais (ou données par épicerie). Fait 2 gros pains pour environ 10-12$ total = moins de 50¢ par portion. COMPARAISON RESTO: Taste like pain aux bananes de café fancy à 5-6$ la tranche, mais version maison pour fraction du prix. Version chocolat rivalise avec Starbucks! CONSERVATION LONGUE: Pain se garde 3 jours à température pièce (dans contenant hermétique), 1 semaine au frigo, 3 mois au congélateur. Très versatile pour planification de camp.",
+  "cookbook": "Camps Scout"
 }

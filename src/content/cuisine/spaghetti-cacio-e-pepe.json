@@ -64,8 +64,15 @@
     "Accompagner d'une simple salade de roquette à l'huile d'olive et citron",
     "Proposer un vin blanc sec italien (Frascati ou Verdicchio)"
   ],
-  "categories": ["plat principal", "italien", "romantique", "rapide"],
+  "categories": [
+    "plat principal"
+  ],
   "difficulty": "moyen",
   "pubDate": "2025-10-14",
-  "draft": false
+  "draft": false,
+  "tags": [
+    "italien",
+    "romantique",
+    "rapide"
+  ]
 }

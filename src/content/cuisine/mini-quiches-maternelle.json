@@ -191,9 +191,18 @@
     "Emballer individuellement pour rapporter à la maison",
     "Se réchauffent bien au micro-ondes (20-30 secondes)"
   ],
-  "mainCategory": "Petite École",
-  "categories": ["déjeuner", "dîner", "collation"],
-  "tags": ["maternelle", "protéines", "four", "polyvalent", "congélation"],
+  "categories": [
+    "collation"
+  ],
+  "tags": [
+    "maternelle",
+    "protéines",
+    "four",
+    "polyvalent",
+    "congélation",
+    "déjeuner",
+    "dîner"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/mini-quiches-maternelle.png",
   "pubDate": "2025-10-12",
@@ -201,5 +210,6 @@
   "variant": "maternelle",
   "ingredientIntro": "Des ingrédients simples et nutritifs pour des mini-quiches protéinées! Les œufs sont la base, le lait rend la texture crémeuse, le fromage ajoute le goût, et les légumes colorent et nourrissent. Chaque enfant apprend à casser des œufs (compétence de vie!), fouetter (motricité), et verser avec précision. Recette adaptable selon les goûts et les allergies!",
   "tips": "POUR LES ENSEIGNANTS ET PARENTS: Casser des œufs est une COMPÉTENCE DE VIE que les enfants de 5-6 ans peuvent apprendre avec supervision. Faites-les casser dans un petit bol séparé d'abord — si coquilles tombent, facile de retirer avant d'ajouter au grand bol. Graissez GÉNÉREUSEMENT les moules — sinon les quiches colleront. Utilisez du beurre fondu ou spray antiadhésif. Si vous n'avez pas 2 moules à 12 muffins, cuisez en 2 lots. Légumes pré-hachés congelés (décongelés et égouttés) fonctionnent parfaitement et économisent temps. Épinards, poivrons, champignons, oignons — tout fonctionne! Version VÉGÉTARIENNE: omettez le jambon, ajoutez plus de légumes ou du tofu émietté. Fouetter crée des bulles d'air qui rendent les quiches légères et gonflées. Les enfants adorent voir le mouvement du fouet! Les quiches vont GONFLER au four puis retomber un peu en refroidissant — c'est normal! Elles seront encore moelleuses et délicieuses. Remplissez les moules aux 2/3 SEULEMENT — le mélange gonfle et peut déborder si trop plein. Vocabulaire à enseigner: fouetter, casser (œufs), verser, moule, liquide → solide, transformation. CONSERVATION: Réfrigérateur 3-4 jours dans contenant hermétique. Congélateur 2-3 mois (emballer individuellement). Réchauffer au micro-ondes 20-30 secondes ou four 350°F pendant 8-10 minutes. Budget: Environ 12-15$ pour 24 mini-quiches (classe de 20 = 1-2 par enfant selon appétit). PERSONNALISATION: Créez des \"stations de garnitures\" — chaque enfant peut choisir ses légumes préférés pour personnaliser ses quiches. Cette recette enseigne: transformation (liquide → solide), nutrition (protéines des œufs), mesures, et précision (verser sans renverser).",
-  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les moules chauds. Supervision étroite lors du cassage des œufs — laver les mains après avoir touché les coquilles (salmonelle). Les quiches restent chaudes longtemps — attendre 3 minutes avant de démouler et servir. Vérifier allergies: œufs, lait, gluten (si ajout de farine dans certaines variantes). Version sans lactose: lait d'amande + fromage végétal."
+  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les moules chauds. Supervision étroite lors du cassage des œufs — laver les mains après avoir touché les coquilles (salmonelle). Les quiches restent chaudes longtemps — attendre 3 minutes avant de démouler et servir. Vérifier allergies: œufs, lait, gluten (si ajout de farine dans certaines variantes). Version sans lactose: lait d'amande + fromage végétal.",
+  "cookbook": "Petite École"
 }

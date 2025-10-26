@@ -14,19 +14,81 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "quantity": "454", "unit": "g", "ingredient": "penne ou fusilli", "note": "les spirales retiennent bien la sauce" },
-    { "quantity": "500", "unit": "g", "ingredient": "poitrines de poulet", "note": "coupées en cubes" },
-    { "quantity": "250", "unit": "ml", "ingredient": "pesto au basilic", "note": "du commerce ou maison" },
-    { "quantity": "300", "unit": "g", "ingredient": "tomates cerises", "note": "coupées en deux" },
-    { "quantity": "3", "unit": "gousses", "ingredient": "ail", "note": "hachées finement" },
-    { "quantity": "60", "unit": "ml", "ingredient": "huile d'olive", "note": "divisée" },
-    { "quantity": "125", "unit": "ml", "ingredient": "parmesan", "note": "râpé finement" },
-    { "quantity": "60", "unit": "ml", "ingredient": "eau de cuisson des pâtes", "note": "pour lier" },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre", "note": "au goût" },
-    { "subsection": "Pour garnir (facultatif)" },
-    { "quantity": "30", "unit": "ml", "ingredient": "pignons de pin", "note": "grillés" },
-    { "quantity": null, "unit": null, "ingredient": "Feuilles de basilic frais", "note": "ciselées" },
-    { "quantity": null, "unit": null, "ingredient": "Parmesan supplémentaire", "note": "en copeaux" }
+    {
+      "quantity": "454",
+      "unit": "g",
+      "ingredient": "penne ou fusilli",
+      "note": "les spirales retiennent bien la sauce"
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "poitrines de poulet",
+      "note": "coupées en cubes"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "pesto au basilic",
+      "note": "du commerce ou maison"
+    },
+    {
+      "quantity": "300",
+      "unit": "g",
+      "ingredient": "tomates cerises",
+      "note": "coupées en deux"
+    },
+    {
+      "quantity": "3",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées finement"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "huile d'olive",
+      "note": "divisée"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "parmesan",
+      "note": "râpé finement"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "eau de cuisson des pâtes",
+      "note": "pour lier"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre",
+      "note": "au goût"
+    },
+    {
+      "subsection": "Pour garnir (facultatif)"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "pignons de pin",
+      "note": "grillés"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Feuilles de basilic frais",
+      "note": "ciselées"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Parmesan supplémentaire",
+      "note": "en copeaux"
+    }
   ],
   "steps": [
     "Porter une grande casserole d'eau salée à ébullition. Cuire les pâtes selon les instructions du paquet jusqu'à al dente. Réserver 125 ml d'eau de cuisson avant d'égoutter.",
@@ -44,8 +106,14 @@
     "Dans des bols avec un filet d'huile d'olive extra-vierge",
     "Garni généreusement de basilic frais et parmesan en copeaux"
   ],
-  "categories": ["plat principal"],
-  "tags": ["italien", "rapide", "une-casserole"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "italien",
+    "rapide",
+    "une-casserole"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/pates-pesto.png",
   "pubDate": "2025-10-05",

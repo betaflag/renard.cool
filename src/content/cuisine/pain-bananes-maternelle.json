@@ -14,16 +14,66 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "quantity": "3", "unit": null, "ingredient": "bananes très mûres", "note": "avec taches brunes - parfaites pour écraser!" },
-    { "quantity": "375", "unit": "ml", "ingredient": "farine tout-usage", "note": "1½ tasse - la structure du pain" },
-    { "quantity": "5", "unit": "ml", "ingredient": "poudre à pâte", "note": "1 c. à thé - pour que ça lève" },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "bicarbonate de soude", "note": "½ c. à thé - texture moelleuse" },
-    { "quantity": "1,25", "unit": "ml", "ingredient": "sel", "note": "¼ c. à thé - équilibre les saveurs" },
-    { "quantity": "5", "unit": "ml", "ingredient": "cannelle moulue", "note": "1 c. à thé - l'odeur de l'automne" },
-    { "quantity": "125", "unit": "ml", "ingredient": "cassonade", "note": "½ tasse - le goût caramélisé" },
-    { "quantity": "75", "unit": "ml", "ingredient": "huile végétale", "note": "⅓ tasse - facile à mélanger" },
-    { "quantity": "1", "unit": null, "ingredient": "gros œuf", "note": "pour lier le tout" },
-    { "quantity": "5", "unit": "ml", "ingredient": "extrait de vanille", "note": "1 c. à thé - sent bon!" }
+    {
+      "quantity": "3",
+      "unit": null,
+      "ingredient": "bananes très mûres",
+      "note": "avec taches brunes - parfaites pour écraser!"
+    },
+    {
+      "quantity": "375",
+      "unit": "ml",
+      "ingredient": "farine tout-usage",
+      "note": "1½ tasse - la structure du pain"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "poudre à pâte",
+      "note": "1 c. à thé - pour que ça lève"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "bicarbonate de soude",
+      "note": "½ c. à thé - texture moelleuse"
+    },
+    {
+      "quantity": "1,25",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": "¼ c. à thé - équilibre les saveurs"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "cannelle moulue",
+      "note": "1 c. à thé - l'odeur de l'automne"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "cassonade",
+      "note": "½ tasse - le goût caramélisé"
+    },
+    {
+      "quantity": "75",
+      "unit": "ml",
+      "ingredient": "huile végétale",
+      "note": "⅓ tasse - facile à mélanger"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "gros œuf",
+      "note": "pour lier le tout"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "extrait de vanille",
+      "note": "1 c. à thé - sent bon!"
+    }
   ],
   "steps": [
     "L'ADULTE allume le four à 350°F. L'ADULTE graisse un moule à pain de 9x5 pouces avec un peu d'huile ou de beurre.",
@@ -42,70 +92,168 @@
       "instruction": "Préparer le four et graisser le moule à pain",
       "actorRole": "adulte",
       "visualElements": [
-        { "type": "tool", "image": "/pictogrammes/four.png", "label": "Four", "quantity": "350°F" },
-        { "type": "container", "image": "/pictogrammes/moule-pain.png", "label": "Moule à pain graissé" }
+        {
+          "type": "tool",
+          "image": "/pictogrammes/four.png",
+          "label": "Four",
+          "quantity": "350°F"
+        },
+        {
+          "type": "container",
+          "image": "/pictogrammes/moule-pain.png",
+          "label": "Moule à pain graissé"
+        }
       ]
     },
     {
       "instruction": "Écraser les bananes avec une fourchette dans le grand bol",
       "actorRole": "enfants",
       "visualElements": [
-        { "type": "container", "image": "/pictogrammes/bol-grand.png", "label": "Grand bol" },
-        { "type": "ingredient", "image": "/pictogrammes/banane.png", "label": "Bananes mûres", "quantity": "3" },
-        { "type": "action", "image": "/pictogrammes/ecraser-fourchette.png", "label": "Écraser avec fourchette" }
+        {
+          "type": "container",
+          "image": "/pictogrammes/bol-grand.png",
+          "label": "Grand bol"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/banane.png",
+          "label": "Bananes mûres",
+          "quantity": "3"
+        },
+        {
+          "type": "action",
+          "image": "/pictogrammes/ecraser-fourchette.png",
+          "label": "Écraser avec fourchette"
+        }
       ]
     },
     {
       "instruction": "Ajouter les ingrédients liquides aux bananes et mélanger",
       "actorRole": "enfants",
       "visualElements": [
-        { "type": "ingredient", "image": "/pictogrammes/oeuf.png", "label": "Œuf", "quantity": "1" },
-        { "type": "ingredient", "image": "/pictogrammes/huile.png", "label": "Huile", "quantity": "75 ml" },
-        { "type": "ingredient", "image": "/pictogrammes/cassonade.png", "label": "Cassonade", "quantity": "125 ml" },
-        { "type": "ingredient", "image": "/pictogrammes/vanille.png", "label": "Vanille", "quantity": "5 ml" },
-        { "type": "action", "image": "/pictogrammes/melanger.png", "label": "Mélanger bien" }
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/oeuf.png",
+          "label": "Œuf",
+          "quantity": "1"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/huile.png",
+          "label": "Huile",
+          "quantity": "75 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/cassonade.png",
+          "label": "Cassonade",
+          "quantity": "125 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/vanille.png",
+          "label": "Vanille",
+          "quantity": "5 ml"
+        },
+        {
+          "type": "action",
+          "image": "/pictogrammes/melanger.png",
+          "label": "Mélanger bien"
+        }
       ]
     },
     {
       "instruction": "Mélanger les ingrédients secs dans le petit bol",
       "actorRole": "enfants",
       "visualElements": [
-        { "type": "container", "image": "/pictogrammes/bol-petit.png", "label": "Petit bol" },
-        { "type": "ingredient", "image": "/pictogrammes/farine.png", "label": "Farine", "quantity": "375 ml" },
-        { "type": "ingredient", "image": "/pictogrammes/poudre-pate.png", "label": "Poudre à pâte", "quantity": "5 ml" },
-        { "type": "ingredient", "image": "/pictogrammes/sel.png", "label": "Sel", "quantity": "1,25 ml" },
-        { "type": "action", "image": "/pictogrammes/melanger.png", "label": "Mélanger" }
+        {
+          "type": "container",
+          "image": "/pictogrammes/bol-petit.png",
+          "label": "Petit bol"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/farine.png",
+          "label": "Farine",
+          "quantity": "375 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/poudre-pate.png",
+          "label": "Poudre à pâte",
+          "quantity": "5 ml"
+        },
+        {
+          "type": "ingredient",
+          "image": "/pictogrammes/sel.png",
+          "label": "Sel",
+          "quantity": "1,25 ml"
+        },
+        {
+          "type": "action",
+          "image": "/pictogrammes/melanger.png",
+          "label": "Mélanger"
+        }
       ]
     },
     {
       "instruction": "Verser les ingrédients secs dans le mélange de bananes et mélanger doucement",
       "actorRole": "enfants",
       "visualElements": [
-        { "type": "container", "image": "/pictogrammes/bol-petit.png", "label": "Verser dans grand bol" },
-        { "type": "container", "image": "/pictogrammes/bol-grand.png", "label": "Grand bol" },
-        { "type": "action", "image": "/pictogrammes/melanger.png", "label": "Mélanger doucement" }
+        {
+          "type": "container",
+          "image": "/pictogrammes/bol-petit.png",
+          "label": "Verser dans grand bol"
+        },
+        {
+          "type": "container",
+          "image": "/pictogrammes/bol-grand.png",
+          "label": "Grand bol"
+        },
+        {
+          "type": "action",
+          "image": "/pictogrammes/melanger.png",
+          "label": "Mélanger doucement"
+        }
       ]
     },
     {
       "instruction": "Verser la pâte dans le moule à pain",
       "actorRole": "enfants",
       "visualElements": [
-        { "type": "container", "image": "/pictogrammes/bol-grand.png", "label": "Verser la pâte" },
-        { "type": "container", "image": "/pictogrammes/moule-pain.png", "label": "Dans le moule" }
+        {
+          "type": "container",
+          "image": "/pictogrammes/bol-grand.png",
+          "label": "Verser la pâte"
+        },
+        {
+          "type": "container",
+          "image": "/pictogrammes/moule-pain.png",
+          "label": "Dans le moule"
+        }
       ]
     },
     {
       "instruction": "Cuire au four — CHAUD!",
       "actorRole": "adulte",
       "visualElements": [
-        { "type": "tool", "image": "/pictogrammes/four.png", "label": "Four CHAUD", "quantity": "50-55 min" }
+        {
+          "type": "tool",
+          "image": "/pictogrammes/four.png",
+          "label": "Four CHAUD",
+          "quantity": "50-55 min"
+        }
       ]
     },
     {
       "instruction": "Sortir du four et laisser refroidir",
       "actorRole": "adulte",
       "visualElements": [
-        { "type": "container", "image": "/pictogrammes/moule-pain.png", "label": "Refroidir 10 min" }
+        {
+          "type": "container",
+          "image": "/pictogrammes/moule-pain.png",
+          "label": "Refroidir 10 min"
+        }
       ]
     }
   ],
@@ -115,9 +263,16 @@
     "Avec un verre de lait",
     "Emballé dans du papier ciré pour rapporter à la maison"
   ],
-  "mainCategory": "Petite École",
-  "categories": ["collation", "dessert"],
-  "tags": ["maternelle", "familial", "four", "congélation"],
+  "categories": [
+    "collation",
+    "dessert"
+  ],
+  "tags": [
+    "maternelle",
+    "familial",
+    "four",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/pain-bananes-maternelle.png",
   "pubDate": "2025-10-12",
@@ -125,5 +280,6 @@
   "variant": "maternelle",
   "ingredientIntro": "Seulement 10 ingrédients simples! Les enfants adorent écraser les bananes mûres — c'est une activité sensorielle fantastique qui leur permet de voir, sentir et toucher la transformation des ingrédients. Les bananes trop mûres (celles avec plein de taches brunes) sont PARFAITES pour cette recette. C'est une belle leçon anti-gaspillage: ce qui semble \"trop vieux\" devient quelque chose de délicieux!",
   "tips": "POUR LES ENSEIGNANTS ET PARENTS: Cette recette est idéale pour enseigner la transformation des ingrédients et l'anti-gaspillage. Les bananes avec beaucoup de taches brunes sont parfaites — plus elles sont mûres, plus le pain sera sucré et parfumé. Demandez aux parents de garder leurs bananes trop mûres pour l'activité! Écraser les bananes avec une fourchette est une excellente activité de motricité fine — laissez les enfants y aller, même si ce n'est pas parfaitement lisse. Quelques morceaux ajoutent de la texture au pain. Utilisez de l'huile végétale au lieu du beurre: c'est beaucoup plus facile pour les petites mains de mélanger, pas besoin de ramollir, et ça donne un pain très moelleux. Ne sur-mélangez PAS après avoir ajouté la farine — mélangez juste jusqu'à disparition de la farine blanche. Un peu grumeleux, c'est parfait! Sur-mélanger rend le pain dense. Le pain peut sembler un peu fragile à la sortie du four — c'est normal! Il raffermit en refroidissant. Attendez au moins 10 minutes dans le moule avant de démouler. Vocabulaire à enseigner: écraser, purée, mélanger doucement, grumeleux vs lisse, transformation (bananes → pâte → pain cuit). Ce pain se conserve 3-4 jours enveloppé et se congèle merveilleusement (jusqu'à 3 mois). Parfait pour utiliser les bananes trop mûres — une vraie leçon anti-gaspillage pour les enfants!",
-  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les moules chauds. Les enfants ne touchent jamais le four ou les plats qui sortent du four. Vérifier les allergies (œufs, gluten) avant de faire l'activité en classe. Le pain doit refroidir complètement avant d'être tranché pour éviter qu'il s'effrite."
+  "note": "SÉCURITÉ: Seul l'adulte manipule le four chaud et les moules chauds. Les enfants ne touchent jamais le four ou les plats qui sortent du four. Vérifier les allergies (œufs, gluten) avant de faire l'activité en classe. Le pain doit refroidir complètement avant d'être tranché pour éviter qu'il s'effrite.",
+  "cookbook": "Petite École"
 }

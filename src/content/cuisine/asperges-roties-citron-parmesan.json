@@ -14,12 +14,42 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "quantity": "450", "unit": "g", "ingredient": "asperges fraîches", "note": "environ 16-20 tiges moyennes" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": "extra vierge de qualité" },
-    { "quantity": "1", "unit": null, "ingredient": "citron", "note": "zeste et jus" },
-    { "quantity": "30", "unit": "ml", "ingredient": "parmesan fraîchement râpé", "note": "Parmigiano-Reggiano idéalement" },
-    { "quantity": null, "unit": null, "ingredient": "Sel de mer et poivre noir", "note": "au goût" },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "ail en poudre", "note": "optionnel mais recommandé" }
+    {
+      "quantity": "450",
+      "unit": "g",
+      "ingredient": "asperges fraîches",
+      "note": "environ 16-20 tiges moyennes"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "huile d'olive",
+      "note": "extra vierge de qualité"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "citron",
+      "note": "zeste et jus"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "parmesan fraîchement râpé",
+      "note": "Parmigiano-Reggiano idéalement"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel de mer et poivre noir",
+      "note": "au goût"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "ail en poudre",
+      "note": "optionnel mais recommandé"
+    }
   ],
   "steps": [
     "PRÉPARATION: Préchauffer le four à 425°F (220°C). Tapisser une plaque de cuisson de papier parchemin ou légèrement huiler. Laver les asperges sous l'eau froide et éponger avec un linge propre.",
@@ -36,14 +66,25 @@
     "Se marie merveilleusement avec omelettes et quiches",
     "Peut être servi à température pièce pour un buffet élégant"
   ],
-  "mainCategory": "accompagnement",
-  "categories": ["accompagnement", "rapide", "romantique"],
-  "tags": ["asperges", "citron", "parmesan", "rôti", "printemps", "élégant"],
+  "categories": [
+    "accompagnement"
+  ],
+  "tags": [
+    "asperges",
+    "citron",
+    "parmesan",
+    "rôti",
+    "printemps",
+    "élégant",
+    "rapide",
+    "romantique"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/asperges-roties-citron-parmesan.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "La fraîcheur des asperges est CRITIQUE — elles perdent saveur et texture rapidement après récolte. Choisir des tiges fermes et droites avec pointes serrées (pas ouvertes ou visqueuses). Les asperges québécoises de saison (mai-juin) sont incomparables. Hors saison, les asperges du Pérou ou Mexique disponibles à l'année font l'affaire. Le parmesan DOIT être fraîchement râpé — le pré-râpé en sac a goût de sciure. Investir dans un bloc de Parmigiano-Reggiano change tout.",
   "tips": "Le secret d'asperges parfaitement rôties est température HAUTE (425°F minimum) et asperges en une seule couche sans chevauchement — elles doivent rôtir, pas cuire à la vapeur. Le papier parchemin empêche collage et facilite nettoyage. La technique de cassage pour parer élimine automatiquement la partie fibreuse sans deviner où couper. Pour asperges extra épaisses, augmenter temps à 15 minutes ou les couper en deux sur la longueur. Le zeste de citron avant cuisson infuse l'huile et parfume les asperges de l'intérieur, le jus après cuisson ajoute acidité fraîche qui ne s'évapore pas. Le timing est crucial — 2 minutes de trop = texture pâteuse, 2 minutes de moins = coriace. Surveiller attentivement surtout la première fois. Cette recette se double ou triple facilement pour plus de convives — simplement utiliser 2-3 plaques et alterner positions à mi-cuisson. Les asperges se réchauffent mal (deviennent grises et molles), donc préparer juste avant de servir. Budget: environ 2-3$ par portion selon la saison.",
-  "note": "L'ACCOMPAGNEMENT PRINTEMPS par excellence qui annonce le renouveau après l'hiver. Les asperges fraîches sont disponibles au Québec seulement 4-6 semaines par année (fin mai à début juin), rendant chaque bouchée précieuse. Leur saveur délicate — herbacée avec pointe d'amertume noble — s'épanouit avec la simplicité: huile d'olive, citron, parmesan. Pas besoin de masquer, juste rehausser. VALEUR NUTRITIONNELLE: Les asperges sont des superstars — riches en folate, vitamines A, C, K, et antioxydants. Elles contiennent prébiotiques qui nourrissent les bonnes bactéries intestinales. Diurétiques naturelles. Un accompagnement qui nourrit autant qu'il plaît. POLYVALENCE: Cette recette fonctionne avec TOUT — poissons délicats qui demandent légèreté, viandes rouges qui bénéficient du contraste, ou simplement comme plat végétarien avec œufs pochés. Le citron-parmesan est une combinaison universellement aimée. PRÉSENTATION RESTAURANT: Les asperges rôties disposées en fagot élégant ou en éventail créent hauteur et sophistication sur l'assiette. Les chefs gastronomiques adorent ce légume pour sa forme architecturale. Vous servez ce qu'ils servent à 15$ l'assiette."
+  "note": "L'ACCOMPAGNEMENT PRINTEMPS par excellence qui annonce le renouveau après l'hiver. Les asperges fraîches sont disponibles au Québec seulement 4-6 semaines par année (fin mai à début juin), rendant chaque bouchée précieuse. Leur saveur délicate — herbacée avec pointe d'amertume noble — s'épanouit avec la simplicité: huile d'olive, citron, parmesan. Pas besoin de masquer, juste rehausser. VALEUR NUTRITIONNELLE: Les asperges sont des superstars — riches en folate, vitamines A, C, K, et antioxydants. Elles contiennent prébiotiques qui nourrissent les bonnes bactéries intestinales. Diurétiques naturelles. Un accompagnement qui nourrit autant qu'il plaît. POLYVALENCE: Cette recette fonctionne avec TOUT — poissons délicats qui demandent légèreté, viandes rouges qui bénéficient du contraste, ou simplement comme plat végétarien avec œufs pochés. Le citron-parmesan est une combinaison universellement aimée. PRÉSENTATION RESTAURANT: Les asperges rôties disposées en fagot élégant ou en éventail créent hauteur et sophistication sur l'assiette. Les chefs gastronomiques adorent ce légume pour sa forme architecturale. Vous servez ce qu'ils servent à 15$ l'assiette.",
+  "cookbook": "accompagnement"
 }

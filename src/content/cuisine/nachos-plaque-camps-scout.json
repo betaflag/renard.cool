@@ -14,28 +14,123 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "subsection": "Base chips" },
-    { "quantity": "4", "unit": "grands sacs (350-400g)", "ingredient": "chips tortillas", "note": "mix nature, nacho cheese, épicés" },
-    { "subsection": "Protéines (préparer d'avance recommandé)" },
-    { "quantity": "1,5", "unit": "kg", "ingredient": "bœuf haché mi-maigre", "note": "ou poulet haché" },
-    { "quantity": "3", "unit": "sachets", "ingredient": "assaisonnement à tacos", "note": null },
-    { "quantity": "250", "unit": "ml", "ingredient": "eau", "note": null },
-    { "subsection": "Fromages (ne pas lésiner!)" },
-    { "quantity": "1,2", "unit": "kg", "ingredient": "fromage cheddar fort râpé", "note": null },
-    { "quantity": "600", "unit": "g", "ingredient": "fromage Monterey Jack ou mozzarella râpé", "note": null },
-    { "subsection": "Garnitures pré-cuisson" },
-    { "quantity": "2", "unit": "boîtes (540 ml)", "ingredient": "haricots noirs", "note": "égouttés et rincés" },
-    { "quantity": "2", "unit": "boîtes (341 ml)", "ingredient": "maïs en grains", "note": "égoutté" },
-    { "quantity": "2", "unit": null, "ingredient": "poivrons (rouge et vert) en dés", "note": null },
-    { "quantity": "4", "unit": null, "ingredient": "oignons verts tranchés", "note": null },
-    { "quantity": "1", "unit": "pot", "ingredient": "jalapeños marinés", "note": "optionnel" },
-    { "subsection": "Garnitures fraîches (après cuisson)" },
-    { "quantity": "500", "unit": "ml", "ingredient": "crème sure", "note": null },
-    { "quantity": "2", "unit": "pots (500 ml)", "ingredient": "salsa", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "gros avocats pour guacamole", "note": "ou guacamole préparé" },
-    { "quantity": "2-3", "unit": null, "ingredient": "tomates en dés", "note": null },
-    { "quantity": "½", "unit": null, "ingredient": "laitue iceberg hachée", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "limes en quartiers", "note": null }
+    {
+      "subsection": "Base chips"
+    },
+    {
+      "quantity": "4",
+      "unit": "grands sacs (350-400g)",
+      "ingredient": "chips tortillas",
+      "note": "mix nature, nacho cheese, épicés"
+    },
+    {
+      "subsection": "Protéines (préparer d'avance recommandé)"
+    },
+    {
+      "quantity": "1,5",
+      "unit": "kg",
+      "ingredient": "bœuf haché mi-maigre",
+      "note": "ou poulet haché"
+    },
+    {
+      "quantity": "3",
+      "unit": "sachets",
+      "ingredient": "assaisonnement à tacos",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "eau",
+      "note": null
+    },
+    {
+      "subsection": "Fromages (ne pas lésiner!)"
+    },
+    {
+      "quantity": "1,2",
+      "unit": "kg",
+      "ingredient": "fromage cheddar fort râpé",
+      "note": null
+    },
+    {
+      "quantity": "600",
+      "unit": "g",
+      "ingredient": "fromage Monterey Jack ou mozzarella râpé",
+      "note": null
+    },
+    {
+      "subsection": "Garnitures pré-cuisson"
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes (540 ml)",
+      "ingredient": "haricots noirs",
+      "note": "égouttés et rincés"
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes (341 ml)",
+      "ingredient": "maïs en grains",
+      "note": "égoutté"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "poivrons (rouge et vert) en dés",
+      "note": null
+    },
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "oignons verts tranchés",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "pot",
+      "ingredient": "jalapeños marinés",
+      "note": "optionnel"
+    },
+    {
+      "subsection": "Garnitures fraîches (après cuisson)"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "crème sure",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "pots (500 ml)",
+      "ingredient": "salsa",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "gros avocats pour guacamole",
+      "note": "ou guacamole préparé"
+    },
+    {
+      "quantity": "2-3",
+      "unit": null,
+      "ingredient": "tomates en dés",
+      "note": null
+    },
+    {
+      "quantity": "½",
+      "unit": null,
+      "ingredient": "laitue iceberg hachée",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "limes en quartiers",
+      "note": null
+    }
   ],
   "steps": [
     "PRÉPARATION D'AVANCE (fortement recommandé): Dans une grande marmite, faire revenir 1,5 kg de bœuf haché à feu moyen-vif. Égoutter le gras.",
@@ -55,16 +150,29 @@
     "Faire 1 plaque végétarienne (sans viande, double haricots) pour les allergies",
     "Utiliser papier parchemin sur les plaques pour faciliter le nettoyage"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["plat principal", "repas participatif"],
-  "tags": ["castors", "camp", "participatif", "fromage", "rapide"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "participatif",
+    "fromage",
+    "rapide",
+    "repas participatif"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["cuisine extérieure", "préparation rapide", "grandes portions"],
+  "scoutContext": [
+    "cuisine extérieure",
+    "préparation rapide",
+    "grandes portions"
+  ],
   "heroImage": "/cuisine/nachos-plaque-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Le secret des nachos parfaits: TROIS COUCHES! Beaucoup pensent qu'une seule couche suffit, mais non. En faisant 3 couches (chips-viande-fromage, chips-viande-fromage, chips-viande-DOUBLE FROMAGE), chaque chip reçoit sa part de garnitures. Et le fromage? On n'économise jamais sur le fromage. 1,8 kg pour 4 plaques - c'est non-négociable!",
   "tips": "ASTUCE #1: NE PAS assembler plus de 10 minutes avant la cuisson - les chips ramollissent avec l'humidité. ASTUCE #2: Le mélange cheddar + Monterey Jack donne le meilleur 'cheese pull' - plus crémeux que cheddar seul et les castors adorent étirer le fromage! ASTUCE #3: Papier parchemin = sauveur de vie - sinon le fromage colle et c'est l'enfer à nettoyer. ASTUCE #4: La viande DOIT être préparée d'avance à la maison - ça libère 30 minutes critiques au camp. ASTUCE #5: Surveillez les 3 dernières minutes de cuisson - la différence entre fromage parfait et fromage brûlé est de 2 minutes. PARTICIPATION DES CASTORS: Diviser en 4 équipes, chaque équipe fait sa plaque. Les animateurs supervisent fromage/viande, les castors disposent chips et légumes. C'est une ACTIVITÉ autant qu'un repas! Les castors adorent 'décorer' leur plaque et ont un sentiment de fierté quand ils la voient sortir du four toute dorée. VARIANTES: 1 plaque végé (sans viande, triple haricots) pour allergies. Le fromage végétal existe pour sans-lactose. Budget: environ 8-9$ par castor.",
-  "note": "FACTEUR WOW MAXIMUM! Quand vous sortez 4 plaques géantes de nachos fumants et débordants de fromage fondu, les castors perdent la tête. C'est visuel, c'est impressionnant, et ça sent incroyablement bon. Les castors de 6-8 ans peuvent tout assembler eux-mêmes (sous supervision). Timeline: pour souper 18h00, commencer à 17h15. Four allumé 17h15, viande réchauffée 17h20, assemblage 17h35 (activité!), cuisson 17h50, service 18h05. Les plaques restent chaudes 10-15 minutes, donc service échelonné fonctionne bien. ATTENTION: Les animateurs manipulent SEULS le four et les plaques chaudes. Les castors ne s'approchent pas du four."
+  "note": "FACTEUR WOW MAXIMUM! Quand vous sortez 4 plaques géantes de nachos fumants et débordants de fromage fondu, les castors perdent la tête. C'est visuel, c'est impressionnant, et ça sent incroyablement bon. Les castors de 6-8 ans peuvent tout assembler eux-mêmes (sous supervision). Timeline: pour souper 18h00, commencer à 17h15. Four allumé 17h15, viande réchauffée 17h20, assemblage 17h35 (activité!), cuisson 17h50, service 18h05. Les plaques restent chaudes 10-15 minutes, donc service échelonné fonctionne bien. ATTENTION: Les animateurs manipulent SEULS le four et les plaques chaudes. Les castors ne s'approchent pas du four.",
+  "cookbook": "Camps Scout"
 }

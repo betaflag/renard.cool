@@ -14,23 +14,99 @@
   },
   "cooking_method": "Poêle et four",
   "ingredients": [
-    { "subsection": "Viande assaisonnée (peut se faire d'avance)" },
-    { "quantity": "2", "unit": "kg", "ingredient": "bœuf haché mi-maigre", "note": "ou dinde hachée" },
-    { "quantity": "4", "unit": "sachets", "ingredient": "assaisonnement à tacos", "note": "ou faire maison" },
-    { "quantity": "1", "unit": "boîte (796 ml)", "ingredient": "tomates en dés avec piments (Rotel)", "note": null },
-    { "quantity": "2", "unit": "boîtes (540 ml)", "ingredient": "haricots rouges", "note": "égouttés" },
-    { "quantity": "250", "unit": "ml", "ingredient": "eau", "note": null },
-    { "subsection": "Chips" },
-    { "quantity": "22", "unit": "sacs", "ingredient": "Fritos ou Doritos individuels", "note": "taille collation 40-55g" },
-    { "subsection": "Fromage et garnitures" },
-    { "quantity": "900", "unit": "g", "ingredient": "fromage cheddar râpé", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "laitues romaines hachées", "note": null },
-    { "quantity": "6", "unit": null, "ingredient": "tomates moyennes en dés", "note": null },
-    { "quantity": "500", "unit": "ml", "ingredient": "crème sure", "note": null },
-    { "quantity": "2", "unit": "pots (500 ml)", "ingredient": "salsa moyenne", "note": null },
-    { "quantity": "1", "unit": null, "ingredient": "oignon rouge haché", "note": "optionnel" },
-    { "quantity": "2", "unit": null, "ingredient": "avocats pour guacamole", "note": "ou 1 pot guacamole" },
-    { "quantity": "1", "unit": "paquet", "ingredient": "oignons verts hachés", "note": null }
+    {
+      "subsection": "Viande assaisonnée (peut se faire d'avance)"
+    },
+    {
+      "quantity": "2",
+      "unit": "kg",
+      "ingredient": "bœuf haché mi-maigre",
+      "note": "ou dinde hachée"
+    },
+    {
+      "quantity": "4",
+      "unit": "sachets",
+      "ingredient": "assaisonnement à tacos",
+      "note": "ou faire maison"
+    },
+    {
+      "quantity": "1",
+      "unit": "boîte (796 ml)",
+      "ingredient": "tomates en dés avec piments (Rotel)",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes (540 ml)",
+      "ingredient": "haricots rouges",
+      "note": "égouttés"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "eau",
+      "note": null
+    },
+    {
+      "subsection": "Chips"
+    },
+    {
+      "quantity": "22",
+      "unit": "sacs",
+      "ingredient": "Fritos ou Doritos individuels",
+      "note": "taille collation 40-55g"
+    },
+    {
+      "subsection": "Fromage et garnitures"
+    },
+    {
+      "quantity": "900",
+      "unit": "g",
+      "ingredient": "fromage cheddar râpé",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "laitues romaines hachées",
+      "note": null
+    },
+    {
+      "quantity": "6",
+      "unit": null,
+      "ingredient": "tomates moyennes en dés",
+      "note": null
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "crème sure",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "pots (500 ml)",
+      "ingredient": "salsa moyenne",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "oignon rouge haché",
+      "note": "optionnel"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "avocats pour guacamole",
+      "note": "ou 1 pot guacamole"
+    },
+    {
+      "quantity": "1",
+      "unit": "paquet",
+      "ingredient": "oignons verts hachés",
+      "note": null
+    }
   ],
   "steps": [
     "PRÉPARATION D'AVANCE (fortement recommandé): Dans une grande marmite, faire revenir le bœuf haché à feu moyen-vif. Égoutter le gras.",
@@ -46,16 +122,29 @@
     "Prévoir 3-4 sacs de chips extra pour les 'encore faim'",
     "Préparer 2-3 walking tacos d'exemple pour montrer aux castors"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["plat principal", "repas rapide"],
-  "tags": ["castors", "camp", "facile", "zéro vaisselle", "participatif"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "facile",
+    "zéro vaisselle",
+    "participatif",
+    "repas rapide"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["matériel minimal", "préparation rapide", "grandes portions"],
+  "scoutContext": [
+    "matériel minimal",
+    "préparation rapide",
+    "grandes portions"
+  ],
   "heroImage": "/cuisine/walking-tacos-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Une recette géniale qui transforme un repas en activité amusante! La viande se prépare d'avance à la maison, et au camp, c'est un jeu d'enfant. Chaque castor devient le chef de son propre repas. Le secret: tout est dans le sac de chips!",
   "tips": "POUR LES ANIMATEURS: Préparez la viande 1-2 jours avant le camp et congelez-la. Elle agira comme ice pack dans la glacière! Au camp, réchauffez pendant que les castors s'installent. Organisez le bar de garnitures en 'ligne de production' avec un animateur qui contrôle les portions de viande (sinon certains en mettront trop et d'autres manqueront!). Astuce magique: écrasez doucement les chips AVANT d'ajouter la viande - ça facilite le mélange et l'expérience est meilleure. Pour les allergies: la version végé avec haricots noirs + maïs est tout aussi délicieuse. ZÉRO VAISSELLE signifie plus de temps pour jouer après le repas! Les castors adorent le concept de 'manger dans un sac' - c'est différent de la maison et ultra ludique. Prévoyez des lingettes humides car oui, ça peut être un peu salissant (mais c'est ça qui est le fun!). Le fromage cheddar fort fond mieux que le doux. Doublez toujours la crème sure - c'est la garniture #1 des enfants. Si vous n'avez pas Rotel (tomates avec piments), utilisez tomates régulières + 1 boîte de piments verts hachés.",
-  "note": "TESTÉ ET APPROUVÉ par des dizaines de groupes scouts! Cette recette élimine complètement la vaisselle - un énorme avantage en camp. Les castors de 6-8 ans peuvent tout faire eux-mêmes sauf manipuler la viande chaude. Budget: environ 10-12$ par castor tout inclus. Se réchauffe parfaitement si préparé d'avance."
+  "note": "TESTÉ ET APPROUVÉ par des dizaines de groupes scouts! Cette recette élimine complètement la vaisselle - un énorme avantage en camp. Les castors de 6-8 ans peuvent tout faire eux-mêmes sauf manipuler la viande chaude. Budget: environ 10-12$ par castor tout inclus. Se réchauffe parfaitement si préparé d'avance.",
+  "cookbook": "Camps Scout"
 }

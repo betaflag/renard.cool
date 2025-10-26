@@ -14,31 +14,150 @@
   },
   "cooking_method": "Aucune cuisson",
   "ingredients": [
-    { "subsection": "Légumes arc-en-ciel (mélange suggéré)" },
-    { "quantity": "1", "unit": "kg", "ingredient": "carottes", "note": "en bâtonnets" },
-    { "quantity": "4", "unit": null, "ingredient": "poivrons (rouge, jaune, orange, vert)", "note": "en lanières" },
-    { "quantity": "1", "unit": "botte", "ingredient": "céleri", "note": "en bâtonnets" },
-    { "quantity": "3", "unit": "tasses", "ingredient": "tomates cerises", "note": "entières" },
-    { "quantity": "2", "unit": null, "ingredient": "concombres anglais", "note": "en rondelles épaisses" },
-    { "quantity": "1", "unit": null, "ingredient": "brocoli", "note": "en fleurons" },
-    { "quantity": "1", "unit": null, "ingredient": "chou-fleur", "note": "en fleurons" },
-    { "quantity": "2", "unit": "tasses", "ingredient": "pois sucrés (snap peas)", "note": "entiers" },
-    { "quantity": "1", "unit": null, "ingredient": "poivron violet", "note": "en lanières, si disponible" },
-    { "quantity": "12", "unit": null, "ingredient": "radis", "note": "coupés en deux" },
-    { "subsection": "Trempette ranch maison" },
-    { "quantity": "500", "unit": "ml", "ingredient": "crème sure", "note": null },
-    { "quantity": "250", "unit": "ml", "ingredient": "mayonnaise", "note": null },
-    { "quantity": "125", "unit": "ml", "ingredient": "babeurre", "note": "ou lait + 1 c. à soupe vinaigre" },
-    { "quantity": "3", "unit": "gousses", "ingredient": "ail haché finement", "note": null },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "ciboulette fraîche hachée", "note": null },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "persil frais haché", "note": null },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "aneth frais haché", "note": "ou 1 c. à thé séché" },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "jus de citron", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "poudre d'oignon", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "poudre d'ail", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "sel", "note": null },
-    { "quantity": "½", "unit": "c. à thé", "ingredient": "poivre noir", "note": null },
-    { "quantity": "¼", "unit": "c. à thé", "ingredient": "paprika", "note": "optionnel" }
+    {
+      "subsection": "Légumes arc-en-ciel (mélange suggéré)"
+    },
+    {
+      "quantity": "1",
+      "unit": "kg",
+      "ingredient": "carottes",
+      "note": "en bâtonnets"
+    },
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "poivrons (rouge, jaune, orange, vert)",
+      "note": "en lanières"
+    },
+    {
+      "quantity": "1",
+      "unit": "botte",
+      "ingredient": "céleri",
+      "note": "en bâtonnets"
+    },
+    {
+      "quantity": "3",
+      "unit": "tasses",
+      "ingredient": "tomates cerises",
+      "note": "entières"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "concombres anglais",
+      "note": "en rondelles épaisses"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "brocoli",
+      "note": "en fleurons"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "chou-fleur",
+      "note": "en fleurons"
+    },
+    {
+      "quantity": "2",
+      "unit": "tasses",
+      "ingredient": "pois sucrés (snap peas)",
+      "note": "entiers"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "poivron violet",
+      "note": "en lanières, si disponible"
+    },
+    {
+      "quantity": "12",
+      "unit": null,
+      "ingredient": "radis",
+      "note": "coupés en deux"
+    },
+    {
+      "subsection": "Trempette ranch maison"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "crème sure",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "mayonnaise",
+      "note": null
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "babeurre",
+      "note": "ou lait + 1 c. à soupe vinaigre"
+    },
+    {
+      "quantity": "3",
+      "unit": "gousses",
+      "ingredient": "ail haché finement",
+      "note": null
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "ciboulette fraîche hachée",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "persil frais haché",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "aneth frais haché",
+      "note": "ou 1 c. à thé séché"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "jus de citron",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "poudre d'oignon",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "poudre d'ail",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "sel",
+      "note": null
+    },
+    {
+      "quantity": "½",
+      "unit": "c. à thé",
+      "ingredient": "poivre noir",
+      "note": null
+    },
+    {
+      "quantity": "¼",
+      "unit": "c. à thé",
+      "ingredient": "paprika",
+      "note": "optionnel"
+    }
   ],
   "steps": [
     "À LA MAISON OU AU CAMP - Trempette ranch (peut se faire 2 jours d'avance): Dans un bol moyen, fouetter ensemble la crème sure, la mayonnaise et le babeurre jusqu'à lisse et crémeux. Si vous n'avez pas de babeurre, mélanger 125 ml de lait avec 1 c. à soupe de vinaigre blanc, laisser reposer 5 minutes.",
@@ -65,16 +184,30 @@
     "Idéal pour 'calmer' les castors affamés pendant préparation du souper",
     "Peut servir d'entrée légère avant repas copieux"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["collation", "accompagnement", "entrée"],
-  "tags": ["castors", "camp", "santé", "végétarien", "sans cuisson", "make-ahead"],
+  "categories": [
+    "collation",
+    "accompagnement",
+    "entrée"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "santé",
+    "végétarien",
+    "sans cuisson",
+    "make-ahead"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["préparation rapide", "grandes portions"],
+  "scoutContext": [
+    "préparation rapide",
+    "grandes portions"
+  ],
   "heroImage": "/cuisine/legumes-arc-en-ciel-trempette-ranch-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "La trempette ranch maison est LE secret pour faire manger des légumes aux castors! Version commerciale = pleine d'additifs et moins savoureuse. Version maison = crémeuse, fraîche, et 10x meilleure. Les herbes fraîches font TOUTE la différence - si vous devez choisir, priorisez ciboulette et persil (aneth peut être séché). Pour les légumes, choisissez au moins 6-7 variétés de couleurs différentes pour l'effet WOW visuel.",
   "tips": "ASTUCE #1: La trempette DOIT reposer minimum 1 heure! Fraîchement faite, elle goûte fade et les saveurs sont séparées. Après 4-6 heures, c'est magique - tous les arômes se marient parfaitement. ASTUCE #2: Couper les légumes en morceaux UNIFORMES (7-8 cm de long, 1 cm d'épaisseur) = présentation professionnelle ET facilite le trempage. Trop gros = difficile à manger, trop petits = tombent dans la trempette. ASTUCE #3: Blanchir le brocoli et chou-fleur (optionnel) = couleur éclatante, texture moins dure, goût moins amer. Les castors difficiles les mangent mieux! 2 min eau bouillante, plonger dans eau glacée, égoutter. ASTUCE #4: Bâtonnets de céleri filandreux? Éplucher l'extérieur avec éplucheur à légumes = enlève les fils durs qui restent coincés dans les dents. Les castors apprécient! ASTUCE #5: Présentation = CRUCIAL! Arranger en arc-en-ciel plutôt qu'en tas désorganisé = 3x plus attrayant. Les castors veulent goûter à toutes les couleurs. PARTICIPATION CASTORS: Tâches parfaites pour enfants - laver les légumes dans passoire, arracher feuilles de céleri, trier tomates cerises par taille, arranger légumes sur plateau par couleur (créativité!), mélanger la trempette avec fouet, déchirer herbes fraîches (ciboulette, persil). Adultes gèrent découpe avec couteaux aiguisés. ÉCONOMIQUE: Acheter légumes de saison = moins cher. Carottes et céleri sont abordables à l'année. Poivrons coûtent plus cher - surveiller les rabais ou acheter sacs de mini poivrons. Faire sa trempette = 3-4$ vs 8-10$ pour version commerciale. SUBSTITUTIONS HERBES: Pas d'herbes fraîches? Utiliser séchées mais DIVISER les quantités par 3 (herbes séchées sont plus concentrées). Pas de babeurre? Mélange lait + vinaigre fonctionne parfaitement. VERSION LÉGÈRE: Remplacer la moitié de la crème sure par yogourt grec nature = moins de gras, plus de protéines, aussi crémeux. LÉGUMES À ÉVITER: Légumes qui brunissent rapidement sans protection (avocats, artichauts), légumes trop mous ou aqueux (laitue, épinards), légumes amers que les enfants détestent (endives, radicchio). Budget: environ 2-3$ par portion.",
-  "note": "LA SOLUTION MIRACLE pour faire manger des légumes aux castors! C'est prouvé: les enfants mangent 5x PLUS de légumes quand ils ont une trempette savoureuse. La psychologie du 'trempage' = activité interactive et amusante, pas une corvée. STRATÉGIE INFAILLIBLE: Placer le plateau de légumes VISIBLE et ACCESSIBLE pendant que les castors jouent. Ils passent, en prennent quelques-uns, continuent à jouer. En 2 heures, le plateau est vide sans bataille! NUTRITION DÉGUISÉE: Les parents et animateurs sont ravis - les castors mangent des TONNES de vitamines, fibres et nutriments sans s'en rendre compte. Ils pensent juste 'miam, trempette ranch!' et mangent les légumes comme véhicule pour la sauce. HYDRATATION BONUS: Concombres = 95% eau, céleri = 95% eau, tomates = 94% eau. Par journées chaudes, ces légumes hydratent en plus de nourrir. ZÉRO CULPABILITÉ: Contrairement aux chips ou cookies, les animateurs peuvent dire OUI quand les castors demandent 'encore des légumes?' Collation illimitée! APPRENTISSAGE: Les castors apprennent reconnaissance des légumes, découverte de nouvelles variétés (certains n'ont jamais goûté pois sucrés ou radis!), et préparation d'une trempette maison. Certains demandent la recette pour la faire à la maison. PRÉSENTATION INSTAGRAM-WORTHY: Un plateau arc-en-ciel bien arrangé est MAGNIFIQUE! Les castors veulent prendre des photos pour leurs parents. Ça crée fierté et engagement. COMPARAISON COMMERCIALE: Plateau de légumes du traiteur avec trempette = 25-35$ pour 10-12 personnes. Version maison pour 22 personnes = 40-50$ total. Économies + meilleur goût! POLYVALENCE: Collation d'après-midi, entrée avant souper, accompagnement pour lunch sandwichs, ou snack de soirée. Fonctionne à TOUS les moments. GESTION ALLERGIES: Pratiquement zéro risques - légumes sont rarement allergènes. Pour intolérance lactose, faire trempette avec mayonnaise végane + yogourt de soya. TREMPETTES ALTERNATIVES: Faire aussi hummus, guacamole, ou trempette aux épinards pour varier. Certains castors préfèrent! CONSERVATION: Trempette se garde 4-5 jours au frigo (devient meilleure avec le temps!). Légumes coupés = 2-3 jours s'ils sont bien conservés avec papier absorbant. Préparer d'avance = énorme gain de temps. CHALLENGE AMUSANT: 'Essaie de goûter les 7 couleurs!' ou 'Trouve ton légume préféré!' transforme la nutrition en jeu. Les castors adorent les défis. RESTANTS CRÉATIFS: Légumes restants → soupe minestrone, sauté asiatique, omelette aux légumes pour déjeuner lendemain, ajout dans wraps ou sandwichs."
+  "note": "LA SOLUTION MIRACLE pour faire manger des légumes aux castors! C'est prouvé: les enfants mangent 5x PLUS de légumes quand ils ont une trempette savoureuse. La psychologie du 'trempage' = activité interactive et amusante, pas une corvée. STRATÉGIE INFAILLIBLE: Placer le plateau de légumes VISIBLE et ACCESSIBLE pendant que les castors jouent. Ils passent, en prennent quelques-uns, continuent à jouer. En 2 heures, le plateau est vide sans bataille! NUTRITION DÉGUISÉE: Les parents et animateurs sont ravis - les castors mangent des TONNES de vitamines, fibres et nutriments sans s'en rendre compte. Ils pensent juste 'miam, trempette ranch!' et mangent les légumes comme véhicule pour la sauce. HYDRATATION BONUS: Concombres = 95% eau, céleri = 95% eau, tomates = 94% eau. Par journées chaudes, ces légumes hydratent en plus de nourrir. ZÉRO CULPABILITÉ: Contrairement aux chips ou cookies, les animateurs peuvent dire OUI quand les castors demandent 'encore des légumes?' Collation illimitée! APPRENTISSAGE: Les castors apprennent reconnaissance des légumes, découverte de nouvelles variétés (certains n'ont jamais goûté pois sucrés ou radis!), et préparation d'une trempette maison. Certains demandent la recette pour la faire à la maison. PRÉSENTATION INSTAGRAM-WORTHY: Un plateau arc-en-ciel bien arrangé est MAGNIFIQUE! Les castors veulent prendre des photos pour leurs parents. Ça crée fierté et engagement. COMPARAISON COMMERCIALE: Plateau de légumes du traiteur avec trempette = 25-35$ pour 10-12 personnes. Version maison pour 22 personnes = 40-50$ total. Économies + meilleur goût! POLYVALENCE: Collation d'après-midi, entrée avant souper, accompagnement pour lunch sandwichs, ou snack de soirée. Fonctionne à TOUS les moments. GESTION ALLERGIES: Pratiquement zéro risques - légumes sont rarement allergènes. Pour intolérance lactose, faire trempette avec mayonnaise végane + yogourt de soya. TREMPETTES ALTERNATIVES: Faire aussi hummus, guacamole, ou trempette aux épinards pour varier. Certains castors préfèrent! CONSERVATION: Trempette se garde 4-5 jours au frigo (devient meilleure avec le temps!). Légumes coupés = 2-3 jours s'ils sont bien conservés avec papier absorbant. Préparer d'avance = énorme gain de temps. CHALLENGE AMUSANT: 'Essaie de goûter les 7 couleurs!' ou 'Trouve ton légume préféré!' transforme la nutrition en jeu. Les castors adorent les défis. RESTANTS CRÉATIFS: Légumes restants → soupe minestrone, sauté asiatique, omelette aux légumes pour déjeuner lendemain, ajout dans wraps ou sandwichs.",
+  "cookbook": "Camps Scout"
 }

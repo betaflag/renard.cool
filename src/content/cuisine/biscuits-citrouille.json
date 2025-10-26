@@ -92,7 +92,9 @@
       "ingredient": "extrait de vanille",
       "note": "pour parfumer"
     },
-    { "subsection": "Ajouts optionnels (au choix)" },
+    {
+      "subsection": "Ajouts optionnels (au choix)"
+    },
     {
       "quantity": "125",
       "unit": "ml",
@@ -130,8 +132,16 @@
     "Dans la boîte à lunch avec une pomme",
     "Tartinés de beurre d'arachide ou de fromage à la crème"
   ],
-  "categories": ["dessert", "collation"],
-  "tags": ["automne", "familial", "four", "congélation"],
+  "categories": [
+    "dessert",
+    "collation"
+  ],
+  "tags": [
+    "automne",
+    "familial",
+    "four",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/biscuits-citrouille.png",
   "pubDate": "2025-10-12",

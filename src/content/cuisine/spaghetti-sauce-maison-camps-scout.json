@@ -14,32 +14,153 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "subsection": "Sauce tomate (préparer à la maison)" },
-    { "quantity": "1,5", "unit": "kg", "ingredient": "saucisses italiennes douces", "note": "ou mi-épicées" },
-    { "quantity": "3", "unit": "boîtes (796 ml)", "ingredient": "tomates broyées", "note": "San Marzano si possible" },
-    { "quantity": "2", "unit": "boîtes (156 ml)", "ingredient": "pâte de tomates", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "gros oignons hachés", "note": null },
-    { "quantity": "8", "unit": "gousses", "ingredient": "ail haché", "note": null },
-    { "quantity": "2", "unit": null, "ingredient": "poivrons (rouge et vert) en dés", "note": null },
-    { "quantity": "500", "unit": "ml", "ingredient": "eau ou bouillon de poulet", "note": null },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": null },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "sucre", "note": "équilibre l'acidité" },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "origan séché", "note": null },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "basilic séché", "note": null },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "sel", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "poivre noir", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "flocons de piment", "note": "optionnel" },
-    { "subsection": "Pâtes et service" },
-    { "quantity": "2", "unit": "kg", "ingredient": "spaghetti", "note": "ou penne, rotini" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "huile végétale", "note": "pour l'eau des pâtes" },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "sel", "note": "pour l'eau des pâtes" },
-    { "quantity": "500", "unit": "g", "ingredient": "parmesan râpé", "note": null },
-    { "quantity": "1", "unit": "botte", "ingredient": "basilic frais", "note": "optionnel" },
-    { "subsection": "Pain à l'ail (optionnel mais fortement recommandé)" },
-    { "quantity": "3", "unit": null, "ingredient": "baguettes", "note": null },
-    { "quantity": "150", "unit": "g", "ingredient": "beurre ramolli", "note": null },
-    { "quantity": "4", "unit": "gousses", "ingredient": "ail haché finement", "note": null },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "persil séché", "note": null }
+    {
+      "subsection": "Sauce tomate (préparer à la maison)"
+    },
+    {
+      "quantity": "1,5",
+      "unit": "kg",
+      "ingredient": "saucisses italiennes douces",
+      "note": "ou mi-épicées"
+    },
+    {
+      "quantity": "3",
+      "unit": "boîtes (796 ml)",
+      "ingredient": "tomates broyées",
+      "note": "San Marzano si possible"
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes (156 ml)",
+      "ingredient": "pâte de tomates",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "gros oignons hachés",
+      "note": null
+    },
+    {
+      "quantity": "8",
+      "unit": "gousses",
+      "ingredient": "ail haché",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "poivrons (rouge et vert) en dés",
+      "note": null
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "eau ou bouillon de poulet",
+      "note": null
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "huile d'olive",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "sucre",
+      "note": "équilibre l'acidité"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "origan séché",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "basilic séché",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "sel",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "poivre noir",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "flocons de piment",
+      "note": "optionnel"
+    },
+    {
+      "subsection": "Pâtes et service"
+    },
+    {
+      "quantity": "2",
+      "unit": "kg",
+      "ingredient": "spaghetti",
+      "note": "ou penne, rotini"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "huile végétale",
+      "note": "pour l'eau des pâtes"
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "sel",
+      "note": "pour l'eau des pâtes"
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "parmesan râpé",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "botte",
+      "ingredient": "basilic frais",
+      "note": "optionnel"
+    },
+    {
+      "subsection": "Pain à l'ail (optionnel mais fortement recommandé)"
+    },
+    {
+      "quantity": "3",
+      "unit": null,
+      "ingredient": "baguettes",
+      "note": null
+    },
+    {
+      "quantity": "150",
+      "unit": "g",
+      "ingredient": "beurre ramolli",
+      "note": null
+    },
+    {
+      "quantity": "4",
+      "unit": "gousses",
+      "ingredient": "ail haché finement",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "persil séché",
+      "note": null
+    }
   ],
   "steps": [
     "À LA MAISON - Cuisson des saucisses: Retirer les saucisses de leur boyau. Dans une très grande marmite (8-10L), faire chauffer 1 c. à soupe d'huile à feu moyen-vif. Émietter les saucisses et cuire 8-10 minutes jusqu'à bien dorées, en brassant pour défaire les morceaux. Retirer avec une écumoire et réserver.",
@@ -63,16 +184,29 @@
     "Le pain à l'ail est ESSENTIEL - les castors adorent saucer leur assiette!",
     "Préparer table en mode buffet: pâtes → sauce → parmesan → pain → salade"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["plat principal", "repas réconfortant"],
-  "tags": ["castors", "camp", "make-ahead", "congélation", "italien"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "make-ahead",
+    "congélation",
+    "italien",
+    "repas réconfortant"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["cuisine extérieure", "grandes portions", "préparation rapide"],
+  "scoutContext": [
+    "cuisine extérieure",
+    "grandes portions",
+    "préparation rapide"
+  ],
   "heroImage": "/cuisine/spaghetti-sauce-maison-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Le secret d'un spaghetti de camp réussi? TOUT préparer d'avance! La sauce maison se fait tranquillement à la maison pendant que vous avez le temps, puis congèle parfaitement. Les saucisses italiennes (pas du bœuf haché ordinaire!) donnent une saveur riche et authentique. Au camp, vous n'avez que 2 tâches: bouillir de l'eau pour les pâtes et réchauffer la sauce. C'est presque impossible à manquer!",
   "tips": "ASTUCE #1: Précuire les saucisses à la maison élimine tout risque de contamination croisée avec les castors qui manipulent la nourriture - c'est BEAUCOUP plus sécuritaire que de la viande crue au camp. ASTUCE #2: Congeler la sauce en sacs plats = ice packs gratuits dans la glacière! Ça garde tout froid ET vous avez votre souper. ASTUCE #3: L'huile dans l'eau des pâtes aide vraiment à prévenir qu'elles collent ensemble - essentiel quand on cuisine 2 kg de pâtes! ASTUCE #4: GARDER 1 tasse d'eau de cuisson - si les pâtes sont trop sèches après mélange, ajouter un peu de cette eau pour créer une sauce qui colle mieux. ASTUCE #5: Ne pas rincer les pâtes! L'amidon en surface aide la sauce à adhérer. PARTICIPATION DES CASTORS: Les enfants peuvent brasser la sauce (supervision pour éviter éclaboussures chaudes), mesurer le parmesan dans des bols, déchirer le basilic frais, beurrer le pain à l'ail (avant cuisson). Les animateurs gèrent l'eau bouillante et l'égouttage - trop dangereux pour les 6-8 ans. SERVICE STYLE FAMILLE: Plutôt que de mélanger toute la sauce avec les pâtes, donnez des pâtes nature et laissez chacun ajouter la quantité de sauce désirée - les enfants difficiles apprécient! VARIANTE VÉGÉ: Remplacer les saucisses par 3 boîtes de lentilles brunes égouttées + 500g de champignons tranchés sautés. Budget: environ 6-7$ par castor.",
-  "note": "TESTÉ ET APPROUVÉ par d'innombrables troupes scouts! Le spaghetti est LE classique des camps pour une raison: c'est pratiquement infaillible, ça nourrit beaucoup de monde, tout le monde aime ça, et c'est économique. Les castors de 6-8 ans connaissent déjà le spaghetti (pas de bataille pour les difficiles), et l'odeur de la sauce qui réchauffe crée une ambiance réconfortante dans le camp. TIMELINE pour souper 18h00: Sortir la sauce du congélateur à 16h00 si elle est encore congelée solide. Préchauffer four pour pain 17h15. Commencer à réchauffer sauce 17h20. Faire bouillir eau pour pâtes 17h30. Pain au four 17h35. Cuire pâtes 17h40. Service buffet 18h00. ASTUCE PRO: Faire 50% plus de sauce que nécessaire et congeler l'extra - vous aurez un souper prêt pour le prochain camp ou pour la maison! La sauce se réchauffe même au micro-ondes. GESTION RESTANTS: S'il reste des pâtes cuites, elles font un excellent lunch froid le lendemain avec un peu d'huile d'olive et parmesan."
+  "note": "TESTÉ ET APPROUVÉ par d'innombrables troupes scouts! Le spaghetti est LE classique des camps pour une raison: c'est pratiquement infaillible, ça nourrit beaucoup de monde, tout le monde aime ça, et c'est économique. Les castors de 6-8 ans connaissent déjà le spaghetti (pas de bataille pour les difficiles), et l'odeur de la sauce qui réchauffe crée une ambiance réconfortante dans le camp. TIMELINE pour souper 18h00: Sortir la sauce du congélateur à 16h00 si elle est encore congelée solide. Préchauffer four pour pain 17h15. Commencer à réchauffer sauce 17h20. Faire bouillir eau pour pâtes 17h30. Pain au four 17h35. Cuire pâtes 17h40. Service buffet 18h00. ASTUCE PRO: Faire 50% plus de sauce que nécessaire et congeler l'extra - vous aurez un souper prêt pour le prochain camp ou pour la maison! La sauce se réchauffe même au micro-ondes. GESTION RESTANTS: S'il reste des pâtes cuites, elles font un excellent lunch froid le lendemain avec un peu d'huile d'olive et parmesan.",
+  "cookbook": "Camps Scout"
 }

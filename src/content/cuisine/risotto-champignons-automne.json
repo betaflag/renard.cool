@@ -86,7 +86,9 @@
       "ingredient": "Sel et poivre noir",
       "note": "fraîchement moulu"
     },
-    { "subsection": "Pour garnir (facultatif)" },
+    {
+      "subsection": "Pour garnir (facultatif)"
+    },
     {
       "quantity": null,
       "unit": null,
@@ -112,8 +114,14 @@
     "Retirer du feu. Ajouter le reste du beurre (15 ml) et le parmesan râpé. Remuer vigoureusement 1 minute pour créer la mantecatura (texture crémeuse et onctueuse). Ajuster la consistance avec un peu de bouillon si nécessaire — le risotto doit couler légèrement dans l'assiette.",
     "Rectifier l'assaisonnement. Servir immédiatement dans des assiettes chaudes, garnir avec les champignons réservés, le persil ciselé, des copeaux de parmesan et quelques gouttes d'huile de truffe si désiré."
   ],
-  "categories": ["plat principal"],
-  "tags": ["italien", "réconfortant", "automne"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "italien",
+    "réconfortant",
+    "automne"
+  ],
   "difficulty": "moyen",
   "heroImage": "/cuisine/risotto-champignons.png",
   "pubDate": "2025-10-11",

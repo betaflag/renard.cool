@@ -14,14 +14,54 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "quantity": "1", "unit": "petite", "ingredient": "courge butternut", "note": "environ 800g" },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": null },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "sirop d'érable ambré", "note": "du Québec" },
-    { "quantity": "12", "unit": "feuilles", "ingredient": "sauge fraîche", "note": null },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "beurre", "note": "pour frire la sauge" },
-    { "quantity": null, "unit": null, "ingredient": "Sel de mer et poivre", "note": "au goût" },
-    { "quantity": "1", "unit": "pincée", "ingredient": "cannelle", "note": "optionnelle" },
-    { "quantity": "30", "unit": "ml", "ingredient": "pacanes grillées", "note": "hachées, optionnelles" }
+    {
+      "quantity": "1",
+      "unit": "petite",
+      "ingredient": "courge butternut",
+      "note": "environ 800g"
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "huile d'olive",
+      "note": null
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "sirop d'érable ambré",
+      "note": "du Québec"
+    },
+    {
+      "quantity": "12",
+      "unit": "feuilles",
+      "ingredient": "sauge fraîche",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "beurre",
+      "note": "pour frire la sauge"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel de mer et poivre",
+      "note": "au goût"
+    },
+    {
+      "quantity": "1",
+      "unit": "pincée",
+      "ingredient": "cannelle",
+      "note": "optionnelle"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "pacanes grillées",
+      "note": "hachées, optionnelles"
+    }
   ],
   "steps": [
     "PRÉPARATION COURGE: Préchauffer four à 425°F (220°C). Tapisser plaque de cuisson de papier parchemin. Couper la courge en deux sur la longueur. Retirer graines et filaments avec cuillère (garder graines pour rôtir séparément si désiré). Peler avec économe ou couteau bien aiguisé — peau est épaisse, attention aux doigts!",
@@ -40,14 +80,26 @@
     "Excellent avec porc braisé ou côtelettes grillées",
     "Peut être repas végétarien avec quinoa et fromage de chèvre"
   ],
-  "mainCategory": "accompagnement",
-  "categories": ["accompagnement", "québécois", "automne", "romantique"],
-  "tags": ["courge", "butternut", "érable", "sauge", "rôti", "sucré-salé"],
+  "categories": [
+    "accompagnement"
+  ],
+  "tags": [
+    "courge",
+    "butternut",
+    "érable",
+    "sauge",
+    "rôti",
+    "sucré-salé",
+    "québécois",
+    "automne",
+    "romantique"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/courge-butternut-erable-sauge.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "La courge butternut est la reine des courges d'hiver — chair orange douce et crémeuse, moins fibreuse que autres variétés. Disponible septembre à mars au Québec. Choisir courge lourde pour sa taille, peau mate (pas brillante), sans taches. Le sirop d'érable DOIT être authentique du Québec — l'ambré (médium) offre équilibre parfait entre douceur et robustesse. La sauge fraîche est ESSENTIELLE — séchée n'a aucune de cette transformation magique lors de friture.",
   "tips": "Le secret de courge parfaitement rôtie = cubes uniformes, température HAUTE (425°F), seule couche, et patience pour caramélisation. Les cubes touchant la plaque développent croûte dorée délicieuse — c'est le 'fond' que vous voulez. Ne pas remuer trop souvent — laisser caraméliser! Pour faciliter épluchage, micro-ondes courge entière (percée) 3 minutes = peau ramollit. La courge butternut est déjà naturellement sucrée; l'érable intensifie cette douceur sans l'écraser. Notre ratio 3 c. à soupe pour 800g courge est équilibré — plus serait écœurant. La sauge frite se prépare juste avant service (elle ramollit si faite d'avance). L'arôme de sauge qui frit dans beurre = un des plus beaux parfums de cuisine! Ces cubes se préparent d'avance et se réchauffent 10 min à 375°F (re-glacer avec érable chaud après). Congélation: cubes rôtis (avant glaçage), hermétique, 3 mois, réchauffer et glacer. Les graines peuvent être lavées, séchées, rôties avec sel = snack! Budget: environ 1,50-2$ par portion.",
-  "note": "L'ACCOMPAGNEMENT AUTOMNE QUINTESSENTIEL qui capture l'essence du Québec. Courge = récolte automnale, érable = fierté nationale, sauge = herbe qui pousse dans nos jardins. C'est littéralement le terroir sur assiette. LE MARIAGE PARFAIT: Courge + érable est combinaison ancestrale autochtone. Nos Premières Nations cultivaient courges et récoltaient eau d'érable bien avant nous. Ce plat honore cette sagesse culinaire. SUCRÉ-SALÉ CHAMPION: Le glaçage d'érable sur courge salée crée ce contraste addictif que cerveaux humains adorent. Chaque bouchée balance parfaitement douceur et salinité. COULEUR SPECTACULAIRE: L'orange doré de la courge caramélisée, le vernis ambré de l'érable, le vert sauge frit = palette automnale de rêve. Présentation Instagram-worthy sans effort. POLYVALENCE SURPRENANTE: Malgré le sucré, cette courge accompagne AUTANT viande (agneau, canard, porc) que poisson (saumon, truite). Le sucré naturel ne domine jamais, il complète. NUTRITION CACHÉE: Courge butternut = vitamine A (vision), fibres, potassium, antioxydants. Un des légumes les plus nutritifs. L'érable ajoute calories mais aussi minéraux (zinc, manganèse). CONFORT AUTOMNAL: Ce plat évoque pulls chauds, feuilles qui tombent, odeur de feu de bois. C'est réconfort pur — nourriture qui réchauffe corps ET âme."
+  "note": "L'ACCOMPAGNEMENT AUTOMNE QUINTESSENTIEL qui capture l'essence du Québec. Courge = récolte automnale, érable = fierté nationale, sauge = herbe qui pousse dans nos jardins. C'est littéralement le terroir sur assiette. LE MARIAGE PARFAIT: Courge + érable est combinaison ancestrale autochtone. Nos Premières Nations cultivaient courges et récoltaient eau d'érable bien avant nous. Ce plat honore cette sagesse culinaire. SUCRÉ-SALÉ CHAMPION: Le glaçage d'érable sur courge salée crée ce contraste addictif que cerveaux humains adorent. Chaque bouchée balance parfaitement douceur et salinité. COULEUR SPECTACULAIRE: L'orange doré de la courge caramélisée, le vernis ambré de l'érable, le vert sauge frit = palette automnale de rêve. Présentation Instagram-worthy sans effort. POLYVALENCE SURPRENANTE: Malgré le sucré, cette courge accompagne AUTANT viande (agneau, canard, porc) que poisson (saumon, truite). Le sucré naturel ne domine jamais, il complète. NUTRITION CACHÉE: Courge butternut = vitamine A (vision), fibres, potassium, antioxydants. Un des légumes les plus nutritifs. L'érable ajoute calories mais aussi minéraux (zinc, manganèse). CONFORT AUTOMNAL: Ce plat évoque pulls chauds, feuilles qui tombent, odeur de feu de bois. C'est réconfort pur — nourriture qui réchauffe corps ET âme.",
+  "cookbook": "accompagnement"
 }

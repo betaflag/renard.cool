@@ -136,9 +136,17 @@
     "Emballées individuellement pour rapporter à la maison",
     "Conservées au réfrigérateur jusqu'à 5 jours"
   ],
-  "mainCategory": "Petite École",
-  "categories": ["collation", "dessert"],
-  "tags": ["maternelle", "sans-cuisson", "rapide", "santé", "congélation"],
+  "categories": [
+    "collation",
+    "dessert"
+  ],
+  "tags": [
+    "maternelle",
+    "sans-cuisson",
+    "rapide",
+    "santé",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/boules-energie-maternelle.png",
   "pubDate": "2025-10-12",
@@ -146,5 +154,6 @@
   "variant": "maternelle",
   "ingredientIntro": "Seulement 5 ingrédients simples et AUCUNE cuisson! Les graines de tournesol remplacent les noix pour éviter les allergies. Le miel et les raisins apportent le sucre naturel — pas besoin de cassonade. L'avoine et les graines donnent de l'énergie durable. Parfait pour les petites mains qui adorent toucher, presser et rouler des textures collantes!",
   "tips": "POUR LES ENSEIGNANTS ET PARENTS: Cette recette est PARFAITE pour les premières expériences culinaires en maternelle — zéro cuisson, zéro danger, résultat immédiat! Le mélange sera TRÈS collant — c'est exactement ce qu'on veut pour l'expérience sensorielle. Ayez des lingettes humides à portée de main. Si le mélange est trop sec et ne tient pas ensemble, ajoutez 15 ml de miel. Si trop collant pour manipuler, mouillez légèrement les mains des enfants avec de l'eau froide. Les graines de tournesol remplacent les arachides/noix — vérifiez quand même les allergies aux graines avant l'activité. Utilisez du miel LIQUIDE (pas cristallisé) pour faciliter le mélange. Les flocons d'avoine à cuisson rapide fonctionnent mieux que l'avoine instantanée. Vocabulaire à enseigner: collant, rouler, presser, texture, boule, ingrédients secs vs liquides, mélange. Chaque enfant peut faire 1-2 boules et les rapporter à la maison dans un petit sac Ziploc étiqueté. Les boules se conservent 5 jours au réfrigérateur et se congèlent parfaitement (3 mois). Activité ULTRA-RAPIDE: 15 minutes du début à la fin. Les enfants peuvent décorer leurs boules en les roulant dans de la noix de coco râpée, des graines de sésame, ou du cacao en poudre (facultatif). Cette recette développe la motricité fine (rouler, presser, former) et enseigne les mesures. Succès garanti — impossible de rater!",
-  "note": "SÉCURITÉ: Aucun four, aucune cuisson, aucun couteau. Activité 100% sécuritaire. Vérifier allergies: graines de tournesol, miel (pas avant 1 an pour bébés, mais OK pour 5-6 ans). Les boules peuvent être mangées immédiatement — pas besoin d'attendre."
+  "note": "SÉCURITÉ: Aucun four, aucune cuisson, aucun couteau. Activité 100% sécuritaire. Vérifier allergies: graines de tournesol, miel (pas avant 1 an pour bébés, mais OK pour 5-6 ans). Les boules peuvent être mangées immédiatement — pas besoin d'attendre.",
+  "cookbook": "Petite École"
 }

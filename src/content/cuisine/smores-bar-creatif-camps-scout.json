@@ -14,33 +14,153 @@
   },
   "cooking_method": "Feu de camp",
   "ingredients": [
-    { "subsection": "Guimauves (base essentielle)" },
-    { "quantity": "2", "unit": "sacs (400g)", "ingredient": "guimauves géantes blanches", "note": null },
-    { "quantity": "1", "unit": "sac (250g)", "ingredient": "mini guimauves", "note": "pour doubles stacks" },
-    { "quantity": "1", "unit": "sac", "ingredient": "guimauves jumbo", "note": "optionnel, ultra fun" },
-    { "subsection": "Biscuits (variété créative)" },
-    { "quantity": "2", "unit": "boîtes", "ingredient": "biscuits graham", "note": "classique traditionnel" },
-    { "quantity": "1", "unit": "paquet", "ingredient": "biscuits chocolat (Oreo, Fudgee-O)", "note": null },
-    { "quantity": "1", "unit": "paquet", "ingredient": "biscuits shortbread", "note": null },
-    { "quantity": "1", "unit": "paquet", "ingredient": "biscuits au gingembre", "note": "saveur unique" },
-    { "subsection": "Chocolats (multiple options)" },
-    { "quantity": "12", "unit": "tablettes", "ingredient": "chocolat au lait Hershey", "note": "classique" },
-    { "quantity": "6", "unit": "tablettes", "ingredient": "chocolat noir", "note": "70% cacao" },
-    { "quantity": "4", "unit": "tablettes", "ingredient": "chocolat blanc", "note": null },
-    { "quantity": "250", "unit": "g", "ingredient": "pépites de chocolat", "note": "pour saupoudrer" },
-    { "subsection": "Extras décadents (le bar créatif!)" },
-    { "quantity": "250", "unit": "ml", "ingredient": "beurre d'arachide", "note": null },
-    { "quantity": "1", "unit": "pot (400g)", "ingredient": "Nutella", "note": null },
-    { "quantity": "200", "unit": "g", "ingredient": "mini Reese's Peanut Butter Cups", "note": null },
-    { "quantity": "1", "unit": "sac", "ingredient": "fraises fraîches", "note": "tranchées" },
-    { "quantity": "2", "unit": null, "ingredient": "bananes tranchées", "note": null },
-    { "quantity": "125", "unit": "ml", "ingredient": "caramel en bouteille", "note": "pour drizzle" },
-    { "quantity": "125", "unit": "ml", "ingredient": "brisures de bacon cuit", "note": "pour les aventureux" },
-    { "quantity": "60", "unit": "ml", "ingredient": "noix de coco râpée", "note": null },
-    { "subsection": "Matériel" },
-    { "quantity": "1", "unit": "paquet (100)", "ingredient": "bâtons à guimauve longs", "note": "ou branches nettoyées" },
-    { "quantity": "3", "unit": "rouleaux", "ingredient": "papier d'aluminium", "note": "pour réchaud improvise" },
-    { "quantity": "250", "unit": "ml", "ingredient": "lingettes humides", "note": "mains collantes garanties" }
+    {
+      "subsection": "Guimauves (base essentielle)"
+    },
+    {
+      "quantity": "2",
+      "unit": "sacs (400g)",
+      "ingredient": "guimauves géantes blanches",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "sac (250g)",
+      "ingredient": "mini guimauves",
+      "note": "pour doubles stacks"
+    },
+    {
+      "quantity": "1",
+      "unit": "sac",
+      "ingredient": "guimauves jumbo",
+      "note": "optionnel, ultra fun"
+    },
+    {
+      "subsection": "Biscuits (variété créative)"
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes",
+      "ingredient": "biscuits graham",
+      "note": "classique traditionnel"
+    },
+    {
+      "quantity": "1",
+      "unit": "paquet",
+      "ingredient": "biscuits chocolat (Oreo, Fudgee-O)",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "paquet",
+      "ingredient": "biscuits shortbread",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "paquet",
+      "ingredient": "biscuits au gingembre",
+      "note": "saveur unique"
+    },
+    {
+      "subsection": "Chocolats (multiple options)"
+    },
+    {
+      "quantity": "12",
+      "unit": "tablettes",
+      "ingredient": "chocolat au lait Hershey",
+      "note": "classique"
+    },
+    {
+      "quantity": "6",
+      "unit": "tablettes",
+      "ingredient": "chocolat noir",
+      "note": "70% cacao"
+    },
+    {
+      "quantity": "4",
+      "unit": "tablettes",
+      "ingredient": "chocolat blanc",
+      "note": null
+    },
+    {
+      "quantity": "250",
+      "unit": "g",
+      "ingredient": "pépites de chocolat",
+      "note": "pour saupoudrer"
+    },
+    {
+      "subsection": "Extras décadents (le bar créatif!)"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "beurre d'arachide",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "pot (400g)",
+      "ingredient": "Nutella",
+      "note": null
+    },
+    {
+      "quantity": "200",
+      "unit": "g",
+      "ingredient": "mini Reese's Peanut Butter Cups",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "sac",
+      "ingredient": "fraises fraîches",
+      "note": "tranchées"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "bananes tranchées",
+      "note": null
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "caramel en bouteille",
+      "note": "pour drizzle"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "brisures de bacon cuit",
+      "note": "pour les aventureux"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "noix de coco râpée",
+      "note": null
+    },
+    {
+      "subsection": "Matériel"
+    },
+    {
+      "quantity": "1",
+      "unit": "paquet (100)",
+      "ingredient": "bâtons à guimauve longs",
+      "note": "ou branches nettoyées"
+    },
+    {
+      "quantity": "3",
+      "unit": "rouleaux",
+      "ingredient": "papier d'aluminium",
+      "note": "pour réchaud improvise"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "lingettes humides",
+      "note": "mains collantes garanties"
+    }
   ],
   "steps": [
     "PRÉPARATION DU FEU DE CAMP (45 min avant activité): Allumer un feu de camp sécuritaire dans un foyer désigné. Les animateurs SEULEMENT manipulent le feu. Laisser brûler 30-40 minutes jusqu'à obtenir un bon lit de braises rougeoyantes (pas de flammes hautes!).",
@@ -64,16 +184,29 @@
     "Activité parfaite après souper, au coucher du soleil",
     "Combiner avec activité de contes ou chansons autour du feu"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["dessert", "activité feu de camp"],
-  "tags": ["castors", "camp", "tradition", "feu de camp", "interactif"],
+  "categories": [
+    "dessert"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "tradition",
+    "feu de camp",
+    "interactif",
+    "activité feu de camp"
+  ],
   "difficulty": "facile",
   "scoutCount": 22,
-  "scoutContext": ["feu de camp", "matériel minimal", "grandes portions"],
+  "scoutContext": [
+    "feu de camp",
+    "matériel minimal",
+    "grandes portions"
+  ],
   "heroImage": "/cuisine/smores-bar-creatif-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Les s'mores traditionnels c'est bien, mais un BAR CRÉATIF c'est 100x mieux! En offrant choix de biscuits, chocolats et extras décadents, chaque castor devient un chef pâtissier qui invente SA création. Certains découvrent que shortbread + chocolat noir + fraise = paradis. D'autres jurent par Oreo + Nutella + bacon (oui, vraiment!). L'expérimentation fait partie du fun!",
   "tips": "ASTUCE #1: BRAISES, pas flammes! Un feu avec flammes hautes brûle l'extérieur des guimauves en laissant l'intérieur cru. Des braises rouges chaudes grillent uniformément. Patience = récompense. ASTUCE #2: Rotation lente et constante de la guimauve = dorure parfaite sur tous les côtés. Les castors veulent rusher, mais encouragez la patience. ASTUCE #3: Enfiler guimauves jusqu'au MILIEU du bâton (pas juste sur la pointe) évite qu'elles tombent dans le feu. Catastrophe évitée! ASTUCE #4: Acheter bâtons à guimauve télescopiques en métal (10-15$ pour 8) = investissement qui dure des années. Plus sécuritaires que branches d'arbres. ASTUCE #5: Lingettes humides sont NON-NÉGOCIABLES. Mains collantes + dirt du camp = situation impossible sans lingettes. SÉCURITÉ ABSOLUE: Les animateurs doivent surveiller le feu CONSTAMMENT. Jamais laisser les castors seuls près du feu, même 30 secondes. Ratio recommandé: 1 animateur pour 6-7 enfants autour du feu. GESTION ALLERGIES: Noix (beurre d'arachide, Reese's) dans section séparée avec identification claire. Castors allergiques utilisent cuillères dédiées pour éviter contamination croisée. Options sans noix: Nutella, caramel, fruits. MÉTÉO: Activité impossible si pluie forte ou vent violent (risque de propagation étincelles). Toujours avoir plan B dessert (brownies, biscuits) si météo ne coopère pas. APPRENTISSAGE: Les castors apprennent sécurité du feu, patience, créativité culinaire, et partage de découvertes. C'est éducatif ET délicieux!",
-  "note": "LA TRADITION SCOUT PAR EXCELLENCE! Les s'mores sont SYNONYMES de camping scout depuis 1927. C'est un rite de passage, un moment magique qui crée des souvenirs pour toute la vie. Les castors de 6-8 ans parlent de 'la soirée s'mores' pendant des MOIS après le camp. MOMENT COMMUNAUTAIRE: L'activité s'mores n'est pas juste manger du dessert - c'est se rassembler autour du feu, partager des histoires, chanter des chansons, et créer des liens entre castors et animateurs. Le feu de camp a quelque chose de magique et hypnotisant pour les enfants. TIMING: Planifier 60-90 minutes pour l'activité complète (installation, grillage rotatif, nettoyage). Commencer à la brunante pour ambiance maximale - voir les flammes danser dans la noirceur ajoute à la magie. COMBOS GAGNANTS découverts par des castors: 1) Graham + Reese's + guimauve = 'Peanut Butter Paradise', 2) Gingembre + chocolat noir + orange = 'Spice Dream', 3) Oreo + guimauve + fraise = 'Cookies & Cream Deluxe', 4) Shortbread + Nutella + banane = 'Banana Boat'. PHOTO HEIRLOOM: Les photos de castors avec visages chocolatés, sourires géants, et feu de camp en arrière-plan sont des TRÉSORS pour les parents. Prendre BEAUCOUP de photos! TRADITION ÉVOLUTIVE: Certaines troupes font voter les castors pour 'Meilleure Création S'more de l'Année' et la recette gagnante devient tradition. Budget: environ 3-4$ par personne pour version bar créatif (vs 1$ pour version basique). Ça vaut chaque cent pour les sourires!"
+  "note": "LA TRADITION SCOUT PAR EXCELLENCE! Les s'mores sont SYNONYMES de camping scout depuis 1927. C'est un rite de passage, un moment magique qui crée des souvenirs pour toute la vie. Les castors de 6-8 ans parlent de 'la soirée s'mores' pendant des MOIS après le camp. MOMENT COMMUNAUTAIRE: L'activité s'mores n'est pas juste manger du dessert - c'est se rassembler autour du feu, partager des histoires, chanter des chansons, et créer des liens entre castors et animateurs. Le feu de camp a quelque chose de magique et hypnotisant pour les enfants. TIMING: Planifier 60-90 minutes pour l'activité complète (installation, grillage rotatif, nettoyage). Commencer à la brunante pour ambiance maximale - voir les flammes danser dans la noirceur ajoute à la magie. COMBOS GAGNANTS découverts par des castors: 1) Graham + Reese's + guimauve = 'Peanut Butter Paradise', 2) Gingembre + chocolat noir + orange = 'Spice Dream', 3) Oreo + guimauve + fraise = 'Cookies & Cream Deluxe', 4) Shortbread + Nutella + banane = 'Banana Boat'. PHOTO HEIRLOOM: Les photos de castors avec visages chocolatés, sourires géants, et feu de camp en arrière-plan sont des TRÉSORS pour les parents. Prendre BEAUCOUP de photos! TRADITION ÉVOLUTIVE: Certaines troupes font voter les castors pour 'Meilleure Création S'more de l'Année' et la recette gagnante devient tradition. Budget: environ 3-4$ par personne pour version bar créatif (vs 1$ pour version basique). Ça vaut chaque cent pour les sourires!",
+  "cookbook": "Camps Scout"
 }

@@ -14,28 +14,129 @@
   },
   "cooking_method": "Cuisinière et four",
   "ingredients": [
-    { "subsection": "Carré d'agneau" },
-    { "quantity": "1", "unit": null, "ingredient": "carré d'agneau français", "note": "8 côtelettes (environ 600-700g), paré par le boucher" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": null },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "moutarde de Dijon", "note": "pour adhérence et saveur" },
-    { "quantity": null, "unit": null, "ingredient": "Sel de mer et poivre noir fraîchement moulu", "note": "généreux" },
-    { "subsection": "Croûte d'herbes" },
-    { "quantity": "60", "unit": "ml", "ingredient": "chapelure panko", "note": "ou chapelure fine" },
-    { "quantity": "60", "unit": "ml", "ingredient": "persil frais", "note": "haché très finement" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "thym frais", "note": "feuilles seulement" },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "romarin frais", "note": "haché finement" },
-    { "quantity": "2", "unit": "gousses", "ingredient": "ail", "note": "hachées en purée fine" },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "parmesan fraîchement râpé", "note": null },
-    { "quantity": "2", "unit": "c. à soupe", "ingredient": "beurre fondu", "note": "pour lier" },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "zeste de citron", "note": "fraîchement râpé" },
-    { "subsection": "Réduction au porto" },
-    { "quantity": "180", "unit": "ml", "ingredient": "porto rouge", "note": "de qualité, pas de cuisine" },
-    { "quantity": "125", "unit": "ml", "ingredient": "fond de veau", "note": "ou bouillon de bœuf concentré" },
-    { "quantity": "1", "unit": null, "ingredient": "échalote française", "note": "hachée finement" },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "miel", "note": null },
-    { "quantity": "1", "unit": null, "ingredient": "brin de thym frais", "note": null },
-    { "quantity": "15", "unit": "g", "ingredient": "beurre froid", "note": "pour finir la sauce" },
-    { "quantity": null, "unit": null, "ingredient": "Sel", "note": "au goût" }
+    {
+      "subsection": "Carré d'agneau"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "carré d'agneau français",
+      "note": "8 côtelettes (environ 600-700g), paré par le boucher"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "huile d'olive",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "moutarde de Dijon",
+      "note": "pour adhérence et saveur"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel de mer et poivre noir fraîchement moulu",
+      "note": "généreux"
+    },
+    {
+      "subsection": "Croûte d'herbes"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "chapelure panko",
+      "note": "ou chapelure fine"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "persil frais",
+      "note": "haché très finement"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "thym frais",
+      "note": "feuilles seulement"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "romarin frais",
+      "note": "haché finement"
+    },
+    {
+      "quantity": "2",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées en purée fine"
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "parmesan fraîchement râpé",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à soupe",
+      "ingredient": "beurre fondu",
+      "note": "pour lier"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "zeste de citron",
+      "note": "fraîchement râpé"
+    },
+    {
+      "subsection": "Réduction au porto"
+    },
+    {
+      "quantity": "180",
+      "unit": "ml",
+      "ingredient": "porto rouge",
+      "note": "de qualité, pas de cuisine"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "fond de veau",
+      "note": "ou bouillon de bœuf concentré"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "échalote française",
+      "note": "hachée finement"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "miel",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "brin de thym frais",
+      "note": null
+    },
+    {
+      "quantity": "15",
+      "unit": "g",
+      "ingredient": "beurre froid",
+      "note": "pour finir la sauce"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel",
+      "note": "au goût"
+    }
   ],
   "steps": [
     "PRÉPARATION DE L'AGNEAU: Sortir le carré d'agneau du réfrigérateur 30 minutes avant la cuisson pour qu'il atteigne température pièce — crucial pour cuisson uniforme. Préchauffer le four à 450°F (230°C). Éponger l'agneau avec papier absorbant pour retirer toute humidité. Assaisonner généreusement tous les côtés avec sel de mer et poivre noir fraîchement moulu.",
@@ -59,14 +160,26 @@
     "Haricots verts fins sautés à l'échalote et amandes grillées",
     "Gratin dauphinois pour décadence ultime"
   ],
-  "mainCategory": "plat principal",
-  "categories": ["plat principal", "romantique", "spécial", "français"],
-  "tags": ["agneau", "croûte d'herbes", "porto", "élégant", "occasion spéciale", "tête-à-tête"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "agneau",
+    "croûte d'herbes",
+    "porto",
+    "élégant",
+    "occasion spéciale",
+    "tête-à-tête",
+    "romantique",
+    "spécial",
+    "français"
+  ],
   "difficulty": "difficile",
   "heroImage": "/cuisine/carre-agneau-croute-herbes-porto.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Le carré d'agneau français est considéré comme l'un des morceaux les plus nobles et tendres — 8 côtelettes attachées formant un arc élégant, la viande rosée entourée d'une fine couche de gras qui baste naturellement pendant la cuisson. Demandez à votre boucher un carré 'french trimmed' où les os sont nettoyés et exposés pour présentation spectaculaire. L'agneau du Québec est disponible chez les bons bouchers, sinon l'agneau de Nouvelle-Zélande est une excellente alternative. Le porto DOIT être de qualité — un ruby ou tawny porto, jamais le 'cooking port' qui est amer. Le fond de veau est trouvable en épicerie fine (More Than Gourmet), sinon utilisez bouillon de bœuf concentré de qualité.",
   "tips": "Le secret absolu d'un carré d'agneau parfait réside dans trois commandements: température pièce avant cuisson (30 min hors frigo), saisie violente pour croûte de Maillard, et repos sacré de 10 minutes. La technique du four deux températures (450°F puis 375°F) permet de fixer la croûte sans la brûler tout en cuisant l'agneau uniformément. Le thermomètre à viande est NON NÉGOCIABLE pour ce plat — deviner la cuisson d'un carré à 40$ qui rate est un crime culinaire. Insérez au centre de la viande entre deux os sans toucher l'os. Pour la croûte d'herbes, hachez les herbes TRÈS finement — gros morceaux tombent et brûlent. L'ail doit être en purée presque liquide (presser avec le plat du couteau + sel). La réduction au porto peut se préparer 1-2 jours d'avance et se réchauffe parfaitement. Si elle épaissit trop, allongez avec une cuillère de bouillon. ERREUR FATALE À ÉVITER: ne jamais couvrir hermétiquement pendant le repos — la vapeur ramollit la croûte précieuse. Tenter lâchement seulement. Le carryover cooking est réel — la viande continue de cuire après sortie du four (+5°F), donc sortez à 130°F pour rosé parfait à 135°F après repos. Budget: environ 20-25$ par portion pour agneau de qualité — c'est un plat d'occasion spéciale qui justifie l'investissement.",
-  "note": "LE PLAT ULTIME pour anniversaire, St-Valentin, demande en mariage, ou toute soirée qui mérite d'être gravée dans la mémoire. La présentation du carré entier à table avant de trancher = moment théâtral qui impressionne toujours. Le parfum des herbes rôties et de l'agneau qui emplit la cuisine pendant la cuisson crée anticipation et désir. Quand vous tranchez et révélez cette chair rosée parfaite sous la croûte dorée, c'est un triomphe culinaire visible. NIVEAU DE DIFFICULTÉ HONNÊTE: Oui, c'est 'difficile', mais suivre les instructions précisément garantit succès. La vraie difficulté n'est pas technique (pas de gestes compliqués), c'est le timing et la précision. Avec un thermomètre et minuteur, même un cuisinier intermédiaire réussit. APPRENTISSAGE: Cette recette enseigne techniques transférables — saisie haute température, cuisson résiduelle, réduction de sauce, importance du repos. Maîtriser ce plat = débloquer une douzaine d'autres recettes similaires. VALEUR ÉMOTIONNELLE: Cuisiner ce plat pour quelqu'un dit 'tu vaux l'effort, le temps, l'attention aux détails'. C'est un acte d'amour culinaire. La personne qui reçoit ce repas se sent véritablement spéciale, célébrée. CONSERVATION: L'agneau ne se réchauffe pas bien — il devient gris et sec. Calculez précisément vos portions (4 côtelettes par personne = affamé, 3 côtelettes = raisonnable). S'il reste une côtelette, mangez-la froide le lendemain dans une salade — délicieux! COMPARAISON RESTAURANT: Ce plat se vend 45-60$ par portion dans les restaurants gastronomiques. Version maison = 20-25$ par portion et meilleure qualité car fraîchement préparée avec amour. Économies + fierté = sans prix."
+  "note": "LE PLAT ULTIME pour anniversaire, St-Valentin, demande en mariage, ou toute soirée qui mérite d'être gravée dans la mémoire. La présentation du carré entier à table avant de trancher = moment théâtral qui impressionne toujours. Le parfum des herbes rôties et de l'agneau qui emplit la cuisine pendant la cuisson crée anticipation et désir. Quand vous tranchez et révélez cette chair rosée parfaite sous la croûte dorée, c'est un triomphe culinaire visible. NIVEAU DE DIFFICULTÉ HONNÊTE: Oui, c'est 'difficile', mais suivre les instructions précisément garantit succès. La vraie difficulté n'est pas technique (pas de gestes compliqués), c'est le timing et la précision. Avec un thermomètre et minuteur, même un cuisinier intermédiaire réussit. APPRENTISSAGE: Cette recette enseigne techniques transférables — saisie haute température, cuisson résiduelle, réduction de sauce, importance du repos. Maîtriser ce plat = débloquer une douzaine d'autres recettes similaires. VALEUR ÉMOTIONNELLE: Cuisiner ce plat pour quelqu'un dit 'tu vaux l'effort, le temps, l'attention aux détails'. C'est un acte d'amour culinaire. La personne qui reçoit ce repas se sent véritablement spéciale, célébrée. CONSERVATION: L'agneau ne se réchauffe pas bien — il devient gris et sec. Calculez précisément vos portions (4 côtelettes par personne = affamé, 3 côtelettes = raisonnable). S'il reste une côtelette, mangez-la froide le lendemain dans une salade — délicieux! COMPARAISON RESTAURANT: Ce plat se vend 45-60$ par portion dans les restaurants gastronomiques. Version maison = 20-25$ par portion et meilleure qualité car fraîchement préparée avec amour. Économies + fierté = sans prix.",
+  "cookbook": "plat principal"
 }

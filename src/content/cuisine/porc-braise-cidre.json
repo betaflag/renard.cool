@@ -14,18 +14,78 @@
   },
   "cooking_method": "Mijoteuse",
   "ingredients": [
-    { "quantity": "1,5", "unit": "kg", "ingredient": "épaule de porc", "note": "coupée en gros cubes" },
-    { "quantity": "4", "unit": null, "ingredient": "pommes Cortland ou Honeycrisp", "note": "pelées et coupées en quartiers" },
-    { "quantity": "500", "unit": "ml", "ingredient": "cidre de pomme", "note": "non filtré de préférence" },
-    { "quantity": "2", "unit": null, "ingredient": "gros oignons", "note": "coupés en quartiers" },
-    { "quantity": "4", "unit": "gousses", "ingredient": "ail", "note": "écrasées" },
-    { "quantity": "30", "unit": "ml", "ingredient": "cassonade", "note": "pour la douceur" },
-    { "quantity": "15", "unit": "ml", "ingredient": "vinaigre de cidre", "note": "l'acidité équilibrante" },
-    { "quantity": "5", "unit": "ml", "ingredient": "sauge séchée", "note": "l'herbe automnale" },
-    { "quantity": "5", "unit": "ml", "ingredient": "thym séché", "note": "la note provençale" },
-    { "quantity": "10", "unit": "ml", "ingredient": "sel", "note": "pour rehausser" },
-    { "quantity": "5", "unit": "ml", "ingredient": "poivre noir", "note": "fraîchement moulu" },
-    { "quantity": "30", "unit": "ml", "ingredient": "farine", "note": "pour épaissir" }
+    {
+      "quantity": "1,5",
+      "unit": "kg",
+      "ingredient": "épaule de porc",
+      "note": "coupée en gros cubes"
+    },
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "pommes Cortland ou Honeycrisp",
+      "note": "pelées et coupées en quartiers"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "cidre de pomme",
+      "note": "non filtré de préférence"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "gros oignons",
+      "note": "coupés en quartiers"
+    },
+    {
+      "quantity": "4",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "écrasées"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "cassonade",
+      "note": "pour la douceur"
+    },
+    {
+      "quantity": "15",
+      "unit": "ml",
+      "ingredient": "vinaigre de cidre",
+      "note": "l'acidité équilibrante"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "sauge séchée",
+      "note": "l'herbe automnale"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "thym séché",
+      "note": "la note provençale"
+    },
+    {
+      "quantity": "10",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": "pour rehausser"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "poivre noir",
+      "note": "fraîchement moulu"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "farine",
+      "note": "pour épaissir"
+    }
   ],
   "steps": [
     "Dans une grande poêle, faire dorer les cubes de porc de tous les côtés, environ 5 minutes. Transférer dans la mijoteuse.",
@@ -41,8 +101,16 @@
     "Avec des légumes racines rôtis (carottes, panais, navets)",
     "Garni de persil frais avec du pain croûté pour saucer"
   ],
-  "categories": ["plat principal"],
-  "tags": ["québécois", "traditionnel", "automne", "mijoteuse", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "québécois",
+    "traditionnel",
+    "automne",
+    "mijoteuse",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/porc-cidre.png",
   "pubDate": "2025-10-03",

@@ -14,32 +14,153 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "subsection": "Pâte à crêpes (préparer la veille)" },
-    { "quantity": "12", "unit": null, "ingredient": "œufs", "note": null },
-    { "quantity": "750", "unit": "ml", "ingredient": "lait", "note": null },
-    { "quantity": "500", "unit": "ml", "ingredient": "farine tout usage", "note": null },
-    { "quantity": "125", "unit": "ml", "ingredient": "eau", "note": null },
-    { "quantity": "4", "unit": "c. à soupe", "ingredient": "beurre fondu", "note": null },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "sucre", "note": null },
-    { "quantity": "1", "unit": "c. à thé", "ingredient": "sel", "note": null },
-    { "quantity": "2", "unit": "c. à thé", "ingredient": "extrait de vanille", "note": null },
-    { "quantity": "60", "unit": "ml", "ingredient": "beurre pour cuisson", "note": null },
-    { "subsection": "Garnitures sucrées (le bar!)" },
-    { "quantity": "500", "unit": "ml", "ingredient": "sirop d'érable", "note": null },
-    { "quantity": "1", "unit": "pot (750g)", "ingredient": "Nutella", "note": null },
-    { "quantity": "500", "unit": "ml", "ingredient": "confiture de fraises", "note": null },
-    { "quantity": "500", "unit": "g", "ingredient": "fraises fraîches tranchées", "note": null },
-    { "quantity": "300", "unit": "g", "ingredient": "bleuets frais", "note": null },
-    { "quantity": "4", "unit": null, "ingredient": "bananes tranchées", "note": null },
-    { "quantity": "500", "unit": "ml", "ingredient": "crème fouettée", "note": "en bombe aérosol pratique" },
-    { "quantity": "125", "unit": "ml", "ingredient": "sucre à glacer", "note": "pour saupoudrer" },
-    { "quantity": "60", "unit": "ml", "ingredient": "sucre + cannelle mélangés", "note": "classique français" },
-    { "quantity": "250", "unit": "ml", "ingredient": "pépites de chocolat", "note": null },
-    { "subsection": "Garnitures salées (optionnel mais délicieux)" },
-    { "quantity": "400", "unit": "g", "ingredient": "jambon tranché mince", "note": null },
-    { "quantity": "300", "unit": "g", "ingredient": "fromage suisse râpé", "note": "ou gruyère" },
-    { "quantity": "250", "unit": "ml", "ingredient": "champignons sautés", "note": "optionnel" },
-    { "quantity": "6", "unit": null, "ingredient": "œufs pour garniture", "note": "brouillés, optionnel" }
+    {
+      "subsection": "Pâte à crêpes (préparer la veille)"
+    },
+    {
+      "quantity": "12",
+      "unit": null,
+      "ingredient": "œufs",
+      "note": null
+    },
+    {
+      "quantity": "750",
+      "unit": "ml",
+      "ingredient": "lait",
+      "note": null
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "farine tout usage",
+      "note": null
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "eau",
+      "note": null
+    },
+    {
+      "quantity": "4",
+      "unit": "c. à soupe",
+      "ingredient": "beurre fondu",
+      "note": null
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "sucre",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à thé",
+      "ingredient": "sel",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "c. à thé",
+      "ingredient": "extrait de vanille",
+      "note": null
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "beurre pour cuisson",
+      "note": null
+    },
+    {
+      "subsection": "Garnitures sucrées (le bar!)"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "sirop d'érable",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "pot (750g)",
+      "ingredient": "Nutella",
+      "note": null
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "confiture de fraises",
+      "note": null
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "fraises fraîches tranchées",
+      "note": null
+    },
+    {
+      "quantity": "300",
+      "unit": "g",
+      "ingredient": "bleuets frais",
+      "note": null
+    },
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "bananes tranchées",
+      "note": null
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "crème fouettée",
+      "note": "en bombe aérosol pratique"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "sucre à glacer",
+      "note": "pour saupoudrer"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "sucre + cannelle mélangés",
+      "note": "classique français"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "pépites de chocolat",
+      "note": null
+    },
+    {
+      "subsection": "Garnitures salées (optionnel mais délicieux)"
+    },
+    {
+      "quantity": "400",
+      "unit": "g",
+      "ingredient": "jambon tranché mince",
+      "note": null
+    },
+    {
+      "quantity": "300",
+      "unit": "g",
+      "ingredient": "fromage suisse râpé",
+      "note": "ou gruyère"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "champignons sautés",
+      "note": "optionnel"
+    },
+    {
+      "quantity": "6",
+      "unit": null,
+      "ingredient": "œufs pour garniture",
+      "note": "brouillés, optionnel"
+    }
   ],
   "steps": [
     "LA VEILLE - Préparation de la pâte: Dans un TRÈS grand bol ou blender, combiner les œufs, le lait, la farine, l'eau, le beurre fondu, le sucre, le sel et la vanille. Fouetter vigoureusement ou mélanger au blender 1-2 minutes jusqu'à complètement lisse et homogène, sans grumeaux.",
@@ -62,16 +183,30 @@
     "Parfait pour brunch spécial ou dessert après souper léger",
     "Les crêpes nature se conservent empilées au frigo 2-3 jours"
   ],
-  "mainCategory": "Camps Scout",
-  "categories": ["déjeuner", "dessert", "repas participatif"],
-  "tags": ["castors", "camp", "interactif", "français", "spectacle"],
+  "categories": [
+    "dessert"
+  ],
+  "tags": [
+    "castors",
+    "camp",
+    "interactif",
+    "français",
+    "spectacle",
+    "déjeuner",
+    "repas participatif"
+  ],
   "difficulty": "moyen",
   "scoutCount": 22,
-  "scoutContext": ["cuisine extérieure", "grandes portions", "matériel minimal"],
+  "scoutContext": [
+    "cuisine extérieure",
+    "grandes portions",
+    "matériel minimal"
+  ],
   "heroImage": "/cuisine/crepes-bar-garnitures-camps-scout.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "La pâte à crêpes française authentique est ULTRA simple: œufs, lait, farine, une touche de sucre et vanille. Pas de poudre à pâte, pas de bicarbonate - juste des ingrédients purs qui créent ces crêpes papier-mince impossibles à reproduire avec un mix commercial. Le repos overnight développe la texture soyeuse caractéristique. Et le ratio liquide élevé? C'est ce qui donne ces crêpes dentelle délicates!",
   "tips": "ASTUCE #1: REPOS OVERNIGHT = non-négociable! La pâte fraîche fait des crêpes épaisses avec trous. La pâte reposée fait des crêpes minces parfaites. Science! ASTUCE #2: Feu MOYEN, jamais vif. Trop chaud = crêpes qui brûlent avant de cuire. Patience = succès. ASTUCE #3: La PREMIÈRE crêpe est toujours ratée - c'est une loi universelle de l'univers des crêpes. Elle teste la température. Ne vous découragez pas! ASTUCE #4: Mouvement rapide de rotation de la poêle immédiatement après avoir versé la pâte = clé pour crêpes ultra-minces. Hésiter = crêpe épaisse au centre. ASTUCE #5: Empiler et couvrir les crêpes cuites avec linge = elles restent chaudes ET la vapeur les garde souples (pas sèches). TECHNIQUE PRO: Utiliser une louche de taille standard (⅓ tasse) pour portions uniformes. Un pichet verseur avec bec facilite le versage dans la poêle. COMBO GAGNANTS: 1) 'Classique Française' = sucre + citron (apporter citrons!), 2) 'Nutella-Banane' = Nutella + bananes tranchées, 3) 'Fraises-Crème' = fraises + crème fouettée + sucre glace, 4) 'Déjeuner Complet' = jambon + fromage + œuf brouillé. PARTICIPATION CASTORS: Les 6-8 ans ADORENT regarder la crêpe se former dans la poêle - c'est magique! Ils peuvent brasser la pâte avant chaque crêpe, garnir leurs propres crêpes, et saupoudrer le sucre à glacer. Cuisson = animateurs seulement (poêles chaudes). GESTION TIMING: Pour déjeuner 8h30, sortir pâte du frigo 8h00, commencer cuisson 8h15, service échelonné 8h30-9h00. VERSION DESSERT: Si servi après souper, focus sur garnitures sucrées décadentes. Budget: environ 3-4$ par personne.",
-  "note": "EXPÉRIENCE CULTURELLE! Les crêpes sont une tradition française que les castors découvrent souvent pour la première fois au camp. C'est éducatif ('En France, on mange ça!'), délicieux, ET spectaculaire à regarder. Les enfants sont hypnotisés par la cuisson - comment la pâte liquide devient une crêpe parfaite en 60 secondes. FACTEUR WOW: Le bar de garnitures avec 10+ options crée de l'excitation. Les castors font la file avec anticipation, planifiant mentalement leur combo parfait. Certains font crêpes différentes à chaque service (Nutella la première, fruits la deuxième, jambon-fromage la troisième). APPRENTISSAGE: Les castors apprennent patience (attendre la cuisson), créativité culinaire (combiner saveurs), dextérité fine (rouler sans déchirer), et même géographie/culture (tradition française). ADAPTABILITÉ: Pâte se fait la veille = zéro stress le matin. Peut servir pour déjeuner, brunch, goûter après-midi, ou dessert. Incroyablement versatile! VARIANTES: 1) Crêpes au chocolat = ajouter 3 c. à soupe cacao à la pâte, 2) Crêpes sans gluten = utiliser farine sans gluten (ratio identique), 3) Version vegan = lait végétal + substitut œuf. PHOTOS INSTAGRAM: Les crêpes saupoudrées de sucre à glacer avec fruits colorés font des photos MAGNIFIQUES. Les parents adorent! COMPARAISON: Beaucoup plus impressionnant que pancakes ordinaires, mais même niveau de difficulté avec un peu de pratique. INVESTISSEMENT: Si vous faites souvent des camps, acheter 2-3 bonnes poêles antiadhésives 10-12 pouces = game changer. Durent des années. RESTANTS: Crêpes nature refroidies = wraps pour lunch! Rouler avec beurre d'arachide et confiture. Délicieux froid."
+  "note": "EXPÉRIENCE CULTURELLE! Les crêpes sont une tradition française que les castors découvrent souvent pour la première fois au camp. C'est éducatif ('En France, on mange ça!'), délicieux, ET spectaculaire à regarder. Les enfants sont hypnotisés par la cuisson - comment la pâte liquide devient une crêpe parfaite en 60 secondes. FACTEUR WOW: Le bar de garnitures avec 10+ options crée de l'excitation. Les castors font la file avec anticipation, planifiant mentalement leur combo parfait. Certains font crêpes différentes à chaque service (Nutella la première, fruits la deuxième, jambon-fromage la troisième). APPRENTISSAGE: Les castors apprennent patience (attendre la cuisson), créativité culinaire (combiner saveurs), dextérité fine (rouler sans déchirer), et même géographie/culture (tradition française). ADAPTABILITÉ: Pâte se fait la veille = zéro stress le matin. Peut servir pour déjeuner, brunch, goûter après-midi, ou dessert. Incroyablement versatile! VARIANTES: 1) Crêpes au chocolat = ajouter 3 c. à soupe cacao à la pâte, 2) Crêpes sans gluten = utiliser farine sans gluten (ratio identique), 3) Version vegan = lait végétal + substitut œuf. PHOTOS INSTAGRAM: Les crêpes saupoudrées de sucre à glacer avec fruits colorés font des photos MAGNIFIQUES. Les parents adorent! COMPARAISON: Beaucoup plus impressionnant que pancakes ordinaires, mais même niveau de difficulté avec un peu de pratique. INVESTISSEMENT: Si vous faites souvent des camps, acheter 2-3 bonnes poêles antiadhésives 10-12 pouces = game changer. Durent des années. RESTANTS: Crêpes nature refroidies = wraps pour lunch! Rouler avec beurre d'arachide et confiture. Délicieux froid.",
+  "cookbook": "Camps Scout"
 }

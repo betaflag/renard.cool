@@ -14,25 +14,117 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "quantity": "4", "unit": null, "ingredient": "cuisses de poulet avec peau", "note": "environ 800g, la peau donnera saveur et richesse" },
-    { "quantity": "250", "unit": "g", "ingredient": "champignons cremini", "note": "ou mélange champignons, tranchés" },
-    { "quantity": "1", "unit": null, "ingredient": "poivron rouge", "note": "coupé en lanières" },
-    { "quantity": "1", "unit": null, "ingredient": "poivron jaune", "note": "coupé en lanières, pour couleur et douceur" },
-    { "quantity": "1", "unit": null, "ingredient": "oignon jaune moyen", "note": "haché" },
-    { "quantity": "4", "unit": "gousses", "ingredient": "ail", "note": "hachées finement" },
-    { "quantity": "1", "unit": "boîte (796 ml)", "ingredient": "tomates concassées", "note": "de qualité italienne si possible" },
-    { "quantity": "45", "unit": "ml", "ingredient": "pâte de tomates", "note": "pour concentrer la saveur" },
-    { "quantity": "175", "unit": "ml", "ingredient": "vin blanc sec", "note": "pour déglacer et parfumer" },
-    { "quantity": "125", "unit": "ml", "ingredient": "bouillon de poulet", "note": "pour enrichir la sauce" },
-    { "quantity": "15", "unit": "ml", "ingredient": "huile d'olive", "note": "pour dorer le poulet" },
-    { "quantity": "5", "unit": "ml", "ingredient": "thym séché", "note": "l'herbe provençale classique" },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "origan séché", "note": "la touche italienne" },
-    { "quantity": "1", "unit": "branche", "ingredient": "romarin frais", "note": "optionnel, pour profondeur aromatique" },
-    { "quantity": "2", "unit": "feuilles", "ingredient": "laurier", "note": "l'âme des mijotés" },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre noir", "note": "fraîchement moulu, au goût" },
-    { "subsection": "Garnitures (optionnelles)" },
-    { "quantity": "75", "unit": "ml", "ingredient": "olives noires Kalamata", "note": "dénoyautées, tranchées - authentique mais facultatif" },
-    { "quantity": "30", "unit": "ml", "ingredient": "persil frais", "note": "ciselé, pour finition" }
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "cuisses de poulet avec peau",
+      "note": "environ 800g, la peau donnera saveur et richesse"
+    },
+    {
+      "quantity": "250",
+      "unit": "g",
+      "ingredient": "champignons cremini",
+      "note": "ou mélange champignons, tranchés"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "poivron rouge",
+      "note": "coupé en lanières"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "poivron jaune",
+      "note": "coupé en lanières, pour couleur et douceur"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "oignon jaune moyen",
+      "note": "haché"
+    },
+    {
+      "quantity": "4",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées finement"
+    },
+    {
+      "quantity": "1",
+      "unit": "boîte (796 ml)",
+      "ingredient": "tomates concassées",
+      "note": "de qualité italienne si possible"
+    },
+    {
+      "quantity": "45",
+      "unit": "ml",
+      "ingredient": "pâte de tomates",
+      "note": "pour concentrer la saveur"
+    },
+    {
+      "quantity": "175",
+      "unit": "ml",
+      "ingredient": "vin blanc sec",
+      "note": "pour déglacer et parfumer"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "bouillon de poulet",
+      "note": "pour enrichir la sauce"
+    },
+    {
+      "quantity": "15",
+      "unit": "ml",
+      "ingredient": "huile d'olive",
+      "note": "pour dorer le poulet"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "thym séché",
+      "note": "l'herbe provençale classique"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "origan séché",
+      "note": "la touche italienne"
+    },
+    {
+      "quantity": "1",
+      "unit": "branche",
+      "ingredient": "romarin frais",
+      "note": "optionnel, pour profondeur aromatique"
+    },
+    {
+      "quantity": "2",
+      "unit": "feuilles",
+      "ingredient": "laurier",
+      "note": "l'âme des mijotés"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre noir",
+      "note": "fraîchement moulu, au goût"
+    },
+    {
+      "subsection": "Garnitures (optionnelles)"
+    },
+    {
+      "quantity": "75",
+      "unit": "ml",
+      "ingredient": "olives noires Kalamata",
+      "note": "dénoyautées, tranchées - authentique mais facultatif"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "persil frais",
+      "note": "ciselé, pour finition"
+    }
   ],
   "steps": [
     "Assaisonner généreusement les cuisses de poulet de sel et poivre sur toutes les faces.",
@@ -52,8 +144,16 @@
     "Pain croûté italien pour saucer",
     "Légumes verts simplement sautés (haricots, broccolini)"
   ],
-  "categories": ["plat principal"],
-  "tags": ["français", "italien", "romantique", "automne", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "français",
+    "italien",
+    "romantique",
+    "automne",
+    "congélation"
+  ],
   "difficulty": "moyen",
   "heroImage": "/cuisine/poulet-chasseur.png",
   "pubDate": "2025-10-12",

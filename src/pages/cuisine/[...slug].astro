@@ -20,7 +20,7 @@ const cookTime = data.time.cook;
 const prepTime = data.time.prep;
 
 // Check if this is a Camps Scout recipe for theme
-const isScoutRecipe = data.mainCategory === "Camps Scout";
+const isScoutRecipe = data.cookbook === "Camps Scout";
 
 function formatTime(minutes: number) {
   const hours = Math.floor(minutes / 60);
@@ -39,7 +39,7 @@ function formatTime(minutes: number) {
   title={`${data.name} | Renardo Cuisine`}
   description={data.description}
 >
-  <CuisineNav variant="detail" activeMainCategory={data.mainCategory} />
+  <CuisineNav variant="detail" activeMainCategory={data.cookbook} />
 
   <article class={`recipe-article ${isScoutRecipe ? 'scout-theme' : ''}`}>
     <header class="hero-section">

@@ -14,13 +14,48 @@
   },
   "cooking_method": "Cuisinière",
   "ingredients": [
-    { "quantity": "400", "unit": "g", "ingredient": "champignons mélangés", "note": "shiitake, cremini, pleurotes" },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "beurre", "note": "divisé" },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "huile d'olive", "note": null },
-    { "quantity": "2", "unit": "gousses", "ingredient": "ail", "note": "hachées finement" },
-    { "quantity": "3", "unit": "c. à soupe", "ingredient": "persil frais", "note": "haché" },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre", "note": "au goût" },
-    { "quantity": "1", "unit": "c. à soupe", "ingredient": "vin blanc sec", "note": "optionnel pour déglacer" }
+    {
+      "quantity": "400",
+      "unit": "g",
+      "ingredient": "champignons mélangés",
+      "note": "shiitake, cremini, pleurotes"
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "beurre",
+      "note": "divisé"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "huile d'olive",
+      "note": null
+    },
+    {
+      "quantity": "2",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées finement"
+    },
+    {
+      "quantity": "3",
+      "unit": "c. à soupe",
+      "ingredient": "persil frais",
+      "note": "haché"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre",
+      "note": "au goût"
+    },
+    {
+      "quantity": "1",
+      "unit": "c. à soupe",
+      "ingredient": "vin blanc sec",
+      "note": "optionnel pour déglacer"
+    }
   ],
   "steps": [
     "PRÉPARATION CHAMPIGNONS: Essuyer les champignons avec linge humide ou brosse douce pour retirer terre. NE JAMAIS laver sous l'eau — ils absorbent eau comme éponge et deviennent détrempés. Couper shiitakes en quartiers (retirer pieds durs), creminis en tranches de 5 mm, garder pleurotes entiers ou déchirer en morceaux.",
@@ -38,14 +73,24 @@
     "Excellent sur toast grillé comme entrée ou apéritif",
     "Peut garnir omelettes, pâtes, risottos, ou polenta"
   ],
-  "mainCategory": "accompagnement",
-  "categories": ["accompagnement", "automne", "rapide"],
-  "tags": ["champignons", "sautés", "beurre", "umami", "forestier"],
+  "categories": [
+    "accompagnement"
+  ],
+  "tags": [
+    "champignons",
+    "sautés",
+    "beurre",
+    "umami",
+    "forestier",
+    "automne",
+    "rapide"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/champignons-sauvages-poeles-beurre.png",
   "pubDate": "2025-01-25",
   "draft": false,
   "ingredientIntro": "Les champignons mélangés créent complexité: shiitakes apportent umami profond et texture charnue, creminis (champignons de Paris bruns) donnent saveur terreuse robuste, pleurotes ajoutent délicatesse. Disponibles frais dans la section des champignons spécialisés. Si introuvables, utiliser simplement creminis + champignons blancs (résultat toujours délicieux). Champignons surgelés fonctionnent mal (trop d'eau). Le beurre crée richesse, l'huile empêche brûlage.",
   "tips": "Le secret de champignons de restaurant = feu HAUT, poêle CHAUDE, champignons SECS, et NE PAS surpeupler la poêle. Trop de champignons = température chute = ils bouillent dans leur eau au lieu de rôtir. Si nécessaire, cuire en deux lots. La première phase (libération d'eau) est inévitable — soyez patient, l'eau finit par s'évaporer et ALORS la magie commence. Le beurre noisette (brun doré avec parfum de noisette) est le nirvana des champignons. Pour version végane, remplacer beurre par huile d'olive (résultat différent mais toujours bon). L'ail ajouté à la toute fin évite brûlage — 30 secondes suffisent pour parfumer sans amertume. Pour extra profondeur, ajouter 1 c. à thé sauce soya à la fin (umami x1000). Ces champignons se conservent 2-3 jours au frigo et se réchauffent parfaitement à la poêle. Ne PAS réchauffer au micro-ondes (texture caoutchouteuse). Budget: environ 3-4$ par portion (champignons spécialisés coûtent plus).",
-  "note": "L'ACCOMPAGNEMENT FORESTIER qui transporte dans la forêt automnale. L'umami des champignons (le cinquième goût après sucré, salé, acide, amer) est profondément satisfaisant et presque viandeux. Les végétariens adorent pour cette richesse. POLYVALENCE TOTALE: Ces champignons vont AUTANT avec poisson qu'avec viande — rare pour un accompagnement! Avec poisson, ils ajoutent ancrage terrestre contrastant. Avec viande, ils enrichissent et complètent saveurs. TRANSFORMATION: Champignons crus = spongieux, fades, 90% eau. Champignons poêlés = concentrés, savoureux, charnus. La cuisson évapore l'eau et concentre saveurs x10. C'est une transformation alchimique. ÉCONOMIE: 400g champignons crus donnent environ 200g cuits (perte d'eau). Mais ces 200g sont INTENSÉMENT savoureux, donc satisfont complètement. VARIANTES SAISONNIÈRES: Automne = chanterelles et cèpes (si budget permet). Printemps = morilles (luxe absolu). Hiver = shiitakes séchés réhydratés (ultra umami). Été = pleurotes frais du marché. Chaque saison offre ses trésors fongiques. UTILISATION MULTIPLE: Doublez la recette! Servir moitié comme accompagnement, moitié le lendemain sur toast grillé frotté à l'ail = petit-déjeuner de champions."
+  "note": "L'ACCOMPAGNEMENT FORESTIER qui transporte dans la forêt automnale. L'umami des champignons (le cinquième goût après sucré, salé, acide, amer) est profondément satisfaisant et presque viandeux. Les végétariens adorent pour cette richesse. POLYVALENCE TOTALE: Ces champignons vont AUTANT avec poisson qu'avec viande — rare pour un accompagnement! Avec poisson, ils ajoutent ancrage terrestre contrastant. Avec viande, ils enrichissent et complètent saveurs. TRANSFORMATION: Champignons crus = spongieux, fades, 90% eau. Champignons poêlés = concentrés, savoureux, charnus. La cuisson évapore l'eau et concentre saveurs x10. C'est une transformation alchimique. ÉCONOMIE: 400g champignons crus donnent environ 200g cuits (perte d'eau). Mais ces 200g sont INTENSÉMENT savoureux, donc satisfont complètement. VARIANTES SAISONNIÈRES: Automne = chanterelles et cèpes (si budget permet). Printemps = morilles (luxe absolu). Hiver = shiitakes séchés réhydratés (ultra umami). Été = pleurotes frais du marché. Chaque saison offre ses trésors fongiques. UTILISATION MULTIPLE: Doublez la recette! Servir moitié comme accompagnement, moitié le lendemain sur toast grillé frotté à l'ail = petit-déjeuner de champions.",
+  "cookbook": "accompagnement"
 }

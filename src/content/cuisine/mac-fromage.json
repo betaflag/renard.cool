@@ -14,19 +14,81 @@
   },
   "cooking_method": "Cuisinière et four",
   "ingredients": [
-    { "quantity": "454", "unit": "g", "ingredient": "macaronis coudes", "note": "les classiques" },
-    { "quantity": "454", "unit": "g", "ingredient": "fromage cheddar moyen", "note": "râpé" },
-    { "quantity": "227", "unit": "g", "ingredient": "fromage à la crème", "note": "pour l'onctuosité" },
-    { "quantity": "500", "unit": "ml", "ingredient": "lait entier", "note": "3.25% idéalement" },
-    { "quantity": "60", "unit": "ml", "ingredient": "beurre", "note": "pour la richesse" },
-    { "quantity": "30", "unit": "ml", "ingredient": "farine", "note": "pour épaissir" },
-    { "quantity": "5", "unit": "ml", "ingredient": "moutarde en poudre", "note": "l'amplificateur secret" },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "poudre d'ail", "note": "pour la profondeur" },
-    { "quantity": null, "unit": null, "ingredient": "Sel et poivre", "note": "au goût" },
-    { "subsection": "Pour la garniture (facultatif)" },
-    { "quantity": "125", "unit": "ml", "ingredient": "chapelure panko", "note": "pour le croustillant" },
-    { "quantity": "30", "unit": "ml", "ingredient": "beurre fondu", "note": "pour dorer" },
-    { "quantity": null, "unit": null, "ingredient": "Bacon cuit émietté", "note": "l'indulgence totale" }
+    {
+      "quantity": "454",
+      "unit": "g",
+      "ingredient": "macaronis coudes",
+      "note": "les classiques"
+    },
+    {
+      "quantity": "454",
+      "unit": "g",
+      "ingredient": "fromage cheddar moyen",
+      "note": "râpé"
+    },
+    {
+      "quantity": "227",
+      "unit": "g",
+      "ingredient": "fromage à la crème",
+      "note": "pour l'onctuosité"
+    },
+    {
+      "quantity": "500",
+      "unit": "ml",
+      "ingredient": "lait entier",
+      "note": "3.25% idéalement"
+    },
+    {
+      "quantity": "60",
+      "unit": "ml",
+      "ingredient": "beurre",
+      "note": "pour la richesse"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "farine",
+      "note": "pour épaissir"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "moutarde en poudre",
+      "note": "l'amplificateur secret"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "poudre d'ail",
+      "note": "pour la profondeur"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre",
+      "note": "au goût"
+    },
+    {
+      "subsection": "Pour la garniture (facultatif)"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "chapelure panko",
+      "note": "pour le croustillant"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "beurre fondu",
+      "note": "pour dorer"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Bacon cuit émietté",
+      "note": "l'indulgence totale"
+    }
   ],
   "steps": [
     "Préchauffer le four à 180°C (350°F). Beurrer un plat de cuisson de 9x13 pouces.",
@@ -38,8 +100,15 @@
     "Mélanger la chapelure avec le beurre fondu. Parsemer sur les pâtes. Ajouter le bacon si désiré.",
     "Cuire au four 20-25 minutes jusqu'à ce que ça bouillonne et que le dessus soit doré."
   ],
-  "categories": ["plat principal"],
-  "tags": ["américain", "réconfortant", "familial", "congélation"],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "américain",
+    "réconfortant",
+    "familial",
+    "congélation"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/mac-fromage.png",
   "pubDate": "2025-10-05",

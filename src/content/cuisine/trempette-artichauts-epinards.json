@@ -14,25 +14,108 @@
   },
   "cooking_method": "Four",
   "ingredients": [
-    { "subsection": "Base de la trempette" },
-    { "quantity": "1", "unit": "boîte (398 ml)", "ingredient": "cœurs d'artichauts", "note": "égouttés et hachés grossièrement" },
-    { "quantity": "300", "unit": "g", "ingredient": "épinards surgelés", "note": "décongelés et bien essorés" },
-    { "quantity": "250", "unit": "g", "ingredient": "fromage à la crème", "note": "ramolli à température ambiante" },
-    { "quantity": "125", "unit": "ml", "ingredient": "crème sure", "note": "14% ou 18%" },
-    { "quantity": "125", "unit": "ml", "ingredient": "mayonnaise", "note": null },
-    { "subsection": "Fromages" },
-    { "quantity": "125", "unit": "ml", "ingredient": "parmesan râpé", "note": "fraîchement râpé si possible" },
-    { "quantity": "250", "unit": "ml", "ingredient": "mozzarella râpée", "note": "pour le filant magique" },
-    { "subsection": "Assaisonnements" },
-    { "quantity": "3", "unit": "gousses", "ingredient": "ail", "note": "hachées finement" },
-    { "quantity": "2,5", "unit": "ml", "ingredient": "sel", "note": "au goût" },
-    { "quantity": "1,25", "unit": "ml", "ingredient": "poivre noir", "note": "fraîchement moulu" },
-    { "quantity": "1,25", "unit": "ml", "ingredient": "poudre d'oignon", "note": "optionnel mais recommandé" },
-    { "quantity": "une pincée", "unit": null, "ingredient": "cayenne", "note": "pour une touche de chaleur subtile" },
-    { "subsection": "Pour servir" },
-    { "quantity": "1", "unit": null, "ingredient": "baguette française", "note": "tranchée et grillée" },
-    { "quantity": null, "unit": null, "ingredient": "Craquelins de blé ou tortillas chips", "note": "selon préférence" },
-    { "quantity": null, "unit": null, "ingredient": "Légumes crus", "note": "carottes, céleri, poivrons" }
+    {
+      "subsection": "Base de la trempette"
+    },
+    {
+      "quantity": "1",
+      "unit": "boîte (398 ml)",
+      "ingredient": "cœurs d'artichauts",
+      "note": "égouttés et hachés grossièrement"
+    },
+    {
+      "quantity": "300",
+      "unit": "g",
+      "ingredient": "épinards surgelés",
+      "note": "décongelés et bien essorés"
+    },
+    {
+      "quantity": "250",
+      "unit": "g",
+      "ingredient": "fromage à la crème",
+      "note": "ramolli à température ambiante"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "crème sure",
+      "note": "14% ou 18%"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "mayonnaise",
+      "note": null
+    },
+    {
+      "subsection": "Fromages"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "parmesan râpé",
+      "note": "fraîchement râpé si possible"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "mozzarella râpée",
+      "note": "pour le filant magique"
+    },
+    {
+      "subsection": "Assaisonnements"
+    },
+    {
+      "quantity": "3",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées finement"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": "au goût"
+    },
+    {
+      "quantity": "1,25",
+      "unit": "ml",
+      "ingredient": "poivre noir",
+      "note": "fraîchement moulu"
+    },
+    {
+      "quantity": "1,25",
+      "unit": "ml",
+      "ingredient": "poudre d'oignon",
+      "note": "optionnel mais recommandé"
+    },
+    {
+      "quantity": "une pincée",
+      "unit": null,
+      "ingredient": "cayenne",
+      "note": "pour une touche de chaleur subtile"
+    },
+    {
+      "subsection": "Pour servir"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "baguette française",
+      "note": "tranchée et grillée"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Craquelins de blé ou tortillas chips",
+      "note": "selon préférence"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Légumes crus",
+      "note": "carottes, céleri, poivrons"
+    }
   ],
   "steps": [
     "Préchauffer le four à 375°F (190°C). Beurrer légèrement un plat allant au four d'environ 20 cm (8 po) ou un plat à gratin.",
@@ -53,8 +136,19 @@
     "Garnir de persil frais haché ou de ciboulette avant de servir",
     "Se réchauffe bien au four - couvrir de papier d'aluminium à 300°F (150°C)"
   ],
-  "categories": ["entrée", "apéritif", "convivial", "réception"],
-  "tags": ["nord-américain", "fromage", "gratinée", "party", "classique"],
+  "categories": [
+    "entrée"
+  ],
+  "tags": [
+    "nord-américain",
+    "fromage",
+    "gratinée",
+    "party",
+    "classique",
+    "apéritif",
+    "convivial",
+    "réception"
+  ],
   "difficulty": "facile",
   "heroImage": "/cuisine/trempette-artichauts-epinards.png",
   "pubDate": "2025-10-13",
