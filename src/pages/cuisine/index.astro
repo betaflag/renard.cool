@@ -3,11 +3,15 @@ import { getCollection } from "astro:content";
 import CuisineLayout from "../../layouts/CuisineLayout.astro";
 import RecipeCard from "../../components/RecipeCard.astro";
 import CategoryCard from "../../components/CategoryCard.astro";
+import CookbookCard from "../../components/CookbookCard.astro";
 import CuisineNav from "../../components/CuisineNav.astro";
+
+// Get all recipes for cookbook counts
+const allRecipes = await getCollection("cuisine");
 
 // For static site, we need to include all recipes and filter client-side
 // Exclude "Petite École" and "Camps Scout" recipes from main listing
-const recipes = (await getCollection("cuisine"))
+const recipes = allRecipes
   .filter((recipe) => recipe.data.cookbook !== "Petite École" && recipe.data.cookbook !== "Camps Scout" && !recipe.data.draft)
   .sort(
     (a, b) =>
@@ -36,6 +40,15 @@ allCategories.forEach((category) => {
     recipe.data.categories.includes(category)
   ).length;
 });
+
+// Calculate cookbook recipe counts
+const petiteEcoleCount = allRecipes.filter(
+  (recipe) => recipe.data.cookbook === "Petite École" && !recipe.data.draft
+).length;
+
+const campsScoutCount = allRecipes.filter(
+  (recipe) => recipe.data.cookbook === "Camps Scout" && !recipe.data.draft
+).length;
 ---
 
 <CuisineLayout
@@ -69,6 +82,24 @@ allCategories.forEach((category) => {
         </div>
       </section>
     )}
+
+    <section class="cookbooks-section">
+      <h2 class="section-title">Livres de Recettes</h2>
+      <div class="cookbooks-grid">
+        <CookbookCard
+          cookbook="Petite École"
+          count={petiteEcoleCount}
+          image="/cuisine/cookbooks/petite-ecole.png"
+          description="Recettes simples et amusantes pour initier les enfants à la cuisine"
+        />
+        <CookbookCard
+          cookbook="Camps Scout"
+          count={campsScoutCount}
+          image="/cuisine/cookbooks/camps-scout.png"
+          description="Recettes rustiques et conviviales pour les aventures en plein air"
+        />
+      </div>
+    </section>
 
     <section class="categories-section">
       <h2 class="section-title">Explorer par Catégorie</h2>
@@ -246,6 +277,28 @@ allCategories.forEach((category) => {
       .section-title {
         font-size: clamp(1.5rem, 5vw, 2rem);
         margin-bottom: 1.5rem;
+      }
+    }
+
+    /* Cookbooks section */
+    .cookbooks-section {
+      margin-bottom: 5rem;
+    }
+
+    .cookbooks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .cookbooks-section {
+        margin-bottom: 3.5rem;
+      }
+
+      .cookbooks-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
     }
 

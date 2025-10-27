@@ -83,15 +83,11 @@ const allCategories = [
   <CuisineNav variant="index" activeCookbook={cookbook} />
 
   <main>
-    <div class="header-section">
-      <div class="breadcrumb">
-        <a href="/">Accueil</a>
-        <span class="separator">›</span>
-        <a href="/cuisine">Cuisine</a>
-        <span class="separator">›</span>
-        <span class="current">{cookbook}</span>
-      </div>
+    <a href="/cuisine" class="back-link">
+      ← Retour à la cuisine
+    </a>
 
+    <div class="header-section">
       <h1 class="page-title">
         <span class="accent">{cookbook}</span>
       </h1>
@@ -146,6 +142,26 @@ const allCategories = [
       padding: 6rem 2rem 4rem;
     }
 
+    /* Back Link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #999;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      margin-bottom: 2rem;
+      padding: 0.5rem 0;
+    }
+
+    .back-link:hover {
+      color: #d35400;
+      transform: translateX(-3px);
+    }
+
     .header-section {
       text-align: center;
       margin-bottom: 4rem;
@@ -165,35 +181,6 @@ const allCategories = [
       color: #d35400;
       background: #faf8f3;
       padding: 0 1rem;
-    }
-
-    .breadcrumb {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      font-size: 0.85rem;
-      color: #999;
-    }
-
-    .breadcrumb a {
-      color: #999;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .breadcrumb a:hover {
-      color: #d35400;
-    }
-
-    .breadcrumb .separator {
-      color: #ccc;
-    }
-
-    .breadcrumb .current {
-      color: #d35400;
-      font-weight: 600;
     }
 
     @keyframes fadeInUp {
@@ -241,11 +228,6 @@ const allCategories = [
       .header-section {
         margin-bottom: 3rem;
         padding-bottom: 2.5rem;
-      }
-
-      .breadcrumb {
-        font-size: 0.75rem;
-        margin-bottom: 1.5rem;
       }
 
       .page-title {

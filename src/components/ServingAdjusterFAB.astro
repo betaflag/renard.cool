@@ -1,0 +1,439 @@
+---
+import { Scale } from "lucide-astro";
+
+export interface Props {
+  servings: {
+    quantity: number;
+    unit: string;
+  };
+}
+
+const { servings } = Astro.props;
+---
+
+<div class="serving-adjuster-fab" id="servingAdjusterFAB" data-original-servings={servings.quantity}>
+  <button class="serving-adjuster-toggle" id="servingAdjusterToggle" title="Ajuster les portions" aria-label="Ajuster les portions">
+    <Scale size={16} />
+    <span class="serving-count" id="servingCount"></span>
+  </button>
+
+  <div class="serving-adjuster-dropdown" id="servingAdjusterDropdown">
+    <div class="dropdown-header">
+      <h3 class="dropdown-title">Ajuster pour</h3>
+      <button class="close-btn" id="closeServingAdjusterDropdown" aria-label="Fermer">×</button>
+    </div>
+
+    <div class="adjuster-content">
+      <div class="portion-controls">
+        <button class="control-btn decrease-btn" id="decreaseServingBtn" aria-label="Diminuer">
+          −
+        </button>
+        <input
+          type="number"
+          id="servingInput"
+          class="serving-input"
+          value={servings.quantity}
+          min="1"
+          max="1000"
+          aria-label="Nombre de portions"
+        />
+        <button class="control-btn increase-btn" id="increaseServingBtn" aria-label="Augmenter">
+          +
+        </button>
+      </div>
+      <div class="serving-unit">{servings.unit}</div>
+      <button class="reset-btn" id="resetServingBtn" aria-label="Réinitialiser">
+        <span class="reset-icon">↺</span>
+        <span class="reset-text">Réinitialiser</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* FAB (Floating Action Button) styling */
+  .serving-adjuster-fab {
+    position: fixed;
+    bottom: 9.5rem;
+    right: 1.5rem;
+    z-index: 252;
+  }
+
+  .serving-adjuster-fab:has(.serving-adjuster-dropdown.active) {
+    z-index: 400;
+  }
+
+  .serving-adjuster-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    padding: 0;
+    background: #d35400;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(211, 84, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .serving-adjuster-toggle svg {
+    flex-shrink: 0;
+    color: white;
+  }
+
+  .serving-adjuster-toggle:hover {
+    background: #b84700;
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(211, 84, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  .serving-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: white;
+    color: #d35400;
+    border: 2px solid #d35400;
+    border-radius: 50%;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .serving-count:empty {
+    display: none !important;
+  }
+
+  /* Dropdown */
+  .serving-adjuster-dropdown {
+    position: absolute;
+    bottom: calc(100% + 0.75rem);
+    right: 0;
+    width: 320px;
+    background: #fff;
+    border: 2px solid rgba(211, 84, 0, 0.2);
+    border-radius: 8px;
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      0 12px 32px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    z-index: 300;
+  }
+
+  .serving-adjuster-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(211, 84, 0, 0.12);
+  }
+
+  .dropdown-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin: 0;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    line-height: 1;
+  }
+
+  .close-btn:hover {
+    color: #d35400;
+  }
+
+  .adjuster-content {
+    padding: 1.5rem;
+  }
+
+  .portion-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .control-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    border: 2px solid #d35400;
+    background: transparent;
+    color: #d35400;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .control-btn:hover {
+    background: #d35400;
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .control-btn:active {
+    transform: scale(0.95);
+  }
+
+  .serving-input {
+    width: 80px;
+    height: 48px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border: 2px solid rgba(211, 84, 0, 0.3);
+    border-radius: 8px;
+    background: rgba(250, 248, 243, 0.5);
+    color: #2c2c2c;
+    font-family: "Crimson Pro", serif;
+  }
+
+  .serving-input:focus {
+    outline: none;
+    border-color: #d35400;
+    background: white;
+  }
+
+  .serving-unit {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .reset-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(211, 84, 0, 0.1);
+    border: 1px solid rgba(211, 84, 0, 0.3);
+    border-radius: 6px;
+    color: #d35400;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Crimson Pro", serif;
+  }
+
+  .reset-btn:hover {
+    background: #d35400;
+    color: white;
+    border-color: #d35400;
+  }
+
+  .reset-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  /* Mobile: fullscreen dropdown */
+  @media (max-width: 768px) {
+    .serving-adjuster-dropdown {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      z-index: 500;
+    }
+
+    .adjuster-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .portion-controls {
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .control-btn {
+      width: 56px;
+      height: 56px;
+    }
+
+    .serving-input {
+      width: 100px;
+      height: 56px;
+      font-size: 1.5rem;
+    }
+
+    .serving-unit {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .reset-btn {
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      min-height: 56px;
+    }
+  }
+
+  @media print {
+    .serving-adjuster-fab,
+    .serving-adjuster-toggle,
+    .serving-adjuster-dropdown {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  const fab = document.getElementById("servingAdjusterFAB");
+  const toggle = document.getElementById("servingAdjusterToggle");
+  const dropdown = document.getElementById("servingAdjusterDropdown");
+  const closeBtn = document.getElementById("closeServingAdjusterDropdown");
+  const servingInput = document.getElementById("servingInput") as HTMLInputElement;
+  const decreaseBtn = document.getElementById("decreaseServingBtn");
+  const increaseBtn = document.getElementById("increaseServingBtn");
+  const resetBtn = document.getElementById("resetServingBtn");
+  const servingCount = document.getElementById("servingCount");
+
+  const originalServings = fab ? parseInt(fab.dataset.originalServings || "1") : 1;
+  let currentServings = originalServings;
+
+  // Update count badge
+  function updateBadge() {
+    if (servingCount && servingInput) {
+      const value = parseInt(servingInput.value) || originalServings;
+      if (value !== originalServings) {
+        servingCount.textContent = `×${(value / originalServings).toFixed(value % originalServings === 0 ? 0 : 1)}`;
+        servingCount.style.display = 'flex';
+      } else {
+        servingCount.textContent = "";
+        servingCount.style.display = 'none';
+      }
+    }
+  }
+
+  // Toggle dropdown
+  toggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdown?.classList.toggle("active");
+  });
+
+  closeBtn?.addEventListener("click", () => {
+    dropdown?.classList.remove("active");
+  });
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    if (e.target && !(e.target as HTMLElement).closest(".serving-adjuster-fab")) {
+      dropdown?.classList.remove("active");
+    }
+  });
+
+  // Decrease button
+  decreaseBtn?.addEventListener("click", () => {
+    if (servingInput) {
+      const currentValue = parseInt(servingInput.value) || 1;
+      if (currentValue > 1) {
+        servingInput.value = String(currentValue - 1);
+        updateBadge();
+        dispatchServingChange();
+      }
+    }
+  });
+
+  // Increase button
+  increaseBtn?.addEventListener("click", () => {
+    if (servingInput) {
+      const currentValue = parseInt(servingInput.value) || 1;
+      servingInput.value = String(currentValue + 1);
+      updateBadge();
+      dispatchServingChange();
+    }
+  });
+
+  // Input change
+  servingInput?.addEventListener("input", () => {
+    updateBadge();
+    dispatchServingChange();
+  });
+
+  // Reset button
+  resetBtn?.addEventListener("click", () => {
+    if (servingInput) {
+      servingInput.value = String(originalServings);
+      updateBadge();
+      dispatchServingChange();
+    }
+  });
+
+  // Dispatch custom event for synchronization
+  function dispatchServingChange() {
+    const value = parseInt(servingInput?.value || String(originalServings));
+    window.dispatchEvent(new CustomEvent('servingAdjusted', {
+      detail: {
+        servings: value,
+        multiplier: value / originalServings
+      }
+    }));
+  }
+
+  // Listen for changes from inline adjuster
+  window.addEventListener('servingAdjusted', (e: Event) => {
+    const customEvent = e as CustomEvent;
+    if (servingInput && customEvent.detail) {
+      const newValue = customEvent.detail.servings;
+      if (parseInt(servingInput.value) !== newValue) {
+        servingInput.value = String(newValue);
+        updateBadge();
+      }
+    }
+  });
+
+  // Initial update
+  updateBadge();
+</script>

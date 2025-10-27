@@ -1,0 +1,138 @@
+---
+import { slugify } from "../lib/slugify";
+
+interface Props {
+  cookbook: string;
+  count: number;
+  image: string;
+  description: string;
+}
+
+const { cookbook, count, image, description } = Astro.props;
+
+const cookbookUrl = `/cuisine/cookbooks/${slugify(cookbook)}`;
+---
+
+<a href={cookbookUrl} class="cookbook-card">
+  <div class="cookbook-image">
+    <img src={image} alt={cookbook} />
+    <div class="cookbook-overlay">
+      <div class="cookbook-badge">{cookbook}</div>
+    </div>
+  </div>
+  <div class="cookbook-info">
+    <h3>{cookbook}</h3>
+    <p class="description">{description}</p>
+    <p class="recipe-count">{count} {count === 1 ? 'recette' : 'recettes'}</p>
+  </div>
+</a>
+
+<style>
+  .cookbook-card {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(211, 84, 0, 0.3);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .cookbook-card:hover {
+    transform: translateY(-8px);
+    border-color: #d35400;
+    box-shadow:
+      0 8px 32px rgba(211, 84, 0, 0.3),
+      0 0 60px rgba(211, 84, 0, 0.2);
+  }
+
+  .cookbook-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .cookbook-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .cookbook-card:hover .cookbook-image img {
+    transform: scale(1.05);
+  }
+
+  .cookbook-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+
+  .cookbook-badge {
+    background: rgba(211, 84, 0, 0.95);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .cookbook-info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .cookbook-info h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.75rem;
+    color: #2c2c2c;
+    font-weight: 700;
+  }
+
+  .description {
+    margin: 0 0 1rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .recipe-count {
+    margin: 0;
+    font-size: 1rem;
+    color: #d35400;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .cookbook-image {
+      height: 200px;
+    }
+
+    .cookbook-info h3 {
+      font-size: 1.5rem;
+    }
+
+    .description {
+      font-size: 0.9rem;
+    }
+
+    .recipe-count {
+      font-size: 0.9rem;
+    }
+  }
+</style>

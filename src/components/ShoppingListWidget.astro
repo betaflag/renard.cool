@@ -5,10 +5,10 @@ import { ShoppingBasket } from "lucide-astro";
 ---
 
 <div class="shopping-list-widget" id="shoppingListWidget">
-  <button class="shopping-list-toggle" id="shoppingListToggle">
+  <button class="shopping-list-toggle" id="shoppingListToggle" title="Liste d'épicerie" aria-label="Ouvrir la liste d'épicerie">
     <ShoppingBasket size={16} />
     <span class="toggle-text">Liste d'épicerie</span>
-    <span class="item-count" id="itemCount">0</span>
+    <span class="item-count" id="itemCount"></span>
   </button>
 
   <div class="shopping-list-dropdown" id="shoppingListDropdown">
@@ -38,9 +38,12 @@ import { ShoppingBasket } from "lucide-astro";
 </div>
 
 <style is:global>
+  /* FAB (Floating Action Button) styling */
   .shopping-list-widget {
-    position: relative;
-    z-index: 200;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 250;
   }
 
   .shopping-list-widget:has(.shopping-list-dropdown.active) {
@@ -48,70 +51,83 @@ import { ShoppingBasket } from "lucide-astro";
   }
 
   .shopping-list-toggle {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(250, 248, 243, 0.9);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(211, 84, 0, 0.2);
-    border-radius: 2rem;
-    color: #555;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    padding: 0;
+    background: #d35400;
+    border: none;
+    color: white;
     cursor: pointer;
     transition: all 0.2s ease;
-    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(211, 84, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .shopping-list-toggle svg {
     flex-shrink: 0;
+    color: white;
   }
 
   .shopping-list-toggle:hover {
-    background: rgba(250, 248, 243, 1);
-    border-color: rgba(211, 84, 0, 0.4);
-    color: #d35400;
-    transform: translateY(-1px);
+    background: #b84700;
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(211, 84, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.25);
   }
 
   .toggle-text {
-    font-family: "Crimson Pro", serif;
+    display: none;
   }
 
   .item-count {
-    background: #d35400;
-    color: white;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: white !important;
+    color: #d35400 !important;
+    border: 2px solid #d35400;
     border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    display: inline-flex;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 0.25rem;
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    pointer-events: none;
+    line-height: 1 !important;
+    font-family: "Crimson Pro", serif;
+    text-align: center;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .item-count:empty {
-    display: none;
+    display: none !important;
   }
 
   /* Dropdown */
   .shopping-list-dropdown {
     position: absolute;
-    top: calc(100% + 0.75rem);
+    bottom: calc(100% + 0.75rem);
     right: 0;
     width: 420px;
     max-height: 550px;
     background: #fff;
     border: 2px solid rgba(211, 84, 0, 0.2);
+    border-radius: 8px;
     box-shadow:
       0 4px 12px rgba(0, 0, 0, 0.08),
       0 12px 32px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
+    transform: translateY(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     display: flex;
@@ -348,13 +364,19 @@ import { ShoppingBasket } from "lucide-astro";
     border-color: #c83232;
   }
 
+  /* Mobile: fullscreen dropdown */
   @media (max-width: 768px) {
     .shopping-list-dropdown {
-      width: 340px;
-    }
-
-    .toggle-text {
-      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-height: 100vh;
+      border: none;
+      border-radius: 0;
+      z-index: 500;
     }
 
     .ingredient-item {
@@ -367,21 +389,6 @@ import { ShoppingBasket } from "lucide-astro";
   }
 
   @media (max-width: 480px) {
-    .shopping-list-dropdown {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      max-height: 100vh;
-      border: none;
-      border-radius: 0;
-    }
-
-    .shopping-list-toggle {
-      padding: 0.5rem 0.75rem;
-    }
-
     .ingredient-item {
       padding: 0.5rem;
     }
@@ -481,7 +488,19 @@ import { ShoppingBasket } from "lucide-astro";
 
     // Update count
     if (itemCount) {
-      itemCount.textContent = shoppingList.length > 0 ? String(shoppingList.length) : "";
+      const count = shoppingList.length;
+      if (count > 0) {
+        itemCount.textContent = String(count);
+        itemCount.style.display = 'flex';
+        itemCount.style.visibility = 'visible';
+        itemCount.style.opacity = '1';
+        itemCount.style.color = '#d35400';
+        itemCount.style.fontSize = '0.75rem';
+        itemCount.style.fontWeight = '700';
+      } else {
+        itemCount.textContent = "";
+        itemCount.style.display = 'none';
+      }
     }
 
     // Show/hide empty state and actions

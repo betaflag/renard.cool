@@ -4,6 +4,7 @@ import CuisineLayout from "../../layouts/CuisineLayout.astro";
 import CuisineNav from "../../components/CuisineNav.astro";
 import RecipeStepAnimations from "../../components/RecipeStepAnimations.astro";
 import KindergartenSteps from "../../components/KindergartenSteps.astro";
+import ServingAdjusterFAB from "../../components/ServingAdjusterFAB.astro";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("cuisine");
@@ -40,8 +41,13 @@ function formatTime(minutes: number) {
   description={data.description}
 >
   <CuisineNav variant="detail" activeMainCategory={data.cookbook} />
+  <ServingAdjusterFAB servings={data.servings} />
 
   <article class={`recipe-article ${isScoutRecipe ? 'scout-theme' : ''}`}>
+    <a href="/cuisine" class="back-link">
+      ← Retour à la cuisine
+    </a>
+
     <header class="hero-section">
       {
         data.heroImage && (
@@ -171,26 +177,6 @@ function formatTime(minutes: number) {
         </button>
       </div>
     </header>
-
-    <!-- Portion Selector Sticky Header -->
-    <div class="portion-selector-sticky" id="portionSelector" data-original-servings={data.servings.quantity}>
-      <span class="selector-label">Ajuster pour:</span>
-      <div class="portion-controls">
-        <button class="portion-btn" id="decreaseBtn" aria-label="Diminuer portions">−</button>
-        <input
-          type="number"
-          id="portionInput"
-          class="portion-input"
-          value={data.servings.quantity}
-          min="1"
-          max="1000"
-          aria-label="Nombre de portions"
-        />
-        <button class="portion-btn" id="increaseBtn" aria-label="Augmenter portions">+</button>
-      </div>
-      <span class="selector-unit">{data.servings.unit}</span>
-      <button class="reset-btn" id="resetBtn" aria-label="Réinitialiser portions">↺</button>
-    </div>
 
     <section class="content-flow">
       <div class="ingredients-prose">
@@ -326,6 +312,26 @@ function formatTime(minutes: number) {
       padding: 6rem var(--space-xl) var(--space-2xl);
       position: relative;
       z-index: 10;
+    }
+
+    /* Back Link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #999;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      margin-bottom: 2rem;
+      padding: 0.5rem 0;
+    }
+
+    .back-link:hover {
+      color: #d35400;
+      transform: translateX(-3px);
     }
 
     /* Hero Section */
@@ -562,162 +568,8 @@ function formatTime(minutes: number) {
     }
 
     /* Portion Selector Sticky Header */
-    .portion-selector-sticky {
-      position: sticky;
-      top: 60px;
-      z-index: 100;
-      background: rgba(10, 10, 10, 0.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(211, 84, 0, 0.2);
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.15s ease, box-shadow 0.3s ease;
-    }
-
     .ingredient-main {
       transition: color 0.15s ease;
-    }
-
-    .selector-label {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-    }
-
-    .portion-controls {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(211, 84, 0, 0.3);
-      border-radius: 6px;
-      padding: 0.25rem;
-    }
-
-    .portion-btn {
-      width: 36px;
-      height: 36px;
-      background: rgba(211, 84, 0, 0.1);
-      border: 1px solid rgba(211, 84, 0, 0.3);
-      border-radius: 4px;
-      color: #ff6b00;
-      font-size: 1.4rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
-    }
-
-    .portion-btn:hover {
-      background: rgba(211, 84, 0, 0.2);
-      border-color: rgba(211, 84, 0, 0.5);
-      transform: scale(1.05);
-    }
-
-    .portion-btn:active {
-      transform: scale(0.95);
-    }
-
-    .portion-input {
-      width: 70px;
-      height: 36px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(211, 84, 0, 0.2);
-      border-radius: 4px;
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-align: center;
-      padding: 0 0.5rem;
-      transition: all 0.2s ease;
-    }
-
-    .portion-input:focus {
-      outline: none;
-      border-color: #ff6b00;
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
-    }
-
-    /* Remove spinner buttons from number input */
-    .portion-input::-webkit-inner-spin-button,
-    .portion-input::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    .portion-input[type="number"] {
-      -moz-appearance: textfield;
-    }
-
-    .selector-unit {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.9rem;
-      font-style: italic;
-    }
-
-    .reset-btn {
-      width: 36px;
-      height: 36px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1.4rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
-      margin-left: 0.5rem;
-    }
-
-    .reset-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.4);
-      color: #fff;
-      transform: rotate(180deg);
-    }
-
-    /* Mobile responsive */
-    @media (max-width: 768px) {
-      .portion-selector-sticky {
-        padding: 0.75rem 1rem;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-        top: 50px;
-      }
-
-      .selector-label {
-        font-size: 0.85rem;
-      }
-
-      .portion-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 1.2rem;
-      }
-
-      .portion-input {
-        width: 60px;
-        height: 32px;
-        font-size: 1rem;
-      }
-
-      .reset-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 1.2rem;
-      }
     }
 
     /* Section Headings */
@@ -1648,67 +1500,14 @@ function formatTime(minutes: number) {
     }
 
     // Initialize portion selector
-    const portionSelector = document.getElementById('portionSelector');
-    const decreaseBtn = document.getElementById('decreaseBtn');
-    const increaseBtn = document.getElementById('increaseBtn');
-    const portionInput = document.getElementById('portionInput') as HTMLInputElement | null;
-    const resetBtn = document.getElementById('resetBtn');
-
-    if (portionSelector && decreaseBtn && increaseBtn && portionInput && resetBtn) {
-      const originalServings = parseInt(portionSelector.dataset.originalServings || '1');
-
-      function updatePortions(newValue: number) {
-        // Clamp between 1 and 1000
-        const clampedValue = Math.max(1, Math.min(1000, newValue));
-        portionInput.value = clampedValue.toString();
-
-        // Calculate scale factor
-        const scaleFactor = clampedValue / originalServings;
-
-        // Update all ingredients
+    // Listen for FAB updates and scale ingredients accordingly
+    window.addEventListener('servingAdjusted', (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail) {
+        const scaleFactor = customEvent.detail.multiplier;
         updateIngredientQuantities(scaleFactor);
-
-        // Visual feedback
-        if (clampedValue !== originalServings) {
-          portionSelector.style.transform = 'scale(1.02)';
-          setTimeout(() => {
-            portionSelector.style.transform = 'scale(1)';
-          }, 150);
-        }
       }
-
-      // Decrease button
-      decreaseBtn.addEventListener('click', () => {
-        const current = parseInt(portionInput.value) || originalServings;
-        updatePortions(current - 1);
-      });
-
-      // Increase button
-      increaseBtn.addEventListener('click', () => {
-        const current = parseInt(portionInput.value) || originalServings;
-        updatePortions(current + 1);
-      });
-
-      // Input change
-      portionInput.addEventListener('change', () => {
-        const value = parseInt(portionInput.value) || originalServings;
-        updatePortions(value);
-      });
-
-      // Input keydown (Enter key)
-      portionInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          const value = parseInt(portionInput.value) || originalServings;
-          updatePortions(value);
-          portionInput.blur();
-        }
-      });
-
-      // Reset button
-      resetBtn.addEventListener('click', () => {
-        updatePortions(originalServings);
-      });
-    }
+    });
 
     // ===== End Portion Scaling =====
 

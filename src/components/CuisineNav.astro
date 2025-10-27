@@ -73,46 +73,47 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
   <nav class="cuisine-nav" id="cuisineNav">
     <div class="nav-container">
       <div class="nav-left">
-        {variant === "detail" && (
-          <a href="/cuisine" class="nav-back-link">
-            ← Retour
-          </a>
-        )}
         <a href="/cuisine" class="nav-logo">
-          <span class="logo-icon">🦊</span>
+          <img src="/renard.png" alt="Renard" class="logo-icon" />
           <span class="logo-text">Renardo Cuisine</span>
         </a>
-      </div>
 
-      <div class="nav-center">
-        <a
-          href={`/cuisine/cookbooks/${slugify("Petite École")}`}
-          class={`nav-link-button ${activeCookbook === "Petite École" ? 'active' : ''}`}
-        >
-          Petite École
-        </a>
-
-        <a
-          href="/cuisine/cookbooks/camps-scout"
-          class={`nav-link-button scout-button ${activeCookbook === "Camps Scout" ? 'active' : ''}`}
-        >
-          🏕️ Camps Scout
-        </a>
+        <div class="nav-dropdown" id="cookbooksDropdown">
+          <button class="nav-dropdown-toggle" id="cookbooksToggle">
+            {activeCookbook ? activeCookbook.toUpperCase() : 'CUISINE'}
+            <span class="dropdown-arrow">▼</span>
+          </button>
+          <div class="nav-dropdown-menu" id="cookbooksMenu">
+            <CategoryMenuItem
+              href="/cuisine"
+              name="Cuisine"
+              count={mainListingRecipes.length}
+              isActive={activeCookbook === undefined}
+            />
+            {mainCategories
+              .filter((cookbook) =>
+                cookbook.name === "Petite École" ||
+                cookbook.name === "Camps Scout"
+              )
+              .map((cookbook) => (
+                <CategoryMenuItem
+                  href={`/cuisine/cookbooks/${slugify(cookbook.name)}`}
+                  name={cookbook.name}
+                  count={cookbook.count}
+                  isActive={activeCookbook === cookbook.name}
+                />
+              ))
+            }
+          </div>
+        </div>
 
         <div class="nav-dropdown" id="categoriesDropdown">
           <button class="nav-dropdown-toggle" id="categoriesToggle">
-            Catégories
+            CATÉGORIES
             <span class="dropdown-arrow">▼</span>
           </button>
           <div class="nav-dropdown-menu" id="categoriesMenu">
-            <CategoryMenuItem
-              href="/cuisine"
-              name="Toutes les recettes"
-              count={mainListingRecipes.length}
-              isActive={activeCategory === undefined && activeCookbook === undefined}
-            />
-
-            {/* Standalone categories first (alphabetically) */}
+            {/* Only show the 7 official standalone categories */}
             {categories.map(([category, count]) => (
               <CategoryMenuItem
                 href={`/cuisine/categories/${slugify(category)}`}
@@ -121,33 +122,8 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
                 isActive={activeCategory === category && !activeCookbook}
               />
             ))}
-
-            {/* Main categories with subcategories last (alphabetically), excluding Petite École and Camps Scout */}
-            {mainCategories
-              .filter((mainCat) => mainCat.name !== "Petite École" && mainCat.name !== "Camps Scout")
-              .map((mainCat) => (
-                <CollapsibleCategoryGroup
-                  cookbookName={mainCat.name}
-                  cookbookUrl={`/cuisine/cookbooks/${slugify(mainCat.name)}`}
-                  cookbookCount={mainCat.count}
-                  subcategories={Array.from(mainCat.subcategories?.entries() || [])
-                    .sort((a, b) => a[0].localeCompare(b[0]))
-                    .map(([name, count]) => ({
-                      name,
-                      count,
-                      url: `/cuisine/cookbooks/${slugify(mainCat.name)}/${slugify(name)}`,
-                    }))}
-                  isActive={activeCookbook === mainCat.name}
-                  activeSubcategory={activeCategory}
-                />
-              ))}
           </div>
         </div>
-      </div>
-
-      <div class="nav-right">
-        <ShoppingListWidget />
-        <MealPlanWidget />
       </div>
 
       <button class="nav-mobile-toggle" id="navMobileToggle">
@@ -157,38 +133,32 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
   </nav>
 
   <div class="nav-mobile-menu" id="navMobileMenu">
-    <div class="mobile-widgets-section">
-      <h3 class="mobile-section-title">Mes outils</h3>
-      <div class="mobile-widgets-container">
-        <ShoppingListWidget />
-        <MealPlanWidget />
-      </div>
-    </div>
-
     <div class="mobile-section">
-      <h3 class="mobile-section-title">Navigation</h3>
-      <a
-        href={`/cuisine/cookbooks/${slugify("Petite École")}`}
-        class={`mobile-item ${activeCookbook === "Petite École" ? 'active' : ''}`}
-      >
-        <span class="item-name">Petite École</span>
+      <h3 class="mobile-section-title">Livres de recettes</h3>
+      <a href="/cuisine" class="mobile-item {activeCategory === undefined && activeCookbook === undefined ? 'active' : ''}">
+        <span class="item-name">Cuisine</span>
+        <span class="item-count">{mainListingRecipes.length}</span>
       </a>
-      <a
-        href="/cuisine/cookbooks/camps-scout"
-        class={`mobile-item scout-mobile-item ${activeCookbook === "Camps Scout" ? 'active' : ''}`}
-      >
-        <span class="item-name">🏕️ Camps Scout</span>
-      </a>
+      {mainCategories
+        .filter((cookbook) =>
+          cookbook.name === "Petite École" ||
+          cookbook.name === "Camps Scout"
+        )
+        .map((cookbook) => (
+          <a
+            href={`/cuisine/cookbooks/${slugify(cookbook.name)}`}
+            class={`mobile-item ${activeCookbook === cookbook.name ? 'active' : ''}`}
+          >
+            <span class="item-name">{cookbook.name}</span>
+            <span class="item-count">{cookbook.count}</span>
+          </a>
+        ))
+      }
     </div>
 
     <div class="mobile-section">
       <h3 class="mobile-section-title">Catégories</h3>
-      <a href="/cuisine" class="mobile-item {activeCategory === undefined && activeCookbook === undefined ? 'active' : ''}">
-        <span class="item-name">Toutes les recettes</span>
-        <span class="item-count">{mainListingRecipes.length}</span>
-      </a>
-
-      {/* Standalone categories first (alphabetically) */}
+      {/* Only show the 7 official standalone categories */}
       {categories.map(([category, count]) => (
         <a
           href={`/cuisine/categories/${slugify(category)}`}
@@ -198,49 +168,12 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
           <span class="item-count">{count}</span>
         </a>
       ))}
-
-      {/* Main categories with subcategories last (alphabetically), excluding Petite École and Camps Scout */}
-      {mainCategories
-        .filter((mainCat) => mainCat.name !== "Petite École" && mainCat.name !== "Camps Scout")
-        .map((mainCat) => {
-          const mobileGroupId = `mobile-category-group-${slugify(mainCat.name)}`;
-          return (
-            <div class="mobile-collapsible-group" data-group-id={mobileGroupId}>
-              <div class="mobile-category-header">
-                <a
-                  href={`/cuisine/cookbooks/${slugify(mainCat.name)}`}
-                  class={`mobile-item main-category ${activeCookbook === mainCat.name ? 'active' : ''}`}
-                >
-                  <span class="item-name">{mainCat.name}</span>
-                  <span class="item-count">{mainCat.count}</span>
-                </a>
-                <button
-                  class="mobile-collapse-toggle"
-                  data-group-id={mobileGroupId}
-                  aria-label={`Toggle ${mainCat.name} subcategories`}
-                  aria-expanded="false"
-                >
-                  <span class="mobile-chevron">▶</span>
-                </button>
-              </div>
-              <div class="mobile-subcategories" data-group-id={mobileGroupId}>
-                {mainCat.subcategories && Array.from(mainCat.subcategories.entries())
-                  .sort((a, b) => a[0].localeCompare(b[0]))
-                  .map(([subcat, subcount]) => (
-                    <a
-                      href={`/cuisine/cookbooks/${slugify(mainCat.name)}/${slugify(subcat)}`}
-                      class={`mobile-item subcategory ${activeCookbook === mainCat.name && activeCategory === subcat ? 'active' : ''}`}
-                    >
-                      <span class="item-name">→ {subcat}</span>
-                      <span class="item-count">{subcount}</span>
-                    </a>
-                  ))}
-              </div>
-            </div>
-          );
-        })}
     </div>
   </div>
+
+  <!-- FAB Widgets (always visible) -->
+  <ShoppingListWidget />
+  <MealPlanWidget />
 </Fragment>
 
 <style is:global>
@@ -277,28 +210,6 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     gap: 1.5rem;
   }
 
-  .nav-back-link {
-    color: #999;
-    text-decoration: none;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    transition: all 0.2s ease;
-    padding: 0.5rem 1rem;
-    background: transparent;
-    border: 1px solid rgba(211, 84, 0, 0.2);
-    border-radius: 2rem;
-    display: inline-block;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .nav-back-link:hover {
-    color: #d35400;
-    border-color: rgba(211, 84, 0, 0.4);
-    background: rgba(211, 84, 0, 0.03);
-    transform: translateX(-2px);
-  }
-
   .nav-logo {
     display: flex;
     align-items: center;
@@ -316,15 +227,10 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
   }
 
   .logo-icon {
-    font-size: 1.5rem;
-    line-height: 1;
-  }
-
-  /* Center Section */
-  .nav-center {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .nav-link-button {
@@ -360,24 +266,36 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: transparent;
-    border: 1px solid rgba(211, 84, 0, 0.2);
-    border-radius: 2rem;
+    padding: 0.625rem 1.25rem;
+    background: #fff;
+    border: none;
+    border-radius: 6px;
     color: #555;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.03em;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     text-transform: uppercase;
     font-family: "Crimson Pro", serif;
+    box-shadow:
+      0 0 0 1px rgba(211, 84, 0, 0.15),
+      0 1px 2px rgba(0, 0, 0, 0.05);
   }
 
-  .nav-dropdown-toggle:hover,
+  .nav-dropdown-toggle:hover {
+    background: rgba(250, 248, 243, 1);
+    box-shadow:
+      0 0 0 1px rgba(211, 84, 0, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.08);
+    color: #d35400;
+  }
+
   .nav-dropdown.active .nav-dropdown-toggle {
-    background: rgba(211, 84, 0, 0.05);
-    border-color: rgba(211, 84, 0, 0.4);
+    background: rgba(211, 84, 0, 0.08);
+    box-shadow:
+      0 0 0 2px rgba(211, 84, 0, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.08);
     color: #d35400;
   }
 
@@ -392,21 +310,25 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
 
   .nav-dropdown-menu {
     position: absolute;
-    top: calc(100% + 0.75rem);
+    top: calc(100% + 0.5rem);
     left: 0;
-    min-width: 220px;
-    max-height: 400px;
+    width: 280px;
+    max-height: 420px;
     overflow-y: auto;
+    overflow-x: hidden;
     background: #fff;
-    border: 2px solid rgba(211, 84, 0, 0.2);
+    border: 1px solid rgba(211, 84, 0, 0.12);
+    border-radius: 8px;
     box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.08),
-      0 12px 32px rgba(0, 0, 0, 0.1);
+      0 4px 6px rgba(0, 0, 0, 0.05),
+      0 10px 20px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(211, 84, 0, 0.08);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-8px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 300;
+    contain: layout;
   }
 
   .nav-dropdown.active .nav-dropdown-menu {
@@ -415,13 +337,6 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     transform: translateY(0);
   }
 
-
-  /* Right Section */
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
 
   /* Mobile Toggle */
   .nav-mobile-toggle {
@@ -619,113 +534,6 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     color: white;
   }
 
-  .mobile-collapsible-group {
-    margin-bottom: 0.5rem;
-  }
-
-  .mobile-category-header {
-    display: flex;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-
-  .mobile-category-header .mobile-item {
-    flex: 1;
-    margin-bottom: 0;
-    border-radius: 6px 0 0 6px;
-  }
-
-  .mobile-item.main-category {
-    font-weight: 600;
-    background: rgba(211, 84, 0, 0.05);
-    border-left: 3px solid rgba(211, 84, 0, 0.3);
-  }
-
-  .mobile-collapse-toggle {
-    min-width: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    border: 1px solid rgba(211, 84, 0, 0.12);
-    border-radius: 0 6px 6px 0;
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    color: #999;
-    font-family: inherit;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .mobile-collapse-toggle:active {
-    background: rgba(211, 84, 0, 0.15);
-    color: #d35400;
-    transform: scale(0.95);
-  }
-
-  .mobile-collapse-toggle:hover {
-    background: rgba(250, 248, 243, 0.8);
-    border-color: rgba(211, 84, 0, 0.25);
-    color: #d35400;
-  }
-
-  .mobile-chevron {
-    font-size: 0.8rem;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-block;
-  }
-
-  .mobile-collapse-toggle[aria-expanded="true"] .mobile-chevron {
-    transform: rotate(90deg);
-  }
-
-  .mobile-collapse-toggle[aria-expanded="true"] {
-    background: rgba(211, 84, 0, 0.08);
-    color: #d35400;
-    border-color: rgba(211, 84, 0, 0.25);
-  }
-
-  .mobile-subcategories {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-top: 0.5rem;
-  }
-
-  .mobile-subcategories.expanded {
-    max-height: 600px;
-  }
-
-  .mobile-item.subcategory {
-    padding: 0.875rem 1rem 0.875rem 2.5rem;
-    font-size: 0.95rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    background: rgba(250, 248, 243, 0.5);
-    border-left: 2px solid rgba(211, 84, 0, 0.2);
-    min-height: 44px;
-  }
-
-  .mobile-item.subcategory:hover {
-    background: rgba(250, 248, 243, 0.9);
-    margin-left: 0.75rem;
-  }
-
-  .mobile-item.subcategory.active {
-    background: rgba(211, 84, 0, 0.06);
-    border-left-color: #d35400;
-    margin-left: 0.75rem;
-  }
-
-  .mobile-item.subcategory .item-name {
-    color: #666;
-    font-size: 0.95rem;
-  }
-
-  .mobile-item.subcategory.active .item-name {
-    color: #d35400;
-  }
-
   /* Responsive */
   @media (max-width: 1024px) {
     .nav-center {
@@ -733,10 +541,6 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     }
 
     .nav-link-button {
-      display: none;
-    }
-
-    .nav-right {
       display: none;
     }
 
@@ -757,57 +561,6 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     }
   }
 
-  /* Mobile Widgets Section */
-  @media (max-width: 1024px) {
-    .mobile-widgets-section {
-      padding: 1.5rem 1.25rem;
-      background: linear-gradient(135deg, rgba(211, 84, 0, 0.03) 0%, rgba(250, 248, 243, 0.8) 100%);
-      border-bottom: 2px solid rgba(211, 84, 0, 0.15);
-    }
-
-    .mobile-widgets-container {
-      display: flex;
-      flex-direction: column;
-      gap: 0.875rem;
-    }
-
-    /* Override widget styles for mobile menu integration */
-    .mobile-widgets-section .shopping-list-widget,
-    .mobile-widgets-section .meal-plan-widget {
-      position: static;
-      width: 100%;
-    }
-
-    .mobile-widgets-section .shopping-list-toggle,
-    .mobile-widgets-section .meal-plan-toggle {
-      width: 100%;
-      justify-content: center;
-      padding: 0.875rem 1.25rem;
-      font-size: 0.95rem;
-      min-height: 52px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-    }
-
-    .mobile-widgets-section .toggle-text {
-      display: inline-block !important;
-    }
-
-    .mobile-widgets-section .shopping-list-dropdown,
-    .mobile-widgets-section .meal-plan-dropdown {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      max-height: 100vh;
-      border: none;
-      border-radius: 0;
-      z-index: 500;
-    }
-  }
-
   @media (max-width: 768px) {
     :root {
       --nav-height: 68px;
@@ -823,7 +576,8 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     }
 
     .logo-icon {
-      font-size: 1.35rem;
+      width: 1.75rem;
+      height: 1.75rem;
     }
   }
 
@@ -846,19 +600,6 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     }
   }
 
-  /* Scout button styling */
-  .nav-link-button.scout-button {
-    background: linear-gradient(135deg, rgba(45, 80, 22, 0.04) 0%, rgba(74, 124, 37, 0.06) 100%);
-    border-color: rgba(74, 124, 37, 0.25);
-  }
-
-  .nav-link-button.scout-button:hover,
-  .nav-link-button.scout-button.active {
-    background: linear-gradient(135deg, rgba(45, 80, 22, 0.08) 0%, rgba(74, 124, 37, 0.12) 100%);
-    border-color: rgba(74, 124, 37, 0.5);
-    color: #2d5016;
-  }
-
   @media print {
     .cuisine-nav {
       display: none !important;
@@ -868,6 +609,8 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
 
 <script>
   // Dropdown toggles
+  const cookbooksDropdown = document.getElementById("cookbooksDropdown");
+  const cookbooksToggle = document.getElementById("cookbooksToggle");
   const categoriesDropdown = document.getElementById("categoriesDropdown");
   const categoriesToggle = document.getElementById("categoriesToggle");
 
@@ -875,14 +618,25 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
   const navMobileToggle = document.getElementById("navMobileToggle");
   const navMobileMenu = document.getElementById("navMobileMenu");
 
+  // Toggle cookbooks dropdown
+  cookbooksToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    cookbooksDropdown?.classList.toggle("active");
+    // Close categories dropdown when opening cookbooks
+    categoriesDropdown?.classList.remove("active");
+  });
+
   // Toggle categories dropdown
   categoriesToggle?.addEventListener("click", (e) => {
     e.stopPropagation();
     categoriesDropdown?.classList.toggle("active");
+    // Close cookbooks dropdown when opening categories
+    cookbooksDropdown?.classList.remove("active");
   });
 
   // Close dropdowns on outside click
   document.addEventListener("click", () => {
+    cookbooksDropdown?.classList.remove("active");
     categoriesDropdown?.classList.remove("active");
   });
 
@@ -901,86 +655,6 @@ const categories = Array.from(standaloneCategories.entries()).sort((a, b) => a[0
     link.addEventListener("click", () => {
       navMobileToggle?.classList.remove("active");
       navMobileMenu?.classList.remove("active");
-    });
-  });
-
-  // Collapsible category groups (desktop)
-  const collapseToggles = document.querySelectorAll(".collapse-toggle");
-
-  collapseToggles.forEach((toggle) => {
-    const groupId = toggle.getAttribute("data-group-id");
-    if (!groupId) return;
-
-    const container = document.querySelector(
-      `.subcategories-container[data-group-id="${groupId}"]`
-    );
-
-    if (!container) return;
-
-    // Check sessionStorage for saved state
-    const savedState = sessionStorage.getItem(`category-${groupId}`);
-    if (savedState === "expanded") {
-      toggle.setAttribute("aria-expanded", "true");
-      container.classList.add("expanded");
-    }
-
-    // Add click handler
-    toggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-
-      if (isExpanded) {
-        toggle.setAttribute("aria-expanded", "false");
-        container.classList.remove("expanded");
-        sessionStorage.removeItem(`category-${groupId}`);
-      } else {
-        toggle.setAttribute("aria-expanded", "true");
-        container.classList.add("expanded");
-        sessionStorage.setItem(`category-${groupId}`, "expanded");
-      }
-    });
-  });
-
-  // Mobile collapsible category groups
-  const mobileCollapseToggles = document.querySelectorAll(
-    ".mobile-collapse-toggle"
-  );
-
-  mobileCollapseToggles.forEach((toggle) => {
-    const groupId = toggle.getAttribute("data-group-id");
-    if (!groupId) return;
-
-    const container = document.querySelector(
-      `.mobile-subcategories[data-group-id="${groupId}"]`
-    );
-
-    if (!container) return;
-
-    // Check sessionStorage for saved state
-    const savedState = sessionStorage.getItem(`mobile-${groupId}`);
-    if (savedState === "expanded") {
-      toggle.setAttribute("aria-expanded", "true");
-      container.classList.add("expanded");
-    }
-
-    // Add click handler
-    toggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-
-      if (isExpanded) {
-        toggle.setAttribute("aria-expanded", "false");
-        container.classList.remove("expanded");
-        sessionStorage.removeItem(`mobile-${groupId}`);
-      } else {
-        toggle.setAttribute("aria-expanded", "true");
-        container.classList.add("expanded");
-        sessionStorage.setItem(`mobile-${groupId}`, "expanded");
-      }
     });
   });
 </script>

@@ -44,15 +44,11 @@ allCategories.forEach((category) => {
   <CuisineNav variant="index" activeCookbook="Camps Scout" />
 
   <main class="scout-main">
-    <div class="header-section">
-      <div class="breadcrumb">
-        <a href="/">Accueil</a>
-        <span class="separator">›</span>
-        <a href="/cuisine">Cuisine</a>
-        <span class="separator">›</span>
-        <span class="current">Camps Scout</span>
-      </div>
+    <a href="/cuisine" class="back-link">
+      ← Retour à la cuisine
+    </a>
 
+    <div class="header-section">
       <h1 class="page-title">
         <span class="scout-icon">🏕️</span>
         <span class="accent">Camps Scout</span>
@@ -112,6 +108,26 @@ allCategories.forEach((category) => {
       background: linear-gradient(to bottom, rgba(20, 30, 20, 0.02) 0%, transparent 400px);
     }
 
+    /* Back Link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #999;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      margin-bottom: 2rem;
+      padding: 0.5rem 0;
+    }
+
+    .back-link:hover {
+      color: #d35400;
+      transform: translateX(-3px);
+    }
+
     .header-section {
       text-align: center;
       margin-bottom: 4rem;
@@ -130,35 +146,6 @@ allCategories.forEach((category) => {
       font-size: 1.5rem;
       background: #faf8f3;
       padding: 0 1rem;
-    }
-
-    .breadcrumb {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      font-size: 0.85rem;
-      color: #666;
-    }
-
-    .breadcrumb a {
-      color: #666;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .breadcrumb a:hover {
-      color: #d35400;
-    }
-
-    .breadcrumb .separator {
-      color: #999;
-    }
-
-    .breadcrumb .current {
-      color: #5a4a3a;
-      font-weight: 600;
     }
 
     @keyframes fadeInUp {
@@ -227,11 +214,6 @@ allCategories.forEach((category) => {
       .header-section {
         margin-bottom: 3rem;
         padding-bottom: 2.5rem;
-      }
-
-      .breadcrumb {
-        font-size: 0.75rem;
-        margin-bottom: 1.5rem;
       }
 
       .page-title {
