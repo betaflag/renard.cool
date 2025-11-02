@@ -1,0 +1,183 @@
+{
+  "name": "Poulet rôti du dimanche aux légumes racines et cidre",
+  "description": "Le classique dimanche en famille réinventé avec une touche québécoise. Un poulet entier doré et juteux repose sur un lit de légumes racines caramélisés, le tout arrosé d'une sauce veloutée au cidre de pomme qui capture l'essence de l'automne. Simple, généreux, réconfortant — exactement ce qu'un dimanche soir demande.",
+  "servings": {
+    "quantity": 6,
+    "unit": "personnes"
+  },
+  "freezable": false,
+  "time": {
+    "prep": 20,
+    "cook": 90,
+    "wait": 15,
+    "soak": 0
+  },
+  "cooking_method": "Four",
+  "ingredients": [
+    {
+      "subsection": "Pour le poulet et les légumes"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "poulet entier",
+      "note": "environ 1,8 kg (4 livres)"
+    },
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "pommes de terre Yukon Gold moyennes",
+      "note": "coupées en quartiers"
+    },
+    {
+      "quantity": "4",
+      "unit": null,
+      "ingredient": "carottes",
+      "note": "coupées en tronçons de 5 cm"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "panais",
+      "note": "coupés en tronçons de 5 cm"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "oignons jaunes",
+      "note": "coupés en quartiers"
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "petit navet",
+      "note": "coupé en quartiers (optionnel)"
+    },
+    {
+      "quantity": "6",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "écrasées avec leur peau"
+    },
+    {
+      "quantity": "45",
+      "unit": "ml",
+      "ingredient": "huile d'olive",
+      "note": "pour badigeonner"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "beurre fondu",
+      "note": "pour la peau dorée"
+    },
+    {
+      "quantity": "10",
+      "unit": "ml",
+      "ingredient": "thym séché",
+      "note": "l'herbe automnale"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "sauge séchée",
+      "note": "la note québécoise"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "romarin séché",
+      "note": "pour la profondeur"
+    },
+    {
+      "quantity": "10",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": "pour assaisonner généreusement"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "poivre noir",
+      "note": "fraîchement moulu"
+    },
+    {
+      "subsection": "Pour la sauce au cidre"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "cidre de pomme québécois",
+      "note": "non filtré de préférence"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "bouillon de poulet",
+      "note": "pour enrichir"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "beurre froid",
+      "note": "pour lier la sauce"
+    },
+    {
+      "quantity": "15",
+      "unit": "ml",
+      "ingredient": "farine",
+      "note": "pour épaissir"
+    },
+    {
+      "quantity": "15",
+      "unit": "ml",
+      "ingredient": "moutarde de Dijon",
+      "note": "l'amplificateur secret"
+    },
+    {
+      "quantity": null,
+      "unit": null,
+      "ingredient": "Sel et poivre",
+      "note": "pour ajuster la sauce"
+    }
+  ],
+  "steps": [
+    "Préchauffer le four à 425°F (220°C). Sortir le poulet du réfrigérateur 30 minutes avant la cuisson pour qu'il soit à température ambiante — cela garantit une cuisson uniforme.",
+    "Préparer les légumes : Dans un grand plat de cuisson (9x13 pouces ou plus grand), disposer les pommes de terre, carottes, panais, oignons, navet et gousses d'ail écrasées. Arroser de 30 ml d'huile d'olive, assaisonner de 5 ml de sel, 2,5 ml de poivre, 5 ml de thym et 2,5 ml de sauge. Mélanger pour enrober uniformément. Pousser les légumes sur les côtés du plat pour créer un espace au centre.",
+    "Préparer le poulet : Éponger l'extérieur et l'intérieur du poulet avec du papier absorbant — la peau doit être complètement sèche pour qu'elle devienne croustillante. Placer le poulet au centre du plat, sur le lit de légumes.",
+    "Dans un petit bol, mélanger le beurre fondu avec 15 ml d'huile d'olive, 5 ml de thym, 2,5 ml de sauge, 2,5 ml de romarin, 5 ml de sel et 2,5 ml de poivre. Badigeonner généreusement toute la surface du poulet avec ce mélange. Rentrer les ailes sous le poulet et ficeler les cuisses ensemble si désiré (pour une cuisson uniforme).",
+    "Rôtir au four à 425°F (220°C) pendant 20 minutes pour saisir la peau et la rendre dorée. Puis réduire la température à 375°F (190°C) et poursuivre la cuisson 60-70 minutes, en arrosant le poulet avec les jus de cuisson toutes les 25 minutes. Le poulet est cuit lorsqu'un thermomètre inséré dans la cuisse indique 165°F (74°C) et que les jus coulent clairs (pas rosés).",
+    "Retirer le poulet et les légumes du plat et les transférer sur une planche à découper ou un plat de service. Couvrir lâchement de papier d'aluminium et laisser reposer 15 minutes — c'est ESSENTIEL pour que les jus se redistribuent et que la viande reste juteuse.",
+    "Pendant que le poulet repose, préparer la sauce : Placer le plat de cuisson (avec tous les sucs caramélisés) sur la cuisinière à feu moyen. Verser le cidre de pomme et porter à ébullition en raclant énergiquement tous les sucs bruns collés au fond avec une cuillère en bois — c'est là que réside toute la saveur. Laisser réduire 3-4 minutes.",
+    "Ajouter le bouillon de poulet et laisser mijoter 5 minutes. Dans un petit bol, mélanger la farine avec 15 ml de beurre froid pour former une pâte (beurre manié). Ajouter cette pâte à la sauce en fouettant constamment jusqu'à épaississement (2-3 minutes). Incorporer la moutarde de Dijon, goûter et ajuster l'assaisonnement.",
+    "Découper le poulet en portions (cuisses, pilons, poitrines tranchées). Disposer sur un grand plat de service entouré des légumes rôtis caramélisés. Napper généreusement de sauce au cidre et servir le reste de la sauce en saucière."
+  ],
+  "serving_suggestions": [
+    "Servir avec du pain croûté pour saucer la délicieuse sauce au cidre",
+    "Accompagner d'une salade verte simple avec vinaigrette légère",
+    "Un verre de cidre de glace ou de vin blanc sec complète parfaitement",
+    "Les restes font d'excellents sandwiches au poulet le lendemain"
+  ],
+  "categories": [
+    "plat principal"
+  ],
+  "tags": [
+    "familial",
+    "québécois",
+    "réconfortant",
+    "automne",
+    "dimanche soir",
+    "traditionnel",
+    "simple",
+    "généreux",
+    "légumes racines",
+    "sauce au cidre"
+  ],
+  "difficulty": "facile",
+  "heroImage": "/cuisine/poulet-roti-legumes-racines-cidre.png",
+  "pubDate": "2025-11-02",
+  "draft": false,
+  "tips": "Le secret d'un poulet rôti irrésistible commence par une peau parfaitement sèche — épongez généreusement avec du papier absorbant et laissez-le reposer à l'air libre 30 minutes avant la cuisson. La technique du double rôtissage (saisir à haute température puis finir à température modérée) crée cette peau croustillante et dorée tout en gardant la chair juteuse. Ne sautez jamais l'étape de repos de 15 minutes après la cuisson : c'est ce qui fait la différence entre un poulet sec et un poulet juteux — les jus se redistribuent uniformément dans la viande. Les légumes racines sont essentiels : ils caramélisent dans les jus du poulet et apportent une douceur naturelle qui équilibre parfaitement la sauce au cidre. Utilisez un cidre de pomme québécois artisanal non filtré pour une profondeur de saveur incomparable — évitez les cidres trop sucrés qui déséquilibreraient la sauce. Le déglaçage au cidre est la clé d'une sauce extraordinaire : tous ces sucs bruns caramélisés au fond du plat sont de l'or pur culinaire. Arroser le poulet toutes les 25 minutes pendant la cuisson non seulement garde la peau dorée, mais crée aussi des jus plus riches pour la sauce finale. Si vous n'avez pas de thermomètre, piquez la cuisse : si les jus coulent clairs (pas roses), c'est prêt.",
+  "ingredientIntro": "Un poulet entier, des légumes racines de nos terres québécoises, et du cidre de pomme artisanal — des ingrédients simples qui, réunis dans la chaleur du four, créent une symphonie automnale réconfortante. Chaque élément joue sa partition dans ce festin du dimanche.",
+  "note": "Le poulet rôti entier ne se congèle pas bien, mais les restes se conservent 3-4 jours au réfrigérateur. La sauce au cidre peut être préparée à l'avance et réchauffée doucement."
+}

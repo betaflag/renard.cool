@@ -26,7 +26,7 @@ const recipeMap = Object.fromEntries(
       <!-- Populated by JavaScript -->
     </div>
 
-    <div class="empty-state" id="emptyState">
+    <div class="empty-state hidden" id="emptyState">
       <p>Aucun plat</p>
       <small>Ajoutez des recettes à votre plan!</small>
     </div>
@@ -300,11 +300,10 @@ const recipeMap = Object.fromEntries(
     padding: 3rem 2rem;
     text-align: center;
     color: #999;
-    display: none;
   }
 
-  .empty-state:not(.hidden) {
-    display: block;
+  .empty-state.hidden {
+    display: none;
   }
 
   .empty-state p {

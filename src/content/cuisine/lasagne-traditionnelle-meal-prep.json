@@ -1,0 +1,201 @@
+{
+  "name": "Lasagne Traditionnelle de la Tanière",
+  "description": "La lasagne ultime pour le meal prep dominical — des couches généreuses de pâtes tendres, sauce à la viande mijotée lentement, et un trio de fromages fondants. Cette version produit deux grands plats ou un plat familial plus portions individuelles congelables pour la semaine. Le dimanche, vous cuisinez ; toute la semaine, vous récoltez le réconfort.",
+  "servings": {
+    "quantity": 12,
+    "unit": "portions"
+  },
+  "freezable": true,
+  "time": {
+    "prep": 30,
+    "cook": 60,
+    "wait": 15,
+    "soak": 0
+  },
+  "cooking_method": "Cuisinière et four",
+  "ingredients": [
+    {
+      "subsection": "Pour la sauce à la viande"
+    },
+    {
+      "quantity": "30",
+      "unit": "ml",
+      "ingredient": "huile d'olive",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": null,
+      "ingredient": "oignon jaune moyen",
+      "note": "haché finement"
+    },
+    {
+      "quantity": "4",
+      "unit": "gousses",
+      "ingredient": "ail",
+      "note": "hachées"
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "bœuf haché",
+      "note": "mi-maigre"
+    },
+    {
+      "quantity": "500",
+      "unit": "g",
+      "ingredient": "porc haché",
+      "note": "ou saucisse italienne douce"
+    },
+    {
+      "quantity": "2",
+      "unit": "boîtes (796 ml chacune)",
+      "ingredient": "tomates concassées",
+      "note": "de qualité San Marzano si possible"
+    },
+    {
+      "quantity": "1",
+      "unit": "boîte (156 ml)",
+      "ingredient": "pâte de tomates",
+      "note": "pour concentrer la saveur"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "eau",
+      "note": "pour détendre la sauce"
+    },
+    {
+      "quantity": "15",
+      "unit": "ml",
+      "ingredient": "sucre",
+      "note": "pour équilibrer l'acidité"
+    },
+    {
+      "quantity": "10",
+      "unit": "ml",
+      "ingredient": "basilic séché",
+      "note": "l'herbe italienne classique"
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "origan séché",
+      "note": null
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "flocons de piment rouge",
+      "note": "optionnel, pour chaleur douce"
+    },
+    {
+      "quantity": "10",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": null
+    },
+    {
+      "quantity": "5",
+      "unit": "ml",
+      "ingredient": "poivre noir",
+      "note": "fraîchement moulu"
+    },
+    {
+      "subsection": "Pour le mélange de fromages"
+    },
+    {
+      "quantity": "750",
+      "unit": "g",
+      "ingredient": "fromage ricotta",
+      "note": "pour la crémosité"
+    },
+    {
+      "quantity": "2",
+      "unit": null,
+      "ingredient": "œufs",
+      "note": "pour lier le fromage"
+    },
+    {
+      "quantity": "125",
+      "unit": "ml",
+      "ingredient": "persil frais",
+      "note": "haché, ou 30 ml séché"
+    },
+    {
+      "quantity": "2,5",
+      "unit": "ml",
+      "ingredient": "sel",
+      "note": null
+    },
+    {
+      "quantity": "1",
+      "unit": "ml",
+      "ingredient": "muscade moulue",
+      "note": "le secret italien"
+    },
+    {
+      "subsection": "Pour l'assemblage"
+    },
+    {
+      "quantity": "375",
+      "unit": "g",
+      "ingredient": "pâtes à lasagne",
+      "note": "sans pré-cuisson (oven-ready) ou régulières cuites al dente"
+    },
+    {
+      "quantity": "750",
+      "unit": "g",
+      "ingredient": "mozzarella",
+      "note": "râpée, en bloc de qualité"
+    },
+    {
+      "quantity": "250",
+      "unit": "ml",
+      "ingredient": "parmesan",
+      "note": "fraîchement râpé"
+    }
+  ],
+  "steps": [
+    "Préparer la sauce à la viande : Dans une grande casserole ou faitout, chauffer l'huile d'olive à feu moyen. Ajouter l'oignon haché et cuire 5 minutes jusqu'à translucide et parfumé. Ajouter l'ail et cuire 1 minute de plus.",
+    "Ajouter le bœuf haché et le porc haché. Cuire en défaisant la viande avec une cuillère en bois, 8-10 minutes jusqu'à ce qu'elle soit complètement dorée et qu'il n'y ait plus de rose. Égoutter l'excès de gras si nécessaire.",
+    "Ajouter les tomates concassées, la pâte de tomates, l'eau, le sucre, le basilic, l'origan, les flocons de piment (si utilisés), le sel et le poivre. Mélanger et porter à ébullition. Réduire à feu doux et laisser mijoter 30 minutes à découvert, en remuant occasionnellement. La sauce doit épaissir et les saveurs se marier profondément. Goûter et ajuster l'assaisonnement.",
+    "Pendant que la sauce mijote, préparer le mélange de fromages : Dans un grand bol, mélanger la ricotta, les œufs battus, le persil haché, le sel et la muscade. Réserver.",
+    "Si vous utilisez des pâtes à lasagne régulières (pas oven-ready), les cuire selon les instructions du paquet jusqu'à al dente, égoutter et les étendre sur du papier ciré pour éviter qu'elles collent.",
+    "Préchauffer le four à 375°F (190°C).",
+    "Assembler les lasagnes : Beurrer légèrement deux plats 9x13 pouces (ou un plat 9x13 + 6 contenants individuels pour congélation). Étendre une fine couche de sauce à la viande au fond de chaque plat (environ 250 ml par plat).",
+    "Première couche : Disposer des pâtes à lasagne pour couvrir la sauce (environ 4 pâtes par plat 9x13). Étendre la moitié du mélange ricotta sur les pâtes. Saupoudrer d'un tiers de la mozzarella râpée (environ 250 g par plat). Napper généreusement de sauce à la viande (environ 375 ml par plat).",
+    "Deuxième couche : Répéter avec une couche de pâtes, le reste du mélange ricotta, un autre tiers de mozzarella, et sauce à la viande.",
+    "Couche finale : Disposer une dernière couche de pâtes. Napper du reste de sauce à la viande. Saupoudrer du reste de mozzarella râpée et du parmesan fraîchement râpé pour créer une croûte dorée irrésistible.",
+    "Couvrir chaque plat hermétiquement avec du papier d'aluminium (graisser légèrement le côté qui touche le fromage pour éviter qu'il colle). Cuire au four 45 minutes.",
+    "Retirer le papier d'aluminium et poursuivre la cuisson 15 minutes à découvert, jusqu'à ce que le fromage soit doré, bouillonnant et légèrement gratiné sur les bords. La lasagne doit être complètement chaude au centre.",
+    "Retirer du four et laisser reposer 15 minutes avant de couper — c'est ESSENTIEL pour que les couches se tiennent et que la lasagne ne soit pas liquide. Ce temps de repos permet aux fromages de se raffermir légèrement.",
+    "Pour meal prep : Laisser refroidir complètement une des lasagnes. Couper en portions individuelles (6 portions par plat 9x13). Emballer chaque portion hermétiquement dans du papier d'aluminium, puis placer dans des sacs de congélation. Étiqueter avec la date. Congeler jusqu'à 3 mois.",
+    "Pour réchauffer portions congelées : Préchauffer le four à 350°F (175°C). Placer la portion encore emballée dans l'aluminium sur une plaque. Cuire 45-60 minutes jusqu'à chaud au centre. Retirer l'aluminium les 10 dernières minutes pour re-dorer le dessus. Ou réchauffer au micro-ondes 4-6 minutes en remuant à mi-cuisson."
+  ],
+  "serving_suggestions": [
+    "Servir avec une salade César classique et pain à l'ail croûté",
+    "Accompagner de légumes verts simplement sautés (brocoli, haricots)",
+    "Un verre de Chianti ou Sangiovese italien complète parfaitement",
+    "Saupoudrer de basilic frais ciselé juste avant de servir"
+  ],
+  "categories": ["plat principal"],
+  "tags": [
+    "meal prep",
+    "italien",
+    "familial",
+    "réconfortant",
+    "congélation",
+    "semaine",
+    "dimanche",
+    "batch cooking",
+    "traditionnel"
+  ],
+  "difficulty": "moyen",
+  "heroImage": "/cuisine/lasagne-traditionnelle-meal-prep.png",
+  "pubDate": "2025-11-02",
+  "draft": false,
+  "tips": "Le secret d'une lasagne de meal prep parfaite commence par une sauce bien mijotée — les 30 minutes de mijotage ne sont pas optionnelles, c'est ce temps qui marie les saveurs et concentre la sauce pour qu'elle ne rende pas d'eau à la congélation. Le mélange ricotta-œufs est essentiel : les œufs lient le fromage et l'empêchent de devenir granuleux au réchauffage. La muscade peut sembler étrange, mais c'est le secret italien qui fait toute la différence dans le mélange de fromages — n'en mettez qu'une pincée. Si vous utilisez des pâtes oven-ready (sans pré-cuisson), assurez-vous que votre sauce soit légèrement plus liquide car les pâtes absorberont du liquide pendant la cuisson. Pour un assemblage efficace le dimanche, préparez la sauce la veille et réfrigérez-la — elle sera plus facile à étaler froide et vous gagnerez 45 minutes le jour J. Le temps de repos de 15 minutes après cuisson n'est pas négociable : c'est ce qui transforme une lasagne qui s'effondre en tranches parfaites qui se tiennent. Pour la congélation, laissez toujours refroidir complètement avant d'emballer — emballer chaud crée de la condensation qui se transforme en cristaux de glace. Les portions individuelles sont le vrai génie du meal prep : sortez-en une du congélateur le matin, elle sera parfaite pour le lunch ou souper. Cette recette se double facilement — si vous faites l'effort, autant en faire quatre plats et congeler trois. Utilisez du fromage de qualité : la mozzarella en bloc râpée vous-même fond mieux que la pré-râpée qui contient des agents anti-agglomérants.",
+  "ingredientIntro": "La lasagne est une symphonie italienne où chaque ingrédient joue sa partition : la viande apporte profondeur et richesse, les tomates l'acidité équilibrée, les trois fromages la crémosité fondante. Chaque couche construit le réconfort absolu.",
+  "note": "Cette recette produit 2 plats 9x13 pouces (12 portions au total). Parfait pour meal prep : servir un plat frais le dimanche soir, congeler le deuxième en portions pour la semaine. Se congèle jusqu'à 3 mois. Les pâtes oven-ready (sans pré-cuisson) facilitent l'assemblage mais les pâtes régulières cuites al dente donnent une texture supérieure."
+}

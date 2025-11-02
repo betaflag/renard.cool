@@ -355,6 +355,8 @@ Toutes les recettes doivent suivre le schéma Zod défini dans `src/content/conf
 
 #### Schéma Zod complet (Référence)
 
+⚠️ **ATTENTION** : Le schéma réel dans `src/content/config.ts` fait autorité. Voici la version actuelle :
+
 ```typescript
 const cuisine = defineCollection({
   type: 'data',
@@ -397,9 +399,18 @@ const cuisine = defineCollection({
       })),
     })).optional(),
     serving_suggestions: z.array(z.string()).optional(),
-    mainCategory: z.string().optional(),
-    categories: z.array(z.string()).default(['plat principal']),
-    tags: z.array(z.string()).optional(),
+    cookbook: z.string().optional(),
+    // ⚠️ IMPORTANT : categories est un enum strict !
+    categories: z.array(z.enum([
+      'entrée',
+      'plat principal',
+      'accompagnement',
+      'salade',
+      'dessert',
+      'collation',
+      'boisson'
+    ])).default(['plat principal']),
+    tags: z.array(z.string()).optional(),  // Tags libres pour autres descripteurs
     difficulty: z.enum(['facile', 'moyen', 'difficile']).default('moyen'),
     variant: z.enum(['simple', 'avance', 'maternelle']).optional(),
     relatedRecipe: z.string().optional(),
@@ -409,6 +420,8 @@ const cuisine = defineCollection({
     tips: z.string().optional(),
     ingredientIntro: z.string().optional(),
     note: z.string().optional(),
+    scoutCount: z.number().optional(),
+    scoutContext: z.array(z.enum(['feu de camp', 'bivouac', 'cuisine extérieure', 'matériel minimal', 'grandes portions', 'préparation rapide'])).optional(),
   }),
 });
 ```
@@ -433,11 +446,21 @@ const cuisine = defineCollection({
   "cooking_method": "Cuisinière | Four | Mijoteuse | Barbecue | Cuisinière et four",
   "ingredients": [],
   "steps": [],
-  "categories": ["plat principal"],
+  "categories": ["plat principal"],  // ⚠️ UNE SEULE parmi les 7 enum!
   "difficulty": "facile",
   "pubDate": "2025-10-12",
   "draft": false
 }
+```
+
+⚠️ **Erreur courante** : Mettre plusieurs catégories ou des valeurs non-enum dans `categories` :
+```json
+// ❌ INCORRECT - causera une erreur de build
+"categories": ["plat principal", "québécois", "réconfortant"]
+
+// ✅ CORRECT
+"categories": ["plat principal"],
+"tags": ["québécois", "réconfortant", "automne", "familial"]
 ```
 
 **Note sur `servings`** : Maintenant un objet avec `quantity` (nombre) et `unit` (chaîne). Exemples d'unités :
@@ -600,40 +623,32 @@ Valeurs acceptées (exactement comme écrites) :
 - `"moyen"` : Occasionnel (15%)
 - `"difficile"` : Rare (5% ou moins)
 
-### Catégories
+### Catégories et Tags
 
-Liste non exhaustive de catégories possibles :
+⚠️ **IMPORTANT** : Le schéma fait une distinction stricte entre `categories` (enum) et `tags` (libre).
 
-**Type de plat** :
-- `"plat principal"`
+**`categories`** — Type de plat uniquement (enum strict, 7 valeurs) :
 - `"entrée"`
+- `"plat principal"`
 - `"accompagnement"`
+- `"salade"`
 - `"dessert"`
-- `"déjeuner"`
 - `"collation"`
+- `"boisson"`
 
-**Origine/Style** :
-- `"québécois"`
-- `"traditionnel"`
-- `"italien"`
-- `"américain"`
-- `"asiatique"`
+➡️ **Règle** : Une seule catégorie dans la majorité des cas. Si vous mettez autre chose que ces 7 valeurs, le build échouera.
 
-**Caractère** :
-- `"réconfortant"`
-- `"automne"`
-- `"hiver"`
-- `"été"`
-- `"spécial"`
-- `"romantique"`
-- `"familial"`
+**`tags`** — Descripteurs libres (array de strings) :
+- Origine/tradition : `"québécois"`, `"traditionnel"`, `"italien"`, `"américain"`, `"asiatique"`
+- Ambiance : `"réconfortant"`, `"familial"`, `"romantique"`, `"spécial"`, `"rapide"`
+- Saison : `"automne"`, `"hiver"`, `"printemps"`, `"été"`
+- Équipement : `"mijoteuse"`, `"une casserole"`, `"sans cuisson"`
+- Ingrédients/thème : `"légumes racines"`, `"champignons"`, `"érable"`, `"congélation"`
+- Contexte : `"dimanche soir"`, `"semaine"`, `"fête"`
 
-**Technique/Équipement** :
-- `"mijoteuse"`
-- `"une casserole"`
-- `"sans cuisson"`
+➡️ **Règle d'or** : Si c'est pas dans les 7 catégories enum, ça va dans `tags`!
 
-Chaque recette devrait avoir **2-5 catégories** pour faciliter la découverte.
+Voir la section [Catégories et classification](#catégories-et-classification) pour plus de détails et exemples.
 
 ### Étapes visuelles (visualSteps)
 
@@ -780,71 +795,114 @@ Enrichir la recette avec son héritage.
 
 ## Catégories et classification
 
-### Système de catégories
+### Système de catégories et tags
 
-Les catégories permettent aux lecteurs de découvrir les recettes selon différents axes. Chaque recette devrait avoir **2-5 catégories**.
+⚠️ **Important** : Le schéma Astro fait une distinction stricte entre `categories` et `tags`.
 
-#### Catégories par type de plat
+#### `categories` — Type de plat uniquement (enum strict)
 
-- `"plat principal"` : Plat central du repas
-- `"accompagnement"` : Légumes, féculents, salades
-- `"entrée"` : Soupes, salades en entrée
-- `"dessert"` : Sucreries de toutes sortes
-- `"déjeuner"` : Crêpes, œufs, pain doré, etc.
-- `"collation"` : Snacks, goûters
+Le champ `categories` est limité à **7 valeurs enum strictes** définissant uniquement le **type de plat** :
 
-#### Catégories par origine/tradition
+```typescript
+categories: z.array(z.enum([
+  'entrée',
+  'plat principal',
+  'accompagnement',
+  'salade',
+  'dessert',
+  'collation',
+  'boisson'
+])).default(['plat principal'])
+```
 
-- `"québécois"` : Recettes patrimoniales du Québec
-- `"traditionnel"` : Recettes transmises de génération en génération
-- `"italien"` : Origine italienne
-- `"américain"` : Cuisine nord-américaine
-- `"français"` : Origine française
-- `"asiatique"` : Inspirations asiatiques
+**Règles pour `categories`** :
+- ✅ **Une seule catégorie** dans la majorité des cas (type de plat principal)
+- ✅ Parfois 2 catégories si le plat peut servir de plusieurs façons (ex: `["entrée", "plat principal"]` pour une grosse salade-repas)
+- ❌ **Ne jamais** mettre "québécois", "réconfortant", "automne", "familial", etc. dans `categories`
 
-#### Catégories par ambiance/caractère
+**Exemples corrects** :
+```json
+"categories": ["plat principal"]
+"categories": ["dessert"]
+"categories": ["accompagnement"]
+"categories": ["entrée", "plat principal"]  // Soupe copieuse pouvant servir de repas
+```
 
-- `"réconfortant"` : Plats chaleureux qui réconfortent l'âme
-- `"familial"` : Pour rassembler la famille
-- `"romantique"` : Pour soupers en tête-à-tête
-- `"spécial"` : Pour occasions spéciales
-- `"rapide"` : Moins de 30 minutes au total
+**Exemples incorrects** (causeront une erreur de build) :
+```json
+"categories": ["plat principal", "québécois"]  // ❌ "québécois" n'est pas dans l'enum
+"categories": ["plat principal", "réconfortant"]  // ❌ "réconfortant" va dans tags
+"categories": ["plat principal", "automne", "familial"]  // ❌ "automne" et "familial" vont dans tags
+```
 
-#### Catégories par saison
+#### `tags` — Descripteurs libres (array de strings)
 
-- `"automne"` : Courges, pommes, champignons, cannelle
-- `"hiver"` : Mijotés, soupes, plats réconfortants
-- `"printemps"` : Légumes verts, fraîcheur
-- `"été"` : Barbecue, salades, fruits frais
+Le champ `tags` accepte **n'importe quel string** et sert à décrire tous les autres aspects de la recette :
 
-#### Catégories par équipement/méthode
+**Tags par origine/tradition** :
+- `"québécois"`, `"traditionnel"`, `"italien"`, `"américain"`, `"français"`, `"asiatique"`
 
-- `"mijoteuse"` : Recettes pour slow cooker
-- `"une casserole"` : Minimal en vaisselle
-- `"sans cuisson"` : Pas de four/cuisinière requis
-- `"barbecue"` : Pour cuisson extérieure
+**Tags par ambiance/caractère** :
+- `"réconfortant"`, `"familial"`, `"romantique"`, `"spécial"`, `"rapide"`, `"simple"`, `"généreux"`
 
-### Exemples de combinaisons
+**Tags par saison** :
+- `"automne"`, `"hiver"`, `"printemps"`, `"été"`
+
+**Tags par équipement/méthode** :
+- `"mijoteuse"`, `"une casserole"`, `"sans cuisson"`, `"barbecue"`
+
+**Tags par ingrédients/thème** :
+- `"légumes racines"`, `"sauce au cidre"`, `"champignons"`, `"érable"`, `"congélation"`
+
+**Tags par contexte** :
+- `"dimanche soir"`, `"semaine"`, `"fête"`, `"cabane à sucre"`
+
+### Exemples complets corrects
 
 **Fèves au lard** :
 ```json
-"categories": ["plat principal", "traditionnel", "québécois"]
+"categories": ["plat principal"],
+"tags": ["traditionnel", "québécois", "mijoteuse", "congélation"]
 ```
 
 **Ragoût de boulettes** :
 ```json
-"categories": ["plat principal", "traditionnel", "québécois", "réconfortant"]
+"categories": ["plat principal"],
+"tags": ["québécois", "traditionnel", "réconfortant", "mijoteuse", "congélation"]
 ```
 
 **Mac & fromage** :
 ```json
-"categories": ["plat principal", "réconfortant", "américain"]
+"categories": ["plat principal"],
+"tags": ["réconfortant", "américain", "familial", "congélation"]
 ```
 
 **Risotto aux champignons** :
 ```json
-"categories": ["plat principal", "réconfortant", "italien", "automne"]
+"categories": ["plat principal"],
+"tags": ["réconfortant", "italien", "automne", "champignons"]
 ```
+
+**Poulet rôti du dimanche** :
+```json
+"categories": ["plat principal"],
+"tags": ["familial", "québécois", "réconfortant", "automne", "dimanche soir", "traditionnel", "simple", "généreux", "légumes racines", "sauce au cidre"]
+```
+
+**Salade César copieuse** :
+```json
+"categories": ["salade", "plat principal"],
+"tags": ["rapide", "été", "poulet"]
+```
+
+### Récapitulatif des différences
+
+| Champ | Type | Usage | Exemples |
+|-------|------|-------|----------|
+| `categories` | Enum strict (7 valeurs) | Type de plat uniquement | `"plat principal"`, `"dessert"`, `"accompagnement"` |
+| `tags` | Array libre de strings | Tous les autres descripteurs | `"québécois"`, `"réconfortant"`, `"automne"`, `"familial"` |
+
+**Règle d'or** : Si c'est pas dans la liste des 7 catégories enum (`entrée`, `plat principal`, `accompagnement`, `salade`, `dessert`, `collation`, `boisson`), ça va dans `tags`!
 
 ---
 
@@ -867,11 +925,10 @@ Les catégories permettent aux lecteurs de découvrir les recettes selon différ
 - [ ] `time` : Tous les temps sont précis (prep, cook, wait, soak)
 - [ ] `cooking_method` : Valeur exacte parmi les options
 - [ ] `difficulty` : Correspond réellement au niveau (majorité "facile")
-- [ ] `categories` : 2-5 catégories pertinentes
+- [ ] `categories` : **Une seule catégorie** de type de plat parmi les 7 enum (`entrée`, `plat principal`, `accompagnement`, `salade`, `dessert`, `collation`, `boisson`)
+- [ ] `tags` : **5-10 tags** descriptifs (origine, ambiance, saison, équipement, ingrédients, contexte)
 - [ ] `pubDate` : Date au format ISO (YYYY-MM-DD)
 - [ ] `draft` : `false` quand prêt à publier
-- [ ] `mainCategory` : Catégorie principale (optionnel mais recommandé)
-- [ ] `tags` : Mots-clés supplémentaires si pertinents (optionnel)
 - [ ] `visualSteps` : Étapes visuelles pour recettes "maternelle" (optionnel)
 
 ### Ingrédients
