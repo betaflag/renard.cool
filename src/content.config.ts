@@ -27,6 +27,16 @@ const posts = defineCollection({
         .array(z.object({ title: z.string(), src: z.string(), duration: z.string().optional() }))
         .default([]),
       location: z.string().optional(),
+      exif: z
+        .object({
+          camera: z.string().optional(),
+          lens: z.string().optional(),
+          focal: z.string().optional(),
+          aperture: z.string().optional(),
+          shutter: z.string().optional(),
+          iso: z.string().optional(),
+        })
+        .optional(),
       draft: z.boolean().default(false),
     }),
 });

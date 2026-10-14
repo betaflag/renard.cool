@@ -21,7 +21,7 @@ npm run check     # astro check (types)
   (`photographie`, `faune`, `musique`).
 - `src/content/posts/<slug>/index.md` : un dossier par billet, images à côté du markdown.
 - `src/pages/` : accueil, `[category]`, `[post]`, `rss.xml.ts`, `404`.
-- `src/components/` : `PlateList`, `Plate`, `Tracks`, `Footer`.
+- `src/components/` : `PlateList`, `Plate`, `PhotoMeta`, `Tracks`, `Footer`.
 - `src/lib.ts` : `publishedPosts()` et `formatDate()`.
 - `src/styles/global.css` : papier, encre, typo IM Fell, `.plate`, `.prose`, `.fleuron`.
 - `public/audio/` : fichiers audio, référencés par chemin absolu depuis le frontmatter.
@@ -31,7 +31,8 @@ npm run check     # astro check (types)
 1. Créer `src/content/posts/<slug>/index.md`. Le slug devient l'URL (`/<slug>`).
 2. Frontmatter obligatoire : `title`, `description`, `pubDate`, `category`, `cover`,
    `coverAlt`. Optionnel : `location`, `gallery` (liste de `{src, alt, caption}`),
-   `tracks` (liste de `{title, src, duration}`), `draft`.
+   `tracks` (liste de `{title, src, duration}`), `exif` (`camera`, `lens`, `focal`,
+   `aperture`, `shutter`, `iso`, tous optionnels, affichés sous la couverture), `draft`.
 3. Déposer les images dans le même dossier et les référencer en relatif (`./cover.jpg`).
    Astro génère les variantes redimensionnées au build.
 4. Déposer l'audio dans `public/audio/` et le référencer en absolu (`/audio/fichier.mp3`).
