@@ -2,21 +2,23 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="wrap muted">
-  <span>© {year} renard.cool</span>
-  <a href="/rss.xml">Flux RSS</a>
+<footer class="page">
+  <span class="fleuron" aria-hidden="true"></span>
+  <p class="sc soft">renard.cool, {year}. <a href="/rss.xml">Flux RSS</a></p>
 </footer>
 
 <style>
   footer {
-    display: flex;
-    justify-content: space-between;
-    padding-block: 2rem;
-    border-top: 1px solid var(--line);
-    font-size: 0.85rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
   }
 
-  footer a:hover {
-    color: var(--accent);
+  p {
+    margin: 0;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 </style>

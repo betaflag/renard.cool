@@ -1,34 +1,60 @@
 ---
 import Base from '../layouts/Base.astro';
-import PostGrid from '../components/PostGrid.astro';
+import Plate from '../components/Plate.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import { publishedPosts } from '../lib';
 
-const posts = (await publishedPosts()).slice(0, 12);
+const posts = await publishedPosts();
+const latest = posts[0];
 ---
 
-<Base title="renard.cool" description="Photographie, faune et musique. Le carnet d'un renard.">
-  <section class="intro">
-    <h1>Un renard, un appareil photo, quelques notes.</h1>
-    <p class="muted">
-      Photographies, rencontres avec la faune et compositions musicales. Pas de rubrique conseils,
-      pas de newsletter. Juste ce que je vois et ce que j'entends.
-    </p>
+<Base title="renard.cool" description="Photographies, faune et musique. Le carnet d'un renard.">
+  <section class="title-page">
+    <h1>renard.cool</h1>
+    <p class="subtitle">Photographies, faune &amp; musique</p>
+    <span class="fleuron" aria-hidden="true"></span>
+    <p class="soft">Ce que je vois dehors, et ce que j'entends en rentrant.</p>
   </section>
-  <PostGrid posts={posts} />
+
+  {
+    latest && (
+      <a href={`/${latest.id}`} class="frontispiece">
+        <Plate src={latest.data.cover} alt={latest.data.coverAlt} caption={latest.data.title} loading="eager" />
+      </a>
+    )
+  }
+
+  <TableOfContents posts={posts} />
 </Base>
 
 <style>
-  .intro {
-    max-width: var(--measure);
-    margin-bottom: 3.5rem;
+  .title-page {
+    text-align: center;
+    margin-bottom: 3rem;
   }
 
   h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 1rem;
+    font-size: clamp(2.75rem, 8vw, 4.5rem);
+    letter-spacing: 0.02em;
   }
 
-  p {
-    font-size: 1.1rem;
+  .subtitle {
+    font-style: italic;
+    font-size: 1.3rem;
+    margin: 0.25rem 0 0;
+  }
+
+  .soft {
+    margin: 0;
+  }
+
+  .frontispiece {
+    display: block;
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  .frontispiece:hover :global(figcaption) {
+    color: var(--red);
   }
 </style>

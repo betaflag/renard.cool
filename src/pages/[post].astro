@@ -1,8 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import Gallery from '../components/Gallery.astro';
+import Plate from '../components/Plate.astro';
 import Tracks from '../components/Tracks.astro';
 import { CATEGORIES } from '../content.config';
 import { formatDate, publishedPosts } from '../lib';
@@ -16,59 +15,81 @@ const { post } = Astro.props;
 const { title, description, pubDate, category, cover, coverAlt, gallery, tracks, location } =
   post.data;
 const { Content } = await render(post);
+
+const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+const plateCaption = (index: number, caption?: string) =>
+  `Planche ${ROMAN[index] ?? index + 1}.${caption ? ` ${caption}` : ''}`;
 ---
 
-<Base title={title} description={description} image={cover.src}>
+<Base title={title} description={description} image={cover.src} runningHead={CATEGORIES[category]}>
   <article>
     <header>
-      <div class="meta">
-        <a href={`/${category}`} class="eyebrow">{CATEGORIES[category]}</a>
-        <time class="muted" datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
-        {location && <span class="muted">{location}</span>}
-      </div>
       <h1>{title}</h1>
-      <p class="lede muted">{description}</p>
+      <p class="soft">
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        {location && <span>, {location}</span>}
+      </p>
+      <span class="fleuron" aria-hidden="true"></span>
     </header>
 
-    <Image src={cover} alt={coverAlt} widths={[800, 1400, 2000]} sizes="(max-width: 700px) 100vw, 64rem" loading="eager" class="cover" />
+    <Plate src={cover} alt={coverAlt} loading="eager" />
 
     <div class="prose">
       <Content />
     </div>
 
     {tracks.length > 0 && <Tracks tracks={tracks} />}
-    {gallery.length > 0 && <Gallery items={gallery} />}
+
+    {
+      gallery.length > 0 && (
+        <div class="plates">
+          {gallery.map((g, i) => (
+            <Plate src={g.src} alt={g.alt} caption={plateCaption(i, g.caption)} />
+          ))}
+        </div>
+      )
+    }
+
+    <p class="back sc">
+      <a href={`/${category}`}>Retour au chapitre {CATEGORIES[category]}</a>
+    </p>
   </article>
 </Base>
 
 <style>
   header {
-    max-width: var(--measure);
-    margin: 0 auto 2.5rem;
-  }
-
-  .meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: baseline;
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
+    text-align: center;
+    margin-bottom: 2rem;
   }
 
   h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2rem, 6vw, 3rem);
   }
 
-  .lede {
-    font-size: 1.15rem;
-    margin: 1rem 0 0;
+  header p {
+    margin: 0.5rem 0 0;
+    font-style: italic;
   }
 
-  .cover {
-    width: 100%;
-    border-radius: 4px;
-    margin-bottom: 3rem;
-    background: var(--surface);
+  article > :global(.plate) {
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+  }
+
+  .plates {
+    display: grid;
+    gap: 3.5rem;
+    max-width: 40rem;
+    margin: 3.5rem auto 0;
+  }
+
+  .back {
+    text-align: center;
+    margin: 4rem 0 0;
+    font-size: 0.95rem;
+  }
+
+  .back a:hover {
+    color: var(--red);
   }
 </style>

@@ -21,9 +21,9 @@ npm run check     # astro check (types)
   (`photographie`, `faune`, `musique`).
 - `src/content/posts/<slug>/index.md` : un dossier par billet, images à côté du markdown.
 - `src/pages/` : accueil, `[category]`, `[post]`, `rss.xml.ts`, `404`.
-- `src/components/` : `PostCard`, `PostGrid`, `Gallery`, `Tracks`, `Header`, `Footer`.
+- `src/components/` : `TableOfContents`, `PlateList`, `Plate`, `Tracks`, `Header`, `Footer`.
 - `src/lib.ts` : `publishedPosts()` et `formatDate()`.
-- `src/styles/global.css` : variables de couleur (clair et sombre), typo, `.prose`.
+- `src/styles/global.css` : papier, encre, typo IM Fell, `.plate`, `.prose`, `.fleuron`.
 - `public/audio/` : fichiers audio, référencés par chemin absolu depuis le frontmatter.
 
 ## Ajouter un billet

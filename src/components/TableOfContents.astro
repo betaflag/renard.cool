@@ -1,0 +1,113 @@
+---
+import { CATEGORIES, type Category } from '../content.config';
+import { formatDate, type Post } from '../lib';
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+const chapters = (Object.keys(CATEGORIES) as Category[])
+  .map((category) => ({
+    category,
+    label: CATEGORIES[category],
+    posts: posts.filter((p) => p.data.category === category),
+  }))
+  .filter((c) => c.posts.length > 0);
+---
+
+<section class="toc">
+  <h2 class="sc">Table des matières</h2>
+  {
+    chapters.map((c) => (
+      <div class="chapter">
+        <h3>
+          <a href={`/${c.category}`}>{c.label}</a>
+        </h3>
+        <ol>
+          {c.posts.map((post) => (
+            <li>
+              <a href={`/${post.id}`}>
+                <span class="title">{post.data.title}</span>
+                <span class="leader" aria-hidden="true" />
+                <time class="soft" datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  .toc {
+    max-width: var(--measure);
+    margin: 3rem auto 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+
+  .chapter + .chapter {
+    margin-top: 1.75rem;
+  }
+
+  h3 {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 a:hover {
+    color: var(--red);
+  }
+
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.2rem 0;
+  }
+
+  li a:hover .title {
+    color: var(--red);
+  }
+
+  .leader {
+    flex: 1;
+    min-width: 2rem;
+    border-bottom: 1px dotted var(--ink-soft);
+    transform: translateY(-0.3em);
+  }
+
+  time {
+    white-space: nowrap;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 480px) {
+    li a {
+      flex-wrap: wrap;
+    }
+    .leader {
+      display: none;
+    }
+    time {
+      flex-basis: 100%;
+      font-size: 0.85rem;
+    }
+  }
+</style>

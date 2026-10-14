@@ -7,9 +7,10 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  runningHead?: string;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, runningHead } = Astro.props;
 const pageTitle = title === 'renard.cool' ? title : `${title} · renard.cool`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = image ? new URL(image, Astro.site) : undefined;
@@ -34,13 +35,13 @@ const ogImage = image ? new URL(image, Astro.site) : undefined;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <Header />
-    <main class="wrap">
+    <Header runningHead={runningHead} />
+    <main class="page">
       <slot />
     </main>
     <Footer />
@@ -49,6 +50,6 @@ const ogImage = image ? new URL(image, Astro.site) : undefined;
 
 <style>
   main {
-    padding-block: 2rem 5rem;
+    padding-block: 2.5rem 5rem;
   }
 </style>
