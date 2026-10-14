@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import Tracks from '../components/Tracks.astro';
+import { CATEGORIES } from '../content.config';
+import { formatDate, publishedPosts } from '../lib';
+
+export async function getStaticPaths() {
+  const posts = await publishedPosts();
+  return posts.map((post) => ({ params: { post: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, category, cover, coverAlt, gallery, tracks, location } =
+  post.data;
+const { Content } = await render(post);
+---
+
+<Base title={title} description={description} image={cover.src}>
+  <article>
+    <header>
+      <div class="meta">
+        <a href={`/${category}`} class="eyebrow">{CATEGORIES[category]}</a>
+        <time class="muted" datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        {location && <span class="muted">{location}</span>}
+      </div>
+      <h1>{title}</h1>
+      <p class="lede muted">{description}</p>
+    </header>
+
+    <Image src={cover} alt={coverAlt} widths={[800, 1400, 2000]} sizes="(max-width: 700px) 100vw, 64rem" loading="eager" class="cover" />
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {tracks.length > 0 && <Tracks tracks={tracks} />}
+    {gallery.length > 0 && <Gallery items={gallery} />}
+  </article>
+</Base>
+
+<style>
+  header {
+    max-width: var(--measure);
+    margin: 0 auto 2.5rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: baseline;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .lede {
+    font-size: 1.15rem;
+    margin: 1rem 0 0;
+  }
+
+  .cover {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 3rem;
+    background: var(--surface);
+  }
+</style>

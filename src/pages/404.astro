@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page introuvable" description="Cette page n'existe pas.">
+  <h1>Le renard n'est pas passé par ici.</h1>
+  <p class="muted">Cette page n'existe pas. <a href="/">Retour à l'accueil</a>.</p>
+</Base>
+
+<style>
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+</style>

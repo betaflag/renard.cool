@@ -1,0 +1,31 @@
+---
+import PostCard from './PostCard.astro';
+import type { Post } from '../lib';
+
+interface Props {
+  posts: Post[];
+  showCategory?: boolean;
+}
+
+const { posts, showCategory = true } = Astro.props;
+---
+
+{
+  posts.length === 0 ? (
+    <p class="muted">Rien à voir ici pour l'instant.</p>
+  ) : (
+    <div class="grid">
+      {posts.map((post) => (
+        <PostCard post={post} showCategory={showCategory} />
+      ))}
+    </div>
+  )
+}
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+    gap: 2.5rem 2rem;
+  }
+</style>

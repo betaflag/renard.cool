@@ -1,0 +1,52 @@
+---
+interface Props {
+  tracks: { title: string; src: string; duration?: string }[];
+}
+
+const { tracks } = Astro.props;
+---
+
+<ol class="tracks">
+  {
+    tracks.map((t) => (
+      <li>
+        <div class="row">
+          <span class="title">{t.title}</span>
+          {t.duration && <span class="muted">{t.duration}</span>}
+        </div>
+        <audio controls preload="none" src={t.src}>
+          <a href={t.src}>Télécharger {t.title}</a>
+        </audio>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .tracks {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .title {
+    font-weight: 500;
+  }
+
+  audio {
+    width: 100%;
+  }
+</style>

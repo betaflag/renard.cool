@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import PostGrid from '../components/PostGrid.astro';
+import { CATEGORIES, type Category } from '../content.config';
+import { publishedPosts } from '../lib';
+
+export function getStaticPaths() {
+  return Object.keys(CATEGORIES).map((category) => ({ params: { category } }));
+}
+
+const category = Astro.params.category as Category;
+const label = CATEGORIES[category];
+const posts = await publishedPosts(category);
+
+const descriptions: Record<Category, string> = {
+  photographie: 'Séries et images seules, en lumière naturelle.',
+  faune: 'Sorties, affûts et rencontres avec les animaux sauvages.',
+  musique: 'Compositions, esquisses et enregistrements.',
+};
+---
+
+<Base title={label} description={descriptions[category]}>
+  <section class="intro">
+    <h1>{label}</h1>
+    <p class="muted">{descriptions[category]}</p>
+  </section>
+  <PostGrid posts={posts} showCategory={false} />
+</Base>
+
+<style>
+  .intro {
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin-bottom: 0.5rem;
+  }
+</style>

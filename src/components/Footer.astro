@@ -1,0 +1,22 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="wrap muted">
+  <span>© {year} renard.cool</span>
+  <a href="/rss.xml">Flux RSS</a>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+  }
+
+  footer a:hover {
+    color: var(--accent);
+  }
+</style>
