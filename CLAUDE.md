@@ -21,7 +21,7 @@ npm run check     # astro check (types)
   (`photographie`, `faune`, `musique`).
 - `src/content/posts/<slug>/index.md` : un dossier par billet, images à côté du markdown.
 - `src/pages/` : accueil, `[category]`, `[post]`, `rss.xml.ts`, `404`.
-- `src/components/` : `PlateList`, `Plate`, `PhotoMeta`, `Tracks`, `Footer`.
+- `src/components/` : `PlateList`, `Plate`, `Lightbox`, `PhotoMeta`, `Tracks`, `Footer`.
 - `src/lib.ts` : `publishedPosts()` et `formatDate()`.
 - `src/styles/global.css` : papier, encre, typo IM Fell, `.plate`, `.prose`, `.fleuron`.
 - `public/audio/` : fichiers audio, référencés par chemin absolu depuis le frontmatter.
@@ -34,12 +34,15 @@ npm run check     # astro check (types)
    `tracks` (liste de `{title, src, duration}`), `exif` (`camera`, `lens`, `focal`,
    `aperture`, `shutter`, `iso`, tous optionnels, affichés sous la couverture), `draft`.
 3. Déposer les images dans le même dossier et les référencer en relatif (`./cover.jpg`).
-   Astro génère les variantes redimensionnées au build.
+   Astro génère les variantes redimensionnées au build. Pour importer une photo :
+   `magick source.jpg -auto-orient -resize 3000x -quality 88 +profile '!icc,*' cover.jpg`
+   (garde le profil couleur, retire EXIF, GPS et le reste).
 4. Déposer l'audio dans `public/audio/` et le référencer en absolu (`/audio/fichier.mp3`).
 5. `draft: true` masque le billet en production mais le laisse visible en `npm run dev`.
 
 ## Conventions
 
 - Styles dans chaque composant (`<style>` scoped), variables globales dans `global.css`.
-- Pas de framework UI, pas de JavaScript client sauf besoin réel.
+- Pas de framework UI. Le seul JavaScript client est la visionneuse plein écran
+  (`Lightbox.astro`), chargée sur les pages de billet.
 - Les textes alternatifs des images sont obligatoires et décrivent l'image.
