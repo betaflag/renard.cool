@@ -1,11 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import Plate from '../components/Plate.astro';
-import TableOfContents from '../components/TableOfContents.astro';
+import PlateList from '../components/PlateList.astro';
 import { publishedPosts } from '../lib';
 
 const posts = await publishedPosts();
-const latest = posts[0];
 ---
 
 <Base title="renard.cool" description="Photographies, faune et musique. Le carnet d'un renard.">
@@ -15,15 +13,7 @@ const latest = posts[0];
     <span class="fleuron" aria-hidden="true"></span>
   </section>
 
-  {
-    latest && (
-      <a href={`/${latest.id}`} class="frontispiece">
-        <Plate src={latest.data.cover} alt={latest.data.coverAlt} caption={latest.data.title} loading="eager" />
-      </a>
-    )
-  }
-
-  <TableOfContents posts={posts} />
+  <PlateList posts={posts} showCategory />
 </Base>
 
 <style>
@@ -41,15 +31,5 @@ const latest = posts[0];
     font-style: italic;
     font-size: 1.3rem;
     margin: 0.25rem 0 0;
-  }
-
-  .frontispiece {
-    display: block;
-    max-width: 40rem;
-    margin-inline: auto;
-  }
-
-  .frontispiece:hover :global(figcaption) {
-    color: var(--red);
   }
 </style>

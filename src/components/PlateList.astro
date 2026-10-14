@@ -1,12 +1,14 @@
 ---
 import Plate from './Plate.astro';
+import { CATEGORIES } from '../content.config';
 import { formatDate, type Post } from '../lib';
 
 interface Props {
   posts: Post[];
+  showCategory?: boolean;
 }
 
-const { posts } = Astro.props;
+const { posts, showCategory = false } = Astro.props;
 ---
 
 {
@@ -18,6 +20,7 @@ const { posts } = Astro.props;
         <li>
           <a href={`/${post.id}`}>
             <Plate src={post.data.cover} alt={post.data.coverAlt} />
+            {showCategory && <p class="sc chapter">{CATEGORIES[post.data.category]}</p>}
             <h2>{post.data.title}</h2>
             <p class="soft">
               <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
@@ -49,6 +52,16 @@ const { posts } = Astro.props;
     max-width: 40rem;
     margin-inline: auto;
     text-align: center;
+  }
+
+  .chapter {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .chapter + h2 {
+    margin-top: 0.25rem;
   }
 
   h2 {
