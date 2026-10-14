@@ -41,9 +41,7 @@ const ogImage = image ? new URL(image, Astro.site) : undefined;
   <body>
     {
       !isHome && (
-        <header class="page">
-          <a href="/" class="sc">renard.cool</a>
-        </header>
+        <a href="/" class="bookmark sc" aria-label="Retour à l'accueil">Accueil</a>
       )
     }
     <main class="page">
@@ -54,15 +52,33 @@ const ogImage = image ? new URL(image, Astro.site) : undefined;
 </html>
 
 <style>
-  header {
-    padding-top: 1.25rem;
-    font-size: 0.95rem;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 0.5rem;
+  .bookmark {
+    position: fixed;
+    top: 0;
+    left: max(1.25rem, calc((100vw - var(--page)) / 2));
+    z-index: 1;
+    width: 2.4rem;
+    padding: 1.1rem 0 1.6rem;
+    background: var(--red);
+    color: var(--paper);
+    font-size: 0.85rem;
+    text-align: center;
+    writing-mode: vertical-rl;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 0.8rem), 0 100%);
+    box-shadow: 1px 2px 3px rgba(43, 36, 25, 0.25);
+    transition: padding-bottom 150ms ease;
   }
 
-  header a:hover {
-    color: var(--red);
+  .bookmark:hover,
+  .bookmark:focus-visible {
+    padding-bottom: 2.2rem;
+    outline: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bookmark {
+      transition: none;
+    }
   }
 
   main {
