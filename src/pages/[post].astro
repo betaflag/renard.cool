@@ -3,7 +3,6 @@ import { render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Plate from '../components/Plate.astro';
 import Tracks from '../components/Tracks.astro';
-import { CATEGORIES } from '../content.config';
 import { formatDate, publishedPosts } from '../lib';
 
 export async function getStaticPaths() {
@@ -50,11 +49,6 @@ const plateCaption = (index: number, caption?: string) =>
       )
     }
 
-    <p class="back sc">
-      <a href={`/${category}`}>Chapitre {CATEGORIES[category]}</a>
-      <span class="sep" aria-hidden="true">·</span>
-      <a href="/">Table des matières</a>
-    </p>
   </article>
 </Base>
 
@@ -85,18 +79,4 @@ const plateCaption = (index: number, caption?: string) =>
     margin: 3.5rem auto 0;
   }
 
-  .back {
-    text-align: center;
-    margin: 4rem 0 0;
-    font-size: 0.95rem;
-  }
-
-  .sep {
-    color: var(--rule);
-    margin-inline: 0.5rem;
-  }
-
-  .back a:hover {
-    color: var(--red);
-  }
 </style>
