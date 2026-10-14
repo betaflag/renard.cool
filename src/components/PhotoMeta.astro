@@ -67,4 +67,16 @@ const rows = [
     margin: 0;
     white-space: nowrap;
   }
+
+  @media (max-width: 760px) {
+    .meta {
+      column-gap: 1rem;
+      row-gap: 0.2rem;
+      font-size: 0.9rem;
+    }
+
+    div + div::before {
+      content: none;
+    }
+  }
 </style>

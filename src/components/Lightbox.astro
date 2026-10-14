@@ -46,6 +46,25 @@
     dialog.addEventListener('close', () => {
       img.removeAttribute('src');
     });
+
+    let touchStartX = 0;
+    dialog.addEventListener('touchstart', (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    dialog.addEventListener('touchend', (event) => {
+      const delta = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(delta) < 50) return;
+      event.preventDefault();
+      swiped = true;
+      show(delta < 0 ? current + 1 : current - 1);
+    });
+    let swiped = false;
+    dialog.addEventListener('click', (event) => {
+      if (swiped) {
+        swiped = false;
+        event.stopImmediatePropagation();
+      }
+    }, true);
   }
 </script>
 
@@ -53,6 +72,7 @@
   .lightbox {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     max-width: none;
     max-height: none;
     margin: 0;
@@ -81,6 +101,7 @@
   img {
     max-width: 100%;
     max-height: calc(100vh - 7rem);
+    max-height: calc(100dvh - 7rem);
     width: auto;
     height: auto;
     border: 1px solid var(--ink);
@@ -100,11 +121,12 @@
 
   .close {
     position: absolute;
-    top: 1rem;
-    right: 1.25rem;
+    top: max(0.5rem, env(safe-area-inset-top));
+    right: max(0.75rem, env(safe-area-inset-right));
+    min-height: 44px;
     background: none;
     border: 0;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.75rem;
     font: inherit;
     font-family: var(--book-sc);
     letter-spacing: 0.04em;
@@ -132,6 +154,10 @@
   @media (max-width: 760px), (hover: none) {
     .hint {
       display: none;
+    }
+
+    figure {
+      padding: 3.5rem 0.75rem 2rem;
     }
   }
 </style>

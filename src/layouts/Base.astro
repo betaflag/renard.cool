@@ -19,7 +19,7 @@ const ogImage = image ? new URL(image, Astro.site) : undefined;
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
@@ -52,10 +52,14 @@ const ogImage = image ? new URL(image, Astro.site) : undefined;
 </html>
 
 <style>
+  main {
+    padding-block: 4rem 5rem;
+  }
+
   .bookmark {
     position: fixed;
     top: 0;
-    left: max(1.25rem, calc((100vw - var(--page)) / 2));
+    left: max(1.25rem, env(safe-area-inset-left), calc((100vw - var(--page)) / 2));
     z-index: 1;
     width: 2.4rem;
     padding: 1.1rem 0 1.6rem;
@@ -81,7 +85,16 @@ const ogImage = image ? new URL(image, Astro.site) : undefined;
     }
   }
 
-  main {
-    padding-block: 4rem 5rem;
+  @media (max-width: 760px) {
+    .bookmark {
+      width: 2rem;
+      font-size: 0.75rem;
+      padding: 0.9rem 0 1.3rem;
+    }
+
+    main {
+      padding-block: 6.5rem 4rem;
+    }
   }
+
 </style>
