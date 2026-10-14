@@ -11,8 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, category, cover, coverAlt, gallery, tracks, location } =
-  post.data;
+const { title, description, pubDate, cover, coverAlt, gallery, tracks, location } = post.data;
 const { Content } = await render(post);
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
