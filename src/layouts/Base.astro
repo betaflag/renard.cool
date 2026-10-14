@@ -11,6 +11,7 @@ interface Props {
 const { title, description, image } = Astro.props;
 const pageTitle = title === 'renard.cool' ? title : `${title} · renard.cool`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const isHome = Astro.url.pathname === '/';
 const ogImage = image ? new URL(image, Astro.site) : undefined;
 ---
 
@@ -38,6 +39,13 @@ const ogImage = image ? new URL(image, Astro.site) : undefined;
     />
   </head>
   <body>
+    {
+      !isHome && (
+        <header class="page">
+          <a href="/" class="sc">renard.cool</a>
+        </header>
+      )
+    }
     <main class="page">
       <slot />
     </main>
@@ -46,6 +54,17 @@ const ogImage = image ? new URL(image, Astro.site) : undefined;
 </html>
 
 <style>
+  header {
+    padding-top: 1.25rem;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.5rem;
+  }
+
+  header a:hover {
+    color: var(--red);
+  }
+
   main {
     padding-block: 4rem 5rem;
   }
