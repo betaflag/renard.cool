@@ -21,7 +21,7 @@ const plateCaption = (index: number, caption?: string) =>
   `Planche ${ROMAN[index] ?? index + 1}.${caption ? ` ${caption}` : ''}`;
 ---
 
-<Base title={title} description={description} image={cover.src} runningHead={CATEGORIES[category]}>
+<Base title={title} description={description} image={cover.src}>
   <article>
     <header>
       <h1>{title}</h1>
@@ -51,7 +51,9 @@ const plateCaption = (index: number, caption?: string) =>
     }
 
     <p class="back sc">
-      <a href={`/${category}`}>Retour au chapitre {CATEGORIES[category]}</a>
+      <a href={`/${category}`}>Chapitre {CATEGORIES[category]}</a>
+      <span class="sep" aria-hidden="true">·</span>
+      <a href="/">Table des matières</a>
     </p>
   </article>
 </Base>
@@ -87,6 +89,11 @@ const plateCaption = (index: number, caption?: string) =>
     text-align: center;
     margin: 4rem 0 0;
     font-size: 0.95rem;
+  }
+
+  .sep {
+    color: var(--rule);
+    margin-inline: 0.5rem;
   }
 
   .back a:hover {
