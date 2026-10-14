@@ -38,9 +38,7 @@
     });
 
     dialog.querySelector('[data-close]')!.addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', (event) => {
-      if (event.target !== img) dialog.close();
-    });
+    dialog.addEventListener('click', () => dialog.close());
     dialog.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowRight') show(current + 1);
       if (event.key === 'ArrowLeft') show(current - 1);
@@ -85,7 +83,6 @@
     max-height: calc(100vh - 7rem);
     width: auto;
     height: auto;
-    cursor: default;
     border: 1px solid var(--ink);
     outline: 1px solid var(--ink);
     outline-offset: 4px;
