@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page introuvable" description="Cette page n'existe pas.">
+  <section class="lost">
+    <h1>Cette page a été arrachée.</h1>
+    <p class="soft">Elle n'existe pas, ou plus. <a href="/">Revenir à la table des matières</a>.</p>
+  </section>
+</Base>
+
+<style>
+  .lost {
+    text-align: center;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  a {
+    color: var(--red);
+    text-decoration: underline;
+  }
+</style>

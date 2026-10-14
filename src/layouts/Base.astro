@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props;
+const pageTitle = title === 'renard.cool' ? title : `${title} · renard.cool`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const isHome = Astro.url.pathname === '/';
+const ogImage = image ? new URL(image, Astro.site) : undefined;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="renard.cool" href="/rss.xml" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {
+      !isHome && (
+        <a href="/" class="bookmark sc" aria-label="Retour à l'accueil">Accueil</a>
+      )
+    }
+    <main class="page">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  main {
+    padding-block: 4rem 5rem;
+  }
+
+  .bookmark {
+    position: fixed;
+    top: 0;
+    left: max(1.25rem, env(safe-area-inset-left), calc((100vw - var(--page)) / 2));
+    z-index: 1;
+    width: 2.4rem;
+    padding: 1.1rem 0 1.6rem;
+    background: var(--red);
+    color: var(--paper);
+    font-size: 0.85rem;
+    text-align: center;
+    writing-mode: vertical-rl;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 0.8rem), 0 100%);
+    box-shadow: 1px 2px 3px rgba(43, 36, 25, 0.25);
+    transition: padding-bottom 150ms ease;
+  }
+
+  .bookmark:hover,
+  .bookmark:focus-visible {
+    padding-bottom: 2.2rem;
+    outline: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bookmark {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .bookmark {
+      width: 2rem;
+      font-size: 0.75rem;
+      padding: 0.9rem 0 1.3rem;
+    }
+
+    main {
+      padding-block: 6.5rem 4rem;
+    }
+  }
+
+</style>

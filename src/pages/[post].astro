@@ -1,0 +1,83 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Lightbox from '../components/Lightbox.astro';
+import Plate from '../components/Plate.astro';
+import PhotoMeta from '../components/PhotoMeta.astro';
+import Tracks from '../components/Tracks.astro';
+import { formatDate, publishedPosts } from '../lib';
+
+export async function getStaticPaths() {
+  const posts = await publishedPosts();
+  return posts.map((post) => ({ params: { post: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, cover, coverAlt, gallery, tracks, location, exif } =
+  post.data;
+const { Content } = await render(post);
+
+const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+const plateCaption = (index: number, caption?: string) =>
+  `Planche ${ROMAN[index] ?? index + 1}.${caption ? ` ${caption}` : ''}`;
+---
+
+<Base title={title} description={description} image={cover.src}>
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <p class="soft">
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        {location && <span>, {location}</span>}
+      </p>
+      <span class="fleuron" aria-hidden="true"></span>
+    </header>
+
+    <Plate src={cover} alt={coverAlt} loading="eager" zoomable />
+    {exif && <PhotoMeta exif={exif} />}
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {tracks.length > 0 && <Tracks tracks={tracks} />}
+
+    {
+      gallery.length > 0 && (
+        <div class="plates">
+          {gallery.map((g, i) => (
+            <Plate src={g.src} alt={g.alt} caption={plateCaption(i, g.caption)} zoomable />
+          ))}
+        </div>
+      )
+    }
+  </article>
+  <Lightbox />
+</Base>
+
+<style>
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  header p {
+    margin: 0.5rem 0 0;
+    font-style: italic;
+  }
+
+  article > :global(.plate) {
+    margin: 0 auto 3rem;
+  }
+
+  .plates {
+    display: grid;
+    gap: 3.5rem;
+    margin: 3.5rem auto 0;
+  }
+
+</style>

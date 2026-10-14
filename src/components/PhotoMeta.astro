@@ -1,0 +1,82 @@
+---
+interface Props {
+  exif: {
+    camera?: string;
+    lens?: string;
+    focal?: string;
+    aperture?: string;
+    shutter?: string;
+    iso?: string;
+  };
+}
+
+const { exif } = Astro.props;
+
+const rows = [
+  { label: 'Appareil', value: exif.camera },
+  { label: 'Objectif', value: exif.lens },
+  { label: 'Focale', value: exif.focal },
+  { label: 'Ouverture', value: exif.aperture },
+  { label: 'Vitesse', value: exif.shutter },
+  { label: 'Sensibilité', value: exif.iso && `ISO ${exif.iso}` },
+].filter((r): r is { label: string; value: string } => Boolean(r.value));
+---
+
+{
+  rows.length > 0 && (
+    <dl class="meta">
+      {rows.map((r) => (
+        <div>
+          <dt class="sc">{r.label}</dt>
+          <dd>{r.value}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
+<style>
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 0.6rem;
+    margin: -2rem auto 3rem;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  div + div::before {
+    content: '·';
+    margin-right: 0.6rem;
+    color: var(--rule);
+  }
+
+  dt {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  dd {
+    display: inline;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 760px) {
+    .meta {
+      column-gap: 1rem;
+      row-gap: 0.2rem;
+      font-size: 0.9rem;
+    }
+
+    div + div::before {
+      content: none;
+    }
+  }
+</style>

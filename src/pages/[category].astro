@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import PlateList from '../components/PlateList.astro';
+import { CATEGORIES, type Category } from '../content.config';
+import { publishedPosts } from '../lib';
+
+export function getStaticPaths() {
+  return Object.keys(CATEGORIES).map((category) => ({ params: { category } }));
+}
+
+const category = Astro.params.category as Category;
+const label = CATEGORIES[category];
+const posts = await publishedPosts(category);
+
+const ordinals: Record<Category, string> = {
+  photographie: 'Chapitre premier',
+  faune: 'Chapitre deuxième',
+  musique: 'Chapitre troisième',
+};
+
+const descriptions: Record<Category, string> = {
+  photographie: 'Où l’on regarde la lumière sans se presser.',
+  faune: 'Où l’on attend longtemps pour voir passer quelqu’un.',
+  musique: 'Où l’on joue ce qui reste des journées.',
+};
+---
+
+<Base title={label} description={descriptions[category]}>
+  <header class="chapter">
+    <p class="sc soft">{ordinals[category]}</p>
+    <h1>{label}</h1>
+    <p class="argument">{descriptions[category]}</p>
+    <span class="fleuron" aria-hidden="true"></span>
+  </header>
+  <PlateList posts={posts} />
+  <p class="back sc"><a href="/">Retour à la table des matières</a></p>
+</Base>
+
+<style>
+  .chapter {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .sc {
+    margin: 0 0 0.25rem;
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 3.25rem);
+  }
+
+  .argument {
+    font-style: italic;
+    margin: 0.5rem 0 0;
+  }
+
+  .back {
+    text-align: center;
+    margin: 4rem 0 0;
+    font-size: 0.95rem;
+  }
+
+  .back a:hover {
+    color: var(--red);
+  }
+</style>

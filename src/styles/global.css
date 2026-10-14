@@ -1,0 +1,201 @@
+:root {
+  --paper: #ede3c8;
+  --paper-deep: #e2d6b4;
+  --ink: #2b2419;
+  --ink-soft: #6a5d4b;
+  --red: #8f3a2b;
+  --rule: #b9ab88;
+  --measure: 36rem;
+  --page: 52rem;
+  --book: 'IM Fell English', 'Iowan Old Style', Georgia, serif;
+  --book-sc: 'IM Fell English SC', 'IM Fell English', Georgia, serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--book);
+  font-size: 1.1875rem;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.page {
+  width: min(100% - 2rem, var(--page));
+  margin-inline: auto;
+  padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
+}
+
+.sc {
+  font-family: var(--book-sc);
+  letter-spacing: 0.04em;
+}
+
+.soft {
+  color: var(--ink-soft);
+}
+
+/* Fleuron between title and body, like the ornaments of old editions. */
+.fleuron {
+  display: block;
+  text-align: center;
+  color: var(--red);
+  font-size: 1.4rem;
+  line-height: 1;
+  margin: 1.25rem auto;
+}
+
+.fleuron::before {
+  content: '❦';
+}
+
+/* An illustration plate: double rule, a little air, caption beneath. */
+.plate {
+  margin: 0;
+}
+
+.plate img {
+  width: auto;
+  max-width: 100%;
+  max-height: 85vh;
+  margin-inline: auto;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+  background: var(--paper-deep);
+}
+
+.plate figcaption {
+  margin-top: 1rem;
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+.prose {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+.prose p {
+  margin: 0;
+  text-indent: 1.5em;
+  hyphens: auto;
+}
+
+.prose > p:first-of-type {
+  text-indent: 0;
+}
+
+.prose > p:first-of-type::first-letter {
+  float: left;
+  font-size: 3.6em;
+  line-height: 0.8;
+  padding: 0.08em 0.1em 0 0;
+  color: var(--red);
+}
+
+.prose h2 {
+  font-family: var(--book-sc);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin: 2.5rem 0 1rem;
+}
+
+.prose h2 + p {
+  text-indent: 0;
+}
+
+.prose a {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.prose blockquote {
+  margin: 1.5rem 2rem;
+  font-style: italic;
+}
+
+.prose ul,
+.prose ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.25rem;
+}
+
+.prose hr {
+  border: 0;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.prose hr::after {
+  content: '❦';
+  color: var(--red);
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+
+  .plate img {
+    max-height: 70svh;
+  }
+
+  .plate figcaption {
+    font-size: 0.9rem;
+  }
+
+  .prose > p:first-of-type::first-letter {
+    font-size: 3em;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
